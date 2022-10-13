@@ -1,5 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Oct 13 14:17:00 2022
 
-# A very simple Flask Hello World app for you to get started with...
+@author: Crowmorian
+"""
+#Main initialization script:
+    #Setting up app.route
+    #Adding functions as they are developed
+
+# Importing of necessary libraries
+#************************************
 
 from flask import Flask
 
