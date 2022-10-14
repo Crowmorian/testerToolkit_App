@@ -19,7 +19,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 #Definition of the main functions
-app = Flask(__name__)
+app = Flask(__name__, template_folder = './templates', static_folder = './templates/static'))
 
 app.config["SECRET_KEY"] = "secret-key-added-later"
 app.config["SQALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
