@@ -16,10 +16,10 @@ from flask_sqlalchemy import SQLAlchemy
 
 #Defining access to the SQLAlchemy
 db = SQLAlchemy()
-
+app = Flask(__name__)
 #Definition of the main functions
-def create_app():
-    app = Flask(__name__)
+def create_app(app):
+    
 
     app.config["SECRET_KEY"] = "secret-key-added-later"
     app.config["SQALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
