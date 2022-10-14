@@ -9,14 +9,14 @@ Created on Thu Oct 13 14:27:02 2022
 
 # Importing of necessary libraries
 #************************************
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 #Declaring routes and variables
 main = Blueprint("main", __name__)
 
 @main.route("/")
 def index():
-    return "Index"
+    return render_template('index.html')
 
 @main.route("/profile")
 def profile():

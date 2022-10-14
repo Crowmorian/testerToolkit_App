@@ -6,7 +6,8 @@ Created on Thu Oct 13 14:17:00 2022
 """
 #Main initialization script:
     #Setting up app.route
-    #Adding functions as they are developed
+    #Inicializing the app
+    #Mapping blueprints of authentication and main paths
 
 # Importing of necessary libraries
 #************************************
