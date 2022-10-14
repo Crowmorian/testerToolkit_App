@@ -9,3 +9,16 @@ Created on Thu Oct 13 14:27:02 2022
 
 # Importing of necessary libraries
 #************************************
+from flask import Blueprint
+from . import db
+
+#Declaring routes and variables
+main = Blueprint("main", __name__)
+
+@main.route("/")
+def index():
+    return "Index"
+
+@main.route("/profile")
+def profile():
+    return "Profile"
