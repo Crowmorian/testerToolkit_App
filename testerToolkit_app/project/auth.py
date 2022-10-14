@@ -9,7 +9,6 @@ Created on Thu Oct 13 14:17:00 2022
 # Importing of necessary libraries
 #************************************
 from flask import Blueprint
-from . import db
 
 #Declaring routes and variables
 auth = Blueprint("auth", __name__)

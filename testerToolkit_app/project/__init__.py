@@ -16,22 +16,19 @@ from flask_sqlalchemy import SQLAlchemy
 
 #Defining access to the SQLAlchemy
 db = SQLAlchemy()
-app = Flask(__name__)
+
 #Definition of the main functions
-def create_app(app):
-    
+app = Flask(__name__)
 
-    app.config["SECRET_KEY"] = "secret-key-added-later"
-    app.config["SQALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
+app.config["SECRET_KEY"] = "secret-key-added-later"
+app.config["SQALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
 
-    db.init_app(app)
-    
-    #Registering blueprint for athentication routes
-    from .auth import auth as auth_blueprint
-    app.register_blueprint(auth_blueprint)
-    
-    #Registering blueprint for non-authentication routes
-    from .main import main as main_blueprint
-    app.register_blueprint(main_blueprint)
-    
-    return app
+db.init_app(app)
+
+#Registering blueprint for athentication routes
+from .auth import auth as auth_blueprint
+app.register_blueprint(auth_blueprint)
+
+#Registering blueprint for non-authentication routes
+from .main import main as main_blueprint
+app.register_blueprint(main_blueprint)
