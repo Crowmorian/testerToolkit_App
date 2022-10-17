@@ -39,7 +39,9 @@
 
 .logo-image {
 	width: 45px;
-	float: right;
+	float: left;
+	margin-left: 15px;
+	padding-left: 15px;
 }
 
 a.navbar-item {
