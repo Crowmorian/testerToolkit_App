@@ -1,3 +1,5 @@
+/*Classes for the base page*/
+
 * {
 	margin: 0;
 	padding: 0;
@@ -85,4 +87,17 @@ a:active {
 
 .main-body {
 	text-align: center;
+}
+
+/*Classes for the login blueprint*/
+.login-button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	width: 20%;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
 }
