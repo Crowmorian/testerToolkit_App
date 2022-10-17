@@ -8,14 +8,14 @@ Created on Thu Oct 13 14:17:00 2022
 
 # Importing of necessary libraries
 #************************************
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 #Declaring routes and variables
 auth = Blueprint("auth", __name__)
 
-@auth.route("/login")
+@auth.route('/login')
 def login():
-    return "Login"
+    return render_template('login.html')
 
 @auth.route("/logout")
 def logout():
