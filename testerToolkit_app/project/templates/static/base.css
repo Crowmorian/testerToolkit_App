@@ -100,7 +100,7 @@ a:active {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	margin: 15px;
+	margin: 10 auto;
 }
 
 .login-button {
@@ -115,7 +115,7 @@ a:active {
 	display: inline-block;
 	font-size: 18px;
 	font-weight: bold;
-	margin: 15px;
+	margin: 10 auto;
 }
 
 .login-button:hover {
