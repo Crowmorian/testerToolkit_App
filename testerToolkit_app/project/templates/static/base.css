@@ -12,11 +12,12 @@
 }
 
 .navbar-container {
-	width: 65%;
+	width: auto;
 }
 
 .navbar {
 	float: right;
+	white-space: nowrap;
 }
 
 .logo {
@@ -24,7 +25,7 @@
 }
 
 .title {
-	width: 25%;
+	width: 20%;
 }
 
 .title-container {
@@ -32,6 +33,8 @@
 	font-weight: bold;
 	margin-left: 25px;
 	padding-left: 25px;
+	white-space: nowrap;
+	float: right;
 }
 
 .logo-image {
