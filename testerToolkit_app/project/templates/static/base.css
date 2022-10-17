@@ -25,6 +25,15 @@ body {
 	width: 10%;
 }
 
-.name {
+.title {
 	width: 15%;
 }
+
+.title-container {
+	font-size: 45px;
+}
+
+.logo-image {
+	width: 100px;
+}
+
