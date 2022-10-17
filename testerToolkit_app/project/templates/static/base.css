@@ -102,6 +102,7 @@ a:active {
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
+	margin: 15px;
 }
 
 .login-button:hover {
