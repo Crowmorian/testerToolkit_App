@@ -4,4 +4,24 @@ body {
 
 .header {
 	background-color: rgba(0, 207, 95, 0.6);
+	border: 2px solid #00cf5f;
+	border-radius: 5px;
+	height: 5%;
+	width: 100%;
+}
+
+.navbar-container {
+	width: 25%;
+}
+
+.spacer {
+	width: 50%;
+}
+
+.logo {
+	width: 10%;
+}
+
+.name {
+	width: 15%;
 }
