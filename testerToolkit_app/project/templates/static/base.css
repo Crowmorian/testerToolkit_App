@@ -93,6 +93,7 @@ a:active {
 /*Classes for the login blueprint*/
 
 .login-title {
+	font-weight: bold;
 	font-size: 24px;
 	margin-top: 15px;
 	margin-bottom: 15px;
