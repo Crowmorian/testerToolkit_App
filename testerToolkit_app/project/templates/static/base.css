@@ -10,35 +10,33 @@
 	display: table;
     clear: both;
     content: "";
+    vertical-align: middle;
 }
 
 .navbar-container {
 	width: 25%;
 	float: right;
-	vertical-align: middle;
 }
 
 .logo {
 	width: 10%;
 	float: left;
-	margin: 25;
-	vertical-align: middle;
 }
 
 .title {
 	width: 15%;
 	float: left;
-	margin: 25;
-	vertical-align: middle;
 }
 
 .title-container {
 	font-size: 45px;
 	font-weight: bold;
+	padding-left: 25;
 }
 
 .logo-image {
 	width: 45px;
+	padding-left: 25;
 }
 
 a.navbar-item {
