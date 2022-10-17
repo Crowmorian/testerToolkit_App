@@ -30,12 +30,12 @@
 .title-container {
 	font-size: 45px;
 	font-weight: bold;
-	padding-left: 25;
+	float: right;
 }
 
 .logo-image {
 	width: 45px;
-	padding-left: 25;
+	float: right;
 }
 
 a.navbar-item {
