@@ -10,7 +10,7 @@ body {
 }
 
 .header-track {
-	height: 50px;
+	height: 35px;
 }
 
 .navbar-container {
@@ -31,7 +31,7 @@ body {
 
 .title-container {
 	font-size: 45px;
-}
+	font-weight: bold;}
 
 .logo-image {
 	width: 100px;
