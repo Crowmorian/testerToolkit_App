@@ -1,3 +1,7 @@
 body {
-	background-color: rgba(255, 146, 0, 0.4);
+	background-color: rgba(255, 146, 0, 0.6);
+}
+
+.header {
+	background-color: rgba(0, 207, 95, 0.6);
 }

@@ -12,30 +12,31 @@
 </head>
 
 <body>
-    <table class="header-table">
-        <tr>
-            <td class="title-logo">
-                <!-- name and logo -->
-            </td>
-            <td class="navbar-container">
-                <div class="navbar">
-                    <a href="{{ url_for('main.index') }}" class="navbar-item">
-                        Home
-                    </a>
-                    <a href="{{ url_for('main.profile') }}" class="navbar-item">
-                        Profile
-                    </a>
-                    <a href="{{ url_for('auth.login') }}" class="navbar-item">
-                        Login
-                    </a>
-                    <a href="{{ url_for('auth.logout') }}" class="navbar-item">
-                        Logout
-                    </a>
-                </div>
-            </td>
-        </tr>
-    </table>
-
+    <div class="header">
+        <table class="header-table">
+            <tr>
+                <td class="title-logo">
+                    <!-- name and logo -->
+                </td>
+                <td class="navbar-container">
+                    <div class="navbar">
+                        <a href="{{ url_for('main.index') }}" class="navbar-item">
+                            Home
+                        </a>
+                        <a href="{{ url_for('main.profile') }}" class="navbar-item">
+                            Profile
+                        </a>
+                        <a href="{{ url_for('auth.login') }}" class="navbar-item">
+                            Login
+                        </a>
+                        <a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                            Logout
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
     
     <div class="main-body">
         <div class="main-container">
