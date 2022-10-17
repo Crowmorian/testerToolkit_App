@@ -1,5 +1,10 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
 .header {
-	background-color: rgba(110, 149, 255, 0.2);
+	background-color: rgba(110, 149, 255, 0.6);
 	width: 100%;
 	display: table;
     clear: both;
