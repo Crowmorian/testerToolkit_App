@@ -13,28 +13,35 @@
 
 <body>
     <div class="header">
-        <div class="title">
-            <content class="title-container">Tester Toolkit</content>
-        </div>
-        <div class="logo">
-            <img src="{{ url_for('static',filename='icon.png') }}" class="logo-image">
-        </div>
-        <div class="navbar-container">
-            <div class="navbar">
-                <a href="{{ url_for('main.index') }}" class="navbar-item">
-                    Home
-                </a>
-                <a href="{{ url_for('main.profile') }}" class="navbar-item">
-                    Profile
-                </a>
-                <a href="{{ url_for('auth.login') }}" class="navbar-item">
-                    Login
-                </a>
-                <a href="{{ url_for('auth.logout') }}" class="navbar-item">
-                    Logout
-                </a>
-            </div>
-        </div>
+        <table class="header-table">
+            <tr class="header-track">
+                <td class="title">
+                    <content class="title-container">Tester Toolkit</content>
+                </td>
+                <td class="logo">
+                    <img src="{{ url_for('static',filename='icon.png') }}" class="logo-image">
+                </td>
+                <td class="spacer">
+                    
+                </td>
+                <td class="navbar-container">
+                    <div class="navbar">
+                        <a href="{{ url_for('main.index') }}" class="navbar-item">
+                            Home
+                        </a>
+                        <a href="{{ url_for('main.profile') }}" class="navbar-item">
+                            Profile
+                        </a>
+                        <a href="{{ url_for('auth.login') }}" class="navbar-item">
+                            Login
+                        </a>
+                        <a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                            Logout
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
     
     <div class="main-body">
