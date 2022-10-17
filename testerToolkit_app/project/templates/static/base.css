@@ -15,21 +15,21 @@
 .navbar-container {
 	width: 25%;
 	float: right;
-	vertical-align: center;
+	vertical-align: middle;
 }
 
 .logo {
 	width: 10%;
 	float: left;
-	margin-left: 25;
-	vertical-align: center;
+	margin: 25;
+	vertical-align: middle;
 }
 
 .title {
 	width: 15%;
 	float: left;
-	margin-left: 25;
-	vertical-align: center;
+	margin: 25;
+	vertical-align: middle;
 }
 
 .title-container {
