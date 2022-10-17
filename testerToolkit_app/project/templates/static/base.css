@@ -13,7 +13,10 @@
 
 .navbar-container {
 	width: auto;
-	justify-content: right;
+}
+
+.navbar {
+	float: right;
 }
 
 .logo {
