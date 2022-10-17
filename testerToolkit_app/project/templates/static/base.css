@@ -91,6 +91,11 @@ a:active {
 
 /*Classes for the login blueprint*/
 
+.login-input {
+	width: 20%;
+	height: 30px;
+}
+
 .login-button {
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
@@ -115,4 +120,5 @@ a:active {
 .login-box {
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
+	width: 25%;
 }
