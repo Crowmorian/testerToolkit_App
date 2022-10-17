@@ -93,9 +93,13 @@ a:active {
 /*Classes for the login blueprint*/
 
 .login-input {
-	width: 90%;
+	width: 95%;
 	height: 30px;
-	margin: 0 auto;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: 15px;
 }
 
 .login-button {
@@ -108,7 +112,8 @@ a:active {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
+	font-size: 18px;
+	font-weight: bold;
 	margin: 15px;
 }
 
