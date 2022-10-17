@@ -131,4 +131,5 @@ a:active {
 }
 
 .login-body {
-	position: relative;}
+	width: 100%;
+}
