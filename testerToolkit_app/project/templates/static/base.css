@@ -9,6 +9,7 @@ body {
 	width: 100%;
 	display: table;
     clear: both;
+    content: "";
 }
 
 .navbar-container {
