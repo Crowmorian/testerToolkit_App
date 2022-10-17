@@ -14,18 +14,17 @@ body {
 
 .navbar-container {
 	width: 25%;
-}
-
-.spacer {
-	width: 50%;
+	float: left;
 }
 
 .logo {
 	width: 10%;
+	float: left;
 }
 
 .title {
 	width: 15%;
+	float: left;
 }
 
 .title-container {
