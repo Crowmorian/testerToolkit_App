@@ -47,20 +47,34 @@ a.navbar-item {
 
 a:link {
   color: black;
+  padding: 14px 25px;
+  text-align: center;
   text-decoration: none;
+  display: inline-block;
 }
 
 a:visited {
   color: black;
+  padding: 14px 25px;
+  text-align: center;
   text-decoration: none;
+  display: inline-block;
 }
 
 a:hover {
-  color: black;
+  background-color: #00895f;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
   text-decoration: none;
+  display: inline-block;
 }
 
 a:active {
-  color: black;
+  background-color: #00895f;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
   text-decoration: none;
+  display: inline-block;
 }
