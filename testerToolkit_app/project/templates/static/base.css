@@ -94,10 +94,10 @@ a:active {
 
 .login-input {
 	width: 95%;
-	height: 30px;
+	height: 40px;
+	font-size: 18px;
 	text-align: center;
-
-
+	margin-top: 15px;
 }
 
 .login-button {
@@ -112,7 +112,7 @@ a:active {
 	display: inline-block;
 	font-size: 18px;
 	font-weight: bold;
-	margin-left: 15px;
+	margin-top: 15px;
 }
 
 .login-button:hover {
