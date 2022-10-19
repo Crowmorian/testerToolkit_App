@@ -36,7 +36,7 @@ def createUser_post():
     
     user = User.query.filter_by(username=username).first()
     
-    if user: # if a user is found, we want to redirect back to signup page so user can try again
+    if user: 
         return redirect(url_for('auth.createUser'))
     
     new_user = User(username=username, name=name, password=generate_password_hash(password, method='sha256'))
