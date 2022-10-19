@@ -11,7 +11,9 @@ Created on Thu Oct 13 14:17:00 2022
 from flask import Blueprint, render_template, redirect, url_for, request
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import Users
-from __init__ import db
+import os
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 #Declaring routes and variables
 auth = Blueprint("auth", __name__)
@@ -30,6 +32,12 @@ def createUser():
 
 @auth.route('/createUser', methods=['POST'])
 def createUser_post():
+    database_uri = 'sqlite:///userDB.sqlite'
+    Session = sessionmaker()
+
+    engine = create_engine(database_uri)
+    session = Session(bind=engine)
+    
     username = request.form.get('username')
     name = request.form.get('name')
     password = request.form.get('password')
@@ -41,7 +49,7 @@ def createUser_post():
     
     new_user = Users(username=username, name=name, password=generate_password_hash(password, method='sha256'))
     
-    db.session.add(new_user)
-    db.session.commit()
+    session.session.add(new_user)
+    session.session.commit()
     
     return redirect(url_for('main.index'))
