@@ -20,3 +20,7 @@ def login():
 @auth.route("/logout")
 def logout():
     return "Logout"
+
+@auth.route("/createUser")
+def createUser():
+    return render_template('createUser.html')
