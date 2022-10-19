@@ -39,7 +39,7 @@ def createUser_post():
     if user: 
         return redirect(url_for('auth.createUser'))
     
-    new_user = Users(username=username, name=name, password=generate_password_hash(password, method='sha256'))
+    new_user = Users(login=username, name=name, password=generate_password_hash(password, method='sha256'))
     
     db.session.add(new_user)
     db.session.commit()
