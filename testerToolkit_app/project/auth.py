@@ -29,7 +29,7 @@ def createUser():
     return render_template('createUser.html')
 
 @auth.route('/createUser', methods=['POST'])
-def signup_post():
+def createUser_post():
     username = request.form.get('username')
     name = request.form.get('name')
     password = request.form.get('password')
