@@ -49,7 +49,7 @@ def createUser_post():
     
     new_user = Users(username=username, name=name, password=generate_password_hash(password, method='sha256'))
     
-    session.session.add(new_user)
-    session.session.commit()
+    session.add(new_user)
+    session.commit()
     
     return redirect(url_for('main.index'))
