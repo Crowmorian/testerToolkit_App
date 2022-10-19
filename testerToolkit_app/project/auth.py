@@ -36,7 +36,8 @@ def createUser_post():
     Session = sessionmaker()
 
     engine = create_engine(database_uri)
-    session = Session(bind=engine)
+    connection = engine.connect()
+    session = Session(bind=connection)
     
     username = request.form.get('username')
     name = request.form.get('name')
