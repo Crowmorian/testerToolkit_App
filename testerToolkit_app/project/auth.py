@@ -34,7 +34,7 @@ def createUser_post():
     name = request.form.get('name')
     password = request.form.get('password')
     
-    user = User.query.filter_by(username=username).first()
+    user = User.query.filter_by(username=login).first()
     
     if user: 
         return redirect(url_for('auth.createUser'))
