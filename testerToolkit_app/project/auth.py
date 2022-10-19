@@ -10,7 +10,7 @@ Created on Thu Oct 13 14:17:00 2022
 #************************************
 from flask import Blueprint, render_template, redirect, url_for, request
 from werkzeug.security import generate_password_hash, check_password_hash
-from models import User
+from models import Users
 from __init__ import db
 
 #Declaring routes and variables
@@ -34,7 +34,7 @@ def createUser_post():
     name = request.form.get('name')
     password = request.form.get('password')
     
-    user = User.query.filter_by(login=username).first()
+    user = Users.query.filter_by(login=username).first()
     
     if user: 
         return redirect(url_for('auth.createUser'))
