@@ -18,6 +18,8 @@ from flask_sqlalchemy import SQLAlchemy
 #Defining access to the SQLAlchemy
 db = SQLAlchemy()
 
+
+
 #Definition of the main functions
 def create_app():
     app = Flask(__name__, template_folder = './templates', static_folder = './templates/static')
@@ -36,3 +38,5 @@ def create_app():
     app.register_blueprint(main_blueprint)
     
     return app
+
+create_app()
