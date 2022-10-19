@@ -11,7 +11,7 @@ Created on Thu Oct 13 14:17:00 2022
 from flask import Blueprint, render_template, redirect, url_for, request
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import User
-from . import db
+from __init__ import db
 
 #Declaring routes and variables
 auth = Blueprint("auth", __name__)
