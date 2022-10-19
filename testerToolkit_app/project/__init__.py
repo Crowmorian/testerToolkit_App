@@ -27,9 +27,9 @@ app.config["SQALCHEMY_DATABASE_URI"] = "sqlite:///userDB.sqlite"
 db.init_app(app)
 
 #Registering blueprint for athentication routes
-from . import auth as auth_blueprint
+from auth import auth as auth_blueprint
 app.register_blueprint(auth_blueprint)
 
 #Registering blueprint for non-authentication routes
-from . import main as main_blueprint
+from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
