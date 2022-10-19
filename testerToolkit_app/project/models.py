@@ -9,7 +9,7 @@ Created on Thu Oct 13 14:27:22 2022
 
 # Importing of necessary libraries
 #************************************
-from . import db
+from __init__ import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True) #User ID serving as a primary key for identification
