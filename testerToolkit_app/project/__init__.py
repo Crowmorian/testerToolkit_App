@@ -33,8 +33,3 @@ app.register_blueprint(auth_blueprint)
 #Registering blueprint for non-authentication routes
 from .main import main as main_blueprint
 app.register_blueprint(main_blueprint)
-
-def __call__(self, environ, start_response):
-    start_response("200 OK", [("Content-type", "text/html"), ('Content-Length', str(len(self.html)))])
-    
-    return [self.html]
