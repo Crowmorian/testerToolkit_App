@@ -19,7 +19,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 #Definition of the main functions
-def __init__():
+def create_app():
     app = Flask(__name__, template_folder = './templates', static_folder = './templates/static')
     
     app.config["SECRET_KEY"] = "secret-key-added-later"
