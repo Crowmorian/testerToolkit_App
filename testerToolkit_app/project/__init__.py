@@ -16,20 +16,23 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 #Defining access to the SQLAlchemy
-db = SQLAlchemy()
+
 
 #Definition of the main functions
 app = Flask(__name__, template_folder = './templates', static_folder = './templates/static')
 
-app.config["SECRET_KEY"] = "secret-key-added-later"
-app.config["SQALCHEMY_DATABASE_URI"] = "sqlite:///userDB.sqlite"
+app.config['SECRET_KEY'] = "secret-key-added-later"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///userDB.sqlite"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
 
 db.init_app(app)
 
 #Registering blueprint for athentication routes
-from .auth import auth as auth_blueprint
+from auth import auth as auth_blueprint
 app.register_blueprint(auth_blueprint)
 
 #Registering blueprint for non-authentication routes
-from .main import main as main_blueprint
+from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
