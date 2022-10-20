@@ -95,15 +95,15 @@ a:active {
 
 .login-title-box {
 	width: 95%;
-	height: 75px;
+	height: 55px;
+	margin: 0 auto;
+	margin-top: 15px;
 }
 
 .login-title {
 	font-weight: bold;
 	font-family: "Arial";
 	font-size: 24px;
-	margin-top: 15px;
-	margin-bottom: 15px;
 }
 
 .login-input {
