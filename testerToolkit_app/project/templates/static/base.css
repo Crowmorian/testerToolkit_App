@@ -131,6 +131,11 @@ a:active {
 	margin-top: 15px;
 	text-align: center;
 	display: inline-block;
+	margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .login-input:focus {
@@ -186,8 +191,4 @@ a:active {
 	vertical-align: middle;
 	margin: 0 auto;
 	margin-top: 15px;
-}
-
-.checkbox-box {
-	height: 50px;
 }
