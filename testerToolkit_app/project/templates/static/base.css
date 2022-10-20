@@ -109,7 +109,7 @@ a:active {
 	font-weight: bold;
 	font-family: "Arial";
 	font-size: 18px;
-	float: right;
+	float: left;
 }
 
 .login-input {
@@ -125,12 +125,10 @@ a:active {
 .login-input-checkbox {
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
-	width: 90%;
-	height: 40px;
 	font-size: 18px;
 	text-align: center;
 	margin-top: 15px;
-	float: left;
+	float: right;
 }
 
 .login-input:focus {
