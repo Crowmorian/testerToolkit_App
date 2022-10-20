@@ -28,18 +28,8 @@ def login_post():
 
     user = Users.query.filter_by(login=username).first()
     
-    #if not user or not check_password_hash(user.password, password):
-        #flash('Incorrect username or password, please try again.')
-        #return redirect(url_for('auth.login'))
-        
-    if not user:
-        flash('Incorrect username')
-        print("Logging message", username, password, flush=True)
-        return redirect(url_for('auth.login'))
-    
-    if user.password != password:
-        flash('Incorrect password')
-        print("Logging message", username, password, flush=True)
+    if not user or not check_password_hash(user.password, password):
+        flash('Incorrect username or password, please try again.')
         return redirect(url_for('auth.login'))
     
     login_user(user)
@@ -66,8 +56,7 @@ def createUser_post():
         flash("Username already exists.")
         return redirect(url_for('auth.createUser'))
     
-    #new_user = Users(login=username, name=name, password=generate_password_hash(password, method='sha256'))
-    new_user = Users(login=username, name=name, password=password)
+    new_user = Users(login=username, name=name, password=generate_password_hash(password, method='sha256'))
     
     db.session.add(new_user)
     db.session.commit()
