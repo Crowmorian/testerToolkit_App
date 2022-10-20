@@ -35,10 +35,10 @@ def login_post():
     if not user:
         flash('Incorrect username.')
     
-    if not check_password_hash(user.password, password):
-        flash('Incorrect password.')
+    #if not check_password_hash(user.password, password):
+       # flash('Incorrect password.')
     
-    login_user(user)
+   # login_user(user)
     
     return redirect(url_for('main.index'))
 
