@@ -188,6 +188,6 @@ a:active {
 	margin-top: 15px;
 }
 
-label .checkbox {
-	height: 100%;
+.checkbox-box {
+	height: 50px;
 }
