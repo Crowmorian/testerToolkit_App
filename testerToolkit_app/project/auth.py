@@ -33,10 +33,10 @@ def login_post():
         return redirect(url_for('auth.login'))
     
     if not user:
-        print("User not found")
+        print("User not found", flush=True)
     
     if not check_password_hash(user.password, password):
-        print("Password failed")
+        print("Password failed", flush=True)
     
     login_user(user)
     
