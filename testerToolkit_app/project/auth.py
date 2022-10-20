@@ -62,7 +62,7 @@ def createUser_post():
         flash("Username already exists.")
         return redirect(url_for('auth.createUser'))
     
-    new_user = Users(login=username, name=name, password=generate_password_hash(password, method='sha256', admin=admin))
+    new_user = Users(login=username, name=name, password=generate_password_hash(password, method='sha256'), admin=admin)
     
     db.session.add(new_user)
     db.session.commit()
