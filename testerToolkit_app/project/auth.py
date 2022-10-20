@@ -33,11 +33,13 @@ def login_post():
         #return redirect(url_for('auth.login'))
         
     if not user:
-        flash('Incorrect username', username)
+        flash('Incorrect username')
+        print("Logging message", username, password, flush=True)
         return redirect(url_for('auth.login'))
     
     if user.password != password:
         flash('Incorrect password')
+        print("Logging message", username, password, flush=True)
         return redirect(url_for('auth.login'))
     
     login_user(user)
