@@ -109,7 +109,7 @@ a:active {
 	font-weight: bold;
 	font-family: "Arial";
 	font-size: 18px;
-	float: left;
+	display: inline-block;
 }
 
 .login-input {
@@ -128,7 +128,7 @@ a:active {
 	font-size: 18px;
 	text-align: center;
 	margin-top: 15px;
-	float: right;
+	display: inline-block;
 }
 
 .login-input:focus {
