@@ -150,3 +150,13 @@ a:active {
 .login-body {
 	width: 100%;
 }
+
+.notification {
+	color: white;
+	background-color: red;
+	border: 4px solid red;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+}
