@@ -43,7 +43,8 @@ def logout():
     return redirect(url_for('main.index'))
 
 @auth.route("/createUser")
-def createUser():
+@login_required
+def createUser():    
     return render_template('createUser.html')
 
 @auth.route('/createUser', methods=['POST'])

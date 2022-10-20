@@ -38,7 +38,7 @@
                             Logout
                         </a>
                         {% endif %}
-                        {% if current_user.is_authenticated %}
+                        {% if current_user.is_authenticated and current_user.admin == 1 %}
                         <a href="{{ url_for('auth.createUser') }}" class="navbar-item">
                             Create Toolkit User
                         </a>
