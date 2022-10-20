@@ -14,6 +14,7 @@ Created on Thu Oct 13 14:17:00 2022
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 
 #Defining access to the SQLAlchemy
 
@@ -28,6 +29,16 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 db.init_app(app)
+
+login_manager = LoginManager()
+login_manager.login_view = 'auth.login'
+login_manager.init_app(app)
+
+from models import Users
+
+@login_manager.user_loader
+def load_user(user_id):
+    return Users.query.get(int(user_id))
 
 #Registering blueprint for athentication routes
 from auth import auth as auth_blueprint
