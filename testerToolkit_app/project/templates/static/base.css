@@ -109,6 +109,7 @@ a:active {
 	font-weight: bold;
 	font-family: "Arial";
 	font-size: 18px;
+	margin-top: 15px;
 	display: inline-block;
 }
 
@@ -127,6 +128,7 @@ a:active {
 	border-radius: 10px;
 	width: 30px;
 	height: 30px;
+	margin-top: 15px;
 	text-align: center;
 	display: inline-block;
 }
