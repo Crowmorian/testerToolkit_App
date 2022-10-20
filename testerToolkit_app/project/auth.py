@@ -52,6 +52,9 @@ def createUser_post():
     username = request.form.get('username')
     name = request.form.get('name')
     password = request.form.get('password')
+    admin = request.form.get('admin')
+    
+    print(admin, flush=True)
     
     user = Users.query.filter_by(login=username).first()
     
@@ -59,7 +62,7 @@ def createUser_post():
         flash("Username already exists.")
         return redirect(url_for('auth.createUser'))
     
-    new_user = Users(login=username, name=name, password=generate_password_hash(password, method='sha256'))
+    new_user = Users(login=username, name=name, password=generate_password_hash(password, method='sha256', admin=admin))
     
     db.session.add(new_user)
     db.session.commit()
