@@ -28,10 +28,17 @@ def login_post():
 
     user = Users.query.filter_by(login=username).first()
     
-    if not user or user.password != password:
-        flash('Incorrect username or password, please try again.')
+    #if not user or not check_password_hash(user.password, password):
+        #flash('Incorrect username or password, please try again.')
+        #return redirect(url_for('auth.login'))
+        
+    if not user:
+        flash('Incorrect username')
         return redirect(url_for('auth.login'))
     
+    if user.password != password:
+        flash('Incorrect password')
+        return redirect(url_for('auth.login'))
     
     login_user(user)
     
