@@ -8,7 +8,7 @@ Created on Thu Oct 13 14:17:00 2022
 
 # Importing of necessary libraries
 #************************************
-from flask import Blueprint, render_template, redirect, url_for, request
+from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import Users
 from __init__ import db
@@ -37,6 +37,7 @@ def createUser_post():
     user = Users.query.filter_by(login=username).first()
     
     if user: 
+        flash("Username already exists.")
         return redirect(url_for('auth.createUser'))
     
     new_user = Users(login=username, name=name, password=generate_password_hash(password, method='sha256'))

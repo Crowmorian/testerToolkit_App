@@ -6,6 +6,13 @@
         <div>
             <content class="login-title">Create User</content>    
         </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification">
+                {{ messages[0] }}.
+            </div>
+        {% endif %}
+        {% endwith %}
         <form method="POST" action="/createUser">
             <div class="field">
                 <div class="control">
