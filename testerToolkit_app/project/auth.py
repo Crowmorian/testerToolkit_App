@@ -33,7 +33,7 @@ def login_post():
         #return redirect(url_for('auth.login'))
         
     if not user:
-        flash('Incorrect username' username)
+        flash('Incorrect username', username)
         return redirect(url_for('auth.login'))
     
     if user.password != password:
