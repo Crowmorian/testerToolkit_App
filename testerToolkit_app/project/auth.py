@@ -54,6 +54,11 @@ def createUser_post():
     password = request.form.get('password')
     admin = request.form.get('admin')
     
+    if admin == "on":
+        admin = 1
+    else:
+        admin = 0
+    
     print(admin, flush=True)
     
     user = Users.query.filter_by(login=username).first()
