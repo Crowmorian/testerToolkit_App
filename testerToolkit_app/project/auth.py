@@ -29,8 +29,14 @@ def login_post():
     user = Users.query.filter_by(login=username).first()
     
     if not user or not check_password_hash(user.password, password):
-        flash('Incorrect name or password, please try again.')
+        flash('Incorrect username or password, please try again.')
         return redirect(url_for('auth.login'))
+    
+    if not user:
+        print("User not found")
+    
+    if not check_password_hash(user.password, password):
+        print("Password failed")
     
     login_user(user)
     
