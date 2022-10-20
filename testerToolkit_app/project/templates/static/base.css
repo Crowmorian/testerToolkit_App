@@ -105,7 +105,13 @@ a:active {
 	font-size: 24px;
 }
 
-.login-input {
+.login-title-chcekbox {
+	font-weight: bold;
+	font-family: "Arial";
+	font-size: 18px;
+}
+
+.login-input .login-input-checkbox {
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
 	width: 90%;
