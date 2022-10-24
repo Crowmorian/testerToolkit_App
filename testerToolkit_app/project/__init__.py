@@ -47,3 +47,5 @@ app.register_blueprint(auth_blueprint)
 #Registering blueprint for non-authentication routes
 from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
+
+selectedLanguage = "ENG"
