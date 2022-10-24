@@ -10,13 +10,17 @@ Created on Thu Oct 13 14:27:02 2022
 # Importing of necessary libraries
 #************************************
 from flask import Blueprint, render_template
+from configFile import selectedLanguage
 
 #Declaring routes and variables
 main = Blueprint("main", __name__)
 
 @main.route("/")
 def index():
-    return render_template('index.html')
+    if selectedLanguage == "ENG":
+        return render_template('index.html')
+    elif selectedLanguage == "CS":
+        return render_template('CS/index.html')
 
 @main.route("/createClient")
 def createClient():
