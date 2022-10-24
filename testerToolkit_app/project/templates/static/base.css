@@ -93,6 +93,7 @@ a:active {
 
 .langueage-select {
 	float: right;
+	display: inline-block;
 }
 
 /*Classes for the login blueprint*/
