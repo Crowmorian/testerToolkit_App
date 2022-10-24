@@ -222,6 +222,7 @@ a.client-item {
 	text-decoration: none;
 	display: inline-block;
 	font-size: 18px;
+	font-weight: bold;
 	margin: 7px;
 }
 
