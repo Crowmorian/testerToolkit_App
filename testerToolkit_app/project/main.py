@@ -24,7 +24,11 @@ def index():
 
 @main.route("/createClient")
 def createClient():
-    return render_template('createClient.html')
+    
+    if selectedLanguage == "ENG":
+        return render_template('createClient.html')
+    elif selectedLanguage == "CS":
+        return render_template('cs/createClient.html')
 
 @main.route("/createIndividual")
 def createIndividual():
