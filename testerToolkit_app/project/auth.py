@@ -13,7 +13,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from models import Users
 from __init__ import db
 
-from __init__ import selectedLanguage
+from .__init__ import selectedLanguage
 
 from flask_login import login_user, login_required, logout_user
 
