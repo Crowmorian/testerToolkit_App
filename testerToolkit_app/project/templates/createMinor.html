@@ -3,9 +3,19 @@
 {% extends "createClient.html" %}
 
 {% block creation %}
+<form class="creation-form">
+    <table class="creation-table">
+        <tr class="creation-track">
+            <td class="creation-column">
+                <div class="creation-container">
+                    Tady se bude zobrazovat formulář pro vyplnění požadavků na nezletilou osobu
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
 <div>
-  <h2 class="subtitle">
-    Tady se bude vytvářet nezletilá/nesvéprávná osoba
-  </h2>
+    {% block createdContent %}
+    {% endblock %}
 </div>
 {% endblock %}

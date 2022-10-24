@@ -16,10 +16,6 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
-#Defining global variables
-global selectedLanguage
-selectedLanguage = "ENG"
-
 #Definition of the main functions
 app = Flask(__name__, template_folder = './templates', static_folder = './templates/static')
 

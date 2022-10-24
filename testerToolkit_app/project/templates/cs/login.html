@@ -1,0 +1,36 @@
+<!-- HTML File containing all the necessary forms for login page -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="login-body">
+	<div class="login-box">
+		<div class="login-title-box">
+			<content class="login-title">Login</content>	
+		</div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+        <form method="POST" action="/login">
+            <div class="field">
+                <div class="control">
+                    <input class="login-input" type="text" name="username" placeholder="Uživatelské jméno" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="login-input" type="password" name="password" placeholder="Heslo">
+                </div>
+            </div>
+            <div class="field">
+            </div>
+            <button class="login-button">Přihlásit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

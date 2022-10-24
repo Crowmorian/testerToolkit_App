@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="login-body">
+    <div class="login-box">
+        <div class="login-title-box">
+            <content class="login-title">Create Toolkit User</content>    
+        </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+        <form method="POST" action="/createUser">
+            <div class="field">
+                <div class="control">
+                    <input class="login-input" type="text" name="username" placeholder="Uživatelské Jméno" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="login-input" type="text" name="name" placeholder="Jméno" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="login-input" type="password" name="password" placeholder="Heslo">
+                </div>
+            </div>
+            <div class="field">
+                <div class="checkbox-box">
+                    <content class="login-title-checkbox">Přiřadit Admin Práva</content>
+                    <input class="login-input-checkbox" type="checkbox" name="admin">
+                </div>
+            </div>
+            <button class="login-button">Vytvořit nového uživatele</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
