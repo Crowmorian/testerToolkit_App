@@ -216,3 +216,26 @@ a.client-item {
 	width: auto;
 	background-color: rgba(110, 149, 255, 0.6);
 }
+
+a.client-item {
+	border: 4px solid #6e95ff;
+	border-radius: 10px;
+	background-color: rgba(110, 149, 255, 0.6);
+	color: black;
+	width: 95%;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+a.client-item:hover {
+	border: 4px solid #6e95ff;
+	border-radius: 10px;
+	background-color: #6e95ff;
+	color: white;
+}
