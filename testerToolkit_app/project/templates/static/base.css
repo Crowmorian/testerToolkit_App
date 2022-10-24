@@ -192,3 +192,12 @@ a:active {
 .checkbox-box {
 	margin-top: 15px;
 }
+
+/*Classes for client creation*/
+
+.client-table {
+	text-align: center;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 100px;
+}

@@ -3,17 +3,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<table>
-    <tr>
-        <td class="navbar-container">
-            <div class="navbar">
-                <a href="{{ url_for('main.createIndividual') }}" class="navbar-item">
+<table class="client-table">
+    <tr class="client-track">
+        <td class="client-container">
+            <div class="client-button-box">
+                <a href="{{ url_for('main.createIndividual') }}" class="client-item">
                     Individual
                 </a>
-                <a href="{{ url_for('main.createLegalEntity') }}" class="navbar-item">
+                <a href="{{ url_for('main.createLegalEntity') }}" class="client-item">
                     Legal Entity
                 </a>
-                <a href="{{ url_for('main.createMinor') }}" class="navbar-item">
+                <a href="{{ url_for('main.createMinor') }}" class="client-item">
                     Minor/Legaly Incapable
                 </a>
             </div>
