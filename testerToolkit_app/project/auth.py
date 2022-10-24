@@ -13,13 +13,17 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from models import Users
 from __init__ import db
 from flask_login import login_user, login_required, logout_user
+from configFile import selectedLanguage
 
 #Declaring routes and variables
 auth = Blueprint("auth", __name__)
 
 @auth.route('/login')
-def login():
-    return render_template('login.html')
+def login():    
+    if selectedLanguage == "ENG":
+        return render_template('login.html')
+    elif selectedLanguage == "CS":
+        return render_template('cs/login.html')
 
 @auth.route('/login', methods=['POST'])
 def login_post():
@@ -45,7 +49,11 @@ def logout():
 @auth.route("/createUser")
 @login_required
 def createUser():    
-    return render_template('createUser.html')
+    
+    if selectedLanguage == "ENG":
+        return render_template('createUser.html')
+    elif selectedLanguage == "CS":
+        return render_template('/cscreateUser.html')
 
 @auth.route('/createUser', methods=['POST'])
 def createUser_post():

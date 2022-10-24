@@ -23,8 +23,7 @@ def index():
         return render_template('cs/index.html')
 
 @main.route("/createClient")
-def createClient():
-    
+def createClient():    
     if selectedLanguage == "ENG":
         return render_template('createClient.html')
     elif selectedLanguage == "CS":
@@ -32,12 +31,21 @@ def createClient():
 
 @main.route("/createIndividual")
 def createIndividual():
-    return render_template('createIndividual.html')
+    if selectedLanguage == "ENG":
+        return render_template('createIndividual.html')
+    elif selectedLanguage == "CS":
+        return render_template('cs/createIndividual.html')
 
 @main.route("/createLegalEntity")
 def createLegalEntity():
-    return render_template('createLegalEntity.html')
+    if selectedLanguage == "ENG":
+        return render_template('createLegalEntity.html')
+    elif selectedLanguage == "CS":
+        return render_template('cs/createLegalEntity.html')
 
 @main.route("/createMinor")
 def createMinor():
-    return render_template('createMinor.html')
+    if selectedLanguage == "ENG":
+        return render_template('createMinor.html')
+    elif selectedLanguage == "CS":
+        return render_template('cs/createMinor.html')
