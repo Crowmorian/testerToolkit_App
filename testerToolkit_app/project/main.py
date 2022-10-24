@@ -20,7 +20,7 @@ def index():
     if selectedLanguage == "ENG":
         return render_template('index.html')
     elif selectedLanguage == "CS":
-        return render_template('CS/index.html')
+        return render_template('cs/index.html')
 
 @main.route("/createClient")
 def createClient():
