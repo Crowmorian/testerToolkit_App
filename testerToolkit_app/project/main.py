@@ -19,5 +19,5 @@ def index():
     return render_template('index.html')
 
 @main.route("/createClient")
-def index():
+def createClient():
     return render_template('createClient.html')
