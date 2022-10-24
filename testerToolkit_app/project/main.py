@@ -23,7 +23,7 @@ def createClient():
     return render_template('createClient.html')
 
 @main.route("/createIndividual")
-def createindividual():
+def createIndividual():
     return render_template('createIndividual.html')
 
 @main.route("/createLegalEntity")
