@@ -227,8 +227,7 @@ a.client-item {
 	background-color: rgba(110, 149, 255, 0.6);
 	color: black;
 	width: auto;
-	line-height: 18px;
-	padding: 15px 32px;
+	padding: 70px 0;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
