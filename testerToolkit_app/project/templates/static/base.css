@@ -222,8 +222,7 @@ a.client-item {
 	display: inline-block;
 	font-size: 25px;
 	font-weight: bold;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin: 15px;
 }
 
 a.client-item:hover {
