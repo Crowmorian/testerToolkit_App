@@ -48,12 +48,11 @@ def logout():
 
 @auth.route("/createUser")
 @login_required
-def createUser():    
-    
+def createUser():        
     if selectedLanguage == "ENG":
         return render_template('createUser.html')
     elif selectedLanguage == "CS":
-        return render_template('/cscreateUser.html')
+        return render_template('cs/createUser.html')
 
 @auth.route('/createUser', methods=['POST'])
 def createUser_post():
