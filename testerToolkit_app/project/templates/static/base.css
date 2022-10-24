@@ -91,6 +91,10 @@ a:active {
 	width: 100%;
 }
 
+.langueage-select {
+	float: right;
+}
+
 /*Classes for the login blueprint*/
 
 .login-title-box {
