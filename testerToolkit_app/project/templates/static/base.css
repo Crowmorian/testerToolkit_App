@@ -222,7 +222,7 @@ a.client-item {
 	display: inline-block;
 	font-size: 25px;
 	font-weight: bold;
-	margin: 15px;
+	margin: 10px;
 }
 
 a.client-item:hover {
