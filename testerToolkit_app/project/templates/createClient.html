@@ -3,9 +3,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
-  <h2 class="subtitle">
-    Tady bude výběr typu klienta
-  </h2>
-</div>
+<table>
+    <tr>
+        <td class="navbar-container">
+            <div class="navbar">
+                <a href="{{ url_for('main.createIndividual') }}" class="navbar-item">
+                    Individual
+                </a>
+                <a href="{{ url_for('auth.createLegalEntity') }}" class="navbar-item">
+                    Legal Entity
+                </a>
+                <a href="{{ url_for('main.createMinor') }}" class="navbar-item">
+                    Minor/Legaly Incapable
+                </a>
+            </div>
+        </td>
+    </tr>
+</table>
 {% endblock %}

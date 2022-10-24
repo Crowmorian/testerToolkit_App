@@ -21,3 +21,15 @@ def index():
 @main.route("/createClient")
 def createClient():
     return render_template('createClient.html')
+
+@main.route("/createIndividual")
+def createindividual():
+    return render_template('createIndividual.html')
+
+@main.route("/createLegalEntity")
+def createLegalEntity():
+    return render_template('createLegalEntity.html')
+
+@main.route("/createMinor")
+def createMinor():
+    return render_template('createMinor.html')
