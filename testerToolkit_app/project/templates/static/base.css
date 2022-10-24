@@ -210,6 +210,9 @@ a.client-item {
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
 	font-size: 25px;
+	text-align: center;
+	padding: 15px;
 	height: 90px;
 	width: auto;
+	background-color: rgba(110, 149, 255, 0.6);
 }
