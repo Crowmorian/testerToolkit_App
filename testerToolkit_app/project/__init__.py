@@ -15,6 +15,7 @@ Created on Thu Oct 13 14:17:00 2022
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from configFile import selectedLanguage
 
 #Definition of the main functions
 app = Flask(__name__, template_folder = './templates', static_folder = './templates/static')
@@ -45,3 +46,4 @@ app.register_blueprint(auth_blueprint)
 from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
 
+print(selectedLanguage, flush=True)
