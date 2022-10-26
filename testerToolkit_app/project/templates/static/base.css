@@ -95,6 +95,7 @@ a.navbar-item-lang {
 .lang-selection {
 	display: inline-block;
 	margin: 0 auto;
+	padding-top: 25px;
 }
 
 .main-container {
