@@ -87,8 +87,6 @@ a.navbar-item:active {
 }
 
 a.navbar-item-lang {
-	border: 4px solid #6e95ff;
-	border-radius: 10px;
 }
 
 a.navbar-item-lang:link {
