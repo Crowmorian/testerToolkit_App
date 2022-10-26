@@ -13,7 +13,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from models import Users
 from __init__ import db
 from flask_login import login_user, login_required, logout_user
-from configFile import selectedLanguage
 
 #Declaring routes and variables
 auth = Blueprint("auth", __name__)
@@ -42,7 +41,7 @@ def login_post():
     return redirect(url_for('main.index'))
 
 @auth.route('/cs/login', methods=['POST'])
-def login_post():
+def CSlogin_post():
     username = request.form.get('username')
     password = request.form.get('password')
 
@@ -106,7 +105,7 @@ def createUser_post():
     return redirect(url_for('main.index'))
 
 @auth.route('/cs/createUser', methods=['POST'])
-def createUser_post():
+def CScreateUser_post():
     username = request.form.get('username')
     name = request.form.get('name')
     password = request.form.get('password')
