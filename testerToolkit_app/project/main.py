@@ -10,7 +10,7 @@ Created on Thu Oct 13 14:27:02 2022
 # Importing of necessary libraries
 #************************************
 from flask import Blueprint, render_template
-from configFile import selectedLanguage
+from flask_login import login_required
 
 #Declaring routes and variables
 main = Blueprint("main", __name__)
@@ -24,34 +24,42 @@ def CSindex():
     return render_template('cs/index.html')
 
 @main.route("/createClient")
+@login_required
 def createClient():    
     return render_template('createClient.html')
 
 @main.route("/cs/createClient")
+@login_required
 def CScreateClient():    
     return render_template('cs/createClient.html')
 
 @main.route("/createIndividual")
+@login_required
 def createIndividual():
     return render_template('createIndividual.html')
 
 @main.route("/cs/createIndividual")
+@login_required
 def CScreateIndividual():
     return render_template('cs/createIndividual.html')
 
 @main.route("/createLegalEntity")
+@login_required
 def createLegalEntity():
     return render_template('createLegalEntity.html')
 
 @main.route("/cs/createLegalEntity")
+@login_required
 def CScreateLegalEntity():
     return render_template('cs/createLegalEntity.html')
 
 @main.route("/createMinor")
+@login_required
 def createMinor():
     return render_template('createMinor.html')
 
 @main.route("/cs/createMinor")
+@login_required
 def CScreateMinor():
         return render_template('cs/createMinor.html')
     
@@ -65,9 +73,11 @@ def setCs ():
     return render_template('cs/index.html')
 
 @main.route("/generators")
+@login_required
 def generators():
         return render_template('generators.html')
     
 @main.route("/cs/generators")
+@login_required
 def CSgenerators():
         return render_template('cs/generators.html')
