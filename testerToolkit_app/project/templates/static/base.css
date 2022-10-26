@@ -22,6 +22,7 @@
 	white-space: nowrap;
 	padding-right: 25px;
 	margin: 0 auto;
+	vertical-align: middle;
 }
 
 .logo {
@@ -95,7 +96,7 @@ a.navbar-item-lang {
 .lang-selection {
 	display: inline-block;
 	margin: 0 auto;
-	padding-top: 25px;
+	vertical-align: middle;
 }
 
 .main-container {
