@@ -12,10 +12,12 @@ Created on Thu Oct 13 14:17:00 2022
 # Importing of necessary libraries
 #************************************
 
-from flask import Flask
+from flask import Flask, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 import os
+from datetime import timedelta
+
 
 #Definition of the main functions
 selectedLanguage = "ENG"
@@ -38,6 +40,11 @@ from models import Users
 @login_manager.user_loader
 def load_user(user_id):
     return Users.query.get(int(user_id))
+
+@app.before_request
+def make_session_permanent():
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=1)
 
 #Registering blueprint for athentication routes
 from auth import auth as auth_blueprint
