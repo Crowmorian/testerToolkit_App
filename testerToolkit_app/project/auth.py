@@ -41,6 +41,21 @@ def login_post():
     
     return redirect(url_for('main.index'))
 
+@auth.route('/cs/login', methods=['POST'])
+def login_post():
+    username = request.form.get('username')
+    password = request.form.get('password')
+
+    user = Users.query.filter_by(login=username).first()
+    
+    if not user or not check_password_hash(user.password, password):
+        flash('Incorrect username or password, please try again.')
+        return redirect(url_for('auth.CSlogin'))
+    
+    login_user(user)
+    
+    return redirect(url_for('main.CSindex'))
+
 @auth.route("/logout")
 @login_required
 def logout():
@@ -89,3 +104,30 @@ def createUser_post():
     db.session.commit()
     
     return redirect(url_for('main.index'))
+
+@auth.route('/cs/createUser', methods=['POST'])
+def createUser_post():
+    username = request.form.get('username')
+    name = request.form.get('name')
+    password = request.form.get('password')
+    admin = request.form.get('admin')
+    
+    if admin == "on":
+        admin = 1
+    else:
+        admin = 0
+    
+    print(admin, flush=True)
+    
+    user = Users.query.filter_by(login=username).first()
+    
+    if user: 
+        flash("Username already exists.")
+        return redirect(url_for('auth.CScreateUser'))
+    
+    new_user = Users(login=username, name=name, password=generate_password_hash(password, method='sha256'), admin=admin)
+    
+    db.session.add(new_user)
+    db.session.commit()
+    
+    return redirect(url_for('main.CSindex'))
