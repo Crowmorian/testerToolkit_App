@@ -1,6 +1,6 @@
 <!-- HTML file containing the main page -->
 
-{% extends "base.html" %}
+{% extends "cs/base.html" %}
 
 {% block content %}
 <table class="client-table">
@@ -14,16 +14,16 @@
                     SIPO
                 </a>
                 <a href="{{ url_for('main.createMinor') }}" class="client-item">
-                    CIN
+                    IČO
                 </a>
                 <a href="{{ url_for('main.createIndividual') }}" class="client-item">
-                    Date
+                    Datum
                 </a>
                 <a href="{{ url_for('main.createIndividual') }}" class="client-item">
-                    E-Mail / Phone numbers
+                    E-Mail / Telefoní číslo
                 </a>
                 <a href="{{ url_for('main.createIndividual') }}" class="client-item">
-                    Random Numbers
+                    Náhodná čísla
                 </a>
             </div>
         </td>
