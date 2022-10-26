@@ -51,14 +51,16 @@
                         </a>
                         {% endif %}
                         <div>
-                            <a href="{{ url_for('main.setEng') }}" class="navbar-item-lang">
-                                <img src="{{ url_for('static',filename='eng.png') }}" class="eng-image">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="{{ url_for('main.setCs') }}" class="navbar-item-lang">
-                                <img src="{{ url_for('static',filename='cs.png') }}" class="cs-image">
-                            </a>
+                            <div>
+                                <a href="{{ url_for('main.setEng') }}" class="navbar-item-lang">
+                                    <img src="{{ url_for('static',filename='eng.png') }}" class="eng-image">
+                                </a>
+                            </div>
+                            <div>
+                                <a href="{{ url_for('main.setCs') }}" class="navbar-item-lang">
+                                    <img src="{{ url_for('static',filename='cs.png') }}" class="cs-image">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </td>
