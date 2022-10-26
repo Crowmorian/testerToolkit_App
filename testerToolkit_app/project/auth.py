@@ -20,10 +20,11 @@ auth = Blueprint("auth", __name__)
 
 @auth.route('/login')
 def login():    
-    if selectedLanguage == "ENG":
-        return render_template('login.html')
-    elif selectedLanguage == "CS":
-        return render_template('cs/login.html')
+    return render_template('login.html')
+
+@auth.route('/cs/login')
+def CSlogin():    
+    return render_template('cs/login.html')
 
 @auth.route('/login', methods=['POST'])
 def login_post():
@@ -46,13 +47,21 @@ def logout():
     logout_user()
     return redirect(url_for('main.index'))
 
+@auth.route("/cs/logout")
+@login_required
+def CSlogout():
+    logout_user()
+    return redirect(url_for('main.CSindex'))
+
 @auth.route("/createUser")
 @login_required
 def createUser():        
-    if selectedLanguage == "ENG":
-        return render_template('createUser.html')
-    elif selectedLanguage == "CS":
-        return render_template('cs/createUser.html')
+    return render_template('createUser.html')
+
+@auth.route("/cs/createUser")
+@login_required
+def CScreateUser(): 
+    return render_template('cs/createUser.html')
 
 @auth.route('/createUser', methods=['POST'])
 def createUser_post():

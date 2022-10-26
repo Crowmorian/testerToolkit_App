@@ -25,30 +25,34 @@ def CSindex():
 
 @main.route("/createClient")
 def createClient():    
-    if selectedLanguage == "ENG":
-        return render_template('createClient.html')
-    elif selectedLanguage == "CS":
-        return render_template('cs/createClient.html')
+    return render_template('createClient.html')
+
+@main.route("/cs/createClient")
+def CScreateClient():    
+    return render_template('cs/createClient.html')
 
 @main.route("/createIndividual")
 def createIndividual():
-    if selectedLanguage == "ENG":
-        return render_template('createIndividual.html')
-    elif selectedLanguage == "CS":
-        return render_template('cs/createIndividual.html')
+    return render_template('createIndividual.html')
+
+@main.route("/cs/createIndividual")
+def CScreateIndividual():
+    return render_template('cs/createIndividual.html')
 
 @main.route("/createLegalEntity")
 def createLegalEntity():
-    if selectedLanguage == "ENG":
-        return render_template('createLegalEntity.html')
-    elif selectedLanguage == "CS":
-        return render_template('cs/createLegalEntity.html')
+    return render_template('createLegalEntity.html')
+
+@main.route("/cs/createLegalEntity")
+def CScreateLegalEntity():
+    return render_template('cs/createLegalEntity.html')
 
 @main.route("/createMinor")
 def createMinor():
-    if selectedLanguage == "ENG":
-        return render_template('createMinor.html')
-    elif selectedLanguage == "CS":
+    return render_template('createMinor.html')
+
+@main.route("/cs/createMinor")
+def CScreateMinor():
         return render_template('cs/createMinor.html')
     
 @main.route("/setEng")
