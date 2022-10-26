@@ -1,0 +1,37 @@
+<!-- HTML file containing the main page -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<table class="client-table">
+    <tr class="client-track">
+        <td class="client-container">
+            <div class="client-button-box">
+                <a href="{{ url_for('main.createIndividual') }}" class="client-item">
+                    IBAN
+                </a>
+                <a href="{{ url_for('main.createLegalEntity') }}" class="client-item">
+                    SIPO
+                </a>
+                <a href="{{ url_for('main.createMinor') }}" class="client-item">
+                    CIN
+                </a>
+                <a href="{{ url_for('main.createIndividual') }}" class="client-item">
+                    Date
+                </a>
+                <a href="{{ url_for('main.createIndividual') }}" class="client-item">
+                    E-Mail / Phone numbers
+                </a>
+                <a href="{{ url_for('main.createIndividual') }}" class="client-item">
+                    Random Numbers
+                </a>
+            </div>
+        </td>
+    </tr>
+</table>
+<div class="main-container">
+   {% block creation %}
+   {% endblock %}
+</div>
+
+{% endblock %}

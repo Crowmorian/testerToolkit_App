@@ -63,3 +63,11 @@ def setEng ():
 @main.route("/setCs")
 def setCs ():
     return render_template('cs/index.html')
+
+@main.route("/generators")
+def generators():
+        return render_template('generators.html')
+    
+@main.route("/cs/generators")
+def CSgenerators():
+        return render_template('cs/generators.html')
