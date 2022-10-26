@@ -22,7 +22,7 @@ auth = Blueprint("auth", __name__)
 def login():    
     return render_template('login.html')
 
-@auth.route('/cs/login')
+@auth.route('/cslogin')
 def CSlogin():    
     return render_template('cs/login.html')
 
@@ -47,7 +47,7 @@ def logout():
     logout_user()
     return redirect(url_for('main.index'))
 
-@auth.route("/cs/logout")
+@auth.route("/cslogout")
 @login_required
 def CSlogout():
     logout_user()
@@ -58,7 +58,7 @@ def CSlogout():
 def createUser():        
     return render_template('createUser.html')
 
-@auth.route("/cs/createUser")
+@auth.route("/cscreateUser")
 @login_required
 def CScreateUser(): 
     return render_template('cs/createUser.html')
