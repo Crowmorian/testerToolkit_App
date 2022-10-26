@@ -21,6 +21,7 @@
 	float: right;
 	white-space: nowrap;
 	padding-right: 25px;
+	margin: 0 auto;
 }
 
 .logo {
@@ -93,6 +94,7 @@ a.navbar-item-lang {
 
 .lang-selection {
 	display: inline-block;
+	margin: 0 auto;
 }
 
 .main-container {
