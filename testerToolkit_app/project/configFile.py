@@ -5,7 +5,7 @@ Created on Mon Oct 24 14:28:44 2022
 @author: Crowmorian
 """
 from flask import Blueprint, render_template
-from __init__ import reload_blueprints
+import __init__
 
 #Declaring global variables and settings
 global selectedLanguage
@@ -16,7 +16,7 @@ configFile = Blueprint("configFile", __name__)
 def setEng ():
     selectedLanguage = "ENG"
     print(selectedLanguage, flush=True)
-    reload_blueprints()
+    __init__.reload_blueprints()
     return render_template('index.html')
 
 
@@ -24,5 +24,5 @@ def setEng ():
 def setCs ():
     selectedLanguage = "CS"
     print(selectedLanguage, flush=True)
-    reload_blueprints()
+    __init__.reload_blueprints()
     return render_template('cs/index.html')
