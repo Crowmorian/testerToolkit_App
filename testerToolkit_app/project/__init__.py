@@ -48,5 +48,3 @@ app.register_blueprint(main_blueprint)
 
 from configFile import configFile as configFile_blueprint
 app.register_blueprint(configFile_blueprint)
-
-print(selectedLanguage, flush=True)
