@@ -19,7 +19,7 @@ main = Blueprint("main", __name__)
 def index():
     return render_template('index.html')
 
-@main.route("cs/")
+@main.route("/cs")
 def CSindex():
     return render_template('cs/index.html')
 
