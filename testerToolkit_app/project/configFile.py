@@ -15,5 +15,5 @@ def setEng ():
     selectedLanguage = "ENG"
 
 @configFile.route("/setCs")
-def setCS ():
+def setCs ():
     selectedLanguage = "CS"
