@@ -10,10 +10,10 @@ from flask import Blueprint, render_template
 selectedLanguage = "ENG"
 configFile = Blueprint("configFile", __name__)
 
-@configFile.route("/switchEng")
+@configFile.route("/setEng")
 def setEng ():
     selectedLanguage = "ENG"
 
-@configFile.route("/switchCs")
+@configFile.route("/setCs")
 def setCS ():
     selectedLanguage = "CS"
