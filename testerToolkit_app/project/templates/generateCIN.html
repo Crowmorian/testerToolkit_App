@@ -1,0 +1,21 @@
+<!-- HTML file containing the main page -->
+
+{% extends "generators.html" %}
+
+{% block generation %}
+<form class="creation-form">
+    <table class="creation-table">
+        <tr class="creation-track">
+            <td class="creation-column">
+                <div class="creation-container">
+                    Tady se bude zobrazovat formulář vygenerování IČO
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+<div>
+    {% block generatedContent %}
+    {% endblock %}
+</div>
+{% endblock %}

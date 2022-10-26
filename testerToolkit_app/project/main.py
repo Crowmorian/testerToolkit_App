@@ -81,3 +81,63 @@ def generators():
 @login_required
 def CSgenerators():
         return render_template('cs/generators.html')
+    
+@main.route("/generateIBAN")
+@login_required
+def generateIBAN():
+        return render_template('generateIBAN.html')
+    
+@main.route("/cs/generateIBAN")
+@login_required
+def CSgenerateIBAN():
+        return render_template('cs/generateIBAN.html')
+
+@main.route("/generateSIPO")
+@login_required
+def generateSIPO():
+        return render_template('generateSIPO.html')
+    
+@main.route("/cs/generateSIPO")
+@login_required
+def CSgenerateSIPO():
+        return render_template('cs/generateSIPO.html')
+    
+@main.route("/generateCIN")
+@login_required
+def generateCIN():
+        return render_template('generateCIN.html')
+    
+@main.route("/cs/generateCIN")
+@login_required
+def CSgenerateCIN():
+        return render_template('cs/generateCIN.html')
+    
+@main.route("/generateDate")
+@login_required
+def generateDate():
+        return render_template('generateDate.html')
+    
+@main.route("/cs/generateDate")
+@login_required
+def CSgenerateDate():
+        return render_template('cs/generateDate.html')
+    
+@main.route("/generateMailNumber")
+@login_required
+def generateMailNumber():
+        return render_template('generateMailNumber.html')
+    
+@main.route("/cs/generateMailNumber")
+@login_required
+def CSgenerateMailNumber():
+        return render_template('cs/generateMailNumber.html')
+    
+@main.route("/generateRandom")
+@login_required
+def generateRandom():
+        return render_template('generateRandom.html')
+    
+@main.route("/cs/generateRandom")
+@login_required
+def CSgenerateRandom():
+        return render_template('cs/generateRandom.html')
