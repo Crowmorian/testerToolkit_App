@@ -16,7 +16,6 @@ configFile = Blueprint("configFile", __name__)
 def setEng ():
     selectedLanguage = "ENG"
     print(selectedLanguage, flush=True)
-    __init__.reload_blueprints()
     return render_template('index.html')
 
 
@@ -24,5 +23,4 @@ def setEng ():
 def setCs ():
     selectedLanguage = "CS"
     print(selectedLanguage, flush=True)
-    __init__.reload_blueprints()
     return render_template('cs/index.html')
