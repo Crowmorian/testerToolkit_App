@@ -87,26 +87,12 @@ a.navbar-item:active {
 }
 
 a.navbar-item-lang {
-}
-
-a.navbar-item-lang:link {
-  text-align: center;
+	text-align: center;
   display: inline-block;
 }
 
-a.navbar-item-lang:visited {
-  text-align: center;
-  display: inline-block;
-}
-
-a.navbar-item-lang:hover {
-  text-align: center;
-  display: inline-block;
-}
-
-a.navbar-item-lang:active {
-  text-align: center;
-  display: inline-block;
+.lang-selection {
+	display: inline-block;
 }
 
 .main-container {
