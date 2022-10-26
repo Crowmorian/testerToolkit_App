@@ -48,3 +48,8 @@ app.register_blueprint(main_blueprint)
 
 from configFile import configFile as configFile_blueprint
 app.register_blueprint(configFile_blueprint)
+
+def reload_blueprints ():
+    app.register_blueprint(auth_blueprint)
+    app.register_blueprint(main_blueprint)
+    app.register_blueprint(configFile_blueprint)
