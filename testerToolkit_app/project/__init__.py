@@ -15,12 +15,13 @@ Created on Thu Oct 13 14:17:00 2022
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+import os
 
 #Definition of the main functions
 selectedLanguage = "ENG"
 app = Flask(__name__, template_folder = './templates', static_folder = './templates/static')
 
-app.config['SECRET_KEY'] = "secret-key-added-later"
+app.config['SECRET_KEY'] = os.urandom(12).hex()
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///userDB.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
