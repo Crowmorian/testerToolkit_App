@@ -13,7 +13,9 @@ configFile = Blueprint("configFile", __name__)
 @configFile.route("/setEng")
 def setEng ():
     selectedLanguage = "ENG"
+    return render_template('index.html')
 
 @configFile.route("/setCs")
 def setCs ():
     selectedLanguage = "CS"
+    return render_template('cs/index.html')
