@@ -48,7 +48,7 @@ def CSlogin_post():
     user = Users.query.filter_by(login=username).first()
     
     if not user or not check_password_hash(user.password, password):
-        flash('Incorrect username or password, please try again.')
+        flash('Nesprávné jméno nebo heslo, zkuste to prosím znovu')
         return redirect(url_for('auth.CSlogin'))
     
     login_user(user)
@@ -121,7 +121,7 @@ def CScreateUser_post():
     user = Users.query.filter_by(login=username).first()
     
     if user: 
-        flash("Username already exists.")
+        flash("Uživatel s tímto jménem již existuje")
         return redirect(url_for('auth.CScreateUser'))
     
     new_user = Users(login=username, name=name, password=generate_password_hash(password, method='sha256'), admin=admin)
