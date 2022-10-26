@@ -31,17 +31,17 @@
                             Domů
                         </a>
                         {% if not current_user.is_authenticated %}
-                        <a href="{{ url_for('auth.CSlogin') }}" class="navbar-item">
+                        <a href="{{ url_for('auth.login') }}" class="navbar-item">
                             Přihlásit
                         </a>
                         {% endif %}
                         {% if current_user.is_authenticated %}
-                        <a href="{{ url_for('auth.CSlogout') }}" class="navbar-item">
+                        <a href="{{ url_for('auth.logout') }}" class="navbar-item">
                             Odhlásit
                         </a>
                         {% endif %}
                         {% if current_user.is_authenticated %}
-                        <a href="{{ url_for('main.CScreateClient') }}" class="navbar-item">
+                        <a href="{{ url_for('main.createClient') }}" class="navbar-item">
                             Vytvořit Klienta
                         </a>
                         {% endif %}
