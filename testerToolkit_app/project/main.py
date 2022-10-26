@@ -17,10 +17,9 @@ main = Blueprint("main", __name__)
 
 @main.route("/")
 def index():
-    if selectedLanguage == "ENG":
-        return render_template('index.html')
-    elif selectedLanguage == "CS":
-        return render_template('cs/index.html')
+    return render_template('index.html')
+def CSindex():
+    return render_template('cs/index.html')
 
 @main.route("/createClient")
 def createClient():    
@@ -52,13 +51,9 @@ def createMinor():
     
 @main.route("/setEng")
 def setEng ():
-    selectedLanguage = "ENG"
-    print(selectedLanguage, flush=True)
     return render_template('index.html')
 
 
 @main.route("/setCs")
 def setCs ():
-    selectedLanguage = "CS"
-    print(selectedLanguage, flush=True)
     return render_template('cs/index.html')

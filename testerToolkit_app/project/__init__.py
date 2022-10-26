@@ -17,6 +17,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
 #Definition of the main functions
+selectedLanguage = "ENG"
 app = Flask(__name__, template_folder = './templates', static_folder = './templates/static')
 
 app.config['SECRET_KEY'] = "secret-key-added-later"
@@ -45,10 +46,3 @@ app.register_blueprint(auth_blueprint)
 from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
 
-from configFile import configFile as configFile_blueprint
-app.register_blueprint(configFile_blueprint)
-
-def reload_blueprints ():
-    app.register_blueprint(auth_blueprint)
-    app.register_blueprint(main_blueprint)
-    app.register_blueprint(configFile_blueprint)
