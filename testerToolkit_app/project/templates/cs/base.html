@@ -45,6 +45,11 @@
                             Vytvořit Klienta
                         </a>
                         {% endif %}
+                        {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('main.CSgenerators') }}" class="navbar-item">
+                            Generátory
+                        </a>
+                        {% endif %}
                         {% if current_user.is_authenticated and current_user.admin == 1 %}
                         <a href="{{ url_for('auth.CScreateUser') }}" class="navbar-item">
                             Vytvořit Toolkit Uživatele
