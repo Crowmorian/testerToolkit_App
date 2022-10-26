@@ -27,7 +27,7 @@ def CSindex():
 def createClient():    
     return render_template('createClient.html')
 
-@main.route("/cscreateClient")
+@main.route("/cs/createClient")
 def CScreateClient():    
     return render_template('cs/createClient.html')
 
@@ -35,7 +35,7 @@ def CScreateClient():
 def createIndividual():
     return render_template('createIndividual.html')
 
-@main.route("/cscreateIndividual")
+@main.route("/cs/createIndividual")
 def CScreateIndividual():
     return render_template('cs/createIndividual.html')
 
@@ -43,7 +43,7 @@ def CScreateIndividual():
 def createLegalEntity():
     return render_template('createLegalEntity.html')
 
-@main.route("/cscreateLegalEntity")
+@main.route("/cs/createLegalEntity")
 def CScreateLegalEntity():
     return render_template('cs/createLegalEntity.html')
 
@@ -51,7 +51,7 @@ def CScreateLegalEntity():
 def createMinor():
     return render_template('createMinor.html')
 
-@main.route("/cscreateMinor")
+@main.route("/cs/createMinor")
 def CScreateMinor():
         return render_template('cs/createMinor.html')
     
