@@ -9,10 +9,15 @@
             <td class="creation-column">
                 <div class="creation-container">
                     <form> <!-- method="POST" action="/login" -->
-                        <label for="fname">First name:</label>
-                        <input type="text" id="fname" name="fname"><br><br>
-                        <label for="lname">Last name:</label>
-                        <input type="text" id="lname" name="lname"><br><br>
+                        <label class="generators-label" for="howManyDigits" placeholder="10">How many digits?</label>
+                        <input class="generators-input" type="number" id="howManyDigits" name="howManyDigits" placeholder="10">
+
+                        <label class="generators-label" for="howManyNumbers">How many numbers?</label>
+                        <input class="generators-input" type="number" id="howManyNumbers" name="howManyNumbers" placeholder="1">
+
+                        <label class="generators-label" for="canStartZero">Can start with zero?</label>
+                        <input class="generators-input" type="checkbox" id="canStartZero" name="canStartZero">
+
                         <input type="submit" value="Submit">
                     </form>
                 </div>
