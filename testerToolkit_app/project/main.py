@@ -163,7 +163,7 @@ def generateRandom_post():
     print("canStartZero ", session["canStartZero"], flush=True)
     print("three ", session["three"], flush=True)
 
-    return render_template('index.html')
+    return render_template('generateRandom.html')
     
     
     
