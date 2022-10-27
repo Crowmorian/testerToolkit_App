@@ -145,9 +145,26 @@ def CSgenerateRandom():
 #test session variable memory
 @main.route('/generateRandom', methods=['POST'])
 def generateRandom_post():
+    session["howManyDigits"] = request.form.get("howManyDigits")
+    session["howManyNumbers"] = request.form.get("howManyNumbers")
+    session["canStartZero"] = request.form.get("canStartZero")
     session["zero"] = request.form.get('zero')
-    print(session["zero"], flush=True)
-    print(session["number"], flush=True)
+    session["one"] = request.form.get('one')
+    session["two"] = request.form.get('two')
+    session["three"] = request.form.get('three')
+    session["four"] = request.form.get('four')
+    session["five"] = request.form.get('five')
+    session["six"] = request.form.get('six')
+    session["seven"] = request.form.get('seven')
+    session["eight"] = request.form.get('eight')
+    session["nine"] = request.form.get('nine')
+    print(
+        "howManyDigits " + session["howManyDigits"],
+        "howManyNumbers " + session["howManyNumbers"],
+        "canStartZero " + session["canStartZero"],
+        "three " + session["three"], 
+        flush=True)
+
     return render_template('index.html')
     
     
