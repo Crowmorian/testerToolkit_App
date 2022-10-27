@@ -143,7 +143,7 @@ def CSgenerateRandom():
         return render_template('cs/generateRandom.html')
     
 #test session variable memory
-@main.route('/generateRandom', methods=['POST'])
+@main.route('/generateRandom', methods=['GET','POST'])
 def generateRandom_post():
     session["zero"] = request.form.get('zero')
     print(session["zero"], flush=True)
