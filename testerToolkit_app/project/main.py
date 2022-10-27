@@ -145,7 +145,7 @@ def CSgenerateRandom():
 #test session variable memory
 @main.route('/generateRandom', methods=['POST'])
 def generateRandom_post():
-    session["zero"] = request.form.get('username')
+    session["zero"] = request.form.get('zero')
     print(session["zero"], flush=True)
     print(session["number"], flush=True)
     
