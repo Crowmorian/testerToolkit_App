@@ -9,7 +9,7 @@ Created on Thu Oct 13 14:27:02 2022
 
 # Importing of necessary libraries
 #************************************
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, session
 from flask_login import login_required
 
 #Declaring routes and variables
@@ -141,3 +141,29 @@ def generateRandom():
 @login_required
 def CSgenerateRandom():
         return render_template('cs/generateRandom.html')
+    
+#test session variable memory
+@main.route('/generateRandom', methods=['POST'])
+def generateRandom_post():
+    session["zero"] = request.form.get('username')
+    print(session["zero"], flush=True)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
