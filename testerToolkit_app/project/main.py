@@ -158,12 +158,10 @@ def generateRandom_post():
     session["seven"] = request.form.get('seven')
     session["eight"] = request.form.get('eight')
     session["nine"] = request.form.get('nine')
-    print(
-        "howManyDigits " + session["howManyDigits"],
-        "howManyNumbers " + session["howManyNumbers"],
-        "canStartZero " + session["canStartZero"],
-        "three " + session["three"], 
-        flush=True)
+    print("howManyDigits ", session["howManyDigits"], flush=True)
+    print("howManyNumbers ", session["howManyNumbers"], flush=True)
+    print("canStartZero ", session["canStartZero"], flush=True)
+    print("three ", session["three"], flush=True)
 
     return render_template('index.html')
     
