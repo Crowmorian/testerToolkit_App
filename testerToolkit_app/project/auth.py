@@ -20,7 +20,6 @@ auth = Blueprint("auth", __name__)
 
 @auth.route('/login')
 def login():
-    session['number'] = str(uuid4())
     return render_template('login.html')
 
 @auth.route('/cs/login')
@@ -39,6 +38,7 @@ def login_post():
         return redirect(url_for('auth.login'))
     
     login_user(user)
+    session['number'] = str(uuid4())
     
     return redirect(url_for('main.index'))
 
