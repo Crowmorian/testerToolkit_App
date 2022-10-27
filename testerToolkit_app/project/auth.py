@@ -55,6 +55,7 @@ def CSlogin_post():
     
     login_user(user)
     session['number'] = str(uuid4())
+    print(session["name"], flush=True)
     
     return redirect(url_for('main.CSindex'))
 
