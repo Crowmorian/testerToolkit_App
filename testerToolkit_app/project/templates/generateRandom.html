@@ -3,34 +3,96 @@
 {% extends "generators.html" %}
 
 {% block generation %}
-<form class="creation-form">
-    <table class="creation-table">
-        <tr class="creation-track">
-            <td class="creation-column">
-                <div class="creation-container">
-                    <form method="POST" action="/login">
-                        <div class="field">
-                            <div class="control">
-                                <input class="login-input" type="text" name="username" placeholder="Your Name" autofocus="">
-                            </div>
-                        </div>
+<table class="creation-table">
+    <tr class="creation-track">
+        <td class="creation-column">
+            <div class="creation-container">
+                <form method="POST" action="/generateRandom">
+                    <label class="generators-label" for="howManyDigits" placeholder="10">How many digits?</label>
+                    <input class="generators-input" type="number" id="howManyDigits" name="howManyDigits" placeholder="10">
 
-                        <div class="field">
-                            <div class="control">
-                                <input class="login-input" type="password" name="password" placeholder="Your Password">
-                            </div>
-                        </div>
-                        <div class="field">
-                        </div>
-                        <button class="login-button">Login</button>
-                    </form>
-                </div>
-            </td>
-        </tr>
-    </table>
-</form>
+                    <label class="generators-label" for="howManyNumbers">How many numbers?</label>
+                    <input class="generators-input" type="number" id="howManyNumbers" name="howManyNumbers" placeholder="1">
+
+                    <label class="generators-label" for="canStartZero">Can start with zero?</label>
+                    <input class="generators-input" type="checkbox" id="canStartZero" name="canStartZero">
+
+                    <input type="submit" value="Submit">
+
+                    <table>
+                        <tr>
+                            <td>
+                                <label class="generators-label">0</label>
+                            </td>
+                            <td>
+                                <label class="generators-label">1</label>
+                            </td>
+                            <td>
+                                <label class="generators-label">2</label>
+                            </td>
+                            <td>
+                                <label class="generators-label">3</label>
+                            </td>
+                            <td>
+                                <label class="generators-label">4</label>
+                            </td>
+                            <td>
+                                <label class="generators-label">5</label>
+                            </td>
+                            <td>
+                                <label class="generators-label">6</label>
+                            </td>
+                            <td>
+                                <label class="generators-label">7</label>
+                            </td>
+                            <td>
+                                <label class="generators-label">8</label>
+                            </td>
+                            <td>
+                                <label class="generators-label">9</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="generators-input" type="checkbox" name="zero" {{ "checked" if session["zero"] == 0 }}>
+
+                            </td>
+                            <td>
+                                <input class="generators-input" type="checkbox" name="one" checked>
+                            </td>
+                            <td>
+                                <input class="generators-input" type="checkbox" name="two" checked>
+                            </td>
+                            <td>
+                                <input class="generators-input" type="checkbox" name="three" checked>
+                            </td>
+                            <td>
+                                <input class="generators-input" type="checkbox" name="four" checked>
+                            </td>
+                            <td>
+                                <input class="generators-input" type="checkbox" name="five" checked>
+                            </td>
+                            <td>
+                                <input class="generators-input" type="checkbox" name="six" checked>
+                            </td>
+                            <td>
+                                <input class="generators-input" type="checkbox" name="seven" checked>
+                            </td>
+                            <td>
+                                <input class="generators-input" type="checkbox" name="eight" checked>
+                            </td>
+                            <td>
+                                <input class="generators-input" type="checkbox" name="nine" checked>
+                            </td>
+                        </tr>
+                    </table>                        
+                </form>
+            </div>
+        </td>
+    </tr>
+</table>
 <div>
-    {% block generatedContent %}
-    {% endblock %}
+{% block generatedContent %}
+{% endblock %}
 </div>
 {% endblock %}
