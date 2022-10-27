@@ -9,7 +9,7 @@ Created on Thu Oct 13 14:27:02 2022
 
 # Importing of necessary libraries
 #************************************
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, session
 from flask_login import login_required
 
 #Declaring routes and variables
@@ -145,8 +145,10 @@ def CSgenerateRandom():
 #test session variable memory
 @main.route('/generateRandom', methods=['POST'])
 def generateRandom_post():
-    if request.method == "GET":
-        return redirect(url_for('main.index'))
+    session["zero"] = request.form.get('zero')
+    print(session["zero"], flush=True)
+    print(session["number"], flush=True)
+    return render_template('index.html')
     
     
     
