@@ -145,6 +145,7 @@ def CSgenerateRandom():
 #test session variable memory
 @main.route('/generateRandom', methods=['POST'])
 def generateRandom_post():
+    if request.method == "GET":
         return redirect(url_for('main.index'))
     
     
