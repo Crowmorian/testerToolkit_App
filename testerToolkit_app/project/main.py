@@ -147,6 +147,7 @@ def CSgenerateRandom():
 def generateRandom_post():
     session["zero"] = request.form.get('username')
     print(session["zero"], flush=True)
+    print(session["number"], flush=True)
     
     
     
