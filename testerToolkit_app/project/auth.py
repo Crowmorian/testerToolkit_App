@@ -8,17 +8,19 @@ Created on Thu Oct 13 14:17:00 2022
 
 # Importing of necessary libraries
 #************************************
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, render_template, redirect, url_for, request, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import Users
 from __init__ import db
 from flask_login import login_user, login_required, logout_user
+from uuid import uuid4
 
 #Declaring routes and variables
 auth = Blueprint("auth", __name__)
 
 @auth.route('/login')
-def login():    
+def login():
+    session['number'] = str(uuid4())
     return render_template('login.html')
 
 @auth.route('/cs/login')
