@@ -129,7 +129,7 @@ a.navbar-item-lang {
 	vertical-align: middle;
 }
 
-.login-input {
+.login-input .generators-input-numbers {
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
 	width: 90%;
