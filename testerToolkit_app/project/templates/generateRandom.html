@@ -133,14 +133,14 @@
                 </td>
             </tr>
         </table>
-        <div>
-            {% if results|length > 0 %}
-                <div>Generated Numbers</div>
-                {% for i in results %}
-                    <div>{{ i }}</div>
-                {% endfor %}
-            {% endif %}
-        </div>
+    </div>
+    <div class="creation-content">
+        {% if results|length > 0 %}
+            <content class="generated-content-title">Generated Numbers</content>
+            {% for i in results %}
+                <content class="generated-content-item">{{ i }}</content>
+            {% endfor %}
+        {% endif %}
     </div>
 </form>
 
