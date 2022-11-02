@@ -225,7 +225,7 @@ def generateRandom_post():
         for i in range(0,howManyNumbers):    
             randomSequence = (choices(whichNums, k = howManyDigits))
         
-            while randomSequence[0] == 0 and canStartZero == False:
+            while randomSequence[0] == 0 and canStartZero == None:
                 randomSequence = (choices(whichNums, k = howManyDigits))
             else:
                 listToStr = ' '.join([str(elem) for elem in randomSequence])
