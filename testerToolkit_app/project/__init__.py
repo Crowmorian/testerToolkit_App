@@ -20,7 +20,6 @@ from datetime import timedelta
 
 
 #Definition of the main functions
-selectedLanguage = "ENG"
 app = Flask(__name__, template_folder = './templates', static_folder = './templates/static')
 
 app.config['SECRET_KEY'] = "secretKey" #os.urandom(12).hex()
@@ -34,7 +33,6 @@ db.init_app(app)
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
-session["lang"] = "eng"
 
 from models import Users
 
