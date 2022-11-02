@@ -66,11 +66,13 @@ def CScreateMinor():
     
 @main.route("/setEng")
 def setEng ():
+    session["lang"] = "eng"
     return render_template('index.html')
 
 
 @main.route("/setCs")
 def setCs ():
+    session["lang"] = "cs"
     return render_template('cs/index.html')
 
 @main.route("/generators")
@@ -134,6 +136,7 @@ def CSgenerateMailNumber():
     return render_template('cs/generateMailNumber.html')
     
 @main.route("/generateRandom")
+@main.route("/cs/generateRandom")
 @login_required
 def generateRandom():
     if session["randomSaved"] == "noteSaved":
@@ -151,27 +154,37 @@ def generateRandom():
         session["eight"] = "on"
         session["nine"] = "on"
     
-    return render_template('generateRandom.html',
-        howManyDigits = session["howManyDigits"],
-        howManyNumbers = session["howManyNumbers"],
-        canStartZero = session["canStartZero"],
-        zero = session["zero"],
-        one = session["one"],
-        two = session["two"],
-        three = session["three"],
-        four = session["four"],
-        five = session["five"],
-        six = session["six"],
-        seven = session["seven"],
-        eight = session["eight"],
-        nine = session["nine"])
-    
-@main.route("/cs/generateRandom")
-@login_required
-def CSgenerateRandom():
-    return render_template('cs/generateRandom.html')
-    
-#test session variable memory
+    if session["lang"] == "eng":
+        return render_template('generateRandom.html',
+            howManyDigits = session["howManyDigits"],
+            howManyNumbers = session["howManyNumbers"],
+            canStartZero = session["canStartZero"],
+            zero = session["zero"],
+            one = session["one"],
+            two = session["two"],
+            three = session["three"],
+            four = session["four"],
+            five = session["five"],
+            six = session["six"],
+            seven = session["seven"],
+            eight = session["eight"],
+            nine = session["nine"])
+    elif session["lang"] == "cs":
+        return render_template('cs/generateRandom.html',
+            howManyDigits = session["howManyDigits"],
+            howManyNumbers = session["howManyNumbers"],
+            canStartZero = session["canStartZero"],
+            zero = session["zero"],
+            one = session["one"],
+            two = session["two"],
+            three = session["three"],
+            four = session["four"],
+            five = session["five"],
+            six = session["six"],
+            seven = session["seven"],
+            eight = session["eight"],
+            nine = session["nine"])
+
 @main.route('/generateRandom', methods=['POST'])
 def generateRandom_post():
     session["randomSaved"] = "saved"
