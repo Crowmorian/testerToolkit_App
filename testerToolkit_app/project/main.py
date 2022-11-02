@@ -217,19 +217,16 @@ def generateRandom_post():
         whichNums.append(9)
 
     # generate some integers
-    def randomNumber(howManyDigits, whichNums, canStartZero, howManyNumbers):
-        seed(randint(10000,99999))
-        
-        for i in range(0,howManyNumbers):    
+    seed(randint(10000,99999))
+    
+    for i in range(0,howManyNumbers):    
+        randomSequence = (choices(whichNums, k = howManyDigits))
+    
+        while randomSequence[0] == 0 and canStartZero == False:
             randomSequence = (choices(whichNums, k = howManyDigits))
-        
-            while randomSequence[0] == 0 and canStartZero == False:
-                randomSequence = (choices(whichNums, k = howManyDigits))
-            else:
-                listToStr = ' '.join([str(elem) for elem in randomSequence])
-                results.append(listToStr)
-            
-    randomNumber(howManyDigits, whichNums, canStartZero, howManyNumbers)
+        else:
+            listToStr = ' '.join([str(elem) for elem in randomSequence])
+            results.append(listToStr)
 
     return render_template('generateRandom.html',
         howManyDigits = session["howManyDigits"],
