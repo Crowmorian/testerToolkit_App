@@ -316,7 +316,7 @@ a.client-item:hover {
 	font-size: 18px;
 	font-weight: bold;
 	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 }
 .generators-button:hover {
 	border: 4px solid #6e95ff;
@@ -330,7 +330,7 @@ a.client-item:hover {
 }
 
 .generators-input-track{
-	height: 35px;
+	height: 25px;
 	margin-top: 5px;
 }
 
