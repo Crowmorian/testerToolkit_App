@@ -279,6 +279,17 @@ a.client-item:hover {
 	vertical-align: middle;
 }
 
+.generators-input-zero {
+	border: 4px solid #6e95ff;
+	border-radius: 10px;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	display: inline-block;
+	margin: 0;
+	vertical-align: middle;
+}
+
 .generators-input {
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
