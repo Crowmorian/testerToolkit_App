@@ -39,6 +39,7 @@ def login_post():
     
     login_user(user)
     session['number'] = str(uuid4())
+    session["randomSaved"] = "noteSaved"
     
     return redirect(url_for('main.index'))
 
@@ -55,6 +56,7 @@ def CSlogin_post():
     
     login_user(user)
     session['number'] = str(uuid4())
+    session["randomSaved"] = "noteSaved"
     
     return redirect(url_for('main.CSindex'))
 

@@ -135,7 +135,7 @@ def CSgenerateMailNumber():
 @main.route("/generateRandom")
 @login_required
 def generateRandom():
-    if session["randomSaved"] == None:
+    if session["randomSaved"] == "noteSaved":
         session["howManyDigits"] = 10
         session["howManyNumbers"] = 1
         session["canStartZero"] = "None"
