@@ -3,19 +3,145 @@
 {% extends "cs/generators.html" %}
 
 {% block generation %}
-<form class="creation-form">
-    <table class="creation-table">
-        <tr class="creation-track">
-            <td class="creation-column">
-                <div class="creation-container">
-                    Tady se bude zobrazovat formulář vygenerování náhodných čísel
-                </div>
-            </td>
-        </tr>
-    </table>
+<script type="text/javascript">  
+    function selectAll(){
+        var ele = document.getElementsByClassName('generators-input-numbers');
+
+        if(ele[0].checked == true) {
+            for(var i=0; i<ele.length; i++){  
+                if(ele[i].type=='checkbox')  
+                    ele[i].checked=false;  
+            }
+        } else if (ele[0].checked == false) {
+            for(var i=0; i<ele.length; i++){  
+                if(ele[i].type=='checkbox')  
+                    ele[i].checked=true;  
+            }
+        }         
+    }         
+</script>
+<form method="POST" action="/generateRandom">
+    <div class="creation-content">
+        <table class="creation-table">
+            <tr class="creation-track">
+                <td class="creation-column" colspan="10">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="notification is-danger">
+                            {{ messages[0] }}
+                        </div>
+                    {% endif %}
+                    {% endwith %}
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td colspan="5" class="generators-input-column">            
+                    <label class="generators-label" for="howManyDigits">Kolik míst?</label>
+                </td>
+                <td colspan="5" class="generators-input-column">
+                    <input class="generators-input" type="number" id="howManyDigits" name="howManyDigits" min="1" value="{{howManyDigits}}">
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td colspan="5" class="generators-input-column">
+                    <label class="generators-label" for="howManyNumbers">Kolik čísel?</label>
+                </td>
+                <td colspan="5" class="generators-input-column">
+                    <input class="generators-input" type="number" id="howManyNumbers" name="howManyNumbers" min="1" value="{{howManyNumbers}}">
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td colspan="5" class="generators-input-column">
+                    <label class="generators-label" for="canStartZero">Může začínat nulou?</label>
+                </td>
+                <td colspan="5" class="generators-input-column">
+                    <input class="generators-input-zero" type="checkbox" id="canStartZero" name="canStartZero" {{ "checked" if canStartZero == "on" }}>
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td>
+                    <label class="generators-label">0</label>
+                </td>
+                <td>
+                    <label class="generators-label">1</label>
+                </td>
+                <td>
+                    <label class="generators-label">2</label>
+                </td>
+                <td>
+                    <label class="generators-label">3</label>
+                </td>
+                <td>
+                    <label class="generators-label">4</label>
+                </td>
+                <td>
+                    <label class="generators-label">5</label>
+                </td>
+                <td>
+                    <label class="generators-label">6</label>
+                </td>
+                <td>
+                    <label class="generators-label">7</label>
+                </td>
+                <td>
+                    <label class="generators-label">8</label>
+                </td>
+                <td>
+                    <label class="generators-label">9</label>
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td>
+                    <input class="generators-input-numbers" type="checkbox" name="zero" {{ "checked" if zero == "on" }}>
+                </td>
+                <td>
+                    <input class="generators-input-numbers" type="checkbox" name="one" {{ "checked" if one == "on" }}>
+                </td>
+                <td>
+                    <input class="generators-input-numbers" type="checkbox" name="two" {{ "checked" if two == "on" }}>
+                </td>
+                <td>
+                    <input class="generators-input-numbers" type="checkbox" name="three" {{ "checked" if three == "on" }}>
+                </td>
+                <td>
+                    <input class="generators-input-numbers" type="checkbox" name="four" {{ "checked" if four == "on" }}>
+                </td>
+                <td>
+                    <input class="generators-input-numbers" type="checkbox" name="five" {{ "checked" if five == "on" }}>
+                </td>
+                <td>
+                    <input class="generators-input-numbers" type="checkbox" name="six" {{ "checked" if six == "on" }}>
+                </td>
+                <td>
+                    <input class="generators-input-numbers" type="checkbox" name="seven" {{ "checked" if seven == "on" }}>
+                </td>
+                <td>
+                    <input class="generators-input-numbers" type="checkbox" name="eight" {{ "checked" if eight == "on" }}>
+                </td>
+                <td>
+                    <input class="generators-input-numbers" type="checkbox" name="nine" {{ "checked" if nine == "on" }}>
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td colspan="10">
+                    <input class="generators-button" type="button" onclick='selectAll()' value="Vybrat/Zrušit vše"/>  
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td colspan="10">
+                    <input class="generators-button" type="submit" value="Vygenerovat">                        
+                </td>
+            </tr>
+        </table>
+    </div>
+    {% if results|length > 0 %}
+        <div class="creation-content">
+            <div class="generated-content-title">Vygenerovaná čísla</div>
+            {% for i in results %}
+                <div class="generated-content-item">{{ i }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
 </form>
-<div>
-    {% block generatedContent %}
-    {% endblock %}
-</div>
+
 {% endblock %}

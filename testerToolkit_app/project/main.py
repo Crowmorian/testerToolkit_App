@@ -136,7 +136,6 @@ def CSgenerateMailNumber():
     return render_template('cs/generateMailNumber.html')
     
 @main.route("/generateRandom")
-@main.route("/cs/generateRandom")
 @login_required
 def generateRandom():
     if session["randomSaved"] == "noteSaved":
@@ -154,36 +153,53 @@ def generateRandom():
         session["eight"] = "on"
         session["nine"] = "on"
     
-    if session["lang"] == "eng":
-        return render_template('generateRandom.html',
-            howManyDigits = session["howManyDigits"],
-            howManyNumbers = session["howManyNumbers"],
-            canStartZero = session["canStartZero"],
-            zero = session["zero"],
-            one = session["one"],
-            two = session["two"],
-            three = session["three"],
-            four = session["four"],
-            five = session["five"],
-            six = session["six"],
-            seven = session["seven"],
-            eight = session["eight"],
-            nine = session["nine"])
-    elif session["lang"] == "cs":
-        return render_template('cs/generateRandom.html',
-            howManyDigits = session["howManyDigits"],
-            howManyNumbers = session["howManyNumbers"],
-            canStartZero = session["canStartZero"],
-            zero = session["zero"],
-            one = session["one"],
-            two = session["two"],
-            three = session["three"],
-            four = session["four"],
-            five = session["five"],
-            six = session["six"],
-            seven = session["seven"],
-            eight = session["eight"],
-            nine = session["nine"])
+    return render_template('generateRandom.html',
+        howManyDigits = session["howManyDigits"],
+        howManyNumbers = session["howManyNumbers"],
+        canStartZero = session["canStartZero"],
+        zero = session["zero"],
+        one = session["one"],
+        two = session["two"],
+        three = session["three"],
+        four = session["four"],
+        five = session["five"],
+        six = session["six"],
+        seven = session["seven"],
+        eight = session["eight"],
+        nine = session["nine"])
+
+@main.route("/cs/generateRandom")
+@login_required
+def CSgenerateRandom():
+    if session["randomSaved"] == "noteSaved":
+        session["howManyDigits"] = 10
+        session["howManyNumbers"] = 1
+        session["canStartZero"] = "None"
+        session["zero"] = "on"
+        session["one"] = "on"
+        session["two"] = "on"
+        session["three"] = "on"
+        session["four"] = "on"
+        session["five"] = "on"
+        session["six"] = "on"
+        session["seven"] = "on"
+        session["eight"] = "on"
+        session["nine"] = "on"
+        
+    return render_template('cs/generateRandom.html',
+        howManyDigits = session["howManyDigits"],
+        howManyNumbers = session["howManyNumbers"],
+        canStartZero = session["canStartZero"],
+        zero = session["zero"],
+        one = session["one"],
+        two = session["two"],
+        three = session["three"],
+        four = session["four"],
+        five = session["five"],
+        six = session["six"],
+        seven = session["seven"],
+        eight = session["eight"],
+        nine = session["nine"])
 
 @main.route('/generateRandom', methods=['POST'])
 def generateRandom_post():
@@ -264,23 +280,83 @@ def generateRandom_post():
         eight = session["eight"],
         nine = session["nine"],
         results = results)
+
+@main.route('/cs/generateRandom', methods=['POST'])
+def CSgenerateRandom_post():
+    session["randomSaved"] = "saved"
+    session["howManyDigits"] = request.form.get("howManyDigits")
+    session["howManyNumbers"] = request.form.get("howManyNumbers")
+    session["canStartZero"] = request.form.get("canStartZero")
+    session["zero"] = request.form.get('zero')
+    session["one"] = request.form.get('one')
+    session["two"] = request.form.get('two')
+    session["three"] = request.form.get('three')
+    session["four"] = request.form.get('four')
+    session["five"] = request.form.get('five')
+    session["six"] = request.form.get('six')
+    session["seven"] = request.form.get('seven')
+    session["eight"] = request.form.get('eight')
+    session["nine"] = request.form.get('nine')
     
+    howManyDigits = int(request.form.get("howManyDigits"))
+    howManyNumbers = int(request.form.get("howManyNumbers"))
+    whichNums = []
+    canStartZero = request.form.get("canStartZero")
+    results = []
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    if request.form.get('zero') == "on":
+        whichNums.append(0)
+    if request.form.get('one') == "on":
+        whichNums.append(1)
+    if request.form.get('two') == "on":
+        whichNums.append(2)
+    if request.form.get('three') == "on":
+        whichNums.append(3)
+    if request.form.get('four') == "on":
+        whichNums.append(4)
+    if request.form.get('five') == "on":
+        whichNums.append(5)
+    if request.form.get('six') == "on":
+        whichNums.append(6)
+    if request.form.get('seven') == "on":
+        whichNums.append(7)
+    if request.form.get('eight') == "on":
+        whichNums.append(8)
+    if request.form.get('nine') == "on":
+        whichNums.append(9)
+        
+    if len(whichNums) == 0:
+        flash('Musí být vybráno alespoň jedno číslo.')
+    elif howManyDigits == 0:
+        flash('Vygenerované číslo musí obsahovat alespoň jednu číslici.')
+    elif howManyNumbers == 0:
+        flash('Musí být vygenerováno alespoň jedno číslo.')
+    else:
+        # generate some integers
+        seed(randint(10000,99999))
+        
+        for i in range(0,howManyNumbers):    
+            randomSequence = (choices(whichNums, k = howManyDigits))
+        
+            while randomSequence[0] == 0 and canStartZero == None:
+                randomSequence = (choices(whichNums, k = howManyDigits))
+            else:
+                listToStr = ' '.join([str(elem) for elem in randomSequence])
+                results.append(listToStr)
+        print(results, flush=True)
+
+    return render_template('cs/generateRandom.html',
+        howManyDigits = session["howManyDigits"],
+        howManyNumbers = session["howManyNumbers"],
+        canStartZero = session["canStartZero"],
+        zero = session["zero"],
+        one = session["one"],
+        two = session["two"],
+        three = session["three"],
+        four = session["four"],
+        five = session["five"],
+        six = session["six"],
+        seven = session["seven"],
+        eight = session["eight"],
+        nine = session["nine"],
+        results = results)
