@@ -312,3 +312,7 @@ a.client-item:hover {
 	background-color: #6e95ff;
 	color: white;
 }
+
+.generators-input-track{
+	width: 50%;
+}
