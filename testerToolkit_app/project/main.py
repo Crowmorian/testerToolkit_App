@@ -218,6 +218,10 @@ def generateRandom_post():
         
     if len(whichNums) == 0:
         flash('At least one number needs to be selected.')
+    elif howManyDigits == 0:
+        flash('Generated number needs to have at least 1 digit.')
+    elif howManyNumbers == 0:
+        flash('Need at least 1 number to generate.')
     else:
         # generate some integers
         seed(randint(10000,99999))
