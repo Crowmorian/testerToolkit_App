@@ -266,14 +266,14 @@ a.client-item:hover {
 	margin: 0 auto;
 	margin-top: 20px;
 	text-align: center;
-	width: 40%;
+	width: 35%;
 }
 
 .generators-input-numbers {
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
-	width: 30px;
-	height: 30px;
+	width: 24px;
+	height: 24px;
 	text-align: center;
 	display: inline-block;
 	margin: 0;
@@ -283,8 +283,8 @@ a.client-item:hover {
 .generators-input-zero {
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
-	width: 30px;
-	height: 30px;
+	width: 24px;
+	height: 24px;
 	text-align: center;
 	display: inline-block;
 	margin: 0;
