@@ -112,7 +112,9 @@
 </table>
 <div>
     {% if results|length > 0 %}
-        <div>{{ results }}</div>
+        {% for i in results %}
+            <div>{{ i }}</div>
+        {% endfor %}
     {% endif %}
 </div>
 {% endblock %}
