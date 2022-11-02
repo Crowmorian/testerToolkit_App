@@ -35,22 +35,26 @@
                 </td>
             </tr>
             <tr class="generators-input-track">
-                <td colspan="2" class="generators-input-column">            
+                <td colspan="5" class="generators-input-column">            
                     <label class="generators-label" for="howManyDigits">How many digits?</label>
                 </td>
-                <td colspan="1" class="generators-input-column">
+                <td colspan="5" class="generators-input-column">
                     <input class="generators-input" type="number" id="howManyDigits" name="howManyDigits" min="1" value="{{howManyDigits}}">
                 </td>
-                <td colspan="2" class="generators-input-column">
+            </tr>
+            <tr class="generators-input-track">
+                <td colspan="5" class="generators-input-column">
                     <label class="generators-label" for="howManyNumbers">How many numbers?</label>
                 </td>
-                <td colspan="1" class="generators-input-column">
+                <td colspan="5" class="generators-input-column">
                     <input class="generators-input" type="number" id="howManyNumbers" name="howManyNumbers" min="1" value="{{howManyNumbers}}">
                 </td>
-                <td colspan="3" class="generators-input-column">
+            </tr>
+            <tr class="generators-input-track">
+                <td colspan="5" class="generators-input-column">
                     <label class="generators-label" for="canStartZero">Can start with zero?</label>
                 </td>
-                <td colspan="1" class="generators-input-column">
+                <td colspan="5" class="generators-input-column">
                     <input class="generators-input-zero" type="checkbox" id="canStartZero" name="canStartZero" {{ "checked" if canStartZero == "on" }}>
                 </td>
             </tr>
