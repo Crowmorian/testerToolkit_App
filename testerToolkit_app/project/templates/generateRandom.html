@@ -111,7 +111,7 @@
     </tr>
 </table>
 <div>
-    {% if results %}
+    {% if len(results)>0 %}
         {% for i in results %}
             <div>{{ results[i] }}</div>
         {% endfor %}
