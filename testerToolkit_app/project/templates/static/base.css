@@ -295,6 +295,7 @@ a.client-item:hover {
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
 	font-size: 18px;
+	width: 50px;
 	text-align: center;
 	margin: 0 auto;
 }
