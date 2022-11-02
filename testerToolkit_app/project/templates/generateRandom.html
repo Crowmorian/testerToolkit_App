@@ -3,6 +3,27 @@
 {% extends "generators.html" %}
 
 {% block generation %}
+<script type="text/javascript">  
+    function selectAll(){
+        var state = 0;
+        var ele = document.getElementsById('chk');
+
+        if(state = 0) {
+            for(var i=0; i<ele.length; i++){  
+                if(ele[i].type=='checkbox')  
+                    ele[i].checked=true;  
+            }
+            state = 1; 
+        } else if (state = 1) {
+            for(var i=0; i<ele.length; i++){  
+                if(ele[i].type=='checkbox')  
+                    ele[i].checked=false;  
+            }
+            state = 0;
+        }         
+    }         
+</script>
+
 <table class="creation-table">
     <tr class="creation-track">
         <td class="creation-column">
@@ -54,34 +75,37 @@
                         </tr>
                         <tr>
                             <td>
-                                <input class="generators-input" type="checkbox" name="zero" {{ "checked" if zero == "on" }}>
+                                <input class="generators-input" type="checkbox" name="zero" id="chk" {{ "checked" if zero == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="one" {{ "checked" if one == "on" }}>
+                                <input class="generators-input" type="checkbox" name="one" id="chk" {{ "checked" if one == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="two" {{ "checked" if two == "on" }}>
+                                <input class="generators-input" type="checkbox" name="two" id="chk" {{ "checked" if two == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="three" {{ "checked" if three == "on" }}>
+                                <input class="generators-input" type="checkbox" name="three" id="chk" {{ "checked" if three == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="four" {{ "checked" if four == "on" }}>
+                                <input class="generators-input" type="checkbox" name="four" id="chk" {{ "checked" if four == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="five" {{ "checked" if five == "on" }}>
+                                <input class="generators-input" type="checkbox" name="five" id="chk" {{ "checked" if five == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="six" {{ "checked" if six == "on" }}>
+                                <input class="generators-input" type="checkbox" name="six" id="chk" {{ "checked" if six == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="seven" {{ "checked" if seven == "on" }}>
+                                <input class="generators-input" type="checkbox" name="seven" id="chk" {{ "checked" if seven == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="eight" {{ "checked" if eight == "on" }}>
+                                <input class="generators-input" type="checkbox" name="eight" id="chk" {{ "checked" if eight == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="nine" {{ "checked" if nine == "on" }}>
+                                <input class="generators-input" type="checkbox" name="nine" id="chk" {{ "checked" if nine == "on" }}>
+                            </td>
+                            <td>
+                                <input type="button" onclick='selectAll()' value="Select All"/>  
                             </td>
                         </tr>
                     </table>                        
