@@ -160,7 +160,7 @@ a.navbar-item-lang {
 	background-color: rgba(110, 149, 255, 0.6);
 	color: black;
 	width: 95%;
-	padding: 15px 32px;
+	/*padding: 15px 32px;*/
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
@@ -335,4 +335,8 @@ a.client-item:hover {
 
 .generators-label {
 	font-size: 24px;
+}
+
+.generated-content-item {
+	font-size: 18px;
 }
