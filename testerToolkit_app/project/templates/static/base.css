@@ -129,7 +129,7 @@ a.navbar-item-lang {
 	vertical-align: middle;
 }
 
-.login-input.generators-input-numbers {
+.login-input {
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
 	width: 90%;
@@ -266,4 +266,15 @@ a.client-item:hover {
 	margin-top: 20px;
 	text-align: center;
 	width: 50%;
+}
+
+.generators-input-numbers {
+	border: 4px solid #6e95ff;
+	border-radius: 10px;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	display: inline-block;
+	margin: 0;
+	vertical-align: middle;
 }
