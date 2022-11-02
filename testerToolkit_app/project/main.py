@@ -135,7 +135,7 @@ def CSgenerateMailNumber():
 @main.route("/generateRandom")
 @login_required
 def generateRandom():
-    if not session["saved"]:
+    if session["randomSaved"] == None:
         session["howManyDigits"] = 10
         session["howManyNumbers"] = 1
         session["canStartZero"] = "None"
@@ -173,7 +173,7 @@ def CSgenerateRandom():
 #test session variable memory
 @main.route('/generateRandom', methods=['POST'])
 def generateRandom_post():
-    session["saved"] = "saved"
+    session["randomSaved"] = "saved"
     session["howManyDigits"] = request.form.get("howManyDigits")
     session["howManyNumbers"] = request.form.get("howManyNumbers")
     session["canStartZero"] = request.form.get("canStartZero")
