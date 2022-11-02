@@ -313,8 +313,13 @@ a.client-item:hover {
 	color: white;
 }
 
-.generators-input-track{
+.generators-input-column{
 	width: 50%;
+}
+
+.generators-input-track{
+	height: 35px;
+	margin-top: 5px;
 }
 
 .generators-label {

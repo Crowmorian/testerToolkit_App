@@ -34,30 +34,31 @@
                     {% endwith %}
                 </td>
             </tr>
-            <tr>
-                <td colspan="5" class="generators-input-track">            
+            <tr class="generators-input-track">
+                <td colspan="5" class="generators-input-column">            
                     <label class="generators-label" for="howManyDigits">How many digits?</label>
                 </td>
-                <td colspan="5" class="generators-input-track">
+                <td colspan="5" class="generators-input-column">
                     <input class="generators-input" type="number" id="howManyDigits" name="howManyDigits" value="{{howManyDigits}}">
                 </td>
-            <tr>
-                <td colspan="5" class="generators-input-track">
+            </tr>
+            <tr class="generators-input-track">
+                <td colspan="5" class="generators-input-column">
                     <label class="generators-label" for="howManyNumbers">How many numbers?</label>
                 </td>
-                <td colspan="5" class="generators-input-track">
+                <td colspan="5" class="generators-input-column">
                     <input class="generators-input" type="number" id="howManyNumbers" name="howManyNumbers" value="{{howManyNumbers}}">
                 </td>
             </tr>
-            <tr>
-                <td colspan="5" class="generators-input-track">
+            <tr class="generators-input-track">
+                <td colspan="5" class="generators-input-column">
                     <label class="generators-label" for="canStartZero">Can start with zero?</label>
                 </td>
-                <td colspan="5" class="generators-input-track">
+                <td colspan="5" class="generators-input-column">
                     <input class="generators-input-numbers" type="checkbox" id="canStartZero" name="canStartZero" {{ "checked" if canStartZero == "on" }}>
                 </td>
             </tr>
-            <tr>
+            <tr class="generators-input-track">
                 <td>
                     <label class="generators-label">0</label>
                 </td>
@@ -89,7 +90,7 @@
                     <label class="generators-label">9</label>
                 </td>
             </tr>
-            <tr>
+            <tr class="generators-input-track">
                 <td>
                     <input class="generators-input-numbers" type="checkbox" name="zero" {{ "checked" if zero == "on" }}>
                 </td>
@@ -121,12 +122,12 @@
                     <input class="generators-input-numbers" type="checkbox" name="nine" {{ "checked" if nine == "on" }}>
                 </td>
             </tr>
-            <tr>
+            <tr class="generators-input-track">
                 <td colspan="10">
                     <input class="generators-button" type="button" onclick='selectAll()' value="Select/Deselect All"/>  
                 </td>
             </tr>
-            <tr>
+            <tr class="generators-input-track">
                 <td colspan="10">
                     <input class="generators-button" type="submit" value="Generate">                        
                 </td>
