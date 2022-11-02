@@ -251,6 +251,8 @@ def generateRandom_post():
         flash('Generated number needs to have at least 1 digit.')
     elif howManyNumbers == 0:
         flash('Need at least 1 number to generate.')
+    elif canStartZero == None and len(whichNums) == 1 and whichNums[0] == 0:
+        flash('If 0 is the only selected number, cannot generate numbers where 0 is not the first digit.')
     else:
         # generate some integers
         seed(randint(10000,99999))
@@ -331,6 +333,8 @@ def CSgenerateRandom_post():
         flash('Vygenerované číslo musí obsahovat alespoň jednu číslici.')
     elif howManyNumbers == 0:
         flash('Musí být vygenerováno alespoň jedno číslo.')
+    elif canStartZero == None and len(whichNums) == 1 and whichNums[0] == 0:
+        flash('Pokud seznam obsahuje pouze nulu, nelze generovat čísla bez nuly na prvním místě.')
     else:
         # generate some integers
         seed(randint(10000,99999))
