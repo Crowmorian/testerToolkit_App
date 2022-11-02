@@ -257,6 +257,7 @@ a.client-item:hover {
 	width: 70%;
 	margin: 0 auto;
 	margin-top: 20px;
+	margin-bottom: 10px;
 	justify-content: center;
 }
 
@@ -339,4 +340,5 @@ a.client-item:hover {
 
 .generated-content-item {
 	font-size: 18px;
+	margin-top: 5px;
 }
