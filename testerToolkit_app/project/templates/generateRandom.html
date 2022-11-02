@@ -9,13 +9,13 @@
         var ele = document.getElementsByClassName('generators-input-numbers');
 
         console.log(ele[0].checked);
-        
-        if(ele[0].checked = true) {
+
+        if(ele[0].checked == true) {
             for(var i=0; i<ele.length; i++){  
                 if(ele[i].type=='checkbox')  
                     ele[i].checked=false;  
             }
-        } else if (ele[0].checked = false) {
+        } else if (ele[0].checked == false) {
             for(var i=0; i<ele.length; i++){  
                 if(ele[i].type=='checkbox')  
                     ele[i].checked=true;  
