@@ -24,6 +24,13 @@
     <table class="creation-table">
         <tr class="creation-track">
             <td class="creation-column">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="notification is-danger">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+                {% endwith %}
                 <div class="creation-container">                
                     <label class="generators-label" for="howManyDigits">How many digits?</label>
                     <input class="generators-input" type="number" id="howManyDigits" name="howManyDigits" value="{{howManyDigits}}">

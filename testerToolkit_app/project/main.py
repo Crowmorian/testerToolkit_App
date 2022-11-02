@@ -9,7 +9,7 @@ Created on Thu Oct 13 14:27:02 2022
 
 # Importing of necessary libraries
 #************************************
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, render_template, request, session, flash
 from flask_login import login_required
 from random import randint, seed, choices
 
@@ -215,19 +215,22 @@ def generateRandom_post():
         whichNums.append(8)
     if request.form.get('nine') == "on":
         whichNums.append(9)
-
-    # generate some integers
-    seed(randint(10000,99999))
-    
-    for i in range(0,howManyNumbers):    
-        randomSequence = (choices(whichNums, k = howManyDigits))
-    
-        while randomSequence[0] == 0 and canStartZero == False:
+        
+    if len(whichNums) == 0:
+        flash('At least one number needs to be selected.')
+    else:
+        # generate some integers
+        seed(randint(10000,99999))
+        
+        for i in range(0,howManyNumbers):    
             randomSequence = (choices(whichNums, k = howManyDigits))
-        else:
-            listToStr = ' '.join([str(elem) for elem in randomSequence])
-            results.append(listToStr)
-    print(results, flush=True)
+        
+            while randomSequence[0] == 0 and canStartZero == False:
+                randomSequence = (choices(whichNums, k = howManyDigits))
+            else:
+                listToStr = ' '.join([str(elem) for elem in randomSequence])
+                results.append(listToStr)
+        print(results, flush=True)
 
     return render_template('generateRandom.html',
         howManyDigits = session["howManyDigits"],
