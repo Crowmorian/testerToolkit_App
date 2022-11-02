@@ -35,75 +35,77 @@
                     <label class="generators-label" for="canStartZero">Can start with zero?</label>
                     <input class="generators-input" type="checkbox" id="canStartZero" name="canStartZero" {{ "checked" if canStartZero == "on" }}>
 
-                    <table>
-                        <tr>
-                            <td>
-                                <label class="generators-label">0</label>
-                            </td>
-                            <td>
-                                <label class="generators-label">1</label>
-                            </td>
-                            <td>
-                                <label class="generators-label">2</label>
-                            </td>
-                            <td>
-                                <label class="generators-label">3</label>
-                            </td>
-                            <td>
-                                <label class="generators-label">4</label>
-                            </td>
-                            <td>
-                                <label class="generators-label">5</label>
-                            </td>
-                            <td>
-                                <label class="generators-label">6</label>
-                            </td>
-                            <td>
-                                <label class="generators-label">7</label>
-                            </td>
-                            <td>
-                                <label class="generators-label">8</label>
-                            </td>
-                            <td>
-                                <label class="generators-label">9</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input class="generators-input-numbers" type="checkbox" name="zero" {{ "checked" if zero == "on" }}>
-                            </td>
-                            <td>
-                                <input class="generators-input-numbers" type="checkbox" name="one" {{ "checked" if one == "on" }}>
-                            </td>
-                            <td>
-                                <input class="generators-input-numbers" type="checkbox" name="two" {{ "checked" if two == "on" }}>
-                            </td>
-                            <td>
-                                <input class="generators-input-numbers" type="checkbox" name="three" {{ "checked" if three == "on" }}>
-                            </td>
-                            <td>
-                                <input class="generators-input-numbers" type="checkbox" name="four" {{ "checked" if four == "on" }}>
-                            </td>
-                            <td>
-                                <input class="generators-input-numbers" type="checkbox" name="five" {{ "checked" if five == "on" }}>
-                            </td>
-                            <td>
-                                <input class="generators-input-numbers" type="checkbox" name="six" {{ "checked" if six == "on" }}>
-                            </td>
-                            <td>
-                                <input class="generators-input-numbers" type="checkbox" name="seven" {{ "checked" if seven == "on" }}>
-                            </td>
-                            <td>
-                                <input class="generators-input-numbers" type="checkbox" name="eight" {{ "checked" if eight == "on" }}>
-                            </td>
-                            <td>
-                                <input class="generators-input-numbers" type="checkbox" name="nine" {{ "checked" if nine == "on" }}>
-                            </td>
-                            <td>
-                                <input type="button" onclick='selectAll()' value="Select/Deselect All"/>  
-                            </td>
-                        </tr>
-                    </table>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label class="generators-label">0</label>
+                                </td>
+                                <td>
+                                    <label class="generators-label">1</label>
+                                </td>
+                                <td>
+                                    <label class="generators-label">2</label>
+                                </td>
+                                <td>
+                                    <label class="generators-label">3</label>
+                                </td>
+                                <td>
+                                    <label class="generators-label">4</label>
+                                </td>
+                                <td>
+                                    <label class="generators-label">5</label>
+                                </td>
+                                <td>
+                                    <label class="generators-label">6</label>
+                                </td>
+                                <td>
+                                    <label class="generators-label">7</label>
+                                </td>
+                                <td>
+                                    <label class="generators-label">8</label>
+                                </td>
+                                <td>
+                                    <label class="generators-label">9</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="generators-input-numbers" type="checkbox" name="zero" {{ "checked" if zero == "on" }}>
+                                </td>
+                                <td>
+                                    <input class="generators-input-numbers" type="checkbox" name="one" {{ "checked" if one == "on" }}>
+                                </td>
+                                <td>
+                                    <input class="generators-input-numbers" type="checkbox" name="two" {{ "checked" if two == "on" }}>
+                                </td>
+                                <td>
+                                    <input class="generators-input-numbers" type="checkbox" name="three" {{ "checked" if three == "on" }}>
+                                </td>
+                                <td>
+                                    <input class="generators-input-numbers" type="checkbox" name="four" {{ "checked" if four == "on" }}>
+                                </td>
+                                <td>
+                                    <input class="generators-input-numbers" type="checkbox" name="five" {{ "checked" if five == "on" }}>
+                                </td>
+                                <td>
+                                    <input class="generators-input-numbers" type="checkbox" name="six" {{ "checked" if six == "on" }}>
+                                </td>
+                                <td>
+                                    <input class="generators-input-numbers" type="checkbox" name="seven" {{ "checked" if seven == "on" }}>
+                                </td>
+                                <td>
+                                    <input class="generators-input-numbers" type="checkbox" name="eight" {{ "checked" if eight == "on" }}>
+                                </td>
+                                <td>
+                                    <input class="generators-input-numbers" type="checkbox" name="nine" {{ "checked" if nine == "on" }}>
+                                </td>
+                                <td>
+                                    <input type="button" onclick='selectAll()' value="Select/Deselect All"/>  
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                     <input type="submit" value="Submit">                        
                 </form>
             </div>
