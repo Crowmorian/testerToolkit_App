@@ -227,6 +227,7 @@ def generateRandom_post():
         else:
             listToStr = ' '.join([str(elem) for elem in randomSequence])
             results.append(listToStr)
+    print(results, flush=True)
 
     return render_template('generateRandom.html',
         howManyDigits = session["howManyDigits"],
