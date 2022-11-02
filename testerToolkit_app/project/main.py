@@ -197,23 +197,23 @@ def generateRandom_post():
     
     if request.form.get('zero') == "on":
         whichNums.append(0)
-    elif request.form.get('one') == "on":
+    if request.form.get('one') == "on":
         whichNums.append(1)
-    elif request.form.get('two') == "on":
+    if request.form.get('two') == "on":
         whichNums.append(2)
-    elif request.form.get('three') == "on":
+    if request.form.get('three') == "on":
         whichNums.append(3)
-    elif request.form.get('four') == "on":
+    if request.form.get('four') == "on":
         whichNums.append(4)
-    elif request.form.get('five') == "on":
+    if request.form.get('five') == "on":
         whichNums.append(5)
-    elif request.form.get('six') == "on":
+    if request.form.get('six') == "on":
         whichNums.append(6)
-    elif request.form.get('seven') == "on":
+    if request.form.get('seven') == "on":
         whichNums.append(7)
-    elif request.form.get('eight') == "on":
+    if request.form.get('eight') == "on":
         whichNums.append(8)
-    elif request.form.get('nine') == "on":
+    if request.form.get('nine') == "on":
         whichNums.append(9)
 
     # generate some integers
