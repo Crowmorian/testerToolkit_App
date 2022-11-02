@@ -75,37 +75,11 @@ def setCs ():
 @main.route("/generators")
 @login_required
 def generators():
-    session["howManyDigits"] = 10
-    session["howManyNumbers"] = 1
-    session["canStartZero"] = "None"
-    session["zero"] = "on"
-    session["one"] = "on"
-    session["two"] = "on"
-    session["three"] = "on"
-    session["four"] = "on"
-    session["five"] = "on"
-    session["six"] = "on"
-    session["seven"] = "on"
-    session["eight"] = "on"
-    session["nine"] = "on"
     return render_template('generators.html')
     
 @main.route("/cs/generators")
 @login_required
 def CSgenerators():
-    session["howManyDigits"] = 10
-    session["howManyNumbers"] = 1
-    session["canStartZero"] = "None"
-    session["zero"] = "on"
-    session["one"] = "on"
-    session["two"] = "on"
-    session["three"] = "on"
-    session["four"] = "on"
-    session["five"] = "on"
-    session["six"] = "on"
-    session["seven"] = "on"
-    session["eight"] = "on"
-    session["nine"] = "on"
     return render_template('cs/generators.html')
     
 @main.route("/generateIBAN")
@@ -161,7 +135,35 @@ def CSgenerateMailNumber():
 @main.route("/generateRandom")
 @login_required
 def generateRandom():
-    return render_template('generateRandom.html')
+    if not session["saved"]:
+        session["howManyDigits"] = 10
+        session["howManyNumbers"] = 1
+        session["canStartZero"] = "None"
+        session["zero"] = "on"
+        session["one"] = "on"
+        session["two"] = "on"
+        session["three"] = "on"
+        session["four"] = "on"
+        session["five"] = "on"
+        session["six"] = "on"
+        session["seven"] = "on"
+        session["eight"] = "on"
+        session["nine"] = "on"
+    
+    return render_template('generateRandom.html',
+        howManyDigits = session["howManyDigits"],
+        howManyNumbers = session["howManyNumbers"],
+        canStartZero = session["canStartZero"],
+        zero = session["zero"],
+        one = session["one"],
+        two = session["two"],
+        three = session["three"],
+        four = session["four"],
+        five = session["five"],
+        six = session["six"],
+        seven = session["seven"],
+        eight = session["eight"],
+        nine = session["nine"])
     
 @main.route("/cs/generateRandom")
 @login_required
@@ -171,6 +173,7 @@ def CSgenerateRandom():
 #test session variable memory
 @main.route('/generateRandom', methods=['POST'])
 def generateRandom_post():
+    session["saved"] = "saved"
     session["howManyDigits"] = request.form.get("howManyDigits")
     session["howManyNumbers"] = request.form.get("howManyNumbers")
     session["canStartZero"] = request.form.get("canStartZero")
