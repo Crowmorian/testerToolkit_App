@@ -36,17 +36,23 @@
         <tr>
             <td>            
                 <label class="generators-label" for="howManyDigits">How many digits?</label>
+            </td>
+            <td>
                 <input class="generators-input" type="number" id="howManyDigits" name="howManyDigits" value="{{howManyDigits}}">
             </td>
         <tr>
             <td>
                 <label class="generators-label" for="howManyNumbers">How many numbers?</label>
+            </td>
+            <td>
                 <input class="generators-input" type="number" id="howManyNumbers" name="howManyNumbers" value="{{howManyNumbers}}">
             </td>
         </tr>
         <tr>
             <td>
                 <label class="generators-label" for="canStartZero">Can start with zero?</label>
+            </td>
+            <td>
                 <input class="generators-input" type="checkbox" id="canStartZero" name="canStartZero" {{ "checked" if canStartZero == "on" }}>
             </td>
         </tr>
