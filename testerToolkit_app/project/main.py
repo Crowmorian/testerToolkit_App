@@ -11,6 +11,7 @@ Created on Thu Oct 13 14:27:02 2022
 #************************************
 from flask import Blueprint, render_template, request, session
 from flask_login import login_required
+from random import randint, seed, choices
 
 #Declaring routes and variables
 main = Blueprint("main", __name__)
@@ -187,6 +188,48 @@ def generateRandom_post():
     session["seven"] = request.form.get('seven')
     session["eight"] = request.form.get('eight')
     session["nine"] = request.form.get('nine')
+    
+    howManyDigits = request.form.get("howManyDigits")
+    howManyNumbers = request.form.get("howManyNumbers")
+    whichNums = []
+    canStartZero = request.form.get("canStartZero")
+    results = []
+    
+    if request.form.get('zero') == "on":
+        whichNums.append(0)
+    elif request.form.get('one') == "on":
+        whichNums.append(1)
+    elif request.form.get('two') == "on":
+        whichNums.append(2)
+    elif request.form.get('three') == "on":
+        whichNums.append(3)
+    elif request.form.get('four') == "on":
+        whichNums.append(4)
+    elif request.form.get('five') == "on":
+        whichNums.append(5)
+    elif request.form.get('six') == "on":
+        whichNums.append(6)
+    elif request.form.get('seven') == "on":
+        whichNums.append(7)
+    elif request.form.get('eight') == "on":
+        whichNums.append(8)
+    elif request.form.get('nine') == "on":
+        whichNums.append(9)
+
+    # generate some integers
+    def randomNumber(howManyDigits, whichNums, canStartZero, howManyNumbers):
+        seed(randint(10000,99999))
+        
+        for i in range(0,howManyNumbers):    
+            randomSequence = (choices(whichNums, k = howManyDigits))
+        
+            while randomSequence[0] == 0 and canStartZero == False:
+                randomSequence = (choices(whichNums, k = howManyDigits))
+            else:
+                listToStr = ' '.join([str(elem) for elem in randomSequence])
+                results.append(listToStr)
+            
+    randomNumber(howManyDigits, whichNums, canStartZero, howManyNumbers)
 
     return render_template('generateRandom.html',
         howManyDigits = session["howManyDigits"],
@@ -201,7 +244,8 @@ def generateRandom_post():
         six = session["six"],
         seven = session["seven"],
         eight = session["eight"],
-        nine = session["nine"])
+        nine = session["nine"],
+        results = results)
     
     
     

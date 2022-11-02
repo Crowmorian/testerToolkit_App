@@ -35,8 +35,6 @@
                     <label class="generators-label" for="canStartZero">Can start with zero?</label>
                     <input class="generators-input" type="checkbox" id="canStartZero" name="canStartZero" {{ "checked" if canStartZero == "on" }}>
 
-                    <input type="submit" value="Submit">
-
                     <table>
                         <tr>
                             <td>
@@ -102,17 +100,21 @@
                                 <input class="generators-input-numbers" type="checkbox" name="nine" {{ "checked" if nine == "on" }}>
                             </td>
                             <td>
-                                <input type="button" onclick='selectAll()' value="Select All"/>  
+                                <input type="button" onclick='selectAll()' value="Select/Deselect All"/>  
                             </td>
                         </tr>
-                    </table>                        
+                    </table>
+                    <input type="submit" value="Submit">                        
                 </form>
             </div>
         </td>
     </tr>
 </table>
 <div>
-{% block generatedContent %}
-{% endblock %}
+    {% if results %}
+        {% for i in results %}
+            <div>{{ results[i] }}</div>
+        {% endfor %}
+    {% endif %}
 </div>
 {% endblock %}
