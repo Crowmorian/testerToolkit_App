@@ -259,3 +259,7 @@ a.client-item:hover {
 	margin-top: 20px;
 	justify-content: center;
 }
+
+.numberSelection-table {
+	justify-content: center;
+}
