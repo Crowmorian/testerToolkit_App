@@ -15,7 +15,7 @@
                     <input class="generators-input" type="number" id="howManyNumbers" name="howManyNumbers" value="{{howManyNumbers}}">
 
                     <label class="generators-label" for="canStartZero">Can start with zero?</label>
-                    <input class="generators-input" type="checkbox" id="canStartZero" name="canStartZero">
+                    <input class="generators-input" type="checkbox" id="canStartZero" name="canStartZero" {{ "checked" if canStartZero == "on" }}>
 
                     <input type="submit" value="Submit">
 
@@ -57,31 +57,31 @@
                                 <input class="generators-input" type="checkbox" name="zero" {{ "checked" if zero == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="one" checked>
+                                <input class="generators-input" type="checkbox" name="one" {{ "checked" if one == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="two" checked>
+                                <input class="generators-input" type="checkbox" name="two" {{ "checked" if two == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="three" checked>
+                                <input class="generators-input" type="checkbox" name="three" {{ "checked" if three == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="four" checked>
+                                <input class="generators-input" type="checkbox" name="four" {{ "checked" if four == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="five" checked>
+                                <input class="generators-input" type="checkbox" name="five" {{ "checked" if five == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="six" checked>
+                                <input class="generators-input" type="checkbox" name="six" {{ "checked" if six == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="seven" checked>
+                                <input class="generators-input" type="checkbox" name="seven" {{ "checked" if seven == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="eight" checked>
+                                <input class="generators-input" type="checkbox" name="eight" {{ "checked" if eight == "on" }}>
                             </td>
                             <td>
-                                <input class="generators-input" type="checkbox" name="nine" checked>
+                                <input class="generators-input" type="checkbox" name="nine" {{ "checked" if nine == "on" }}>
                             </td>
                         </tr>
                     </table>                        
