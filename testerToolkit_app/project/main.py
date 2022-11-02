@@ -189,8 +189,8 @@ def generateRandom_post():
     session["eight"] = request.form.get('eight')
     session["nine"] = request.form.get('nine')
     
-    howManyDigits = request.form.get("howManyDigits")
-    howManyNumbers = request.form.get("howManyNumbers")
+    howManyDigits = int(request.form.get("howManyDigits"))
+    howManyNumbers = int(request.form.get("howManyNumbers"))
     whichNums = []
     canStartZero = request.form.get("canStartZero")
     results = []
