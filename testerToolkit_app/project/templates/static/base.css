@@ -316,3 +316,7 @@ a.client-item:hover {
 .generators-input-track{
 	width: 50%;
 }
+
+.generators-label {
+	font-size: 18px;
+}
