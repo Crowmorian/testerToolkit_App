@@ -134,14 +134,14 @@
             </tr>
         </table>
     </div>
-    <div class="creation-content">
-        {% if results|length > 0 %}
+    {% if results|length > 0 %}
+        <div class="creation-content">
             <div class="generated-content-title">Generated Numbers</div>
             {% for i in results %}
                 <div class="generated-content-item">{{ i }}</div>
             {% endfor %}
-        {% endif %}
-    </div>
+        </div>
+    {% endif %}
 </form>
 
 {% endblock %}
