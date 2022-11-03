@@ -371,10 +371,6 @@ a.client-item:hover {
   justify-self: right;
 }
 
-.popup .popuptext .cs {
-	right: -95%;
-}
-
 .popup .popuptext {
   visibility: hidden;
   width: 400px;
@@ -389,6 +385,10 @@ a.client-item:hover {
   right: -105%;
   font-size: 15px;
   font-weight: normal;
+}
+
+.popup .popuptext .cs {
+	right: -95%;
 }
 
 .popup .show {
