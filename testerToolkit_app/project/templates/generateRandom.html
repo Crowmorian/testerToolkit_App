@@ -19,14 +19,12 @@
             }
         }
     }
-    function openCloseForm() {
-      let element = document.getElementById("legend")
+    function openForm() {
+      document.getElementById("legend").style.display = "block";
+    }
 
-      if (element.style.display == "none") {
-        element.style.display = "block";
-      } else if (element.style.display == "block") {
-        element.style.display = "none";
-      }
+    function closeForm() {
+      document.getElementById("legend").style.display = "none";
     }
 </script>
 <form method="POST" action="/generateRandom">
@@ -34,12 +32,21 @@
         <table class="creation-table">
             <tr class="creation-track">
                 <td class="creation-column" colspan="10">
-                    <button class="open-button" onclick="openCloseForm()">Open Legend</button>
+                    <button class="open-button" onclick="openForm()">Open Form</button>
 
                     <div class="form-popup" id="legend">
-                      <div class="form-container">
-                        <h1>Legend</h1>
-                      </div>
+                      <form action="/action_page.php" class="form-container">
+                        <h1>Login</h1>
+
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" name="email" required>
+
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+
+                        <button type="submit" class="btn">Login</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                      </form>
                     </div>
                     {% with messages = get_flashed_messages() %}
                     {% if messages %}
