@@ -17,7 +17,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 import os
 from datetime import timedelta
-
+import sqlite3
 
 #Definition of the main functions
 app = Flask(__name__, template_folder = './templates', static_folder = './templates/static')
@@ -30,6 +30,7 @@ db = SQLAlchemy(app)
 
 db.init_app(app)
 
+#Login and session setup
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
@@ -53,3 +54,5 @@ app.register_blueprint(auth_blueprint)
 from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
 
+#Connecting database for generated and required data
+con = sqlite3.connect("tutorial.db")
