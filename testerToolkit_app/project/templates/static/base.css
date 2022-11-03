@@ -377,7 +377,7 @@ a.client-item:hover {
   position: absolute;
   z-index: 1;
   top: 125%;
-  right: 50%;
+  right: 100%;
   margin-left: -80px;
 }
 
