@@ -364,7 +364,6 @@ a.client-item:hover {
   -ms-user-select: none;
   user-select: none;
   float: right;
-  font-size: 35px;
   padding: 5px;
   color: #6e95ff;
 }
