@@ -31,7 +31,7 @@ def randomNumber(howManyDigits, whichNums, canStartZero, howManyNumbers):
         while randomSequence[0] == 0 and canStartZero == False:
             randomSequence = (choices(whichNums, k = howManyDigits))
         else:
-            listToStr = ' '.join([str(elem) for elem in randomSequence])
+            listToStr = ''.join([str(elem) for elem in randomSequence])
             results.append(listToStr)
             
     print(results)
