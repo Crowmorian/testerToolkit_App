@@ -55,4 +55,5 @@ from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
 
 #Connecting database for generated and required data
-con = sqlite3.connect("tutorial.db")
+con = sqlite3.connect("genData.sqlite")
+cur = con.cursor()

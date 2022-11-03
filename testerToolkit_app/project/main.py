@@ -12,6 +12,7 @@ Created on Thu Oct 13 14:27:02 2022
 from flask import Blueprint, render_template, request, session, flash
 from flask_login import login_required
 from random import randint, seed, choices
+from __init__ import con
 
 #Declaring routes and variables
 main = Blueprint("main", __name__)
