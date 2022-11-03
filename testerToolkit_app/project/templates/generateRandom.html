@@ -19,30 +19,12 @@
             }
         }
     }
-    function openCloseForm() {
-      var element = document.getElementById("legend")
-
-      if (element.style.display == "none") {
-        element.style.display = "block";
-      } else if (element.style.display == "block") {
-        element.style.display = "none"
-      }
-    }
 </script>
 <form method="POST" action="/generateRandom">
     <div class="creation-content">
         <table class="creation-table">
             <tr class="creation-track">
                 <td class="creation-column" colspan="10">
-
-                    <button class="open-button" onclick="openCloseForm()">Open Form</button>
-
-                    <div class="form-popup" id="legend">
-                      <div class="form-container">
-                        <h1>Login</h1>
-                      </div>
-                    </div>
-
                     {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         <div class="notification is-danger">
