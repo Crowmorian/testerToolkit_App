@@ -363,6 +363,7 @@ a.client-item:hover {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  float: right;
 }
 
 .popup .popuptext {
