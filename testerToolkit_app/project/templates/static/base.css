@@ -353,6 +353,7 @@ a.client-item:hover {
 .generated-content-item {
 	font-size: 18px;
 	padding: 10px;
+	overflow-wrap: break-word;
 }
 
 .popup {

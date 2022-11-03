@@ -30,7 +30,7 @@
 </script>
 <form method="POST" action="/generateRandom">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">?
+        <div class="popup" onclick="showPopUp()">Need help?
             <span class="popuptext" id="legend">
                 <p>
                     Legend
@@ -156,7 +156,7 @@
         <div class="creation-content">
             <div class="generated-content-title">Generated Numbers</div>
             {% for i in results %}
-                <content class="generated-content-item">{{ i }}</content>
+                <content class="generated-content-item">{{ i }}, </content>
             {% endfor %}
         </div>
     {% endif %}
