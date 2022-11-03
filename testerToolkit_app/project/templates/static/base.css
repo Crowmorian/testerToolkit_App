@@ -265,7 +265,6 @@ a.client-item:hover {
 	margin-top: 20px;
 	margin-bottom: 10px;
 	justify-content: center;
-	justify-items: center;
 }
 
 .creation-table {
@@ -283,7 +282,7 @@ a.client-item:hover {
 	height: 24px;
 	text-align: center;
 	display: inline-block;
-	margin: 0;
+	margin: 50% auto;
 	vertical-align: middle;
 }
 
