@@ -137,9 +137,9 @@
     {% if results|length > 0 %}
         <div class="creation-content">
             <div class="generated-content-title">Generated Numbers</div>
-            <div>
+            <div class="generated-content-item">
                 {% for i in results %}
-                    <content class="generated-content-item">{{ i }}, </content>
+                    <content>{{ i }}, </content>
                 {% endfor %}
             </div>
         </div>
