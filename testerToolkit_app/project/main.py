@@ -263,8 +263,7 @@ def generateRandom_post():
             while randomSequence[0] == 0 and canStartZero == None:
                 randomSequence = (choices(whichNums, k = howManyDigits))
             else:
-                listToStr = ' '.join([str(elem) for elem in randomSequence])
-                listToStr = listToStr.strip()
+                listToStr = ''.join([str(elem) for elem in randomSequence])
                 results.append(listToStr)
         print(results, flush=True)
 
@@ -346,7 +345,7 @@ def CSgenerateRandom_post():
             while randomSequence[0] == 0 and canStartZero == None:
                 randomSequence = (choices(whichNums, k = howManyDigits))
             else:
-                listToStr = ' '.join([str(elem) for elem in randomSequence])
+                listToStr = ''.join([str(elem) for elem in randomSequence])
                 results.append(listToStr)
         print(results, flush=True)
 
