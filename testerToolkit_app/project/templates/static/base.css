@@ -387,8 +387,20 @@ a.client-item:hover {
   font-weight: normal;
 }
 
-.popup .popuptext .cs {
-	right: -95%;
+.popup .popuptextCS {
+  visibility: hidden;
+  width: 400px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  right: -95%;
+  font-size: 15px;
+  font-weight: normal;
 }
 
 .popup .show {
