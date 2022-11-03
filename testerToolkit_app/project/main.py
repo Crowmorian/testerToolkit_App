@@ -264,8 +264,8 @@ def generateRandom_post():
                 randomSequence = (choices(whichNums, k = howManyDigits))
             else:
                 listToStr = ' '.join([str(elem) for elem in randomSequence])
-                listToInt = int(listToStr)
-                results.append(listToInt)
+                listToStr = listToStr.strip()
+                results.append(listToStr)
         print(results, flush=True)
 
     return render_template('generateRandom.html',
@@ -347,8 +347,7 @@ def CSgenerateRandom_post():
                 randomSequence = (choices(whichNums, k = howManyDigits))
             else:
                 listToStr = ' '.join([str(elem) for elem in randomSequence])
-                listToInt = int(listToStr)
-                results.append(listToInt)
+                results.append(listToStr)
         print(results, flush=True)
 
     return render_template('cs/generateRandom.html',
