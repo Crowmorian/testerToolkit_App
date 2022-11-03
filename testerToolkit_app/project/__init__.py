@@ -17,10 +17,12 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 import os
 from datetime import timedelta
+from flask_modals import Modal
 
 
 #Definition of the main functions
 app = Flask(__name__, template_folder = './templates', static_folder = './templates/static')
+modal = Modal(app)
 
 app.config['SECRET_KEY'] = "secretKey" #os.urandom(12).hex()
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///userDB.db"
