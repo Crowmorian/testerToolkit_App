@@ -341,10 +341,9 @@ a.client-item:hover {
 
 .generators-label {
 	font-size: 18px;
-	margin: 25px;
+	padding-top: 150px;
 }
 
 .generated-content-item {
 	font-size: 18px;
-	margin: 10px;
 }
