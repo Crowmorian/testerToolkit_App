@@ -19,12 +19,14 @@
             }
         }
     }
-    function openForm() {
-      document.getElementById("legend").style.display = "block";
-    }
+    function openCloseForm() {
+      let element = document.getElementById("legend")
 
-    function closeForm() {
-      document.getElementById("legend").style.display = "none";
+      if (element.style.display == "none") {
+        element.style.display = "block";
+      } else if (element.style.display == "block") {
+        element.style.display = "none";
+      }
     }
 </script>
 <form method="POST" action="/generateRandom">
@@ -32,7 +34,7 @@
         <table class="creation-table">
             <tr class="creation-track">
                 <td class="creation-column" colspan="10">
-                    <button class="open-button" onclick="openForm()">Open Form</button>
+                    <button class="open-button" onclick="openCloseForm()">Open Form</button>
 
                     <div class="form-popup" id="legend">
                       <form action="/action_page.php" class="form-container">
