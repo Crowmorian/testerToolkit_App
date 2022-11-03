@@ -121,7 +121,7 @@ a.navbar-item-lang {
 	margin-top: 15px;
 }
 
-.login-title, .generated-content-title{
+.login-title {
 	font-weight: bold;
 	font-family: "Arial";
 	font-size: 24px;
@@ -341,20 +341,16 @@ a.client-item:hover {
 
 .generators-label {
 	font-size: 18px;
-	display: block;
-  position: relative;
-  height:auto;
-  bottom:0;
-  top:0;
-  left:0;
-  right:0;
-  margin-top:20px;
-  margin-bottom:20px;
-  margin-right:80px;
-  margin-left:80px;
-  background-color: green;
+}
+
+.generated-content-title {
+	font-weight: bold;
+	font-family: "Arial";
+	font-size: 24px;
+	margin: 25px;
 }
 
 .generated-content-item {
 	font-size: 18px;
+	margin: 10px;
 }
