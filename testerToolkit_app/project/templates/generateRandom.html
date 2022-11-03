@@ -36,9 +36,10 @@
                     <button class="open-button" onclick="openForm()">Open Form</button>
 
                     <div class="form-popup" id="legend">
-                      <div action="/action_page.php" class="form-container">
-                        <h1>Legend</h1>
-                      </div>
+                      <form action="/action_page.php" class="form-container">
+                        <h1>Login</h1>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                      </form>
                     </div>
 
                     {% with messages = get_flashed_messages() %}
