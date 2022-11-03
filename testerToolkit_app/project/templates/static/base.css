@@ -353,5 +353,5 @@ a.client-item:hover {
 .generated-content-item {
 	font-size: 18px;
 	margin: 10px;
-	margin-right: 25px;
+	padding-right: 25px;
 }
