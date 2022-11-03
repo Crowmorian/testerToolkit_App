@@ -30,11 +30,6 @@
         <table class="creation-table">
             <tr class="creation-track">
                 <td class="creation-column" colspan="10">
-
-                    <div class="popup" onclick="myFunction()">Click me to toggle the popup!
-                        <span class="popuptext" id="myPopup">A Simple Popup!</span>
-                    </div>
-
                     {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         <div class="notification is-danger">
@@ -153,5 +148,7 @@
         </div>
     {% endif %}
 </form>
-
+<div class="popup" onclick="myFunction()">Click me to toggle the popup!
+    <span class="popuptext" id="myPopup">A Simple Popup!</span>
+</div>
 {% endblock %}
