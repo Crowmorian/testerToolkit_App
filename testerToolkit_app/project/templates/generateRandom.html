@@ -19,12 +19,14 @@
             }
         }
     }
-    function openForm() {
-      document.getElementById("legend").style.display = "block";
-    }
+    function openCloseForm() {
+      var element = document.getElementById("legend")
 
-    function closeForm() {
-      document.getElementById("legend").style.display = "none";
+      if (element.style.display == "none") {
+        element.style.display = "block";
+      } else if (element.style.display == "block") {
+        element.style.display = "none"
+      }
     }
 </script>
 <form method="POST" action="/generateRandom">
@@ -33,13 +35,12 @@
             <tr class="creation-track">
                 <td class="creation-column" colspan="10">
 
-                    <button class="open-button" onclick="openForm()">Open Form</button>
+                    <button class="open-button" onclick="openCloseForm()">Open Form</button>
 
                     <div class="form-popup" id="legend">
                       <div class="form-container">
                         <h1>Login</h1>
                         <input type="text" placeholder="Enter Email" name="email" required>
-                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
                       </div>
                     </div>
 
