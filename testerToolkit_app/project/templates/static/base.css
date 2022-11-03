@@ -342,7 +342,7 @@ a.client-item:hover {
 .generators-label {
 	font-size: 18px;
 	display: block;
-  position:absolute;
+  position: relative;
   height:auto;
   bottom:0;
   top:0;
