@@ -265,6 +265,7 @@ a.client-item:hover {
 	margin-top: 20px;
 	margin-bottom: 10px;
 	justify-content: center;
+	justify-items: center;
 }
 
 .creation-table {
