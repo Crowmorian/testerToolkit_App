@@ -202,6 +202,7 @@ def CSgenerateRandom():
         nine = session["nine"])
 
 @main.route('/generateRandom', methods=['POST'])
+@login_required
 def generateRandom_post():
     session["randomSaved"] = "saved"
     session["howManyDigits"] = request.form.get("howManyDigits")
@@ -284,6 +285,7 @@ def generateRandom_post():
         results = results)
 
 @main.route('/cs/generateRandom', methods=['POST'])
+@login_required
 def CSgenerateRandom_post():
     session["randomSaved"] = "saved"
     session["howManyDigits"] = request.form.get("howManyDigits")
