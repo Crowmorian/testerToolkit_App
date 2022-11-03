@@ -382,7 +382,7 @@ a.client-item:hover {
   position: absolute;
   z-index: 1;
   top: 125%;
-  right: 0%;
+  right: 25%;
   font-size: 15px;
   font-weight: normal;
 }
