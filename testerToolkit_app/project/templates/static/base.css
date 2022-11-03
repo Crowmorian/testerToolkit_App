@@ -371,7 +371,7 @@ a.client-item:hover {
   justify-self: right;
 }
 
-.popup .popuptext.cs {
+.popup .popuptext .cs {
 	right: -95%;
 }
 
