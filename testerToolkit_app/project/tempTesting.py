@@ -47,15 +47,55 @@ cur = con.cursor()
 
 rowId = 1
 
-file1 = open('maleCSlast.txt', 'r', encoding='utf-8')
+file1 = open('data.txt', 'r', encoding='utf-8')
 Lines = file1.readlines()
   
 for line in Lines:
     line = str(line)
-    cur.execute("INSERT INTO maleCSlast (ID, Name) VALUES (?,?)", (rowId, line))
+    cur.execute("INSERT INTO funkyNamesFirst (ID, Name) VALUES (?,?)", (rowId, line))
     rowId = rowId + 1
 
 
 con.commit()
 cur.close()
 """
+#Importing adresses to database
+"""
+import sqlite3
+import csv
+#Connecting database for generated and required data
+con = sqlite3.connect("genData.db")
+cur = con.cursor()
+
+rowId = 1
+
+with open('data.v', encoding="utf-8") as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        cur.execute("INSERT INTO adressCS (ID, City, CityPart, CityPartName, Street, Number1, Number2, ZIP) VALUES (?,?,?,?,?,?,?,?)", (rowId, row[0], row[1], row[2], row[3], row[4], row[5], row[6]))
+        line_count += 1
+        rowId = rowId + 1
+
+con.commit()
+cur.close()
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
