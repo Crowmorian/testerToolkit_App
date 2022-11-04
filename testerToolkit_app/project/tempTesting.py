@@ -4,7 +4,7 @@ Created on Mon Oct 24 14:28:44 2022
 
 @author: Crowmorian
 """
-
+#Generate random numbers in range
 """
 # generate random integer values
 from random import randint, seed, choices
@@ -38,7 +38,24 @@ def randomNumber(howManyDigits, whichNums, canStartZero, howManyNumbers):
         
 randomNumber(howManyDigits, whichNums, canStartZero, howManyNumbers)
 """
+#Insert data into database
+"""
 import sqlite3
 #Connecting database for generated and required data
 con = sqlite3.connect("genData.db")
 cur = con.cursor()
+
+rowId = 1
+
+file1 = open('maleCSlast.txt', 'r', encoding='utf-8')
+Lines = file1.readlines()
+  
+for line in Lines:
+    line = str(line)
+    cur.execute("INSERT INTO maleCSlast (ID, Name) VALUES (?,?)", (rowId, line))
+    rowId = rowId + 1
+
+
+con.commit()
+cur.close()
+"""
