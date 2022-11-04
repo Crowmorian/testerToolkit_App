@@ -17,7 +17,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 import os
 from datetime import timedelta
-import sqlite3
 
 #Definition of the main functions
 app = Flask(__name__, template_folder = './templates', static_folder = './templates/static')
@@ -54,6 +53,4 @@ app.register_blueprint(auth_blueprint)
 from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
 
-#Connecting database for generated and required data
-con = sqlite3.connect("genData.sqlite")
-cur = con.cursor()
+

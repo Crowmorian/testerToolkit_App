@@ -5,7 +5,7 @@ Created on Mon Oct 24 14:28:44 2022
 @author: Crowmorian
 """
 
-
+"""
 # generate random integer values
 from random import randint, seed, choices
 
@@ -37,3 +37,8 @@ def randomNumber(howManyDigits, whichNums, canStartZero, howManyNumbers):
     print(results)
         
 randomNumber(howManyDigits, whichNums, canStartZero, howManyNumbers)
+"""
+import sqlite3
+#Connecting database for generated and required data
+con = sqlite3.connect("genData.db")
+cur = con.cursor()
