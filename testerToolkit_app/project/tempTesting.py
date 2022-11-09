@@ -47,12 +47,12 @@ cur = con.cursor()
 
 rowId = 1
 
-file1 = open('data.txt', 'r', encoding='utf-8')
+file1 = open('funkyNamesLast3.txt', 'r')
 Lines = file1.readlines()
   
 for line in Lines:
     line = str(line)
-    cur.execute("INSERT INTO funkyNamesFirst (ID, Name) VALUES (?,?)", (rowId, line))
+    cur.execute("INSERT INTO funkyNamesLast (ID, Name) VALUES (?,?)", (rowId, line))
     rowId = rowId + 1
 
 
@@ -69,22 +69,36 @@ cur = con.cursor()
 
 rowId = 1
 
-with open('data.v', encoding="utf-8") as csv_file:
+with open('addressUK.txt', encoding="utf-8") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
-        cur.execute("INSERT INTO adressCS (ID, City, CityPart, CityPartName, Street, Number1, Number2, ZIP) VALUES (?,?,?,?,?,?,?,?)", (rowId, row[0], row[1], row[2], row[3], row[4], row[5], row[6]))
+        cur.execute("INSERT INTO addressUK (ID, City, State, Street, Number, ZIP, Country) VALUES (?,?,?,?,?,?,?)", (rowId, row[2], row[3], row[1], row[0], row[4], row[5]))
         line_count += 1
         rowId = rowId + 1
 
 con.commit()
 cur.close()
 """
+"""
+import sqlite3
+#Connecting database for generated and required data
+con = sqlite3.connect("genData.db")
+cur = con.cursor()
+file = open('numbers.txt', encoding="utf-8")
 
+rowId = 0
 
+for line in file:
+    lineDone = (line[0:3])
+    cur.execute("INSERT INTO phoneCS (ID, NumStart) VALUES (?,?)", (rowId, lineDone))
+    rowId = rowId + 1
 
-
-
+con.commit()
+cur.close()    
+file.close()
+"""
+#
 
 
 
