@@ -85,13 +85,12 @@ import sqlite3
 #Connecting database for generated and required data
 con = sqlite3.connect("genData.db")
 cur = con.cursor()
-file = open('numbers.txt', encoding="utf-8")
+file = open('malefemaleENGlast.txt', encoding="utf-8")
 
 rowId = 0
 
 for line in file:
-    lineDone = (line[0:3])
-    cur.execute("INSERT INTO phoneCS (ID, NumStart) VALUES (?,?)", (rowId, lineDone))
+    cur.execute("INSERT INTO malefemaleENGlast (ID, name) VALUES (?,?)", (rowId, line))
     rowId = rowId + 1
 
 con.commit()
