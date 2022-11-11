@@ -60,12 +60,12 @@ def CScreateLegalEntity():
 
 @main.route("/createBussiness")
 @login_required
-def createMinor():
+def createBussiness():
     return render_template('createBussiness.html')
 
 @main.route("/cs/createBussiness")
 @login_required
-def CScreateMinor():
+def CScreateBussiness():
     return render_template('cs/createBussiness.html')
     
 @main.route("/setEng")
