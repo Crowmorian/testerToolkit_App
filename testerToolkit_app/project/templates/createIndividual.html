@@ -34,31 +34,46 @@
                 </td>
             </tr>
             <tr class="generators-input-track">
-                <td colspan="5" class="generators-input-column">            
+                <td class="generators-input-column">
+                    <label class="generators-label" for="useFunky">Use Funky Names?</label>
+                </td>
+                <td class="generators-input-column">
+                    <input class="generators-input-zero" type="checkbox" id="useFunky" name="useFunky" {{ "checked" if useFunky == "on" }}>
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
+                    <label class="generators-label" for="isMinor">Minor?</label>
+                </td>
+                <td class="generators-input-column">
+                    <input class="generators-input-zero" type="checkbox" id="isMinor" name="isMinor" {{ "checked" if isMinor == "on" }}>
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
+                    <label class="generators-label" for="nationality">Nationality</label>
+                </td>
+                <td class="generators-input-column">
+                    <select class="generators-input" name="nationality" id="nationality">
+                        <option value="volvo">CZ</option>
+                        <option value="saab">EU</option>
+                        <option value="mercedes">GB</option>
+                        <option value="audi">USA</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr class="generators-input-track">
+                <td class="generators-input-column">            
                     <label class="generators-label" for="howManyDigits">How many digits?</label>
                 </td>
-                <td colspan="5" class="generators-input-column">
+                <td class="generators-input-column">
                     <input class="generators-input" type="number" id="howManyDigits" name="howManyDigits" min="1" max="50" value="{{howManyDigits}}">
                 </td>
             </tr>
+           
             <tr class="generators-input-track">
-                <td colspan="5" class="generators-input-column">
-                    <label class="generators-label" for="howManyNumbers">How many numbers?</label>
-                </td>
-                <td colspan="5" class="generators-input-column">
-                    <input class="generators-input" type="number" id="howManyNumbers" name="howManyNumbers" min="1" value="{{howManyNumbers}}">
-                </td>
-            </tr>
-            <tr class="generators-input-track">
-                <td colspan="5" class="generators-input-column">
-                    <label class="generators-label" for="canStartZero">Can start with zero?</label>
-                </td>
-                <td colspan="5" class="generators-input-column">
-                    <input class="generators-input-zero" type="checkbox" id="canStartZero" name="canStartZero" {{ "checked" if canStartZero == "on" }}>
-                </td>
-            </tr>
-            <tr class="generators-input-track">
-                <td colspan="10">
+                <td colspan="2">
                     <input class="generators-button" type="submit" value="Generate">                        
                 </td>
             </tr>

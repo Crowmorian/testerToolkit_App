@@ -58,15 +58,15 @@ def createLegalEntity():
 def CScreateLegalEntity():
     return render_template('cs/createLegalEntity.html')
 
-@main.route("/createMinor")
+@main.route("/createBussiness")
 @login_required
 def createMinor():
-    return render_template('createMinor.html')
+    return render_template('createBussiness.html')
 
-@main.route("/cs/createMinor")
+@main.route("/cs/createBussiness")
 @login_required
 def CScreateMinor():
-    return render_template('cs/createMinor.html')
+    return render_template('cs/createBussiness.html')
     
 @main.route("/setEng")
 def setEng ():
