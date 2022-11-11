@@ -69,11 +69,11 @@ cur = con.cursor()
 
 rowId = 1
 
-with open('addressUK.txt', encoding="utf-8") as csv_file:
+with open('addressEU.txt', encoding="utf-8") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
-        cur.execute("INSERT INTO addressUK (ID, City, State, Street, Number, ZIP, Country) VALUES (?,?,?,?,?,?,?)", (rowId, row[2], row[3], row[1], row[0], row[4], row[5]))
+        cur.execute("INSERT INTO addressEU (ID, City, State, Street, Number, ZIP, Country) VALUES (?,?,?,?,?,?,?)", (rowId, row[2], row[3], row[1], row[0], row[4], row[5]))
         line_count += 1
         rowId = rowId + 1
 
@@ -97,7 +97,7 @@ con.commit()
 cur.close()    
 file.close()
 """
-#
+
 
 
 
