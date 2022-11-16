@@ -793,11 +793,28 @@ def generateAddress(country):
     addressCut = list(addressLine)
     del addressCut[0]
     
-    addresses.append(addressCut)
+    if country == "cz":
+        addressPart1 = str(addressCut[3]) + " " + str(addressCut[4]) + "/" + str(addressCut[5])
+        if str(addressCut[1]) == str(addressCut[2]):
+            addressPart2 = str(addressCut[1]) + " " + str(addressCut[0])
+        else:
+            addressPart2 = str(addressCut[1]) + " " + str(addressCut[2]) + " " + str(addressCut[0])
+        addressPart3 = str(addressCut[6])
+        addressFinal = addressPart1 + ", " + addressPart2 + ", " + addressPart3
+    else:
+        addressPart1 = str(addressCut[2]) + " " + str(addressCut[3])
+        if str(addressCut[1]) == str(addressCut[5]):
+            addressPart2 = str(addressCut[0])
+        else:
+            addressPart2 = str(addressCut[0]) + " " + str(addressCut[1])
+        addressPart3 = str(addressCut[4]) + " " + str(addressCut[5])
+        addressFinal = addressPart1 + ", " + addressPart2 + ", " + addressPart3
+    
+    addresses.append(addressFinal)
     
     
     
-    if country == "eu":
+    if country == "eu" or country == "gb" or country == "us":
         birthCity = addressCut[0]
     else:
         cityIndex = random.randint(1,len(address))
@@ -809,7 +826,7 @@ def generateAddress(country):
     
     addresses.append(birthCity)
     
-    cur.close() 
+    cur.close()
     
     return(addresses, country)
 

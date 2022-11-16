@@ -83,30 +83,37 @@
     {% if individualCreated|length > 0 %}
         <div class="creation-content">
             <div class="generated-content-title">Client</div>
-                <content class="generated-content-item">{{ individualCreated }} </content>
                 <table class="creation-table-created">
                     <tr class="creation-track">
                         <td class="creation-column">
                             <label class="generators-label">Name: </label>
                         </td>
-                        <td>
+                        <td class="creation-column">
                             <input class="generators-input-created" id="individualNameInput" type="text" name="individualNameInput" value="{{individualCreated[0][0]}} {{individualCreated[0][1]}}" readonly>
                         </td>
                         <td class="creation-column">
                             <label class="generators-label">Date of Birth: </label>
                         </td>
-                        <td>
+                        <td class="creation-column">
                             <input class="generators-input-created" id="individualDOBInput" type="text" name="individualDOBInput" value="{{individualCreated[4]}}" readonly>
                         </td>
                         <td class="creation-column">
                             <label class="generators-label">PID: </label>
                         </td>
-                        <td>
+                        <td class="creation-column">
                             <input class="generators-input-created" id="individualPIDInput" type="text" name="individualPIDInput" value="{{individualCreated[5]}}" readonly>
                         </td>
                     </tr>
+                    <tr class="creation-track">
+                        <td class="creation-column">
+                            <label class="generators-label">Address: </label>
+                        </td>
+                        <td class="creation-column" colspan="5">
+                            <input class="generators-input-created" id="individualPIDInput" type="text" name="individualPIDInput" value="{{individualCreated[1][0]}}" readonly>
+                        </td>
+                    </tr>
                 </table>
-                
+                <content class="generated-content-item">{{ individualCreated }} </content>
             </div>
         </div>
     {% endif %}
