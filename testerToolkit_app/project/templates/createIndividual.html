@@ -56,17 +56,12 @@
                 <td class="generators-input-column">
                     <select class="generators-input" name="individualNationality" id="individualNationality">
                         <option value="cz" {% if individualNationality=="cz" %} selected {% endif %}>CZ</option>
-                        <option value="eu" {% if individualNationality=="individualNationality" %} selected {% endif %}>EU</option>
-                        <option value="gb" {% if individualNationality=="gb" %} selected {% endif %}>GB</option>
+                        <option value="eu" {% if individualNationality=="eu" %} selected {% endif %}>EU</option>
+                        <option value="gb" {% if individualNationality=="gb" %} selected {% endif %} selected>GB</option>
                         <option value="us" {% if individualNationality=="us" %} selected {% endif %}>USA</option>
                     </select>
                 </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>{{individualNationality}}</label>
-                </td>
-            </tr>           
+            </tr>       
             <tr class="generators-input-track">
                 <td colspan="2">
                     <input class="generators-button" type="submit" value="Generate">                        
