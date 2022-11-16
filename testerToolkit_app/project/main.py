@@ -513,6 +513,7 @@ def phoneNumberCS():
 #EU Number
 
 def phoneNumberEU(country):
+    country = country[1:]
     if country == "Italy":
         finalNumber = ""
         genNumber1 = []
