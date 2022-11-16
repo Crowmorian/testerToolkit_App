@@ -798,11 +798,17 @@ def generateAddress(country):
     
     addresses.append(addressCut)
     
-    cityIndex = random.randint(1,len(address))
-    cityLine = address[cityIndex]
-    country = cityLine[5]
-    cityCut = list(cityLine)
-    birthCity = cityCut[1]
+    
+    
+    if country == "eu":
+        birthCity = addressCut[0]
+    else:
+        cityIndex = random.randint(1,len(address))
+        cityLine = address[cityIndex]
+        cityCut = list(cityLine)
+        birthCity = cityCut[1]
+        
+    country = addressCut[5]
     
     addresses.append(birthCity)
     
