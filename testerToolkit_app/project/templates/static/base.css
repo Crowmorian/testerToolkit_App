@@ -436,3 +436,8 @@ a.client-item:hover {
 .generators-input-created:focus {
     outline-width: 0;
 }
+
+.generators-label-created {
+	font-size: 18px;
+	margin-top: 10px;
+}
