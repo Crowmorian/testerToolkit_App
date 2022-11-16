@@ -701,7 +701,7 @@ funky = None
 gender = "male"
 
 def generateName(gender, funky, foreigner):    
-    con = sqlite3.connect("asd/testerToolkit_app/project/genData.db")
+    con = sqlite3.connect("genData.db")
     cur = con.cursor()
     
     nameList = []
