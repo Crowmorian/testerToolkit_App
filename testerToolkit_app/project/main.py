@@ -510,8 +510,6 @@ def phoneNumberCS():
 
 #EU Number
 
-country = "Sweden"
-
 def phoneNumberEU(country):
     if country == "Italy":
         finalNumber = ""
@@ -808,7 +806,7 @@ def generateAddress(country):
         cityCut = list(cityLine)
         birthCity = cityCut[1]
         
-    country = addressCut[6]
+    country = addressCut[5]
     
     addresses.append(birthCity)
     
