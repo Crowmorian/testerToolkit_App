@@ -440,3 +440,7 @@ a.client-item:hover {
 	height: 30px;
 	padding-top: 10px;
 }
+
+.generators-label-created {
+	font-size: 18px;
+}
