@@ -65,9 +65,12 @@ def createIndividual_post():
     session["individualSaved"] = "saved" 
     session["individualUseFunky"] = request.form.get("individualUseFunky")
     session["individualIsMinor"] = request.form.get("individualIsMinor")
-    session["individualNationality"] = request.form.get("individualNationality")
+    session["individualNationality"] = request.form.get("individualNationality")   
     
-    
+    return render_template('createIndividual.html',
+        individualUseFunky = session["individualUseFunky"],
+        individualIsMinor = session["individualIsMinor"],
+        individualNationalitysession = ["individualNationality"])
     
 @main.route("/createLegalEntity")
 @login_required
