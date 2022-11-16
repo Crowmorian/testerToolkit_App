@@ -82,7 +82,7 @@ def createIndividual_post():
     individualCreated.append(individualName)
     
     individualAddress = generateAddress(session["individualNationality"])
-    individualCreated.append(individualAddress)
+    individualCreated.append(individualAddress[0])
     
     if session["individualNationality"] == "cz":
         individualPhone = phoneNumberCS()
@@ -91,7 +91,7 @@ def createIndividual_post():
     elif session["individualNationality"] == "us":
         individualPhone = phoneNumberUS()
     elif session["individualNationality"] == "eu":
-        individualPhone = phoneNumberEU()
+        individualPhone = phoneNumberEU(individualAddress[1])
     individualCreated.append(individualPhone)
     
     return render_template('createIndividual.html',
@@ -791,19 +791,20 @@ def generateAddress(country):
     else:
         print("What the hell happened?", flush=True)
         
-    addressIndex = random.randint(0,len(address))
+    addressIndex = random.randint(1,len(address))
     addressLine = address[addressIndex]
     addressCut = list(addressLine)
     del addressCut[0]
     
     addresses.append(addressCut)
     
-    cityIndex = random.randint(0,len(address))
+    cityIndex = random.randint(1,len(address))
     cityLine = address[cityIndex]
+    country = cityLine[6]
     cityCut = list(cityLine)
     birthCity = cityCut[1]
     
-    addresses.append(birthCity)
+    addresses.append(birthCity, country)
     
     cur.close() 
     
