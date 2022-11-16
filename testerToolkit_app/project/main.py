@@ -78,8 +78,10 @@ def createIndividual_post():
     else:
         foreigner = "on"
     
-    name = generateName(session["individualGender"], session["individualUseFunky"], foreigner)
-    individualCreated.append(name)
+    individualName = generateName(session["individualGender"], session["individualUseFunky"], foreigner)
+    individualCreated.append(individualName)
+    individualAddress = generateAddress(session["individualNationality"])
+    individualCreated.append(individualAddress)
     
     return render_template('createIndividual.html',
         individualUseFunky = session["individualUseFunky"],
@@ -755,7 +757,7 @@ def generateName(gender, funky, foreigner):
     return(nameList)
 
 #print(generateName(gender, funky, foreigner))
-country = "CS"
+
 
 def generateAddress(country):    
     con = sqlite3.connect("mysite/testerToolkit_app/project/genData.db")
@@ -763,17 +765,20 @@ def generateAddress(country):
 
     addresses = []
 
-    if country == "US":
+    if country == "us":
         cur.execute("SELECT * FROM addressUSA")
         address = cur.fetchall()    
-    elif country == "UK":
+    elif country == "gb":
         cur.execute("SELECT * FROM addressUK")
         address = cur.fetchall()    
-    elif country == "CS":
+    elif country == "cz":
         cur.execute("SELECT * FROM addressCS")
-        address = cur.fetchall()     
+        address = cur.fetchall()
+    elif country == "eu":
+        cur.execute("SELECT * FROM addressEU")
+        address = cur.fetchall() 
     else:
-        print("What the hell happened?")
+        print("What the hell happened?", flush=True)
         
     addressIndex = random.randint(0,len(address))
     addressLine = address[addressIndex]
