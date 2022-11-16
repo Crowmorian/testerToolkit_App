@@ -44,13 +44,31 @@ def CScreateClient():
 @main.route("/createIndividual")
 @login_required
 def createIndividual():
-    return render_template('createIndividual.html')
+    if session["individualSaved"] == "notSaved":
+        session["individualUseFunky"] = None
+        session["individualIsMinor"] = None
+        session["individualNationality"] = "cz"
+    
+    return render_template('createIndividual.html',
+        individualUseFunky = session["individualUseFunky"],
+        individualIsMinor = session["individualIsMinor"],
+        individualNationalitysession = ["individualNationality"])
 
 @main.route("/cs/createIndividual")
 @login_required
 def CScreateIndividual():
     return render_template('cs/createIndividual.html')
 
+@main.route('/createIndividual', methods=['POST'])
+@login_required
+def createIndividual_post():
+    session["individualSaved"] = "saved" 
+    session["individualUseFunky"] = request.form.get("individualUseFunky")
+    session["individualIsMinor"] = request.form.get("individualIsMinor")
+    session["individualNationality"] = request.form.get("individualNationality")
+    
+    
+    
 @main.route("/createLegalEntity")
 @login_required
 def createLegalEntity():
@@ -145,7 +163,7 @@ def CSgenerateMailNumber():
 @main.route("/generateRandom")
 @login_required
 def generateRandom():
-    if session["randomSaved"] == "noteSaved":
+    if session["randomSaved"] == "notSaved":
         session["howManyDigits"] = 10
         session["howManyNumbers"] = 1
         session["canStartZero"] = "None"
@@ -178,7 +196,7 @@ def generateRandom():
 @main.route("/cs/generateRandom")
 @login_required
 def CSgenerateRandom():
-    if session["randomSaved"] == "noteSaved":
+    if session["randomSaved"] == "notSaved":
         session["howManyDigits"] = 10
         session["howManyNumbers"] = 1
         session["canStartZero"] = "None"

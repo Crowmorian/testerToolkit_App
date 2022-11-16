@@ -39,7 +39,8 @@ def login_post():
     
     login_user(user)
     session['number'] = str(uuid4())
-    session["randomSaved"] = "noteSaved"
+    session["randomSaved"] = "notSaved"
+    session["individualSaved"] = "notSaved"
     
     return redirect(url_for('main.index'))
 
