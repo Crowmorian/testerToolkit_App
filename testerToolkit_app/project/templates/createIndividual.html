@@ -80,10 +80,10 @@
             </tr>
         </table>
     </div>
-    {% if results|length > 0 %}
+    {% if individualCreated|length > 0 %}
         <div class="creation-content">
-            <div class="generated-content-title">Generated Numbers</div>
-            {% for i in results %}
+            <div class="generated-content-title">Client</div>
+            {% for i in individualCreated %}
                 <content class="generated-content-item">{{ i }} </content>
             {% endfor %}
         </div>
