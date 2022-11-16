@@ -8,6 +8,15 @@
         var popup = document.getElementById("legend");
         popup.classList.toggle("show");
     }
+
+    function copyToClipboard(elementId) {
+      var copyText = document.getElementById(elementId);
+
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+
+      navigator.clipboard.writeText(copyText.value);
+    }
 </script>
 <form method="POST" action="/createIndividual">
     <div class="creation-content">
@@ -84,7 +93,20 @@
         <div class="creation-content">
             <div class="generated-content-title">Client</div>
                 <content class="generated-content-item">{{ individualCreated }} </content>
-                <input type="text" name="individualNameInput" value="{{individualCreated[0][0]}} {{individualCreated[0][1]}}" readonly>
+                <table>
+                    <tr>
+                        <td>
+                            <label>Name: </label>
+                        </td>
+                        <td>
+                            <input id="individualNameInput" type="text" name="individualNameInput" value="{{individualCreated[0][0]}} {{individualCreated[0][1]}}" readonly>
+                        </td>
+                        <td>
+                            <button onclick="copyToClipboard('individualNameInput')">Copy text</button>
+                        </td>
+                    </tr>
+                </table>
+                
             </div>
         </div>
     {% endif %}
