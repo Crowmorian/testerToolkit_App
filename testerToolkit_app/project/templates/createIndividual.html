@@ -8,14 +8,6 @@
         var popup = document.getElementById("legend");
         popup.classList.toggle("show");
     }
-
-    function copyToClipboard(elementId) {
-      var copyText = document.getElementById(elementId);
-
-      copyText.select();
-
-      navigator.clipboard.writeText(copyText.value);
-    }
 </script>
 <form method="POST" action="/createIndividual">
     <div class="creation-content">
@@ -92,16 +84,25 @@
         <div class="creation-content">
             <div class="generated-content-title">Client</div>
                 <content class="generated-content-item">{{ individualCreated }} </content>
-                <table>
-                    <tr>
-                        <td>
-                            <label>Name: </label>
+                <table class="creation-table">
+                    <tr class="creation-track">
+                        <td class="creation-column">
+                            <label class="generators-label">Name: </label>
                         </td>
                         <td>
-                            <input id="individualNameInput" type="text" name="individualNameInput" value="{{individualCreated[0][0]}} {{individualCreated[0][1]}}" readonly>
+                            <input class="generators-input" id="individualNameInput" type="text" name="individualNameInput" value="{{individualCreated[0][0]}} {{individualCreated[0][1]}}" readonly>
                         </td>
                         <td>
-                            <button onclick="copyToClipboard('individualNameInput')">Copy text</button>
+                            <label class="generators-label">Username: </label>
+                        </td>
+                        <td>
+                            <input class="generators-input" id="individualUsernameInput" type="text" name="individualUsernameInput" value="{{individualCreated[0][2]}}" readonly>
+                        </td>
+                        <td>
+                            <label class="generators-label">E-Mail: </label>
+                        </td>
+                        <td>
+                            <input class="generators-input" id="individualMailInput" type="text" name="individualMailInput" value="{{individualCreated[0][3]}}" readonly>
                         </td>
                     </tr>
                 </table>
