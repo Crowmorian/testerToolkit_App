@@ -486,7 +486,7 @@ def phoneNumberCS():
     randNumber = []
     code = "+420 "
     
-    con = sqlite3.connect("asd/testerToolkit_app/project/genData.db")
+    con = sqlite3.connect("mysite/testerToolkit_app/project/genData.db")
     cur = con.cursor()
     
     cur.execute("SELECT * FROM phoneCS")
