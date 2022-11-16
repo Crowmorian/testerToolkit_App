@@ -804,11 +804,11 @@ def generateAddress(country):
     cityCut = list(cityLine)
     birthCity = cityCut[1]
     
-    addresses.append(birthCity, country)
+    addresses.append(birthCity)
     
     cur.close() 
     
-    return(addresses)
+    return(addresses, country)
 
 
 
