@@ -816,13 +816,13 @@ def generateAddress(country):
     
     if country == "eu" or country == "gb" or country == "us":
         birthCity = addressCut[0]
+        country = addressCut[5]
     else:
         cityIndex = random.randint(1,len(address))
         cityLine = address[cityIndex]
         cityCut = list(cityLine)
         birthCity = cityCut[1]
-        
-    country = addressCut[5]
+        country = "Česká Republika"
     
     addresses.append(birthCity)
     
