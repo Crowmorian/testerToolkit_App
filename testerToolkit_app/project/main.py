@@ -638,8 +638,6 @@ def phoneNumberEU(country):
         error = "Unknown country"
         return(error)
 
-print(phoneNumberEU(country))
-
 #Variables taken from POST
 
 minor = "on"
