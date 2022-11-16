@@ -437,5 +437,6 @@ a.client-item:hover {
 }
 
 .creation-track {
-	margin-top: 10px;
+	height: 50px;
+	padding-top: 10px;
 }
