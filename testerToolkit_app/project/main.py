@@ -100,7 +100,7 @@ def createIndividual_post():
     individualDateOfBirth = dateOfBirth(session["individualIsMinor"])
     individualCreated.append(individualDateOfBirth)
     
-    individualPID = idNumberCS(session["individualGender"])
+    individualPID = idNumberCS(session["individualGender"],individualDateOfBirth)
     individualCreated.append(individualPID)
     
     return render_template('createIndividual.html',
@@ -662,8 +662,8 @@ def dateOfBirth(minor):
         
     return(birthDate)
 
-def idNumberCS(gender):
-    DOB = dateOfBirth(session["individualIsMinor"])
+def idNumberCS(gender, birthDate):
+    DOB = birthDate
     year = DOB[-2:]
     monthMale = DOB[3:5]
     monthFemale = int(monthMale) + 50
