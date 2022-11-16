@@ -427,7 +427,7 @@ a.client-item:hover {
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
 	font-size: 18px;
-	width: 90%;
+	width: 100%;
 	text-align: center;
 	margin: 0 auto;
 }
