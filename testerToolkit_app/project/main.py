@@ -84,8 +84,6 @@ def createIndividual_post():
     individualAddress = generateAddress(session["individualNationality"])
     individualCreated.append(individualAddress[0])
     
-    print(individualAddress[1], flush=True)
-    
     if session["individualNationality"] == "cz":
         individualPhone = phoneNumberCS()
     elif session["individualNationality"] == "gb":
@@ -95,6 +93,15 @@ def createIndividual_post():
     elif session["individualNationality"] == "eu":
         individualPhone = phoneNumberEU(individualAddress[1])
     individualCreated.append(individualPhone)
+    
+    individualPassport = passportNumber()
+    individualCreated.append(individualPassport)
+    
+    individualDateOfBirth = dateOfBirth(session["individualGender"])
+    individualCreated.append(individualDateOfBirth)
+    
+    individualPID = idNumberCS(session["individualGender"])
+    individualCreated.append(individualPID)
     
     return render_template('createIndividual.html',
         individualUseFunky = session["individualUseFunky"],
@@ -643,9 +650,6 @@ def phoneNumberEU(country):
 
 #Variables taken from POST
 
-minor = "on"
-gender = "male"
-
 def dateOfBirth(minor):
     if minor == None:
         randomDays = random.randrange(6600, 26352)
@@ -659,7 +663,7 @@ def dateOfBirth(minor):
     return(birthDate)
 
 def idNumberCS(gender):
-    DOB = dateOfBirth(minor)
+    DOB = dateOfBirth(session["individualIsMinor"])
     year = DOB[-2:]
     monthMale = DOB[3:5]
     monthFemale = int(monthMale) + 50
@@ -741,7 +745,7 @@ def generateName(gender, funky, foreigner):
         cur.execute("SELECT * FROM femaleCSLast")
         lastNameAll = cur.fetchall()
     else:
-        print("What the fuck did just happen?")
+        print("Cannot retrieve names from DB")
     
     firstNameIndex = random.randint(1,len(firstNameAll))
     lastNameIndex = random.randint(1,len(lastNameAll))
@@ -765,8 +769,6 @@ def generateName(gender, funky, foreigner):
     cur.close() 
     
     return(nameList)
-
-#print(generateName(gender, funky, foreigner))
 
 
 def generateAddress(country):    
