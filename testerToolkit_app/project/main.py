@@ -83,7 +83,6 @@ def createIndividual_post():
     
     individualAddress = generateAddress(session["individualNationality"])
     individualCreated.append(individualAddress[0])
-    individualCreated.append(individualAddress[1])
     
     if session["individualNationality"] == "cz":
         individualPhone = phoneNumberCS()
@@ -103,6 +102,7 @@ def createIndividual_post():
     
     individualPID = idNumberCS(session["individualGender"],individualDateOfBirth)
     individualCreated.append(individualPID)
+    individualCreated.append(individualAddress[1])
     
     return render_template('createIndividual.html',
         individualUseFunky = session["individualUseFunky"],
