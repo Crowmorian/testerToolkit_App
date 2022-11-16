@@ -83,6 +83,7 @@ def createIndividual_post():
     
     individualAddress = generateAddress(session["individualNationality"])
     individualCreated.append(individualAddress[0])
+    individualCreated.append(individualAddress[1])
     
     if session["individualNationality"] == "cz":
         individualPhone = phoneNumberCS()
