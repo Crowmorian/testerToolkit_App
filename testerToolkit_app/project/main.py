@@ -808,7 +808,7 @@ def generateAddress(country):
         cityCut = list(cityLine)
         birthCity = cityCut[1]
         
-    country = addressCut[5]
+    country = addressCut[6]
     
     addresses.append(birthCity)
     
