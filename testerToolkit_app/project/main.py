@@ -743,8 +743,8 @@ def generateName(gender, funky, foreigner):
     else:
         print("What the fuck did just happen?")
     
-    firstNameIndex = random.randint(0,len(firstNameAll))
-    lastNameIndex = random.randint(0,len(lastNameAll))
+    firstNameIndex = random.randint(1,len(firstNameAll))
+    lastNameIndex = random.randint(1,len(lastNameAll))
     
     firstNameLine = firstNameAll[firstNameIndex]
     firstNameFull = firstNameLine[1]
