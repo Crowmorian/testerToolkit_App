@@ -710,7 +710,10 @@ def passportNumber():
 
 #Pull name data from the database
 
-def generateName(gender, funky, foreigner):    
+def generateName(gender, funky, foreigner):
+    specialsFrom = 'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝßàáâãäåçèéêëìíîïñòóôõöùúûüýÿĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſ'
+    specialsTo =   'AAAAAACEEEEIIIINOOOOOUUUUYsaaaaaaceeeeiiiinooooouuuuyyAaAaAaCcCcCcCcDdDdEeEeEeEeEeGgGgGgGgHhHhIiIiIiIiIiKkkLlLlLlLlLlNnNnNnNnNOoOoOoRrRrRrSsSsSsSsTtTtTtUuUuUuUuUuUuWwYyYZzZzZzs'
+
     con = sqlite3.connect("mysite/testerToolkit_app/project/genData.db")
     cur = con.cursor()
     
@@ -758,6 +761,15 @@ def generateName(gender, funky, foreigner):
     
     usernameCut = firstName[0:3] + lastName[0:3]
     username = usernameCut.lower()
+    
+    for i in range(0,len(username)):
+        for x in range(0,len(specialsFrom)):
+            foundIndex = username.find(specialsFrom[x])
+            if foundIndex > -1:
+                newUsername = username.replace(specialsFrom[x], specialsTo[x])
+                username = newUsername
+                break
+    
     nameList.append(username)
     
     mailAdress = username.lower() + "@mailinator.com"
