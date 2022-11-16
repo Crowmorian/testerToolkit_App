@@ -80,8 +80,19 @@ def createIndividual_post():
     
     individualName = generateName(session["individualGender"], session["individualUseFunky"], foreigner)
     individualCreated.append(individualName)
+    
     individualAddress = generateAddress(session["individualNationality"])
     individualCreated.append(individualAddress)
+    
+    if session["individualNationality"] == "cz":
+        individualPhone = phoneNumberCS()
+    elif session["individualNationality"] == "gb":
+        individualPhone = phoneNumberUK()
+    elif session["individualNationality"] == "us":
+        individualPhone = phoneNumberUS()
+    elif session["individualNationality"] == "eu":
+        individualPhone = phoneNumberEU()
+    individualCreated.append(individualPhone)
     
     return render_template('createIndividual.html',
         individualUseFunky = session["individualUseFunky"],
