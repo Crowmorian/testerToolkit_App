@@ -431,13 +431,11 @@ a.client-item:hover {
 	width: 100%;
 	text-align: center;
 	margin: 0 auto;
-	margin-top: 10px;
 }
 .generators-input-created:focus {
     outline-width: 0;
 }
 
-.generators-label-created {
-	font-size: 18px;
-	padding-top: 10px;
+.creation-track {
+	margin-top: 10px;
 }
