@@ -670,7 +670,6 @@ def idNumberCS(gender, birthDate):
     day = DOB[0:2]
     identifier = "{:04d}".format(random.randrange(1, 9999))
     idListCS = []
-    dateId = []
     idNumCS = ""
     
     
@@ -690,11 +689,8 @@ def idNumberCS(gender, birthDate):
         idListCS.append("/")
         idListCS.append(identifier)
         idNumCS = ''.join([str(elem) for elem in idListCS])
-        
-    dateId.append(DOB)
-    dateId.append(idNumCS)
-    
-    return(dateId)
+            
+    return(idNumCS)
 
 #Passport ID Number
 def passportNumber():
