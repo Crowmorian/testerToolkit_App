@@ -55,10 +55,10 @@
                 </td>
                 <td class="generators-input-column">
                     <select class="generators-input" name="individualNationality" id="individualNationality">
-                        <option value="cz" {% if individualNationality=="cz" %} selected="selected"{% endif %}>CZ</option>
-                        <option value="eu" {% if individualNationality=="eu" %} selected="selected"{% endif %}>EU</option>
-                        <option value="gb" {% if individualNationality=="gb" %} selected="selected"{% endif %}>GB</option>
-                        <option value="us" {% if individualNationality=="us" %} selected="selected"{% endif %}>USA</option>
+                        <option value="cz" {{ "selected" if individualNationality == "cz" }}>CZ</option>
+                        <option value="eu" {{ "selected" if individualNationality == "eu" }}>EU</option>
+                        <option value="gb" {{ "selected" if individualNationality == "gb" }}>GB</option>
+                        <option value="us" {{ "selected" if individualNationality == "us" }}>USA</option>
                     </select>
                 </td>
             </tr>           
