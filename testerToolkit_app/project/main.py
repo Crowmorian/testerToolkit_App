@@ -52,7 +52,7 @@ def createIndividual():
     return render_template('createIndividual.html',
         individualUseFunky = session["individualUseFunky"],
         individualIsMinor = session["individualIsMinor"],
-        individualNationalitysession = ["individualNationality"])
+        individualNationality = ["individualNationality"])
 
 @main.route("/cs/createIndividual")
 @login_required
@@ -72,7 +72,7 @@ def createIndividual_post():
     return render_template('createIndividual.html',
         individualUseFunky = session["individualUseFunky"],
         individualIsMinor = session["individualIsMinor"],
-        individualNationalitysession = ["individualNationality"])
+        individualNationality = ["individualNationality"])
     
 @main.route("/createLegalEntity")
 @login_required
