@@ -114,6 +114,14 @@
                         </td>
                     </tr>
                     <tr class="creation-track">
+                        <td class="creation-column">
+                            <label class="generators-label">Address: </label>
+                        </td>
+                        <td class="creation-column" colspan="5">
+                            <input class="generators-input-created" id="individualPIDInput" type="text" name="individualPIDInput" value="{{individualCreated[1][0]}}" readonly>
+                        </td>
+                    </tr>
+                    <tr class="creation-track">
                         {% endif %}
                         <td>
                             <label class="generators-label">Phone: </label>
@@ -132,14 +140,6 @@
                         </td>
                         <td>
                             <input class="generators-input-created" id="individualMailInput" type="text" name="individualMailInput" value="{{individualCreated[0][3]}}" readonly>
-                        </td>
-                    </tr>
-                    <tr class="creation-track">
-                        <td class="creation-column">
-                            <label class="generators-label">Address: </label>
-                        </td>
-                        <td class="creation-column" colspan="5">
-                            <input class="generators-input-created" id="individualPIDInput" type="text" name="individualPIDInput" value="{{individualCreated[1][0]}}" readonly>
                         </td>
                     </tr>
                 </table>
