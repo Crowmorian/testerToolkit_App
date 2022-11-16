@@ -43,6 +43,17 @@
             </tr>
             <tr class="generators-input-track">
                 <td class="generators-input-column">
+                    <label class="generators-label" for="individualGender">Gender</label>
+                </td>
+                <td class="generators-input-column">
+                    <select class="generators-input" name="individualGender" id="individualGender">
+                        <option value="male" {% if individualGender=="male" %} selected {% endif %}>Male</option>
+                        <option value="female" {% if individualGender=="female" %} selected {% endif %}>Female</option>
+                    </select>
+                </td>
+            </tr>   
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
                     <label class="generators-label" for="individualIsMinor">Minor?</label>
                 </td>
                 <td class="generators-input-column">

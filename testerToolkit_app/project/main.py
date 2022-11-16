@@ -46,11 +46,13 @@ def CScreateClient():
 def createIndividual():
     if session["individualSaved"] == "notSaved":
         session["individualUseFunky"] = None
+        session["individualGender"] = "male"
         session["individualIsMinor"] = None
         session["individualNationality"] = "cz"
     
     return render_template('createIndividual.html',
         individualUseFunky = session["individualUseFunky"],
+        individualGender = session["individualGender"],
         individualIsMinor = session["individualIsMinor"],
         individualNationality = session["individualNationality"])
 
@@ -65,12 +67,26 @@ def createIndividual_post():
     session["individualSaved"] = "saved" 
     session["individualUseFunky"] = request.form.get("individualUseFunky")
     session["individualIsMinor"] = request.form.get("individualIsMinor")
-    session["individualNationality"] = request.form.get("individualNationality")   
+    session["individualNationality"] = request.form.get("individualNationality")
+    session["individualGender"] = request.form.get("individualGender")
+    
+    individualCreated = []
+    foreigner = False
+    
+    if session["individualNationality"] == "cz":
+        foreigner = False
+    else:
+        foreigner = True
+    
+    name = generateName(session["individualGender"], session["individualUseFunky"], foreigner)
+    individualCreated.append(name)
     
     return render_template('createIndividual.html',
         individualUseFunky = session["individualUseFunky"],
+        individualGender = session["individualGender"],
         individualIsMinor = session["individualIsMinor"],
-        individualNationality = session["individualNationality"])
+        individualNationality = session["individualNationality"],
+        individualCreated = individualCreated)
     
 @main.route("/createLegalEntity")
 @login_required
