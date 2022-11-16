@@ -97,12 +97,22 @@
                         <td class="creation-column">
                             <input class="generators-input-created" id="individualDOBInput" type="text" name="individualDOBInput" value="{{individualCreated[4]}}" readonly>
                         </td>
+                        {% if individualNationality == "cz" %}
                         <td class="creation-column">
                             <label class="generators-label">PID: </label>
                         </td>
                         <td class="creation-column">
                             <input class="generators-input-created" id="individualPIDInput" type="text" name="individualPIDInput" value="{{individualCreated[5]}}" readonly>
                         </td>
+                        {% endif %}
+                        {% if individualNationality != "cz" %}
+                        <td class="creation-column">
+                            <label class="generators-label">Passport: </label>
+                        </td>
+                        <td class="creation-column">
+                            <input class="generators-input-created" id="individualPassInput" type="text" name="individualPassInput" value="{{individualCreated[3]}}" readonly>
+                        </td>
+                        {% endif %}
                     </tr>
                     <tr class="creation-track">
                         <td class="creation-column">
