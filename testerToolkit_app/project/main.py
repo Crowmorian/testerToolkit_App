@@ -696,9 +696,6 @@ def passportNumber():
     return(passNumber)
 
 #Pull name data from the database
-foreigner = "on"
-funky = None
-gender = "male"
 
 def generateName(gender, funky, foreigner):    
     con = sqlite3.connect("genData.db")
