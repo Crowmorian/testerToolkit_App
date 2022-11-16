@@ -13,6 +13,9 @@ from flask import Blueprint, render_template, request, session, flash
 from flask_login import login_required
 from random import randint, seed, choices
 import sqlite3
+import random
+from datetime import date, timedelta
+
 #Declaring routes and variables
 main = Blueprint("main", __name__)
 
@@ -370,3 +373,417 @@ def CSgenerateRandom_post():
         eight = session["eight"],
         nine = session["nine"],
         results = results)
+
+#******************************************************************
+#Client generation functions
+#******************************************************************
+
+#UK Number
+
+def phoneNumberUK():    
+    finalNumber = ""
+    genNumber = []
+    code = "+44 "
+    initNum = "7"
+    
+    for num in range(0,9):
+        number = randint(0,9)
+        genNumber.append(number)
+    
+    numToStr = ''.join([str(elem) for elem in genNumber])
+    numToStrSpaced = numToStr[:2] + " " + numToStr[2:5] + " " +numToStr[5:]
+    
+    finalNumber = code + initNum + numToStrSpaced
+    
+    return(finalNumber)
+
+#US Number
+
+def phoneNumberUS():
+    finalNumber = ""
+    genNumber1 = []
+    genNumber2 = []
+    genNumber3 = []
+    code = "+1 "
+    initNum1 = str(randint(2,9))
+    initNum2 = str(randint(2,9))
+    
+    for num in range(0,2):
+        number = randint(0,9)
+        genNumber1.append(number)
+    
+    numToStr1 = ''.join([str(elem) for elem in genNumber1])
+    
+    for num in range(0,2):
+        number = randint(0,9)
+        genNumber2.append(number)
+    
+    numToStr2 = ''.join([str(elem) for elem in genNumber2])
+    
+    for num in range(0,4):
+        number = randint(0,9)
+        genNumber3.append(number)
+    
+    numToStr3 = ''.join([str(elem) for elem in genNumber3])
+    
+    finalNumber = code + initNum1 + numToStr1 + "-" + initNum2 + numToStr2 + "-" + numToStr3
+    
+    return(finalNumber)
+
+#CS Number
+
+def phoneNumberCS():
+    randNumber = []
+    code = "+420 "
+    
+    con = sqlite3.connect("asd/testerToolkit_app/project/genData.db")
+    cur = con.cursor()
+    
+    cur.execute("SELECT * FROM phoneCS")
+    
+    phoneNumbers = cur.fetchall()
+    firstIndex = randint(0,len(phoneNumbers))
+    first = phoneNumbers[firstIndex]
+    firstFinal = str(first[1])
+    
+    for num in range(0,6):
+        number = randint(0,9)
+        randNumber.append(number)
+        
+    numToStr = ''.join([str(elem) for elem in randNumber])
+    numToStrSpaced = numToStr[:3] + " " + numToStr[3:]
+    
+    finalNumber = code + firstFinal + " " + numToStrSpaced
+    
+    cur.close() 
+    return(finalNumber)
+
+#EU Number
+
+country = "Sweden"
+
+def phoneNumberEU(country):
+    if country == "Italy":
+        finalNumber = ""
+        genNumber1 = []
+        genNumber2 = []
+        code = "+39 066 "
+        
+        for num in range(0,3):
+            number = randint(1,9)
+            genNumber1.append(number)
+        
+        numToStr1 = ''.join([str(elem) for elem in genNumber1])
+        
+        for num in range(0,4):
+            number = randint(0,9)
+            genNumber2.append(number)
+        
+        numToStr2 = ''.join([str(elem) for elem in genNumber2])
+        
+        finalNumber = code + numToStr1 + " " + numToStr2
+        
+        return(finalNumber)
+    
+    elif country == "Germany":
+        finalNumber = ""
+        genNumber1 = []
+        code = "+49 30 "
+        
+        for num in range(0,6):
+            number = randint(0,9)
+            genNumber1.append(number)
+        
+        numToStr1 = ''.join([str(elem) for elem in genNumber1])
+        
+        finalNumber = code + numToStr1
+        
+        return(finalNumber)
+    
+    elif country == "France":
+        finalNumber = ""
+        genNumber1 = []
+        genNumber2 = []
+        genNumber3 = []
+        genNumber4 = []
+        code = "+33 06 "
+        
+        for num in range(0,2):
+            number = randint(1,9)
+            genNumber1.append(number)
+        
+        numToStr1 = ''.join([str(elem) for elem in genNumber1])
+        
+        for num in range(0,2):
+            number = randint(1,9)
+            genNumber2.append(number)
+        
+        numToStr2 = ''.join([str(elem) for elem in genNumber2])
+        
+        for num in range(0,2):
+            number = randint(1,9)
+            genNumber3.append(number)
+        
+        numToStr3 = ''.join([str(elem) for elem in genNumber3])
+        
+        for num in range(0,2):
+            number = randint(1,9)
+            genNumber4.append(number)
+        
+        numToStr4 = ''.join([str(elem) for elem in genNumber4])
+        
+        finalNumber = code + numToStr1 + " " + numToStr2 + " " + numToStr3 + " " + numToStr4
+        
+        return(finalNumber)
+    
+    elif country == "Spain":
+        finalNumber = ""
+        genNumber1 = []
+        genNumber2 = []
+        genNumber3 = []
+        code = "+34 9"
+        
+        for num in range(0,2):
+            number = randint(1,9)
+            genNumber1.append(number)
+        
+        numToStr1 = ''.join([str(elem) for elem in genNumber1])
+        
+        for num in range(0,3):
+            number = randint(1,9)
+            genNumber2.append(number)
+        
+        numToStr2 = ''.join([str(elem) for elem in genNumber2])
+        
+        for num in range(0,3):
+            number = randint(1,9)
+            genNumber3.append(number)
+        
+        numToStr3 = ''.join([str(elem) for elem in genNumber3])
+        
+        finalNumber = code + numToStr1 + " " + numToStr2 + " " + numToStr3
+        
+        return(finalNumber)
+    
+    elif country == "Sweden":
+        finalNumber = ""
+        genNumber1 = []
+        genNumber2 = []
+        code = "+45 11 "
+        
+        for num in range(0,4):
+            number = randint(1,9)
+            genNumber1.append(number)
+        
+        numToStr1 = ''.join([str(elem) for elem in genNumber1])
+        
+        for num in range(0,4):
+            number = randint(0,9)
+            genNumber2.append(number)
+        
+        numToStr2 = ''.join([str(elem) for elem in genNumber2])
+        
+        finalNumber = code + numToStr1 + " " + numToStr2
+        
+        return(finalNumber)
+    else:
+        error = "Unknown country"
+        return(error)
+
+print(phoneNumberEU(country))
+
+#Variables taken from POST
+
+minor = "on"
+gender = "male"
+
+def dateOfBirth(minor):
+    if minor == None:
+        randomDays = random.randrange(6600, 26352)
+        subtraction = date.today()- timedelta(days=randomDays)
+        birthDate = subtraction.strftime('%d.%m. %Y')
+    elif minor == "on":
+        randomDays = random.randrange(500, 6600)
+        subtraction = date.today()- timedelta(days=randomDays)
+        birthDate = subtraction.strftime('%d.%m. %Y')
+        
+    return(birthDate)
+
+def idNumberCS(gender):
+    DOB = dateOfBirth(minor)
+    year = DOB[-2:]
+    monthMale = DOB[3:5]
+    monthFemale = int(monthMale) + 50
+    day = DOB[0:2]
+    identifier = "{:04d}".format(random.randrange(1, 9999))
+    idListCS = []
+    dateId = []
+    idNumCS = ""
+    
+    
+    
+    if gender == "male":
+        idListCS.append(year)
+        idListCS.append(monthMale)
+        idListCS.append(day)
+        idListCS.append("/")
+        idListCS.append(identifier)
+        idNumCS = ''.join([str(elem) for elem in idListCS])
+        
+    elif gender == "female":
+        idListCS.append(year)
+        idListCS.append(monthFemale)
+        idListCS.append(day)
+        idListCS.append("/")
+        idListCS.append(identifier)
+        idNumCS = ''.join([str(elem) for elem in idListCS])
+        
+    dateId.append(DOB)
+    dateId.append(idNumCS)
+    
+    return(dateId)
+
+#Passport ID Number
+def passportNumber():
+    numList = []
+    
+    for index in range(0,9):
+        if index == 0:
+            passNumberStep = random.randrange(1,9)
+        else:
+            passNumberStep = random.randrange(0,9)
+            
+        numList.append(passNumberStep)
+        
+    passNumber = ''.join([str(elem) for elem in numList])
+    return(passNumber)
+
+#Pull name data from the database
+foreigner = "on"
+funky = None
+gender = "male"
+
+def generateName(gender, funky, foreigner):    
+    con = sqlite3.connect("asd/testerToolkit_app/project/genData.db")
+    cur = con.cursor()
+    
+    nameList = []
+    
+    if funky == "on":
+        cur.execute("SELECT * FROM funkyNamesFirst")
+        firstNameAll = cur.fetchall()
+        cur.execute("SELECT * FROM funkyNamesLast")
+        lastNameAll = cur.fetchall()
+    elif funky == None and foreigner == "on" and gender == "male":
+        cur.execute("SELECT * FROM maleENGfirst")
+        firstNameAll = cur.fetchall()
+        cur.execute("SELECT * FROM malefemaleEngLast")
+        lastNameAll = cur.fetchall()
+    elif funky == None and foreigner == "on" and gender == "female":
+        cur.execute("SELECT * FROM femaleENGfirst")
+        firstNameAll = cur.fetchall()
+        cur.execute("SELECT * FROM malefemaleEngLast")
+        lastNameAll = cur.fetchall()
+    elif funky == None and foreigner == None and gender == "male":
+        cur.execute("SELECT * FROM maleCSfirst")
+        firstNameAll = cur.fetchall()
+        cur.execute("SELECT * FROM maleCSLast")
+        lastNameAll = cur.fetchall()
+    elif funky == None and foreigner == None and gender == "female":
+        cur.execute("SELECT * FROM femaleCSfirst")
+        firstNameAll = cur.fetchall()
+        cur.execute("SELECT * FROM femaleCSLast")
+        lastNameAll = cur.fetchall()
+    else:
+        print("What the fuck did just happen?")
+    
+    firstNameIndex = random.randint(0,len(firstNameAll))
+    lastNameIndex = random.randint(0,len(lastNameAll))
+    
+    firstNameLine = firstNameAll[firstNameIndex]
+    firstNameFull = firstNameLine[1]
+    firstName = firstNameFull.replace("\n","")
+    nameList.append(firstName)
+    lastNameLine = lastNameAll[lastNameIndex]
+    lastNameFull = lastNameLine[1]
+    lastName = lastNameFull.replace("\n","")
+    nameList.append(lastName)
+    
+    usernameCut = firstName[0:3] + lastName[0:3]
+    username = usernameCut.lower()
+    nameList.append(username)
+    
+    mailAdress = username.lower() + "@mailinator.com"
+    nameList.append(mailAdress)
+    
+    cur.close() 
+    
+    return(nameList)
+
+#print(generateName(gender, funky, foreigner))
+country = "CS"
+
+def generateAddress(country):    
+    con = sqlite3.connect("asd/testerToolkit_app/project/genData.db")
+    cur = con.cursor()
+
+    addresses = []
+
+    if country == "US":
+        cur.execute("SELECT * FROM addressUSA")
+        address = cur.fetchall()    
+    elif country == "UK":
+        cur.execute("SELECT * FROM addressUK")
+        address = cur.fetchall()    
+    elif country == "CS":
+        cur.execute("SELECT * FROM addressCS")
+        address = cur.fetchall()     
+    else:
+        print("What the hell happened?")
+        
+    addressIndex = random.randint(0,len(address))
+    addressLine = address[addressIndex]
+    addressCut = list(addressLine)
+    del addressCut[0]
+    
+    addresses.append(addressCut)
+    
+    cityIndex = random.randint(0,len(address))
+    cityLine = address[cityIndex]
+    cityCut = list(cityLine)
+    birthCity = cityCut[1]
+    
+    addresses.append(birthCity)
+    
+    cur.close() 
+    
+    return(addresses)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
