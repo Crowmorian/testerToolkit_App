@@ -796,9 +796,9 @@ def generateAddress(country):
     if country == "cz":
         addressPart1 = str(addressCut[3]) + " " + str(addressCut[4]) + "/" + str(addressCut[5])
         if str(addressCut[1]) == str(addressCut[2]):
-            addressPart2 = str(addressCut[1]) + " " + str(addressCut[0])
+            addressPart2 = str(addressCut[1]) + ", " + str(addressCut[0])
         else:
-            addressPart2 = str(addressCut[1]) + " " + str(addressCut[2]) + " " + str(addressCut[0])
+            addressPart2 = str(addressCut[1]) + " " + str(addressCut[2]) + ", " + str(addressCut[0])
         addressPart3 = str(addressCut[6])
         addressFinal = addressPart1 + ", " + addressPart2 + ", " + addressPart3
     else:
