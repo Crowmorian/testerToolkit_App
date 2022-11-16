@@ -419,6 +419,7 @@ a.client-item:hover {
 	justify-content: center;
 	margin: 0 auto;
 	margin-top: 20px;
+	margin-bottom: 20px;
 	text-align: center;
 	width: 80%;
 }
@@ -430,6 +431,7 @@ a.client-item:hover {
 	width: 100%;
 	text-align: center;
 	margin: 0 auto;
+	margin-top: 10px;
 }
 .generators-input-created:focus {
     outline-width: 0;
