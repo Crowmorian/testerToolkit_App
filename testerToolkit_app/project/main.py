@@ -97,7 +97,7 @@ def createIndividual_post():
     individualPassport = passportNumber()
     individualCreated.append(individualPassport)
     
-    individualDateOfBirth = dateOfBirth(session["individualGender"])
+    individualDateOfBirth = dateOfBirth(session["individualIsMinor"])
     individualCreated.append(individualDateOfBirth)
     
     individualPID = idNumberCS(session["individualGender"])
