@@ -800,7 +800,7 @@ def generateAddress(country):
     
     cityIndex = random.randint(1,len(address))
     cityLine = address[cityIndex]
-    country = cityLine[6]
+    country = cityLine[5]
     cityCut = list(cityLine)
     birthCity = cityCut[1]
     
