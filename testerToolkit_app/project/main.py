@@ -67,6 +67,8 @@ def createIndividual_post():
     session["individualIsMinor"] = request.form.get("individualIsMinor")
     session["individualNationality"] = request.form.get("individualNationality")   
     
+    print(session["individualSaved"], session["individualIsMinor"], session["individualNationality"], flush=True)
+    
     return render_template('createIndividual.html',
         individualUseFunky = session["individualUseFunky"],
         individualIsMinor = session["individualIsMinor"],
