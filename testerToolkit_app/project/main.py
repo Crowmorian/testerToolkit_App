@@ -71,12 +71,12 @@ def createIndividual_post():
     session["individualGender"] = request.form.get("individualGender")
     
     individualCreated = []
-    foreigner = False
+    foreigner = None
     
     if session["individualNationality"] == "cz":
-        foreigner = False
+        foreigner = None
     else:
-        foreigner = True
+        foreigner = "on"
     
     name = generateName(session["individualGender"], session["individualUseFunky"], foreigner)
     individualCreated.append(name)
