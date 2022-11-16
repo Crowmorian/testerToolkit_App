@@ -698,7 +698,7 @@ def passportNumber():
 #Pull name data from the database
 
 def generateName(gender, funky, foreigner):    
-    con = sqlite3.connect("genData.db")
+    con = sqlite3.connect("mysite/testerToolkit_app/project/genData.db")
     cur = con.cursor()
     
     nameList = []
@@ -758,7 +758,7 @@ def generateName(gender, funky, foreigner):
 country = "CS"
 
 def generateAddress(country):    
-    con = sqlite3.connect("asd/testerToolkit_app/project/genData.db")
+    con = sqlite3.connect("mysite/testerToolkit_app/project/genData.db")
     cur = con.cursor()
 
     addresses = []
