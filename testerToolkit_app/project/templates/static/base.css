@@ -221,7 +221,7 @@ a.navbar-item-lang {
 	text-align: center;
 	width: 50%;
 	margin: 0 auto;
-	margin-top: 75px;
+	margin-top: 25px;
 }
 
 .client-track {
@@ -272,7 +272,7 @@ a.client-item:hover {
 	margin: 0 auto;
 	margin-top: 10px;
 	text-align: center;
-	width: 30%;
+	width: 60%;
 }
 
 .generators-input-numbers {
