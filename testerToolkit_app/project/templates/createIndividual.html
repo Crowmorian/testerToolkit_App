@@ -185,17 +185,14 @@
                 <td class="creation-column" colspan="5">
                     <table>
                         <tr>
-                            <td>
-                                
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="individualAddressInput" type="text" name="individualAddressInput" value="{{individualCreated[1][0]}}" readonly>
                             </td>
-                            <td>
-                                
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('individualAddressInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
                             </td>
                         </tr>
-                    </table>
-
-                                <input class="generators-input-created" id="individualAddressInput" type="text" name="individualAddressInput" value="{{individualCreated[1][0]}}" readonly>
-                                <button class="button-copy" onclick="copyInputValue('individualAddressInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                    </table>                               
                 </td>
             </tr>
             <tr class="creation-track">
