@@ -846,7 +846,7 @@ def generateAddress(country):
 @main.route('/background_process_test',methods=["POST","GET"])
 @login_required
 def background_process_test():
-    print("Hello")
+    print("Python function was called!!!")
     return "nothing"
 
 
