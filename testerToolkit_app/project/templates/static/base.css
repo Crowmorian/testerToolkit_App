@@ -458,4 +458,5 @@ a.client-item:hover {
 
 .copy-image {
 	width: 35px;
+	vertical-align: middle;
 }
