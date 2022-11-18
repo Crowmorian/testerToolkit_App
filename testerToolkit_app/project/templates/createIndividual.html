@@ -9,6 +9,7 @@
         popup.classList.toggle("show");
     }
 </script>
+ <script src="https://unpkg.com/htmx.org@0.0.4"></script>
 <form method="POST" action="/createIndividual">
     <div class="creation-content">
         <div class="popup" onclick="showPopUp()">Need help?
@@ -81,7 +82,7 @@
         </table>
     </div>
 </form>
-    {% if individualCreated|length > 0 %}
+{% if individualCreated|length > 0 %}
 <div class="creation-content">
     <div class="generated-content-title">Client</div>
         <table class="creation-table-created">
@@ -90,10 +91,25 @@
                     <label class="generators-label-created">Name: </label>
                 </td>
                 <td class="creation-column" colspan="2">
-                    <form method="post" id="name-form">
-                        <input class="generators-input-created" id="individualNameInput" type="text" name="individualNameInput" value="{{individualCreated[0][0]}} {{individualCreated[0][1]}}" readonly>
-                        <button class="" type="submit">submit</button>
-                    </form>
+                    <input class="generators-input-created" id="individualNameInput" type="text" name="individualNameInput" value="{{individualCreated[0][0]}} {{individualCreated[0][1]}}" readonly>
+                    <button onclick="myFunction()">Copy text</button>
+
+                    <script>
+                    function myFunction() {
+                      // Get the text field
+                      var copyText = document.getElementById("myInput");
+
+                      // Select the text field
+                      copyText.select();
+                      copyText.setSelectionRange(0, 99999); // For mobile devices
+
+                      // Copy the text inside the text field
+                      navigator.clipboard.writeText(copyText.value);
+                      
+                      // Alert the copied text
+                      alert("Copied the text: " + copyText.value);
+                    }
+                    </script>
                 </td>
                 <td class="creation-column">
                     <label class="generators-label-created">Date of Birth: </label>
@@ -173,23 +189,4 @@
     </div>
 </div>
 {% endif %}
-
- 
-        <!--Jquery Cdn -->
-<script src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"></script>
-
-<script type="text/javascript">
-$(document).on('submit','#name-form',function(e){
-  e.preventDefault();
-  $.ajax({
-    type:'POST',
-    url:'/copyToClipboard',
-    data:{
-      value:$("#individualNameInput").val()
-    }
-  })
-});
-</script>
 {% endblock %}
