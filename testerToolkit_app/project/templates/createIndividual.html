@@ -95,7 +95,10 @@
                             <label class="generators-label-created">Date of Birth: </label>
                         </td>
                         <td class="creation-column" colspan="2">
-                            <input class="generators-input-created" id="individualDOBInput" type="text" name="individualDOBInput" value="{{individualCreated[4]}}" readonly><button>hello</button></input>
+                            <input class="generators-input-created" id="individualDOBInput" type="text" name="individualDOBInput" value="{{individualCreated[4]}}" readonly>
+                            <form method="post" id="todo-form">
+                                <button type="submit">submit</button>
+                            </form>
                         </td>
                     </tr>
                     <tr class="creation-track">
@@ -170,9 +173,7 @@
         </div>
     {% endif %}
 </form>
-<form method="post" id="todo-form">
-        <button type="submit">submit</button>
-    </form>
+
  
         <!--Jquery Cdn -->
   <script src="https://code.jquery.com/jquery-3.5.1.js"
@@ -189,10 +190,6 @@
         url:'/background_process_test',
         data:{
           todo:$("#todo").val()
-        },
-        success:function()
-        {
-          alert('Saved to clipboard!');
         }
       })
     });
