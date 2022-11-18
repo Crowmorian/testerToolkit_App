@@ -15,6 +15,7 @@ from random import randint, seed, choices
 import sqlite3
 import random
 from datetime import date, timedelta
+import subprocess
 
 #Declaring routes and variables
 main = Blueprint("main", __name__)
@@ -847,8 +848,8 @@ def generateAddress(country):
 @login_required
 def copyToClipboard():
     copyText = request.form.get("value")
-    print("Python function was called!!!")
-    print(copyText)
+    cmd='echo '+copyText.strip()+'|clip'
+    subprocess.check_call(cmd, shell=True)
     return "nothing"
 
 
