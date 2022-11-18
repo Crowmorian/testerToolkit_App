@@ -747,8 +747,8 @@ def generateName(gender, funky, foreigner):
     else:
         print("Cannot retrieve names from DB")
     
-    firstNameIndex = random.randint(1,len(firstNameAll))
-    lastNameIndex = random.randint(1,len(lastNameAll))
+    firstNameIndex = random.randint(1,(len(firstNameAll)-1))
+    lastNameIndex = random.randint(1,(len(lastNameAll)-1))
     
     firstNameLine = firstNameAll[firstNameIndex]
     firstNameFull = firstNameLine[1]
