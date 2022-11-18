@@ -426,6 +426,7 @@ a.client-item:hover {
 
 .generators-input-created {
 	border: 4px solid #6e95ff;
+	display: inline-block;
 	border-radius: 10px;
 	font-size: 18px;
 	width: 90%;
