@@ -16,6 +16,7 @@ import sqlite3
 import random
 from datetime import date, timedelta
 import subprocess
+import pyperclip
 
 #Declaring routes and variables
 main = Blueprint("main", __name__)
