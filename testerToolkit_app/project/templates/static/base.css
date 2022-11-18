@@ -454,3 +454,8 @@ a.client-item:hover {
 	display: inline-block;
 	float: right;
 }
+
+.copyDiv {
+	display: table-cell;
+  width: 100%;
+}
