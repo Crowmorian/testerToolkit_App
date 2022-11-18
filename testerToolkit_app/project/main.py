@@ -502,7 +502,7 @@ def phoneNumberCS():
     cur.execute("SELECT * FROM phoneCS")
     
     phoneNumbers = cur.fetchall()
-    firstIndex = randint(1,len(phoneNumbers))
+    firstIndex = randint(1,(len(phoneNumbers)-1))
     first = phoneNumbers[firstIndex]
     firstFinal = str(first[1])
     
