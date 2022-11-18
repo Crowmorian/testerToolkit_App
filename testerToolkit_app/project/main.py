@@ -16,7 +16,6 @@ import sqlite3
 import random
 from datetime import date, timedelta
 import subprocess
-import pyperclip
 
 #Declaring routes and variables
 main = Blueprint("main", __name__)
@@ -850,8 +849,8 @@ def generateAddress(country):
 def copyToClipboard():
     copyText = request.form.get("value")
     cmd='echo '+copyText.strip()+'|clip'
-    subprocess.check_call(cmd, shell=True)
-    return "nothing"
+    
+    return subprocess.check_call(cmd, shell=True)
 
 
 
