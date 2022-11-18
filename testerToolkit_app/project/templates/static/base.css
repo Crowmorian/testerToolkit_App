@@ -452,7 +452,7 @@ a.client-item:hover {
 .button-copy {
 	margin-left: 10px;
 	width: 100%;
-	height: 45px%;
+	height: 45px;
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
 }
