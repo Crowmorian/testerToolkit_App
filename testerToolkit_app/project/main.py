@@ -843,6 +843,12 @@ def generateAddress(country):
     
     return(addresses, country)
 
+@main.route('/background_process_test')
+@login_required
+def background_process_test():
+    print("Hello")
+    return "nothing"
+
 
 
 
