@@ -846,7 +846,7 @@ def generateAddress(country):
 @main.route('/copyToClipboard',methods=["POST","GET"])
 @login_required
 def copyToClipboard():
-    copyText = request.form.get("individualNameInput")
+    copyText = request.form.get("value")
     print("Python function was called!!!")
     print(copyText)
     return "nothing"
