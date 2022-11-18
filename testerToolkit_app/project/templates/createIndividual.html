@@ -9,7 +9,7 @@
         popup.classList.toggle("show");
     }
 
-    function myFunction(findId) {
+    function copyInputValue(findId) {
       // Get the text field
       var copyText = document.getElementById(findId).value;
       console.log(copyText)
@@ -101,7 +101,7 @@
                 </td>
                 <td class="creation-column" colspan="2">
                     <input class="generators-input-created" id="individualNameInput" type="text" name="individualNameInput" value="{{individualCreated[0][0]}} {{individualCreated[0][1]}}" readonly>
-                    <button onclick="myFunction('individualNameInput')">Copy text</button>
+                    <button class="button-copy" onclick="copyInputValue('individualNameInput')">Copy text</button>
                 </td>
                 <td class="creation-column">
                     <label class="generators-label-created">Date of Birth: </label>

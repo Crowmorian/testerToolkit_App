@@ -446,3 +446,10 @@ a.client-item:hover {
 	font-size: 18px;
 	padding-left: 5px;
 }
+
+.button-copy {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+}
