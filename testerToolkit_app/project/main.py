@@ -801,7 +801,7 @@ def generateAddress(country):
     else:
         print("What the hell happened?", flush=True)
         
-    addressIndex = random.randint(1,len(address))
+    addressIndex = random.randint(1,(len(address)-1))
     addressLine = address[addressIndex]
     addressCut = list(addressLine)
     del addressCut[0]

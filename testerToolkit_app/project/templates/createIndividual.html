@@ -104,6 +104,12 @@
                         <td class="creation-column">
                             <input class="generators-input-created" id="individualPIDInput" type="text" name="individualPIDInput" value="{{individualCreated[5]}}" readonly>
                         </td>
+                        <td class="creation-column">
+                            <label class="generators-label-created">ID: </label>
+                        </td>
+                        <td class="creation-column">
+                            <input class="generators-input-created" id="individualPassInput" type="text" name="individualPassInput" value="{{individualCreated[3]}}" readonly>
+                        </td>
                         {% endif %}
                         {% if individualNationality != "cz" %}
                         <td class="creation-column">
@@ -157,7 +163,7 @@
                         </td>
                     </tr>
                 </table>
-                <!--<content class="generated-content-item">{{ individualCreated }} </content>-->
+                <content class="generated-content-item">{{ individualCreated }} </content>
             </div>
         </div>
     {% endif %}
