@@ -844,13 +844,6 @@ def generateAddress(country):
     
     return(addresses, country)
 
-@main.route('/copyToClipboard',methods=["POST","GET"])
-@login_required
-def copyToClipboard():
-    copyText = request.form.get("value")
-    cmd='echo '+copyText.strip()+'|clip'
-    
-    return subprocess.check_call(cmd, shell=True)
 
 
 
