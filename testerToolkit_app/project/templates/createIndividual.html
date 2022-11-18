@@ -88,9 +88,16 @@
                         <td class="creation-column">
                             <label class="generators-label-created">Name: </label>
                         </td>
+                        {% if individualNationality == "cz" %}
                         <td class="creation-column">
                             <input class="generators-input-created" id="individualNameInput" type="text" name="individualNameInput" value="{{individualCreated[0][0]}} {{individualCreated[0][1]}}" readonly>
                         </td>
+                        {% endif %}
+                        {% if individualNationality != "cz" %}
+                        <td class="creation-column" colspan="2">
+                            <input class="generators-input-created" id="individualNameInput" type="text" name="individualNameInput" value="{{individualCreated[0][0]}} {{individualCreated[0][1]}}" readonly>
+                        </td>
+                        {% endif %}
                         <td class="creation-column">
                             <label class="generators-label-created">Date of Birth: </label>
                         </td>
@@ -115,7 +122,7 @@
                         <td class="creation-column">
                             <label class="generators-label-created">Passport: </label>
                         </td>
-                        <td class="creation-column">
+                        <td class="creation-column" colspan="2">
                             <input class="generators-input-created" id="individualPassInput" type="text" name="individualPassInput" value="{{individualCreated[3]}}" readonly>
                         </td>
                         {% endif %}
@@ -124,7 +131,7 @@
                         <td class="creation-column">
                             <label class="generators-label-created">Address: </label>
                         </td>
-                        <td class="creation-column" colspan="5">
+                        <td class="creation-column" colspan="7">
                             <input class="generators-input-created" id="individualPIDInput" type="text" name="individualPIDInput" value="{{individualCreated[1][0]}}" readonly>
                         </td>
                     </tr>
@@ -132,33 +139,33 @@
                         <td class="creation-column">
                             <label class="generators-label-created">City of Birth: </label>
                         </td>
-                        <td class="creation-column" colspan="2">
+                        <td class="creation-column" colspan="3">
                             <input class="generators-input-created" id="individualPIDInput" type="text" name="individualPIDInput" value="{{individualCreated[1][1]}}" readonly>
                         </td>
                         <td class="creation-column">
                             <label class="generators-label-created">Country of Birth: </label>
                         </td>
-                        <td class="creation-column" colspan="2">
+                        <td class="creation-column" colspan="3">
                             <input class="generators-input-created" id="individualPIDInput" type="text" name="individualPIDInput" value="{{individualCreated[6]}}" readonly>
                         </td>
                     </tr>
                     <tr class="creation-track">
-                        <td>
+                        <td class="creation-column">
                             <label class="generators-label-created">Phone: </label>
                         </td>
-                        <td>
+                        <td class="creation-column" colspan="2">
                             <input class="generators-input-created" id="individualPhoneInput" type="text" name="individualPhoneInput" value="{{individualCreated[2]}}" readonly>
                         </td>
-                        <td>
+                        <td class="creation-column">
                             <label class="generators-label-created">Username: </label>
                         </td>
-                        <td>
+                        <td class="creation-column">
                             <input class="generators-input-created" id="individualUsernameInput" type="text" name="individualUsernameInput" value="{{individualCreated[0][2]}}" readonly>
                         </td>
-                        <td>
+                        <td class="creation-column">
                             <label class="generators-label-created">E-Mail: </label>
                         </td>
-                        <td>
+                        <td class="creation-column" colspan="2">
                             <input class="generators-input-created" id="individualMailInput" type="text" name="individualMailInput" value="{{individualCreated[0][3]}}" readonly>
                         </td>
                     </tr>
