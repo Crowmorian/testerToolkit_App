@@ -429,7 +429,7 @@ a.client-item:hover {
 	display: inline-block;
 	border-radius: 10px;
 	font-size: 18px;
-	width: 100%;
+	width: 200%;
 	height: 35px;
 	text-align: center;
 	margin: 0 auto;
