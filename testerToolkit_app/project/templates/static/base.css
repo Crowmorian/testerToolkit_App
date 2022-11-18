@@ -448,7 +448,7 @@ a.client-item:hover {
 }
 
 .button-copy {
-	position: absolute;
+	position: inherit;
 	top: 0;
 	bottom: 0;
 	right: 0;
