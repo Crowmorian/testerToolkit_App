@@ -843,10 +843,12 @@ def generateAddress(country):
     
     return(addresses, country)
 
-@main.route('/background_process_test',methods=["POST","GET"])
+@main.route('/copyToClipboard',methods=["POST","GET"])
 @login_required
-def background_process_test():
+def copyToClipboard():
+    copyText = request.form.get("data")
     print("Python function was called!!!")
+    print(copyText)
     return "nothing"
 
 
