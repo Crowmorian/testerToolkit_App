@@ -451,4 +451,8 @@ a.client-item:hover {
 
 .button-copy {
 	width: 100%;
+	background-image: url_for('static',filename='copy.png');
+	background-size: cover;
+	border: 4px solid #6e95ff;
+	border-radius: 10px;
 }
