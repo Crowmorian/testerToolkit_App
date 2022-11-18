@@ -433,6 +433,7 @@ a.client-item:hover {
 	height: 35px;
 	text-align: center;
 	margin: 0 auto;
+	float: left;
 }
 .generators-input-created:focus {
     outline-width: 0;
@@ -451,4 +452,5 @@ a.client-item:hover {
 .button-copy {
 	width: 9%;
 	display: inline-block;
+	float: right;
 }
