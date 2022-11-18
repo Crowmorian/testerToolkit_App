@@ -95,7 +95,7 @@
                             <label class="generators-label-created">Date of Birth: </label>
                         </td>
                         <td class="creation-column" colspan="2">
-                            <input class="generators-input-created" id="individualDOBInput" type="text" name="individualDOBInput" value="{{individualCreated[4]}}" readonly>
+                            <input class="generators-input-created" id="individualDOBInput" type="text" name="individualDOBInput" value="{{individualCreated[4]}}" readonly><button>hello</button></input>
                         </td>
                     </tr>
                     <tr class="creation-track">
@@ -192,7 +192,7 @@
         },
         success:function()
         {
-          alert('saved');
+          alert('Saved to clipboard!');
         }
       })
     });
