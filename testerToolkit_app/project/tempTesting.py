@@ -47,12 +47,12 @@ cur = con.cursor()
 
 rowId = 1
 
-file1 = open('funkyNamesLast3.txt', 'r')
+file1 = open('ico.txt', 'r')
 Lines = file1.readlines()
   
 for line in Lines:
     line = str(line)
-    cur.execute("INSERT INTO funkyNamesLast (ID, Name) VALUES (?,?)", (rowId, line))
+    cur.execute("INSERT INTO ico (ID, Ico) VALUES (?,?)", (rowId, line))
     rowId = rowId + 1
 
 

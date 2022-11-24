@@ -125,7 +125,50 @@ def CScreateLegalEntity():
 @main.route("/createBussiness")
 @login_required
 def createBussiness():
-    return render_template('createBussiness.html')
+    session["bussinessSaved"] = "saved" 
+    session["bussinessUseFunky"] = request.form.get("bussinessUseFunky")
+    session["bussinessNationality"] = request.form.get("bussinessNationality")
+    session["bussinessGender"] = request.form.get("bussinessGender")
+    
+    bussinessCreated = []
+    foreigner = None
+    
+    if session["bussinessNationality"] == "cz":
+        foreigner = None
+    else:
+        foreigner = "on"
+    
+    bussinessName = generateName(session["bussinessGender"], session["bussinessUseFunky"], foreigner)
+    bussinessCreated.append(bussinessName)
+    
+    bussinessAddress = generateAddress(session["bussinessNationality"])
+    bussinessCreated.append(bussinessAddress[0])
+    
+    if session["bussinessNationality"] == "cz":
+        bussinessPhone = phoneNumberCS()
+    elif session["bussinessNationality"] == "gb":
+        bussinessPhone = phoneNumberUK()
+    elif session["bussinessNationality"] == "us":
+        bussinessPhone = phoneNumberUS()
+    elif session["bussinessNationality"] == "eu":
+        bussinessPhone = phoneNumberEU(bussinessAddress[1])
+    bussinessCreated.append(bussinessPhone)
+    
+    bussinessPassport = passportNumber()
+    bussinessCreated.append(bussinessPassport)
+    
+    bussinessDateOfBirth = dateOfBirth(None)
+    bussinessCreated.append(bussinessDateOfBirth)
+    
+    bussinessPID = idNumberCS(session["bussinessGender"],bussinessDateOfBirth)
+    bussinessCreated.append(bussinessPID)
+    bussinessCreated.append(bussinessAddress[1])
+    
+    return render_template('createBussiness.html',
+        bussinessUseFunky = session["bussinessUseFunky"],
+        bussinessGender = session["bussinessGender"],
+        bussinessNationality = session["bussinessNationality"],
+        bussinessCreated = bussinessCreated)
 
 @main.route("/cs/createBussiness")
 @login_required

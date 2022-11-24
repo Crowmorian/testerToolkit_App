@@ -41,6 +41,7 @@ def login_post():
     session['number'] = str(uuid4())
     session["randomSaved"] = "notSaved"
     session["individualSaved"] = "notSaved"
+    session["bussinessSaved"] = "notSaved"
     
     return redirect(url_for('main.index'))
 
