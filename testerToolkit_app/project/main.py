@@ -138,7 +138,7 @@ def createBussiness():
     else:
         bussinessforeigner = "on"
     
-    bussinessName = generateName(session["bussinessGender"], session["bussinessUseFunky"], bussinessforeigner)
+    bussinessName = generateName("male", session["bussinessUseFunky"], bussinessforeigner)
     bussinessCreated.append(bussinessName)
     
     bussinessAddress = generateAddress(session["bussinessNationality"])
