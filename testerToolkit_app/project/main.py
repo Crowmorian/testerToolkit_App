@@ -130,6 +130,10 @@ def createBussiness():
     session["bussinessNationality"] = request.form.get("bussinessNationality")
     session["bussinessGender"] = request.form.get("bussinessGender")
     
+    print(session["bussinessUseFunky"])
+    print(session["bussinessNationality"])
+    print(session["bussinessGender"])
+    
     bussinessCreated = []
     bussinessforeigner = None
     
@@ -138,7 +142,7 @@ def createBussiness():
     else:
         bussinessforeigner = "on"
     
-    bussinessName = generateName("male", session["bussinessUseFunky"], bussinessforeigner)
+    bussinessName = generateName(session["bussinessGender"], session["bussinessUseFunky"], bussinessforeigner)
     bussinessCreated.append(bussinessName)
     
     bussinessAddress = generateAddress(session["bussinessNationality"])
