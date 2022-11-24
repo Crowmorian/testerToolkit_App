@@ -125,6 +125,11 @@ def CScreateLegalEntity():
 @main.route("/createBussiness")
 @login_required
 def createBussiness():
+    return render_template('createBussiness.html')
+
+@main.route("/createBussiness", methods=['POST'])
+@login_required
+def createBussiness_post():
     session["bussinessSaved"] = "saved" 
     session["bussinessUseFunky"] = request.form.get("bussinessUseFunky")
     session["bussinessNationality"] = request.form.get("bussinessNationality")
@@ -758,10 +763,7 @@ def passportNumber():
 
 #Pull name data from the database
 
-def generateName(gender, funky, foreigner):
-    
-    print(gender, funky, foreigner)
-    
+def generateName(gender, funky, foreigner):    
     specialsFrom = 'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝßàáâãäåçèéêëìíîïñòóôõöùúûüýÿĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſ'
     specialsTo =   'AAAAAACEEEEIIIINOOOOOUUUUYsaaaaaaceeeeiiiinooooouuuuyyAaAaAaCcCcCcCcDdDdEeEeEeEeEeGgGgGgGgHhHhIiIiIiIiIiKkkLlLlLlLlLlNnNnNnNnNOoOoOoRrRrRrSsSsSsSsTtTtTtUuUuUuUuUuUuWwYyYZzZzZzs'
 
