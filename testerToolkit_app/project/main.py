@@ -292,6 +292,19 @@ def generateRandomName():
         nameGenNationality = session["nameGenNationality"],
         nameGenGender = session["nameGenGender"])
 
+@main.route("/cs/generateName")
+@login_required
+def CSgenerateName():
+    if session["nameGenSaved"] == "notSaved":
+        session["howManyNames"] = 10
+        session["nameGenNationality"] = "cz"
+        session["nameGenGender"] = "male"
+    
+    return render_template('cs/generateName.html',
+        howManyNames = session["howManyNames"],
+        nameGenNationality = session["nameGenNationality"],
+        nameGenGender = session["nameGenGender"])
+
 @main.route("/generateName", methods=['POST'])
 @login_required
 def generateRandomName_post():
@@ -317,11 +330,32 @@ def generateRandomName_post():
         nameGenNationality = session["nameGenNationality"],
         nameGenGender = session["nameGenGender"],
         results = results)
-    
-@main.route("/cs/generateName")
+
+@main.route("/cs/generateName", methods=['POST'])
 @login_required
-def CSgenerateName():
-    return render_template('cs/generateName.html')
+def CSgenerateRandomName_post():
+    session["howManyNames"] = request.form.get("howManyNames")
+    session["nameGenNationality"] = request.form.get("nameGenNationality")
+    session["nameGenGender"] = request.form.get("nameGenGender")
+    
+    results = []
+    foreigner = None
+    
+    if session["nameGenNationality"] == "cz":
+        foreigner = None
+    else:
+        foreigner = "on"
+    
+    for i in range(0,int(session["howManyNames"])):
+        name = generateName(session["nameGenGender"], None, foreigner)
+        name = name[0] + " " + name[1] + ", "
+        results.append(name)
+
+    return render_template('cs/generateName.html',
+        howManyNames = session["howManyNames"],
+        nameGenNationality = session["nameGenNationality"],
+        nameGenGender = session["nameGenGender"],
+        results = results)
     
 @main.route("/generateRandom")
 @login_required
