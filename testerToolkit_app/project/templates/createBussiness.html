@@ -32,17 +32,17 @@
             </span>
         </div>
         <table class="creation-table">
+            {% if messages %}
             <tr class="creation-track">
                 <td class="creation-column" colspan="10">
                     {% with messages = get_flashed_messages() %}
-                    {% if messages %}
                         <div class="notification is-danger">
                             {{ messages[0] }}
                         </div>
-                    {% endif %}
                     {% endwith %}
                 </td>
             </tr>
+            {% endif %}
             <tr class="generators-input-track">
                 <td class="generators-input-column">
                     <label class="generators-label" for="bussinessUseFunky">Use Funky Names?</label>
