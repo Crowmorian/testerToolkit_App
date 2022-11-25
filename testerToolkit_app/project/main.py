@@ -145,6 +145,8 @@ def createBussiness_post():
     session["bussinessGender"] = request.form.get("bussinessGender")
     session["bussinessIco"] = request.form.get("bussinessIco")
     
+    print(session["bussinessIco"])
+    
     bussinessCreated = []
     bussinessforeigner = None
     
