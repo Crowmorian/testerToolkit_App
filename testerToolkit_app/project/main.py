@@ -179,7 +179,7 @@ def createBussiness_post():
     bussinessCreated.append(bussinessPID)
     bussinessCreated.append(bussinessAddress[1])
     
-    bussinessCIN = generateCIN()
+    bussinessCIN = generateCIN(session["bussinessIco"])
     bussinessCreated.append(bussinessCIN)
     
     bussinessCDN = generateConcessionNumber()
