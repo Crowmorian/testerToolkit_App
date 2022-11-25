@@ -284,7 +284,7 @@ def CSgenerateNumber():
 def generateName():
     return render_template('generateName.html')
     
-@main.route("/cs/generateMail")
+@main.route("/cs/generateName")
 @login_required
 def CSgenerateName():
     return render_template('cs/generateName.html')
