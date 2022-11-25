@@ -281,8 +281,42 @@ def CSgenerateNumber():
 
 @main.route("/generateName")
 @login_required
-def generateName():
-    return render_template('generateName.html')
+def generateRandomName():
+    if session["nameGenSaved"] == "notSaved":
+        session["howManyNames"] = 10
+        session["nameGenNationality"] = "cz"
+        session["nameGenGender"] = "male"
+    
+    return render_template('generateName.html',
+        howManyNames = session["howManyNames"],
+        nameGenNationality = session["nameGenNationality"],
+        nameGenGender = session["nameGenGender"])
+
+@main.route("/generateName", methods=['POST'])
+@login_required
+def generateRandomName_post():
+    session["howManyNames"] = request.form.get("howManyNames")
+    session["nameGenNationality"] = request.form.get("nameGenNationality")
+    session["nameGenGender"] = request.form.get("nameGenGender")
+    
+    results = []
+    foreigner = None
+    
+    if session["nameGenNationality"] == "cz":
+        foreigner = None
+    else:
+        foreigner = "on"
+    
+    for i in range(0,session["howManyNames"]):
+        name = generateName(session["nameGenGender"], None, foreigner)
+        name = name[0] + " " + name[1] + ", "
+        results.append(name)
+
+    return render_template('generateName.html',
+        howManyNames = session["howManyNames"],
+        nameGenNationality = session["nameGenNationality"],
+        nameGenGender = session["nameGenGender"],
+        results = results)
     
 @main.route("/cs/generateName")
 @login_required
