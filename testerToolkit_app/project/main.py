@@ -953,7 +953,7 @@ def generateIco(icotype):
         
         ico = "".join(stringIco)
     elif icotype == "real":
-        con = sqlite3.connect("asd/testerToolkit_app/project/genData.db")
+        con = sqlite3.connect("mysite/testerToolkit_app/project/genData.db")
         cur = con.cursor()
         
         cur.execute("SELECT * FROM ico")
