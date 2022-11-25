@@ -330,7 +330,7 @@ def generateNumber_post():
         numGenNationality = session["numGenNationality"],
         results = results)
 
-@main.route("cs/generateNumber", methods=['POST'])
+@main.route("/cs/generateNumber", methods=['POST'])
 @login_required
 def CSgenerateNumber_post():
     session["howManyPNumbers"] = request.form.get("howManyPNumbers")
