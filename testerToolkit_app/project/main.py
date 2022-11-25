@@ -179,7 +179,7 @@ def createBussiness_post():
     bussinessCreated.append(bussinessPID)
     bussinessCreated.append(bussinessAddress[1])
     
-    bussinessCIN = generateCIN(session["bussinessIco"])
+    bussinessCIN = generateIco(session["bussinessIco"])
     bussinessCreated.append(bussinessCIN)
     
     bussinessCDN = generateConcessionNumber()
@@ -904,7 +904,7 @@ def generateAddress(country):
     return(addresses, country)
 
 #Generate ICO number from a random template, or Get a random existing ICO from DB
-def gennerateIco(icotype):
+def generateIco(icotype):
     
     if icotype == "random":
         baseIco = []
