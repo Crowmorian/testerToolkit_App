@@ -15,7 +15,6 @@ from random import randint, seed, choices
 import sqlite3
 import random
 from datetime import date, timedelta
-import subprocess
 
 #Declaring routes and variables
 main = Blueprint("main", __name__)
@@ -179,6 +178,12 @@ def createBussiness_post():
     bussinessPID = idNumberCS(session["bussinessGender"],bussinessDateOfBirth)
     bussinessCreated.append(bussinessPID)
     bussinessCreated.append(bussinessAddress[1])
+    
+    bussinessCIN = generateCIN()
+    bussinessCreated.append(bussinessCIN)
+    
+    bussinessCDN = generateConcessionNumber()
+    bussinessCreated.append(bussinessCDN)
     
     return render_template('createBussiness.html',
         bussinessUseFunky = session["bussinessUseFunky"],
@@ -961,8 +966,15 @@ def gennerateIco(icotype):
         
     return(ico)
 
-
-
+#Genereta Concession Document Number
+def generateConcessionNumber():
+    startCN = str(random.randint(100, 999))
+    middleCN = str(random.randint(10, 99))
+    lastCN = str(random.randint(100, 999))
+    
+    concessionNumber = startCN + " " + middleCN + " " + lastCN
+    
+    return(concessionNumber)
 
 
 
