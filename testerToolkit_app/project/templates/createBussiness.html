@@ -277,6 +277,38 @@
                     </table>
                 </td>
             </tr>
+            <tr class="creation-track">
+                <td class="creation-column">
+                    <label class="generators-label-created">CIN: </label>
+                </td>
+                <td class="creation-column" colspan="2">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="bussinessCinInput" type="text" name="bussinessCinInput" value="TBA" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessCinInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="creation-column">
+                    <label class="generators-label-created">Concession Number: </label>
+                </td>
+                <td class="creation-column" colspan="2">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="bussinessCDNInput" type="text" name="bussinessCDNInput" value="TBA" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessCDNInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
         </table>
         <!--<content class="generated-content-item">{{ bussinessCreated }} </content>-->
     </div>
