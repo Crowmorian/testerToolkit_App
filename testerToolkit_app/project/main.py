@@ -125,7 +125,17 @@ def CScreateLegalEntity():
 @main.route("/createBussiness")
 @login_required
 def createBussiness():
-    return render_template('createBussiness.html')
+    if session["bussinessSaved"] == "notSaved":
+        session["bussinessUseFunky"] = None
+        session["bussinessGender"] = "male"
+        session["bussinessNationality"] = "cz"
+        session["bussinessIco"] = "real"
+        
+    return render_template('createBussiness.html',
+        bussinessUseFunky = session["bussinessUseFunky"],
+        bussinessGender = session["bussinessGender"],
+        bussinessNationality = session["bussinessNationality"],
+        bussinessIco = session["bussinessIco"])
 
 @main.route("/createBussiness", methods=['POST'])
 @login_required
@@ -134,10 +144,7 @@ def createBussiness_post():
     session["bussinessUseFunky"] = request.form.get("bussinessUseFunky")
     session["bussinessNationality"] = request.form.get("bussinessNationality")
     session["bussinessGender"] = request.form.get("bussinessGender")
-    
-    print(session["bussinessUseFunky"])
-    print(session["bussinessNationality"])
-    print(session["bussinessGender"])
+    session["bussinessIco"] = request.form.get("bussinessIco")
     
     bussinessCreated = []
     bussinessforeigner = None
@@ -491,8 +498,7 @@ def CSgenerateRandom_post():
 #Client generation functions
 #******************************************************************
 
-#UK Number
-
+#UK Phone Number
 def phoneNumberUK():    
     finalNumber = ""
     genNumber = []
@@ -510,8 +516,7 @@ def phoneNumberUK():
     
     return(finalNumber)
 
-#US Number
-
+#US Phone Number
 def phoneNumberUS():
     finalNumber = ""
     genNumber1 = []
@@ -543,8 +548,7 @@ def phoneNumberUS():
     
     return(finalNumber)
 
-#CS Number
-
+#CS Phone Number
 def phoneNumberCS():
     randNumber = []
     code = "+420 "
@@ -571,8 +575,7 @@ def phoneNumberCS():
     cur.close() 
     return(finalNumber)
 
-#EU Number
-
+#EU Phone Number
 def phoneNumberEU(country):
     country = country[1:]
     if country == "Italy":
@@ -702,8 +705,7 @@ def phoneNumberEU(country):
         error = "Unknown country"
         return(error)
 
-#Variables taken from POST
-
+#Generate date of birth based on the state of "minor" variable
 def dateOfBirth(minor):
     if minor == None:
         randomDays = random.randrange(6600, 26352)
@@ -716,6 +718,7 @@ def dateOfBirth(minor):
         
     return(birthDate)
 
+#Generate ID number (rodné číslo) for CS clients
 def idNumberCS(gender, birthDate):
     DOB = birthDate
     year = DOB[-2:]
@@ -746,7 +749,7 @@ def idNumberCS(gender, birthDate):
             
     return(idNumCS)
 
-#Passport ID Number
+#Generate Passport/ID Number
 def passportNumber():
     numList = []
     
@@ -761,8 +764,7 @@ def passportNumber():
     passNumber = ''.join([str(elem) for elem in numList])
     return(passNumber)
 
-#Pull name data from the database
-
+#Pull name data from the database based on the nationality and gender
 def generateName(gender, funky, foreigner):    
     specialsFrom = 'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝßàáâãäåçèéêëìíîïñòóôõöùúûüýÿĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſ'
     specialsTo =   'AAAAAACEEEEIIIINOOOOOUUUUYsaaaaaaceeeeiiiinooooouuuuyyAaAaAaCcCcCcCcDdDdEeEeEeEeEeGgGgGgGgHhHhIiIiIiIiIiKkkLlLlLlLlLlNnNnNnNnNOoOoOoRrRrRrSsSsSsSsTtTtTtUuUuUuUuUuUuWwYyYZzZzZzs'
@@ -832,7 +834,7 @@ def generateName(gender, funky, foreigner):
     
     return(nameList)
 
-
+#Generate random adress pulled from DB based on the nationality
 def generateAddress(country):    
     con = sqlite3.connect("mysite/testerToolkit_app/project/genData.db")
     cur = con.cursor()
@@ -896,7 +898,68 @@ def generateAddress(country):
     
     return(addresses, country)
 
-
+#Generate ICO number from a random template, or Get a random existing ICO from DB
+def gennerateIco(icotype):
+    
+    if icotype == "random":
+        baseIco = []
+        stringIco = []
+        
+        A1 = random.randint(1,9)
+        baseIco.append(A1)
+        B1 = random.randint(1,9)
+        baseIco.append(B1)
+        C1 = random.randint(1,9)
+        baseIco.append(C1)
+        D1 = random.randint(1,9)
+        baseIco.append(D1)
+        E1 = random.randint(1,9)
+        baseIco.append(E1)
+        F1 = random.randint(1,9)
+        baseIco.append(F1)
+        G1 = random.randint(1,9)
+        baseIco.append(G1)
+        
+        A2 = 8
+        B2 = 7
+        C2 = 6
+        D2 = 5
+        E2 = 4
+        F2 = 3
+        G2 = 2
+        
+        A3 = A1 * A2
+        B3 = B1 * B2
+        C3 = C1 * C2
+        D3 = D1 * D2
+        E3 = E1 * E2
+        F3 = F1 * F2
+        G3 = G1 * G2
+        
+        A4 = A3 + B3 + C3 + D3 + E3 + F3 + G3
+        B4 = A4 % 11
+        C4 = 11 - B4
+        D4 = C4 % 10
+        baseIco.append(D4)
+        
+        for i in baseIco:
+            x = str(i)
+            stringIco.append(x)
+        
+        ico = "".join(stringIco)
+    elif icotype == "real":
+        con = sqlite3.connect("asd/testerToolkit_app/project/genData.db")
+        cur = con.cursor()
+        
+        cur.execute("SELECT * FROM ico")
+        icoTable = cur.fetchall()    
+        
+        icoIndex = random.randint(1,len(icoTable))
+        icoLine = icoTable[icoIndex]
+        icoCut = list(icoLine)
+        ico = str(icoCut[1])
+        
+    return(ico)
 
 
 
