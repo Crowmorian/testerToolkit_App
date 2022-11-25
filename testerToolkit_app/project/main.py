@@ -272,12 +272,102 @@ def CSgenerateMail():
 @main.route("/generateNumber")
 @login_required
 def generateNumber():
-    return render_template('generateNumber.html')
+    if session["numGenSaved"] == "notSaved":
+        session["howManyPNumbers"] = 10
+        session["numGenNationality"] = "cz"
+    
+    return render_template('generateNumber.html',
+        howManyPNumbers = session["howManyPNumbers"],
+        numGenNationality = session["numGenNationality"])
     
 @main.route("/cs/generateNumber")
 @login_required
 def CSgenerateNumber():
-    return render_template('cs/generateNumber.html')
+    if session["numGenSaved"] == "notSaved":
+        session["howManyPNumbers"] = 10
+        session["numGenNationality"] = "cz"
+    
+    return render_template('cs/generateNumber.html',
+        howManyPNumbers = session["howManyPNumbers"],
+        numGenNationality = session["numGenNationality"])
+
+@main.route("/generateNumber", methods=['POST'])
+@login_required
+def generateNumber_post():
+    session["howManyPNumbers"] = request.form.get("howManyPNumbers")
+    session["numGenNationality"] = request.form.get("numGenNationality")
+    
+    results = []
+    
+    for i in range(0, int(session["howManyPNumbers"])):
+        if session["numGenNationality"] == "cz":
+            number = phoneNumberCS()
+            results.append(number)
+        elif session["numGenNationality"] == "it":
+            number = phoneNumberEU("Italy")
+            results.append(number)
+        elif session["numGenNationality"] == "de":
+            number = phoneNumberEU("Germany")
+            results.append(number)
+        elif session["numGenNationality"] == "fr":
+            number = phoneNumberEU("France")
+            results.append(number)
+        elif session["numGenNationality"] == "es":
+            number = phoneNumberEU("Spain")
+            results.append(number)
+        elif session["numGenNationality"] == "se":
+            number = phoneNumberEU("Sweden")
+            results.append(number)
+        elif session["numGenNationality"] == "gb":
+            number = phoneNumberUK()
+            results.append(number)
+        elif session["numGenNationality"] == "us":
+            number = phoneNumberUS()
+            results.append(number)
+    
+    return render_template('generateNumber.html',
+        howManyPNumbers = session["howManyPNumbers"],
+        numGenNationality = session["numGenNationality"],
+        results = results)
+
+@main.route("cs/generateNumber", methods=['POST'])
+@login_required
+def CSgenerateNumber_post():
+    session["howManyPNumbers"] = request.form.get("howManyPNumbers")
+    session["numGenNationality"] = request.form.get("numGenNationality")
+    
+    results = []
+    
+    for i in range(0, int(session["howManyPNumbers"])):
+        if session["numGenNationality"] == "cz":
+            number = phoneNumberCS()
+            results.append(number)
+        elif session["numGenNationality"] == "it":
+            number = phoneNumberEU("Italy")
+            results.append(number)
+        elif session["numGenNationality"] == "de":
+            number = phoneNumberEU("Germany")
+            results.append(number)
+        elif session["numGenNationality"] == "fr":
+            number = phoneNumberEU("France")
+            results.append(number)
+        elif session["numGenNationality"] == "es":
+            number = phoneNumberEU("Spain")
+            results.append(number)
+        elif session["numGenNationality"] == "se":
+            number = phoneNumberEU("Sweden")
+            results.append(number)
+        elif session["numGenNationality"] == "gb":
+            number = phoneNumberUK()
+            results.append(number)
+        elif session["numGenNationality"] == "us":
+            number = phoneNumberUS()
+            results.append(number)
+    
+    return render_template('cs/generateNumber.html',
+        howManyPNumbers = session["howManyPNumbers"],
+        numGenNationality = session["numGenNationality"],
+        results = results)
 
 @main.route("/generateName")
 @login_required
