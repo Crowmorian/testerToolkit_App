@@ -259,15 +259,35 @@ def generateDate():
 def CSgenerateDate():
     return render_template('cs/generateDate.html')
     
-@main.route("/generateMailNumber")
+@main.route("/generateMail")
 @login_required
-def generateMailNumber():
-    return render_template('generateMailNumber.html')
+def generateMail():
+    return render_template('generateMail.html')
     
-@main.route("/cs/generateMailNumber")
+@main.route("/cs/generateMail")
 @login_required
-def CSgenerateMailNumber():
-    return render_template('cs/generateMailNumber.html')
+def CSgenerateMail():
+    return render_template('cs/generateMail.html')
+
+@main.route("/generateNumber")
+@login_required
+def generateNumber():
+    return render_template('generateNumber.html')
+    
+@main.route("/cs/generateNumber")
+@login_required
+def CSgenerateNumber():
+    return render_template('cs/generateNumber.html')
+
+@main.route("/generateName")
+@login_required
+def generateName():
+    return render_template('generateName.html')
+    
+@main.route("/cs/generateMail")
+@login_required
+def CSgenerateName():
+    return render_template('cs/generateName.html')
     
 @main.route("/generateRandom")
 @login_required
