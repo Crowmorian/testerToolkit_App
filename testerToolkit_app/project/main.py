@@ -307,7 +307,7 @@ def generateRandomName_post():
     else:
         foreigner = "on"
     
-    for i in range(0,session["howManyNames"]):
+    for i in range(0,int(session["howManyNames"])):
         name = generateName(session["nameGenGender"], None, foreigner)
         name = name[0] + " " + name[1] + ", "
         results.append(name)
