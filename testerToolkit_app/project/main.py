@@ -304,19 +304,19 @@ def generateNumber_post():
             number = phoneNumberCS()
             results.append(number)
         elif session["numGenNationality"] == "it":
-            number = phoneNumberEU("Italy")
+            number = phoneNumberEU("Italy",0)
             results.append(number)
         elif session["numGenNationality"] == "de":
-            number = phoneNumberEU("Germany")
+            number = phoneNumberEU("Germany",0)
             results.append(number)
         elif session["numGenNationality"] == "fr":
-            number = phoneNumberEU("France")
+            number = phoneNumberEU("France",0)
             results.append(number)
         elif session["numGenNationality"] == "es":
-            number = phoneNumberEU("Spain")
+            number = phoneNumberEU("Spain",0)
             results.append(number)
         elif session["numGenNationality"] == "se":
-            number = phoneNumberEU("Sweden")
+            number = phoneNumberEU("Sweden",0)
             results.append(number)
         elif session["numGenNationality"] == "gb":
             number = phoneNumberUK()
@@ -343,19 +343,19 @@ def CSgenerateNumber_post():
             number = phoneNumberCS()
             results.append(number)
         elif session["numGenNationality"] == "it":
-            number = phoneNumberEU("Italy")
+            number = phoneNumberEU("Italy",0)
             results.append(number)
         elif session["numGenNationality"] == "de":
-            number = phoneNumberEU("Germany")
+            number = phoneNumberEU("Germany",0)
             results.append(number)
         elif session["numGenNationality"] == "fr":
-            number = phoneNumberEU("France")
+            number = phoneNumberEU("France",0)
             results.append(number)
         elif session["numGenNationality"] == "es":
-            number = phoneNumberEU("Spain")
+            number = phoneNumberEU("Spain",0)
             results.append(number)
         elif session["numGenNationality"] == "se":
-            number = phoneNumberEU("Sweden")
+            number = phoneNumberEU("Sweden",0)
             results.append(number)
         elif session["numGenNationality"] == "gb":
             number = phoneNumberUK()
@@ -761,8 +761,10 @@ def phoneNumberCS():
     return(finalNumber)
 
 #EU Phone Number
-def phoneNumberEU(country):
-    country = country[1:]
+def phoneNumberEU(country, crop=1):
+    if crop == 1:
+        country = country[1:]
+        
     if country == "Italy":
         finalNumber = ""
         genNumber1 = []
