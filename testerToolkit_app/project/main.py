@@ -262,7 +262,31 @@ def CSgenerateDate():
 @main.route("/generateMail")
 @login_required
 def generateMail():
-    return render_template('generateMail.html')
+    if session["mailGenSaved"] == "notSaved":
+        session["howManyEMails"] = 10
+        session["eMailNamePart"] = "fullName"
+        session["eMailProvPart"] = "random"
+    
+    return render_template('generateMail.html',
+        howManyEMails = session["howManyEMails"],
+        eMailNamePart = session["eMailNamePart"],
+        eMailProvPart = session["eMailProvPart"])
+
+@main.route("/generateMail", methods=['POST'])
+@login_required
+def generateMail_post():
+    session["mailGenSaved"] = "saved"
+    session["howManyEMails"] = request.form.get("howManyEMails")
+    session["eMailNamePart"] = request.form.get("eMailNamePart")
+    session["eMailProvPart"] = request.form.get("eMailProvPart")
+    
+    results = []
+    
+    return render_template('generateMail.html',
+        howManyEMails = session["howManyEMails"],
+        eMailNamePart = session["eMailNamePart"],
+        eMailProvPart = session["eMailProvPart"],
+        results = results)
     
 @main.route("/cs/generateMail")
 @login_required
@@ -294,6 +318,7 @@ def CSgenerateNumber():
 @main.route("/generateNumber", methods=['POST'])
 @login_required
 def generateNumber_post():
+    session["numGenSaved"] = "saved"
     session["howManyPNumbers"] = request.form.get("howManyPNumbers")
     session["numGenNationality"] = request.form.get("numGenNationality")
     
@@ -333,6 +358,7 @@ def generateNumber_post():
 @main.route("/cs/generateNumber", methods=['POST'])
 @login_required
 def CSgenerateNumber_post():
+    session["numGenSaved"] = "saved"
     session["howManyPNumbers"] = request.form.get("howManyPNumbers")
     session["numGenNationality"] = request.form.get("numGenNationality")
     
@@ -398,6 +424,7 @@ def CSgenerateName():
 @main.route("/generateName", methods=['POST'])
 @login_required
 def generateRandomName_post():
+    session["nameGenSaved"] = "saved"
     session["howManyNames"] = request.form.get("howManyNames")
     session["nameGenNationality"] = request.form.get("nameGenNationality")
     session["nameGenGender"] = request.form.get("nameGenGender")
@@ -424,6 +451,7 @@ def generateRandomName_post():
 @main.route("/cs/generateName", methods=['POST'])
 @login_required
 def CSgenerateRandomName_post():
+    session["nameGenSaved"] = "saved"
     session["howManyNames"] = request.form.get("howManyNames")
     session["nameGenNationality"] = request.form.get("nameGenNationality")
     session["nameGenGender"] = request.form.get("nameGenGender")
