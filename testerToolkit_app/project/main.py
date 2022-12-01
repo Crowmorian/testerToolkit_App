@@ -412,7 +412,6 @@ def generateDate_post():
     
     if delta.days <= 0:
         flash('Nesprávné jméno nebo heslo, zkuste to prosím znovu')
-        return redirect(url_for('main.generateDate'))
     else:
         for i in range(0, int(session["howManyDates"])):
             randomDays = random.randrange(0, delta.days)
