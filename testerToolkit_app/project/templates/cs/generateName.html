@@ -22,17 +22,17 @@
             </span>
         </div>
         <table class="creation-table">
+            {% with messages = get_flashed_messages() %}
             {% if messages %}
             <tr class="creation-track">
-                <td class="creation-column" colspan="10">
-                    {% with messages = get_flashed_messages() %}
-                        <div class="notification is-danger">
-                            {{ messages[0] }}
-                        </div>                    
-                    {% endwith %}
+                <td class="creation-column" colspan="10">                    
+                    <div class="notification is-danger">
+                        {{ messages[0] }}
+                    </div>                                      
                 </td>
             </tr>
             {% endif %}
+            {% endwith %}
             <tr class="generators-input-track">
                 <td class="generators-input-column">            
                     <label class="generators-label" for="howManyNames">Kolik jmen?</label>
