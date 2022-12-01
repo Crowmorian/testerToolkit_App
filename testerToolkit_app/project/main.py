@@ -1206,7 +1206,7 @@ def generateCustomEMail(number, gender, namePart, provPart):
     else:
         foreigner = "on"
     
-    for i in range(0, number):
+    for i in range(0, int(number)):
         nameGen = generateName(gender, funky, foreigner)
         
         if namePart == "fullNameShort":
