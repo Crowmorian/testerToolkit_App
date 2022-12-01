@@ -264,13 +264,13 @@ def CSgenerateDate():
 def generateMail():
     if session["mailGenSaved"] == "notSaved":
         session["howManyEMails"] = 10
-        session["eMailGender"] = "male"
+        session["eMailGenGender"] = "male"
         session["eMailNamePart"] = "fullName"
         session["eMailProvPart"] = "random"
     
     return render_template('generateMail.html',
         howManyEMails = session["howManyEMails"],
-        eMailGender = session["eMailGender"],
+        eMailGenGender = session["eMailGenGender"],
         eMailNamePart = session["eMailNamePart"],
         eMailProvPart = session["eMailProvPart"])
 
@@ -278,7 +278,7 @@ def generateMail():
 @login_required
 def generateMail_post():
     session["mailGenSaved"] = "saved"
-    session["eMailGender"] = request.form.get("eMailGender")
+    session["eMailGenGender"] = request.form.get("eMailGenGender")
     session["howManyEMails"] = request.form.get("howManyEMails")
     session["eMailNamePart"] = request.form.get("eMailNamePart")
     session["eMailProvPart"] = request.form.get("eMailProvPart")
