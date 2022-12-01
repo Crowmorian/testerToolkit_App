@@ -283,11 +283,8 @@ def generateMail_post():
     session["eMailNamePart"] = request.form.get("eMailNamePart")
     session["eMailProvPart"] = request.form.get("eMailProvPart")
     
-    results = []
-    foriegner = ""
-    gender = ""
-    funky = ""
-    
+    results = generateCustomEMail(session["howManyEMails"], session["eMailGender"], session["eMailNamePart"], session["eMailProvPart"])
+        
     return render_template('generateMail.html',
         howManyEMails = session["howManyEMails"],
         eMailGender = session["eMailGender"],
@@ -1193,7 +1190,58 @@ def generateConcessionNumber():
     
     return(concessionNumber)
 
+#Generate Custom Email address
+def generateCustomEMail(number, gender, namePart, provPart):
+    specialsFrom = 'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝßàáâãäåçèéêëìíîïñòóôõöùúûüýÿĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſ'
+    specialsTo =   'AAAAAACEEEEIIIINOOOOOUUUUYsaaaaaaceeeeiiiinooooouuuuyyAaAaAaCcCcCcCcDdDdEeEeEeEeEeGgGgGgGgHhHhIiIiIiIiIiKkkLlLlLlLlLlNnNnNnNnNOoOoOoRrRrRrSsSsSsSsTtTtTtUuUuUuUuUuUuWwYyYZzZzZzs'
 
+    emailList = []    
+    foreigner = ""
+    funky = None
+    provList = ["mailinator.com", "yahoo.com", "gmail.com", "hotmail.com", "quigley.net", "quick.net", "volny.cz", "seznam.cz"]
+    
+    foriegnerIdent = random.random()
+    if foriegnerIdent < 0.5:
+        foreigner = None
+    else:
+        foreigner = "on"
+    
+    for i in range(0, number):
+        nameGen = generateName(gender, funky, foreigner)
+        
+        if namePart == "fullNameShort":
+            name = nameGen[2]
+        elif namePart == "fullName":
+            name = nameGen[0] + nameGen[1]
+        elif namePart == "fullNameDot":
+            name = nameGen[0] + "." + nameGen[1]
+        elif namePart == "firstNameNumber":
+            name = nameGen[0] + str(random. randint(1, 999))
+        elif namePart == "lastNameNumber":
+            name = nameGen[1] + str(random. randint(1, 999))
+        else:
+            print("Unknown First Name Part")
+            
+        for i in range(0,len(name)):
+            for x in range(0,len(specialsFrom)):
+                foundIndex = name.find(specialsFrom[x])
+                if foundIndex > -1:
+                    newName = name.replace(specialsFrom[x], specialsTo[x])
+                    correctedNamePart = newName
+                    break
+        
+        finalNamePart = correctedNamePart.lower()
+        
+        if provPart == "random":
+            newProvider = random.choice(provList)
+        else:
+            newProvider = provPart
+            
+        customEmail = finalNamePart + "@" + newProvider
+        
+        emailList.append(customEmail)
+        
+    return(emailList)
 
 
 
