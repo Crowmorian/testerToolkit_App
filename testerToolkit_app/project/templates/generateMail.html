@@ -43,6 +43,17 @@
             </tr>
             <tr class="generators-input-track">
                 <td class="generators-input-column">
+                    <label class="generators-label" for="eMailGenGender">Gender</label>
+                </td>
+                <td class="generators-input-column">
+                    <select class="generators-input" name="eMailGenGender" id="eMailGenGender">
+                        <option value="male" {% if eMailGenGender=="male" %} selected {% endif %}>Male</option>
+                        <option value="female" {% if eMailGenGenderw=="female" %} selected {% endif %}>Female</option>
+                    </select>
+                </td>
+            </tr> 
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
                     <label class="generators-label" for="eMailNamePart">Name Part</label>
                 </td>
                 <td class="generators-input-column">
