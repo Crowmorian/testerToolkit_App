@@ -1435,7 +1435,7 @@ def generateCustomEMail(number, gender, namePart, provPart):
 def randomDate(start, end, howMany):
     dates = []
     
-    for i in range(0, howMany):
+    for i in range(0, int(howMany)):
         d1 = datetime.strptime(start, "%Y-%m-%d")
         d2 = datetime.strptime(end, "%Y-%m-%d")
         
