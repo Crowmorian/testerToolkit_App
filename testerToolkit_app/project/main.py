@@ -283,11 +283,11 @@ def generateMail_post():
     session["eMailNamePart"] = request.form.get("eMailNamePart")
     session["eMailProvPart"] = request.form.get("eMailProvPart")
     
-    results = generateCustomEMail(session["howManyEMails"], session["eMailGender"], session["eMailNamePart"], session["eMailProvPart"])
+    results = generateCustomEMail(session["howManyEMails"], session["eMailGenGender"], session["eMailNamePart"], session["eMailProvPart"])
         
     return render_template('generateMail.html',
         howManyEMails = session["howManyEMails"],
-        eMailGender = session["eMailGender"],
+        eMailGenGender = session["eMailGenGender"],
         eMailNamePart = session["eMailNamePart"],
         eMailProvPart = session["eMailProvPart"],
         results = results)
