@@ -380,7 +380,17 @@ def CSgenerateCIN():
 @main.route("/generateDate")
 @login_required
 def generateDate():
-    return render_template('generateDate.html')
+    if session["dateSaved"] == "notSaved":
+        today = date.today()
+        d1 = today.strftime("%Y-%m-%d")
+        session["howManyDates"] = 10
+        session["dateStart"] = d1
+        session["dateEnd"] = d1        
+        
+    return render_template('generateDate.html',
+        howManyDates = session["howManyDates"],
+        dateStart = session["dateStart"],
+        dateEnd = session["dateEnd"])
     
 @main.route("/cs/generateDate")
 @login_required
