@@ -1234,7 +1234,7 @@ def generateCustomEMail(number, gender, namePart, provPart):
                 if foundIndex > -1:
                     newName = name.replace(specialsFrom[x], specialsTo[x])
                     correctedNamePart = newName
-                    break
+                    #break
                     
         
         finalNamePart = correctedNamePart.lower()
