@@ -8,6 +8,11 @@
         var popup = document.getElementById("legend");
         popup.classList.toggle("show");
     }
+
+    function print() {
+        var toPrint = document.getElementById("dateStart");
+        console.log(toPrint.value)
+    }
 </script>
 <form method="POST" action="/generateDate">
     <div class="creation-content">
@@ -59,7 +64,8 @@
             </tr> 
             <tr class="generators-input-track">
                 <td colspan="10">
-                    <input class="generators-button" type="submit" value="Generate">                        
+                    <button onclick="print()">Press</button>
+                    <!--<input class="generators-button" type="submit" value="Generate">-->
                 </td>
             </tr>
         </table>
