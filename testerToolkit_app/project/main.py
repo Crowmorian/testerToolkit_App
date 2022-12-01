@@ -9,12 +9,12 @@ Created on Thu Oct 13 14:27:02 2022
 
 # Importing of necessary libraries
 #************************************
-from flask import Blueprint, render_template, request, session, flash
+from flask import Blueprint, render_template, request, session, flash, redirect, url_for
 from flask_login import login_required
 from random import randint, seed, choices
 import sqlite3
 import random
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 
 #Declaring routes and variables
 main = Blueprint("main", __name__)
@@ -396,6 +396,21 @@ def generateDate():
 @login_required
 def CSgenerateDate():
     return render_template('cs/generateDate.html')
+
+@main.route("/generateDate", methods=['POST'])
+@login_required
+def generateDate_post():
+    session["howManyDates"] = request.form.get("howManyDates")
+    session["dateStart"] = request.form.get("dateStart")
+    session["dateEnd"] = request.form.get("dateEnd")
+    
+    dates = randomDate(session["dateStart"], session["dateEnd"], session["howManyDates"])
+    
+    return render_template('generateDate.html',
+        howManyDates = session["howManyDates"],
+        dateStart = session["dateStart"],
+        dateEnd = session["dateEnd"],
+        results = dates)
     
 @main.route("/generateMail")
 @login_required
@@ -1416,8 +1431,28 @@ def generateCustomEMail(number, gender, namePart, provPart):
         
     return(emailList)
 
-
-
+#Generate random date in given range
+def randomDate(start, end, howMany):
+    dates = []
+    
+    for i in range(0, howMany):
+        d1 = datetime.strptime(start, "%Y-%m-%d")
+        d2 = datetime.strptime(end, "%Y-%m-%d")
+        
+        delta = d2 - d1
+        
+        if delta.days < 0:
+            flash('Nesprávné jméno nebo heslo, zkuste to prosím znovu')
+            return redirect(url_for('main.generateDate'))
+        else:        
+            randomDays = random.randrange(0, delta.days)
+            subtraction = date.today()- timedelta(days=randomDays)
+            randomDate = subtraction.strftime('%d.%m. %Y')
+            
+            dates.append(randomDate)
+        
+        
+    return(dates)
 
 
 
