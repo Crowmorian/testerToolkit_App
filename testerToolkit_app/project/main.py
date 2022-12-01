@@ -59,7 +59,18 @@ def createIndividual():
 @main.route("/cs/createIndividual")
 @login_required
 def CScreateIndividual():
-    return render_template('cs/createIndividual.html')
+    if session["individualSaved"] == "notSaved":
+        session["individualUseFunky"] = None
+        session["individualGender"] = "male"
+        session["individualIsMinor"] = None
+        session["individualNationality"] = "cz"
+    
+    return render_template('cs/createIndividual.html',
+        individualUseFunky = session["individualUseFunky"],
+        individualGender = session["individualGender"],
+        individualIsMinor = session["individualIsMinor"],
+        individualNationality = session["individualNationality"])
+
 
 @main.route('/createIndividual', methods=['POST'])
 @login_required
@@ -105,6 +116,56 @@ def createIndividual_post():
     individualCreated.append(individualAddress[1])
     
     return render_template('createIndividual.html',
+        individualUseFunky = session["individualUseFunky"],
+        individualGender = session["individualGender"],
+        individualIsMinor = session["individualIsMinor"],
+        individualNationality = session["individualNationality"],
+        individualCreated = individualCreated)
+
+@main.route('/cs/createIndividual', methods=['POST'])
+@login_required
+def CScreateIndividual_post():
+    session["individualSaved"] = "saved" 
+    session["individualUseFunky"] = request.form.get("individualUseFunky")
+    session["individualIsMinor"] = request.form.get("individualIsMinor")
+    session["individualNationality"] = request.form.get("individualNationality")
+    session["individualGender"] = request.form.get("individualGender")
+    
+    individualCreated = []
+    foreigner = None
+    
+    if session["individualNationality"] == "cz":
+        foreigner = None
+    else:
+        foreigner = "on"
+    
+    individualName = generateName(session["individualGender"], session["individualUseFunky"], foreigner)
+    individualCreated.append(individualName)
+    
+    individualAddress = generateAddress(session["individualNationality"])
+    individualCreated.append(individualAddress[0])
+    
+    if session["individualNationality"] == "cz":
+        individualPhone = phoneNumberCS()
+    elif session["individualNationality"] == "gb":
+        individualPhone = phoneNumberUK()
+    elif session["individualNationality"] == "us":
+        individualPhone = phoneNumberUS()
+    elif session["individualNationality"] == "eu":
+        individualPhone = phoneNumberEU(individualAddress[1])
+    individualCreated.append(individualPhone)
+    
+    individualPassport = passportNumber()
+    individualCreated.append(individualPassport)
+    
+    individualDateOfBirth = dateOfBirth(session["individualIsMinor"])
+    individualCreated.append(individualDateOfBirth)
+    
+    individualPID = idNumberCS(session["individualGender"],individualDateOfBirth)
+    individualCreated.append(individualPID)
+    individualCreated.append(individualAddress[1])
+    
+    return render_template('cs/createIndividual.html',
         individualUseFunky = session["individualUseFunky"],
         individualGender = session["individualGender"],
         individualIsMinor = session["individualIsMinor"],
