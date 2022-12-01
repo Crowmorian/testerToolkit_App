@@ -1203,13 +1203,13 @@ def generateCustomEMail(number, gender, namePart, provPart):
     mailFunky = None
     provList = ["mailinator.com", "yahoo.com", "gmail.com", "hotmail.com", "quigley.net", "quick.net", "volny.cz", "seznam.cz"]
     
-    foriegnerIdent = random.random()
-    if foriegnerIdent < 0.5:
-        mailForeigner = None
-    else:
-        mailForeigner = "on"
-    
     for i in range(0, int(number)):
+        foriegnerIdent = random.random()
+        if foriegnerIdent < 0.5:
+            mailForeigner = None
+        else:
+            mailForeigner = "on"
+        
         nameGen = generateName(mailGender, mailFunky, mailForeigner)
         
         if namePart == "fullNameShort":
