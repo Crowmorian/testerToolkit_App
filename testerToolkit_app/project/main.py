@@ -1226,18 +1226,18 @@ def generateCustomEMail(number, gender, namePart, provPart):
         else:
             print("Unknown First Name Part")
         
-        correctedNamePart = name
+        username = name
         
-        for i in range(0,len(name)):
+        for i in range(0,len(username)):
             for x in range(0,len(specialsFrom)):
-                foundIndex = name.find(specialsFrom[x])
+                foundIndex = username.find(specialsFrom[x])
                 if foundIndex > -1:
-                    newName = name.replace(specialsFrom[x], specialsTo[x])
-                    correctedNamePart = newName
-                    #break
+                    newUsername = username.replace(specialsFrom[x], specialsTo[x])
+                    username = newUsername
+                    break
                     
         
-        finalNamePart = correctedNamePart.lower()
+        finalNamePart = username.lower()
         
         if provPart == "random":
             newProvider = random.choice(provList)
