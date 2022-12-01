@@ -3,9 +3,315 @@
 {% extends "cs/createClient.html" %}
 
 {% block creation %}
-<div>
-  <h2 class="subtitle">
-    Tady se bude vytvářet fyzickou firemní osobu
-  </h2>
+<script type="text/javascript">  
+    function showPopUp() {
+        var popup = document.getElementById("legend");
+        popup.classList.toggle("show");
+    }
+
+    function copyInputValue(findId) {
+      // Get the text field
+      var copyText = document.getElementById(findId).value;
+      console.log(copyText)
+
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(copyText);
+    }
+
+</script>
+<form method="POST" action="/cs/createBussiness">
+    <div class="creation-content">
+        <div class="popup" onclick="showPopUp()">Need help?
+            <span class="popuptextCS" id="legend">
+                <p>
+                    Legenda
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean placerat. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Et harum quidem rerum facilis est et expedita distinctio. Proin mattis lacinia justo. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aliquam erat volutpat. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Nulla non arcu lacinia neque faucibus fringilla. Aenean fermentum risus id tortor. Nullam eget nisl. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Nullam faucibus mi quis velit. Integer tempor. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Quisque tincidunt scelerisque libero. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Vestibulum fermentum tortor id mi. Etiam dictum tincidunt diam.
+                </p>
+            </span>
+        </div>
+        <table class="creation-table">
+            {% if messages %}
+            <tr class="creation-track">
+                <td class="creation-column" colspan="10">
+                    {% with messages = get_flashed_messages() %}
+                        <div class="notification is-danger">
+                            {{ messages[0] }}
+                        </div>
+                    {% endwith %}
+                </td>
+            </tr>
+            {% endif %}
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
+                    <label class="generators-label" for="bussinessUseFunky">Použít Funky Jména?</label>
+                </td>
+                <td class="generators-input-column">
+                    <input class="generators-input-zero" type="checkbox" id="bussinessUseFunky" name="bussinessUseFunky" {{ "checked" if bussinessUseFunky == "on" }}>
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
+                    <label class="generators-label" for="bussinessGender">Pohlaví</label>
+                </td>
+                <td class="generators-input-column">
+                    <select class="generators-input" name="bussinessGender" id="bussinessGender">
+                        <option value="male" {% if bussinessGender=="male" %} selected {% endif %}>Muž</option>
+                        <option value="female" {% if bussinessGender=="female" %} selected {% endif %}>Žena</option>
+                    </select>
+                </td>
+            </tr>   
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
+                    <label class="generators-label" for="bussinessNationality">Národnost</label>
+                </td>
+                <td class="generators-input-column">
+                    <select class="generators-input" name="bussinessNationality" id="bussinessNationality">
+                        <option value="cz" {% if bussinessNationality=="cz" %} selected {% endif %}>CZ</option>
+                        <option value="eu" {% if bussinessNationality=="eu" %} selected {% endif %}>EU</option>
+                        <option value="gb" {% if bussinessNationality=="gb" %} selected {% endif %}>GB</option>
+                        <option value="us" {% if bussinessNationality=="us" %} selected {% endif %}>USA</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
+                    <label class="generators-label" for="bussinessIco">IČO</label>
+                </td>
+                <td class="generators-input-column">
+                    <select class="generators-input" name="bussinessIco" id="bussinessIco">
+                        <option value="real" {% if bussinessIco=="real" %} selected {% endif %}>Existující</option>
+                        <option value="random" {% if bussinessIco=="random" %} selected {% endif %}>Vygenerované</option>
+                    </select>
+                </td>
+            </tr>        
+            <tr class="generators-input-track">
+                <td colspan="2">
+                    <input class="generators-button" type="submit" value="Generate">                        
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+{% if bussinessCreated|length > 0 %}
+<div class="creation-content">
+    <div class="generated-content-title">Klient</div>
+        <table class="creation-table-created">
+            <tr class="creation-track">
+                <td class="creation-column">
+                    <label class="generators-label-created">Jméno: </label>
+                </td>
+                <td class="creation-column" colspan="2">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="bussinessNameInput" type="text" name="bussinessNameInput" value="{{bussinessCreated[0][0]}} {{bussinessCreated[0][1]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessNameInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="creation-column">
+                    <label class="generators-label-created">Datum Narození: </label>
+                </td>
+                <td class="creation-column" colspan="2">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="bussinessDOBInput" type="text" name="bussinessDOBInput" value="{{bussinessCreated[4]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessDOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="creation-track">
+                {% if bussinessNationality == "cz" %}
+                <td class="creation-column">
+                    <label class="generators-label-created">Rodné Číslo: </label>
+                </td>
+                <td class="creation-column" colspan="2">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="bussinessPIDInput" type="text" name="bussinessPIDInput" value="{{bussinessCreated[5]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessPIDInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="creation-column">
+                    <label class="generators-label-created">Číslo OP: </label>
+                </td>
+                <td class="creation-column" colspan="2">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="bussinessPassInput" type="text" name="bussinessPassInput" value="{{bussinessCreated[3]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessPassInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                {% endif %}
+                {% if bussinessNationality != "cz" %}
+                <td class="creation-column">
+                    <label class="generators-label-created">Číslo Pasu: </label>
+                </td>
+                <td class="creation-column" colspan="5">
+                    <table>
+                        <tr>
+                            <td style="width: 290%;">
+                                <input class="generators-input-created" id="bussinessPassInput" type="text" name="bussinessPassInput" value="{{bussinessCreated[3]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessPassInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                {% endif %}
+            </tr>
+            <tr class="creation-track">
+                <td class="creation-column">
+                    <label class="generators-label-created">Adresa: </label>
+                </td>
+                <td class="creation-column" colspan="5">
+                    <table>
+                        <tr>
+                            <td style="width: 290%;">
+                                <input class="generators-input-created" id="bussinessAddressInput" type="text" name="bussinessAddressInput" value="{{bussinessCreated[1][0]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessAddressInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>                               
+                </td>
+            </tr>
+            <tr class="creation-track">
+                <td class="creation-column">
+                    <label class="generators-label-created">Město Narození: </label>
+                </td>
+                <td class="creation-column" colspan="2">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="bussinessCOBInput" type="text" name="bussinessCOBInput" value="{{bussinessCreated[1][1]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessCOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="creation-column">
+                    <label class="generators-label-created">Země Narození: </label>
+                </td>
+                <td class="creation-column" colspan="2">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="bussinessCountryOBInput" type="text" name="bussinessCountryOBInput" value="{{bussinessCreated[6]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessCountryOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="creation-track">
+                <td class="creation-column">
+                    <label class="generators-label-created">Telefon: </label>
+                </td>
+                <td class="creation-column">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="bussinessPhoneInput" type="text" name="bussinessPhoneInput" value="{{bussinessCreated[2]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessPhoneInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="creation-column">
+                    <label class="generators-label-created">Uživatelské Jméno: </label>
+                </td>
+                <td class="creation-column">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="bussinessUsernameInput" type="text" name="bussinessUsernameInput" value="{{bussinessCreated[0][2]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessUsernameInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="creation-column">
+                    <label class="generators-label-created">Email: </label>
+                </td>
+                <td class="creation-column">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="bussinessMailInput" type="text" name="bussinessMailInput" value="{{bussinessCreated[0][3]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessMailInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="creation-track">
+                <td class="creation-column">
+                    <label class="generators-label-created">IČO: </label>
+                </td>
+                <td class="creation-column" colspan="2">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="bussinessCinInput" type="text" name="bussinessCinInput" value="{{bussinessCreated[7]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessCinInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="creation-column">
+                    <label class="generators-label-created">Koncesní listina: </label>
+                </td>
+                <td class="creation-column" colspan="2">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="bussinessCDNInput" type="text" name="bussinessCDNInput" value="{{bussinessCreated[8]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('bussinessCDNInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <!--<content class="generated-content-item">{{ bussinessCreated }} </content>-->
+    </div>
 </div>
+{% endif %}
 {% endblock %}

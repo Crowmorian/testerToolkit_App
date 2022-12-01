@@ -136,6 +136,21 @@ def createBussiness():
         bussinessNationality = session["bussinessNationality"],
         bussinessIco = session["bussinessIco"])
 
+@main.route("/cs/createBussiness")
+@login_required
+def CScreateBussiness():
+    if session["bussinessSaved"] == "notSaved":
+        session["bussinessUseFunky"] = None
+        session["bussinessGender"] = "male"
+        session["bussinessNationality"] = "cz"
+        session["bussinessIco"] = "real"
+        
+    return render_template('cs/createBussiness.html',
+        bussinessUseFunky = session["bussinessUseFunky"],
+        bussinessGender = session["bussinessGender"],
+        bussinessNationality = session["bussinessNationality"],
+        bussinessIco = session["bussinessIco"])
+
 @main.route("/createBussiness", methods=['POST'])
 @login_required
 def createBussiness_post():
@@ -193,10 +208,62 @@ def createBussiness_post():
         bussinessNationality = session["bussinessNationality"],
         bussinessCreated = bussinessCreated)
 
-@main.route("/cs/createBussiness")
+@main.route("/cs/createBussiness", methods=['POST'])
 @login_required
-def CScreateBussiness():
-    return render_template('cs/createBussiness.html')
+def CScreateBussiness_post():
+    session["bussinessSaved"] = "saved" 
+    session["bussinessUseFunky"] = request.form.get("bussinessUseFunky")
+    session["bussinessNationality"] = request.form.get("bussinessNationality")
+    session["bussinessGender"] = request.form.get("bussinessGender")
+    session["bussinessIco"] = request.form.get("bussinessIco")
+    
+    print(session["bussinessIco"])
+    
+    bussinessCreated = []
+    bussinessforeigner = None
+    
+    if session["bussinessNationality"] == "cz":
+        bussinessforeigner = None
+    else:
+        bussinessforeigner = "on"
+    
+    bussinessName = generateName(session["bussinessGender"], session["bussinessUseFunky"], bussinessforeigner)
+    bussinessCreated.append(bussinessName)
+    
+    bussinessAddress = generateAddress(session["bussinessNationality"])
+    bussinessCreated.append(bussinessAddress[0])
+    
+    if session["bussinessNationality"] == "cz":
+        bussinessPhone = phoneNumberCS()
+    elif session["bussinessNationality"] == "gb":
+        bussinessPhone = phoneNumberUK()
+    elif session["bussinessNationality"] == "us":
+        bussinessPhone = phoneNumberUS()
+    elif session["bussinessNationality"] == "eu":
+        bussinessPhone = phoneNumberEU(bussinessAddress[1])
+    bussinessCreated.append(bussinessPhone)
+    
+    bussinessPassport = passportNumber()
+    bussinessCreated.append(bussinessPassport)
+    
+    bussinessDateOfBirth = dateOfBirth(None)
+    bussinessCreated.append(bussinessDateOfBirth)
+    
+    bussinessPID = idNumberCS(session["bussinessGender"],bussinessDateOfBirth)
+    bussinessCreated.append(bussinessPID)
+    bussinessCreated.append(bussinessAddress[1])
+    
+    bussinessCIN = generateIco(session["bussinessIco"])
+    bussinessCreated.append(bussinessCIN)
+    
+    bussinessCDN = generateConcessionNumber()
+    bussinessCreated.append(bussinessCDN)
+    
+    return render_template('cs/createBussiness.html',
+        bussinessUseFunky = session["bussinessUseFunky"],
+        bussinessGender = session["bussinessGender"],
+        bussinessNationality = session["bussinessNationality"],
+        bussinessCreated = bussinessCreated)
     
 @main.route("/setEng")
 def setEng ():
