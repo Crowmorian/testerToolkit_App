@@ -1441,7 +1441,7 @@ def randomDate(start, end, howMany):
         
         delta = d2 - d1
         
-        if delta.days < 0:
+        if delta.days <= 0:
             flash('Nesprávné jméno nebo heslo, zkuste to prosím znovu')
             return redirect(url_for('main.generateDate'))
         else:        
