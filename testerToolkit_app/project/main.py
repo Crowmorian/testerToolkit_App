@@ -991,6 +991,8 @@ def generateName(gender, funky, foreigner):
     con = sqlite3.connect("mysite/testerToolkit_app/project/genData.db")
     cur = con.cursor()
     
+    print(gender, funky, foreigner)
+    
     nameList = []
     
     if funky == "on":
@@ -1196,18 +1198,19 @@ def generateCustomEMail(number, gender, namePart, provPart):
     specialsTo =   'AAAAAACEEEEIIIINOOOOOUUUUYsaaaaaaceeeeiiiinooooouuuuyyAaAaAaCcCcCcCcDdDdEeEeEeEeEeGgGgGgGgHhHhIiIiIiIiIiKkkLlLlLlLlLlNnNnNnNnNOoOoOoRrRrRrSsSsSsSsTtTtTtUuUuUuUuUuUuWwYyYZzZzZzs'
 
     emailList = []    
-    foreigner = ""
-    funky = None
+    mailForeigner = ""
+    mailGender = gender
+    mailFunky = None
     provList = ["mailinator.com", "yahoo.com", "gmail.com", "hotmail.com", "quigley.net", "quick.net", "volny.cz", "seznam.cz"]
     
     foriegnerIdent = random.random()
     if foriegnerIdent < 0.5:
-        foreigner = None
+        mailForeigner = None
     else:
-        foreigner = "on"
+        mailForeigner = "on"
     
     for i in range(0, int(number)):
-        nameGen = generateName(gender, funky, foreigner)
+        nameGen = generateName(mailGender, mailFunky, mailForeigner)
         
         if namePart == "fullNameShort":
             name = nameGen[2]
