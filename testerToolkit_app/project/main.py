@@ -403,16 +403,29 @@ def generateDate_post():
     session["howManyDates"] = request.form.get("howManyDates")
     session["dateStart"] = request.form.get("dateStart")
     session["dateEnd"] = request.form.get("dateEnd")
+
+    dates = []
+    d1 = datetime.strptime(session["dateStart"], "%Y-%m-%d")
+    d2 = datetime.strptime(session["dateEnd"], "%Y-%m-%d")
     
-    dates = randomDate(session["dateStart"], session["dateEnd"], session["howManyDates"])
-    if type(dates) == list:
-        return render_template('generateDate.html',
-            howManyDates = session["howManyDates"],
-            dateStart = session["dateStart"],
-            dateEnd = session["dateEnd"],
-            results = dates)
+    delta = d2 - d1
+    
+    if delta.days <= 0:
+        flash('Nesprávné jméno nebo heslo, zkuste to prosím znovu')
+        return redirect(url_for('main.generateDate'))
     else:
-        return render_template('generateDate.html')    
+        for i in range(0, int(session["howManyDates"])):
+            randomDays = random.randrange(0, delta.days)
+            subtraction = date.today()- timedelta(days=randomDays)
+            randomDate = subtraction.strftime('%d.%m. %Y')
+            
+            dates.append(randomDate)
+    
+    return render_template('generateDate.html',
+        howManyDates = session["howManyDates"],
+        dateStart = session["dateStart"],
+        dateEnd = session["dateEnd"],
+        results = dates) 
     
 @main.route("/generateMail")
 @login_required
@@ -1432,26 +1445,6 @@ def generateCustomEMail(number, gender, namePart, provPart):
         emailList.append(customEmail)
         
     return(emailList)
-
-#Generate random date in given range
-def randomDate(start, end, howMany):
-    dates = []
-    d1 = datetime.strptime(start, "%Y-%m-%d")
-    d2 = datetime.strptime(end, "%Y-%m-%d")
-    
-    delta = d2 - d1
-    
-    if delta.days <= 0:
-        flash('Nesprávné jméno nebo heslo, zkuste to prosím znovu')
-        return redirect(url_for('main.generateDate'))
-    else:
-        for i in range(0, int(howMany)):
-            randomDays = random.randrange(0, delta.days)
-            subtraction = date.today()- timedelta(days=randomDays)
-            randomDate = subtraction.strftime('%d.%m. %Y')
-            
-            dates.append(randomDate)
-        return(dates)
         
         
     
