@@ -1197,7 +1197,7 @@ def generateCustomEMail(number, gender, namePart, provPart):
     specialsFrom = 'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝßàáâãäåçèéêëìíîïñòóôõöùúûüýÿĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſ'
     specialsTo =   'AAAAAACEEEEIIIINOOOOOUUUUYsaaaaaaceeeeiiiinooooouuuuyyAaAaAaCcCcCcCcDdDdEeEeEeEeEeGgGgGgGgHhHhIiIiIiIiIiKkkLlLlLlLlLlNnNnNnNnNOoOoOoRrRrRrSsSsSsSsTtTtTtUuUuUuUuUuUuWwYyYZzZzZzs'
 
-    emailList = []    
+    emailList = []
     mailForeigner = ""
     mailGender = gender
     mailFunky = None
@@ -1205,6 +1205,7 @@ def generateCustomEMail(number, gender, namePart, provPart):
     
     for i in range(0, int(number)):
         foriegnerIdent = random.random()
+        
         if foriegnerIdent < 0.5:
             mailForeigner = None
         else:
@@ -1224,7 +1225,9 @@ def generateCustomEMail(number, gender, namePart, provPart):
             name = nameGen[1] + str(random. randint(1, 999))
         else:
             print("Unknown First Name Part")
-            
+        
+        correctedNamePart = name
+        
         for i in range(0,len(name)):
             for x in range(0,len(specialsFrom)):
                 foundIndex = name.find(specialsFrom[x])
@@ -1232,8 +1235,7 @@ def generateCustomEMail(number, gender, namePart, provPart):
                     newName = name.replace(specialsFrom[x], specialsTo[x])
                     correctedNamePart = newName
                     break
-                else:
-                    correctedNamePart = name
+                    
         
         finalNamePart = correctedNamePart.lower()
         
