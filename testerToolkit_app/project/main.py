@@ -405,12 +405,14 @@ def generateDate_post():
     session["dateEnd"] = request.form.get("dateEnd")
     
     dates = randomDate(session["dateStart"], session["dateEnd"], session["howManyDates"])
-    
-    return render_template('generateDate.html',
-        howManyDates = session["howManyDates"],
-        dateStart = session["dateStart"],
-        dateEnd = session["dateEnd"],
-        results = dates)
+    if type(dates) == list:
+        return render_template('generateDate.html',
+            howManyDates = session["howManyDates"],
+            dateStart = session["dateStart"],
+            dateEnd = session["dateEnd"],
+            results = dates)
+    else:
+        return render_template('generateDate.html')    
     
 @main.route("/generateMail")
 @login_required
