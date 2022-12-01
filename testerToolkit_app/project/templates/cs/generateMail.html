@@ -3,19 +3,101 @@
 {% extends "cs/generators.html" %}
 
 {% block generation %}
-<form class="creation-form">
-    <table class="creation-table">
-        <tr class="creation-track">
-            <td class="creation-column">
-                <div class="creation-container">
-                    Tady se bude zobrazovat formulář vygenerování E-Mailů
-                </div>
-            </td>
-        </tr>
-    </table>
+<script type="text/javascript">  
+    function showPopUp() {
+        var popup = document.getElementById("legend");
+        popup.classList.toggle("show");
+    }
+</script>
+<form method="POST" action="/cs/generateMail">
+    <div class="creation-content">
+        <div class="popup" onclick="showPopUp()">Nevíš si rady?
+            <span class="popuptextCS" id="legend">
+                <p>
+                    Legenda
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean placerat. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Et harum quidem rerum facilis est et expedita distinctio. Proin mattis lacinia justo. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aliquam erat volutpat. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Nulla non arcu lacinia neque faucibus fringilla. Aenean fermentum risus id tortor. Nullam eget nisl. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Nullam faucibus mi quis velit. Integer tempor. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Quisque tincidunt scelerisque libero. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Vestibulum fermentum tortor id mi. Etiam dictum tincidunt diam.
+                </p>
+            </span>
+        </div>
+        <table class="creation-table">
+            {% if messages %}
+            <tr class="creation-track">
+                <td class="creation-column" colspan="10">
+                    {% with messages = get_flashed_messages() %}
+                        <div class="notification is-danger">
+                            {{ messages[0] }}
+                        </div>                    
+                    {% endwith %}
+                </td>
+            </tr>
+            {% endif %}
+            <tr class="generators-input-track">
+                <td class="generators-input-column">            
+                    <label class="generators-label" for="howManyEMails">Kolik e-mailů?</label>
+                </td>
+                <td class="generators-input-column">
+                    <input class="generators-input" type="number" id="howManyEMails" name="howManyEMails" min="1" max="50" value="{{howManyEMails}}">
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
+                    <label class="generators-label" for="eMailGenGender">Pohlaví</label>
+                </td>
+                <td class="generators-input-column">
+                    <select class="generators-input" name="eMailGenGender" id="eMailGenGender">
+                        <option value="male" {% if eMailGenGender=="male" %} selected {% endif %}>Male</option>
+                        <option value="female" {% if eMailGenGender=="female" %} selected {% endif %}>Female</option>
+                    </select>
+                </td>
+            </tr> 
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
+                    <label class="generators-label" for="eMailNamePart">Jméno</label>
+                </td>
+                <td class="generators-input-column">
+                    <select class="generators-input" name="eMailNamePart" id="eMailNamePart">
+                        <option value="fullName" {% if eMailNamePart=="fullName" %} selected {% endif %}>Celé jméno</option>
+                        <option value="fullNameDot" {% if eMailNamePart=="fullNameDot" %} selected {% endif %}>Celé jméno s tečkou</option>
+                        <option value="fullNameShort" {% if eMailNamePart=="fullNameShort" %} selected {% endif %}>Celé jméno zkrácené</option>
+                        <option value="firstNameNumber" {% if eMailNamePart=="firstNameNumber" %} selected {% endif %}>Křestní jméno s číslem</option>
+                        <option value="lastNameNumber" {% if eMailNamePart=="lastNameNumber" %} selected {% endif %}>Příjmení s číslem</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
+                    <label class="generators-label" for="eMailProvPart">Provider</label>
+                </td>
+                <td class="generators-input-column">
+                    <select class="generators-input" name="eMailProvPart" id="eMailProvPart">
+                        <option value="random" {% if eMailProvPart=="random" %} selected {% endif %}>Náhodné</option>
+                        <option value="mailinator.com" {% if eMailProvPart=="mailinator.com" %} selected {% endif %}>Mailinator</option>
+                        <option value="yahoo.com" {% if eMailProvPart=="yahoo.com" %} selected {% endif %}>Yahoo</option>
+                        <option value="gmail.com" {% if eMailProvPart=="gmail.com" %} selected {% endif %}>Gmail</option>
+                        <option value="hotmail.com" {% if eMailProvPart=="hotmail.com" %} selected {% endif %}>Hotmail</option>
+                        <option value="quigley.net" {% if eMailProvPart=="quigley.net" %} selected {% endif %}>Quigley</option>
+                        <option value="quick.net" {% if eMailProvPart=="quick.net" %} selected {% endif %}>Quick</option>
+                        <option value="volny.cz" {% if eMailProvPart=="volny.cz" %} selected {% endif %}>Volny</option>
+                        <option value="seznam.cz" {% if eMailProvPart=="seznam.cz" %} selected {% endif %}>Seznam</option>
+                    </select>
+                </td>
+            </tr> 
+            <tr class="generators-input-track">
+                <td colspan="10">
+                    <input class="generators-button" type="submit" value="Generate">                        
+                </td>
+            </tr>
+        </table>
+    </div>
+    {% if results|length > 0 %}
+        <div class="creation-content">
+            <div class="generated-content-title">Vygenerované E-Maily</div>
+            {% for i in results %}
+                <content class="generated-content-item" style="white-space: nowrap;">{{ i }} </content>
+            {% endfor %}
+        </div>
+    {% endif %}
 </form>
-<div>
-    {% block generatedContent %}
-    {% endblock %}
-</div>
 {% endblock %}

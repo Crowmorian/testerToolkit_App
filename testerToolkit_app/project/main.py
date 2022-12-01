@@ -274,6 +274,21 @@ def generateMail():
         eMailNamePart = session["eMailNamePart"],
         eMailProvPart = session["eMailProvPart"])
 
+@main.route("/cs/generateMail")
+@login_required
+def CSgenerateMail():
+    if session["mailGenSaved"] == "notSaved":
+        session["howManyEMails"] = 10
+        session["eMailGenGender"] = "male"
+        session["eMailNamePart"] = "fullName"
+        session["eMailProvPart"] = "random"
+    
+    return render_template('cs/generateMail.html',
+        howManyEMails = session["howManyEMails"],
+        eMailGenGender = session["eMailGenGender"],
+        eMailNamePart = session["eMailNamePart"],
+        eMailProvPart = session["eMailProvPart"])
+
 @main.route("/generateMail", methods=['POST'])
 @login_required
 def generateMail_post():
@@ -291,11 +306,24 @@ def generateMail_post():
         eMailNamePart = session["eMailNamePart"],
         eMailProvPart = session["eMailProvPart"],
         results = results)
-    
-@main.route("/cs/generateMail")
+
+@main.route("/cs/generateMail", methods=['POST'])
 @login_required
-def CSgenerateMail():
-    return render_template('cs/generateMail.html')
+def CSgenerateMail_post():
+    session["mailGenSaved"] = "saved"
+    session["eMailGenGender"] = request.form.get("eMailGenGender")
+    session["howManyEMails"] = request.form.get("howManyEMails")
+    session["eMailNamePart"] = request.form.get("eMailNamePart")
+    session["eMailProvPart"] = request.form.get("eMailProvPart")
+    
+    results = generateCustomEMail(session["howManyEMails"], session["eMailGenGender"], session["eMailNamePart"], session["eMailProvPart"])
+        
+    return render_template('cs/generateMail.html',
+        howManyEMails = session["howManyEMails"],
+        eMailGenGender = session["eMailGenGender"],
+        eMailNamePart = session["eMailNamePart"],
+        eMailProvPart = session["eMailProvPart"],
+        results = results)
 
 @main.route("/generateNumber")
 @login_required
