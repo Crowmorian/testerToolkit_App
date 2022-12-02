@@ -402,15 +402,15 @@ def generateSIPO_post():
     session["nineth"] = request.form.get("nineth")
     
     results = []
-    importedNumbers = [session["first"],
-                       session["second"],
-                       session["third"],
-                       session["fourth"],
-                       session["fifth"],
-                       session["sixth"],
-                       session["seventh"],
-                       session["eighth"],
-                       session["nineth"]
+    importedNumbers = [int(session["first"]),
+                       int(session["second"]),
+                       int(session["third"]),
+                       int(session["fourth"]),
+                       int(session["fifth"]),
+                       int(session["sixth"]),
+                       int(session["seventh"]),
+                       int(session["eighth"]),
+                       int(session["nineth"])
                        ]
     
     sipo = generateSIPONum(importedNumbers)
