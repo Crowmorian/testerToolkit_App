@@ -6,19 +6,35 @@
 <script type="text/javascript">  
     function selectAll(){
         console.log("Pressed!")
-        /*var ele = document.getElementsByClassName('generators-input-numbers');
+        first = Math.random() * (9 - 1) + 1
+        second = Math.random() * (9 - 1) + 1
+        third = Math.random() * (9 - 1) + 1
+        fourth = Math.random() * (9 - 1) + 1
+        fifth = Math.random() * (9 - 1) + 1
+        sixth = Math.random() * (9 - 1) + 1
+        seventh = Math.random() * (9 - 1) + 1
+        eighth = Math.random() * (9 - 1) + 1
+        nineth = Math.random() * (9 - 1) + 1
+        
+        var firstEle = document.getElementById("first");
+        var secondEle = document.getElementById("second");
+        var thirdEle = document.getElementById("third");
+        var fourthEle = document.getElementById("fourth");
+        var fifthEle = document.getElementById("fifth");
+        var sixthEle = document.getElementById("sixth");
+        var seventhEle = document.getElementById("seventh");
+        var eighthEle = document.getElementById("eighth");
+        var ninethEle = document.getElementById("nineth");
 
-        if(ele[0].checked == true) {
-            for(var i=0; i<ele.length; i++){  
-                if(ele[i].type=='checkbox')  
-                    ele[i].checked=false;  
-            }
-        } else if (ele[0].checked == false) {
-            for(var i=0; i<ele.length; i++){  
-                if(ele[i].type=='checkbox')  
-                    ele[i].checked=true;  
-            }
-        }*/
+        firstEle.value = first;
+        secondEle.value = second;
+        thirdEle.value = third;
+        fourthEle.value = fourth;
+        fifthEle.value = fifth;
+        sixthEle.value = sixth;
+        seventhEle.value = seventh;
+        eighthEle.value = eighth;
+        ninethEle.value = nineth;
     }
 
     function showPopUp() {
