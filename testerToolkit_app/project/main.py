@@ -361,7 +361,6 @@ def CSgenerateIBAN():
 @login_required
 def generateSIPO():
     if session["sipoSaved"] == "notSaved":
-        session["howManySipo"] = 10
         session["first"] = 1
         session["second"] = 2
         session["third"] = 3
@@ -373,7 +372,6 @@ def generateSIPO():
         session["nineth"] = 9
         
     return render_template('generateSIPO.html',
-        howManySipo = session["howManySipo"],
         first = session["first"],
         second = session["second"],
         third = session["third"],
@@ -393,7 +391,6 @@ def CSgenerateSIPO():
 @login_required
 def generateSIPO_post():
     session["sipoSaved"] = "saved"
-    session["howManySipo"] = request.form.get("howManySipo")
     session["first"] = request.form.get("first")
     session["second"] = request.form.get("second")
     session["third"] = request.form.get("third")
@@ -405,9 +402,22 @@ def generateSIPO_post():
     session["nineth"] = request.form.get("nineth")
     
     results = []
+    importedNumbers = [session["first"],
+                       session["second"],
+                       session["third"],
+                       session["fourth"],
+                       session["fifth"],
+                       session["sixth"],
+                       session["seventh"],
+                       session["eighth"],
+                       session["nineth"]
+                       ]
+    
+    sipo = generateSIPONum(importedNumbers)
+    
+    results.append(sipo)
         
     return render_template('generateSIPO.html',
-        howManySipo = session["howManySipo"],
         first = session["first"],
         second = session["second"],
         third = session["third"],
@@ -1584,8 +1594,33 @@ def generateCustomEMail(number, gender, namePart, provPart):
         
     return(emailList)
         
-        
+#Generate Sipo Numbers
+def generateSIPONum(importNumbers):
+    sipo = ""
+    key = [3,7,3,1,7,3,1,7,3]
+    multiplications = []
+    lastNumberBase = 0
+    lastNumber = 0
+    lastNumberDefiniteve = 0
+    importNumbersStr = []
     
+    for i in range(0, len(importNumbers)):
+        x = importNumbers[i] * key[i]
+        multiplications.append(x)
+        
+    for y in range(0, len(multiplications)):
+        lastNumberBase = lastNumberBase + multiplications[y]
+    
+    lastNumber = 10 - (lastNumberBase % 10)
+    lastNumberDefiniteve = str(lastNumber % 10)
+    
+    for z in range(0, len(importNumbers)):
+        w = str(importNumbers[z])
+        importNumbersStr.append(w)
+    
+    sipo = "".join(importNumbersStr) + lastNumberDefiniteve
+        
+    return(sipo)
 
 
 
