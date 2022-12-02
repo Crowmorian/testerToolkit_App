@@ -395,7 +395,17 @@ def generateDate():
 @main.route("/cs/generateDate")
 @login_required
 def CSgenerateDate():
-    return render_template('cs/generateDate.html')
+    if session["dateSaved"] == "notSaved":
+        today = date.today()
+        d1 = today.strftime("%Y-%m-%d")
+        session["howManyDates"] = 10
+        session["dateStart"] = d1
+        session["dateEnd"] = d1        
+        
+    return render_template('cs/generateDate.html',
+        howManyDates = session["howManyDates"],
+        dateStart = session["dateStart"],
+        dateEnd = session["dateEnd"])
 
 @main.route("/generateDate", methods=['POST'])
 @login_required
@@ -421,6 +431,35 @@ def generateDate_post():
             dates.append(randomDate)
     
     return render_template('generateDate.html',
+        howManyDates = session["howManyDates"],
+        dateStart = session["dateStart"],
+        dateEnd = session["dateEnd"],
+        results = dates) 
+
+@main.route("/cs/generateDate", methods=['POST'])
+@login_required
+def CSgenerateDate_post():
+    session["howManyDates"] = request.form.get("howManyDates")
+    session["dateStart"] = request.form.get("dateStart")
+    session["dateEnd"] = request.form.get("dateEnd")
+
+    dates = []
+    d1 = datetime.strptime(session["dateStart"], "%Y-%m-%d")
+    d2 = datetime.strptime(session["dateEnd"], "%Y-%m-%d")
+    
+    delta = d2 - d1
+    
+    if delta.days <= 0:
+        flash('Konečné datum musí být vyšší než začínající datum')
+    else:
+        for i in range(0, int(session["howManyDates"])):
+            randomDays = random.randrange(0, delta.days)
+            subtraction = d2- timedelta(days=randomDays)
+            randomDate = subtraction.strftime('%d.%m. %Y')
+            
+            dates.append(randomDate)
+    
+    return render_template('cs/generateDate.html',
         howManyDates = session["howManyDates"],
         dateStart = session["dateStart"],
         dateEnd = session["dateEnd"],
