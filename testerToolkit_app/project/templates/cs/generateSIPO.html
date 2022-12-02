@@ -3,19 +3,149 @@
 {% extends "cs/generators.html" %}
 
 {% block generation %}
-<form class="creation-form">
-    <table class="creation-table">
-        <tr class="creation-track">
-            <td class="creation-column">
-                <div class="creation-container">
-                    Tady se bude zobrazovat formulář vygenerování SIPO
-                </div>
-            </td>
-        </tr>
-    </table>
+<script type="text/javascript">  
+    function selectAll(){
+        console.log("Pressed!")
+        first = Math.round(Math.random() * (9 - 1) + 1)
+        second = Math.round(Math.random() * (9 - 1) + 1)
+        third = Math.round(Math.random() * (9 - 1) + 1)
+        fourth = Math.round(Math.random() * (9 - 1) + 1)
+        fifth = Math.round(Math.random() * (9 - 1) + 1)
+        sixth = Math.round(Math.random() * (9 - 1) + 1)
+        seventh = Math.round(Math.random() * (9 - 1) + 1)
+        eighth = Math.round(Math.random() * (9 - 1) + 1)
+        nineth = Math.round(Math.random() * (9 - 1) + 1)
+        
+        var firstEle = document.getElementById("first");
+        var secondEle = document.getElementById("second");
+        var thirdEle = document.getElementById("third");
+        var fourthEle = document.getElementById("fourth");
+        var fifthEle = document.getElementById("fifth");
+        var sixthEle = document.getElementById("sixth");
+        var seventhEle = document.getElementById("seventh");
+        var eighthEle = document.getElementById("eighth");
+        var ninethEle = document.getElementById("nineth");
+
+        firstEle.value = first;
+        secondEle.value = second;
+        thirdEle.value = third;
+        fourthEle.value = fourth;
+        fifthEle.value = fifth;
+        sixthEle.value = sixth;
+        seventhEle.value = seventh;
+        eighthEle.value = eighth;
+        ninethEle.value = nineth;
+    }
+
+    function showPopUp() {
+        var popup = document.getElementById("legend");
+        popup.classList.toggle("show");
+    }
+</script>
+<form method="POST" action="/cs/generateSIPO">
+    <div class="creation-content">
+        <div class="popup" onclick="showPopUp()">Nevíš si rady?
+            <span class="popuptextCS" id="legend">
+                <p>
+                    Legenda
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean placerat. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Et harum quidem rerum facilis est et expedita distinctio. Proin mattis lacinia justo. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aliquam erat volutpat. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Nulla non arcu lacinia neque faucibus fringilla. Aenean fermentum risus id tortor. Nullam eget nisl. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Nullam faucibus mi quis velit. Integer tempor. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Quisque tincidunt scelerisque libero. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Vestibulum fermentum tortor id mi. Etiam dictum tincidunt diam.
+                </p>
+            </span>
+        </div>
+        <table class="creation-table">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <tr class="creation-track">
+                <td class="creation-column" colspan="10">                    
+                    <div class="notification is-danger">
+                        {{ messages[0] }}
+                    </div>                    
+                </td>
+            </tr>
+            {% endif %}
+            {% endwith %}
+            <tr class="generators-input-track">
+                <td colspan="10" class="generators-input-column">
+                    <label class="generators-label">Základní čísla</label>
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td>
+                    <label class="generators-label">První</label>
+                </td>
+                <td>
+                    <label class="generators-label">Druhé</label>
+                </td>
+                <td>
+                    <label class="generators-label">Třetí</label>
+                </td>
+                <td>
+                    <label class="generators-label">Fourth</label>
+                </td>
+                <td>
+                    <label class="generators-label">Fifth</label>
+                </td>
+                <td>
+                    <label class="generators-label">Sixth</label>
+                </td>
+                <td>
+                    <label class="generators-label">Seventh</label>
+                </td>
+                <td>
+                    <label class="generators-label">Eighth</label>
+                </td>
+                <td>
+                    <label class="generators-label">Nineth</label>
+                </td>
+                <td rowspan="2">
+                    <input class="generators-button-small" type="button" onclick='selectAll()' value="Random Key"/>  
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td>
+                    <input class="generators-input" type="number" name="first" id="first" value="{{first}}" min="1" max="9">
+                </td>
+                <td>
+                    <input class="generators-input" type="number" name="second" id="second" value="{{second}}" min="1" max="9">
+                </td>
+                <td>
+                    <input class="generators-input" type="number" name="third" id="third" value="{{third}}" min="1" max="9">
+                </td>
+                <td>
+                    <input class="generators-input" type="number" name="fourth" id="fourth" value="{{fourth}}" min="1" max="9">
+                </td>
+                <td>
+                    <input class="generators-input" type="number" name="fifth" id="fifth" value="{{fifth}}" min="1" max="9">
+                </td>
+                <td>
+                    <input class="generators-input" type="number" name="sixth" id="sixth" value="{{sixth}}" min="1" max="9">
+                </td>
+                <td>
+                    <input class="generators-input" type="number" name="seventh" id="seventh" value="{{seventh}}" min="1" max="9">
+                </td>
+                <td>
+                    <input class="generators-input" type="number" name="eighth" id="eighth" value="{{eighth}}" min="1" max="9">
+                </td>
+                <td>
+                    <input class="generators-input" type="number" name="nineth" id="nineth" value="{{nineth}}" min="1" max="9">
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td colspan="10">
+                    <input class="generators-button" type="submit" value="Vygenerovat">                        
+                </td>
+            </tr>
+        </table>
+    </div>
+    {% if results|length > 0 %}
+        <div class="creation-content">
+            <div class="generated-content-title">Vygenerované SIPO</div>
+            {% for i in results %}
+                <content class="generated-content-item">{{ i }} </content>
+            {% endfor %}
+        </div>
+    {% endif %}
 </form>
-<div>
-    {% block generatedContent %}
-    {% endblock %}
-</div>
 {% endblock %}

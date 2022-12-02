@@ -385,7 +385,27 @@ def generateSIPO():
 @main.route("/cs/generateSIPO")
 @login_required
 def CSgenerateSIPO():
-    return render_template('cs/generateSIPO.html')
+    if session["sipoSaved"] == "notSaved":
+            session["first"] = 1
+            session["second"] = 2
+            session["third"] = 3
+            session["fourth"] = 4
+            session["fifth"] = 5
+            session["sixth"] = 6
+            session["seventh"] = 7
+            session["eighth"] = 8
+            session["nineth"] = 9
+            
+    return render_template('cs/generateSIPO.html',
+        first = session["first"],
+        second = session["second"],
+        third = session["third"],
+        fourth = session["fourth"],
+        fifth = session["fifth"],
+        sixth = session["sixth"],
+        seventh = session["seventh"],
+        eighth = session["eighth"],
+        nineth = session["nineth"])
 
 @main.route("/generateSIPO", methods=['POST'])
 @login_required
@@ -418,6 +438,48 @@ def generateSIPO_post():
     results.append(sipo)
         
     return render_template('generateSIPO.html',
+        first = session["first"],
+        second = session["second"],
+        third = session["third"],
+        fourth = session["fourth"],
+        fifth = session["fifth"],
+        sixth = session["sixth"],
+        seventh = session["seventh"],
+        eighth = session["eighth"],
+        nineth = session["nineth"],
+        results = results)
+
+@main.route("/cs/generateSIPO", methods=['POST'])
+@login_required
+def CSgenerateSIPO_post():
+    session["sipoSaved"] = "saved"
+    session["first"] = request.form.get("first")
+    session["second"] = request.form.get("second")
+    session["third"] = request.form.get("third")
+    session["fourth"] = request.form.get("fourth")
+    session["fifth"] = request.form.get("fifth")
+    session["sixth"] = request.form.get("sixth")
+    session["seventh"] = request.form.get("seventh")
+    session["eighth"] = request.form.get("eighth")
+    session["nineth"] = request.form.get("nineth")
+    
+    results = []
+    importedNumbers = [int(session["first"]),
+                       int(session["second"]),
+                       int(session["third"]),
+                       int(session["fourth"]),
+                       int(session["fifth"]),
+                       int(session["sixth"]),
+                       int(session["seventh"]),
+                       int(session["eighth"]),
+                       int(session["nineth"])
+                       ]
+    
+    sipo = generateSIPONum(importedNumbers)
+    
+    results.append(sipo)
+        
+    return render_template('cs/generateSIPO.html',
         first = session["first"],
         second = session["second"],
         third = session["third"],
