@@ -9,7 +9,7 @@ Created on Thu Oct 13 14:27:02 2022
 
 # Importing of necessary libraries
 #************************************
-from flask import Blueprint, render_template, request, session, flash, redirect, url_for
+from flask import Blueprint, render_template, request, session, flash
 from flask_login import login_required
 from random import randint, seed, choices
 import sqlite3
