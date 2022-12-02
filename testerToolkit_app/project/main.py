@@ -381,7 +381,13 @@ def generateCIN():
 @main.route("/cs/generateCIN")
 @login_required
 def CSgenerateCIN():
-    return render_template('cs/generateCIN.html')
+    if session["cinGenSaved"] == "notSaved":
+        session["howManyCINs"] = 10
+        session["cinGenMode"] = "existing"
+    
+    return render_template('cs/generateCIN.html',
+        howManyCINs = session["howManyCINs"],
+        cinGenMode = session["cinGenMode"])
 
 @main.route("/generateCIN", methods=['POST'])
 @login_required
@@ -397,6 +403,24 @@ def generateCIN_post():
         icos.append(singleEntry)
     
     return render_template('generateCIN.html',
+        howManyCINs = session["howManyCINs"],
+        cinGenMode = session["cinGenMode"],
+        results = icos)
+
+@main.route("/cs/generateCIN", methods=['POST'])
+@login_required
+def CSgenerateCIN_post():
+    session["cinGenSaved"] = "saved"
+    session["howManyCINs"] = request.form.get("howManyCINs")
+    session["cinGenMode"] = request.form.get("cinGenMode")
+    
+    icos = []
+    
+    for i in range(0, int(request.form.get("howManyCINs"))):
+        singleEntry = generateIco(session["cinGenMode"])
+        icos.append(singleEntry)
+    
+    return render_template('cs/generateCIN.html',
         howManyCINs = session["howManyCINs"],
         cinGenMode = session["cinGenMode"],
         results = icos)
