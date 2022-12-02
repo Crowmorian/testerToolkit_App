@@ -415,7 +415,7 @@ def generateDate_post():
     else:
         for i in range(0, int(session["howManyDates"])):
             randomDays = random.randrange(0, delta.days)
-            subtraction = date.today()- timedelta(days=randomDays)
+            subtraction = d2- timedelta(days=randomDays)
             randomDate = subtraction.strftime('%d.%m. %Y')
             
             dates.append(randomDate)
