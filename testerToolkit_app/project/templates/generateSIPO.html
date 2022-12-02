@@ -26,7 +26,7 @@
         popup.classList.toggle("show");
     }
 </script>
-<form method="POST" action="/generateRandom">
+<form method="POST" action="/generateSIPO">
     <div class="creation-content">
         <div class="popup" onclick="showPopUp()">Need help?
             <span class="popuptext" id="legend">
@@ -52,15 +52,15 @@
             {% endwith %}
             <tr class="generators-input-track">
                 <td colspan="5" class="generators-input-column">            
-                    <label class="generators-label" for="howManyDigits">How many SIPO?</label>
+                    <label class="generators-label" for="howManySipo">How many SIPO?</label>
                 </td>
                 <td colspan="5" class="generators-input-column">
-                    <input class="generators-input" type="number" id="howManyDigits" name="howManyDigits" min="1" max="50" value="{{howManyDigits}}">
+                    <input class="generators-input" type="number" id="howManySipo" name="howManySipo" min="1" max="50" value="{{howManySipo}}">
                 </td>
             </tr>
             <tr class="generators-input-track">
                 <td colspan="10" class="generators-input-column">
-                    <label class="generators-label" for="canStartZero">Base Numbers</label>
+                    <label class="generators-label">Base Numbers</label>
                 </td>
             </tr>
             <tr class="generators-input-track">
@@ -97,31 +97,31 @@
             </tr>
             <tr class="generators-input-track">
                 <td>
-                    <input class="generators-input" type="number" name="one" value="1" min="1" max="9">
+                    <input class="generators-input" type="number" name="first" id="first" value="{{first}}" min="1" max="9">
                 </td>
                 <td>
-                    <input class="generators-input" type="number" name="two" value="2" min="1" max="9">
+                    <input class="generators-input" type="number" name="second" id="second" value="{{second}}" min="1" max="9">
                 </td>
                 <td>
-                    <input class="generators-input" type="number" name="three" value="3" min="1" max="9">
+                    <input class="generators-input" type="number" name="third" id="third" value="{{third}}" min="1" max="9">
                 </td>
                 <td>
-                    <input class="generators-input" type="number" name="four" value="4" min="1" max="9">
+                    <input class="generators-input" type="number" name="fourth" id="fourth" value="{{fourth}}" min="1" max="9">
                 </td>
                 <td>
-                    <input class="generators-input" type="number" name="five" value="5" min="1" max="9">
+                    <input class="generators-input" type="number" name="fifth" id="fifth" value="{{fifth}}" min="1" max="9">
                 </td>
                 <td>
-                    <input class="generators-input" type="number" name="six" value="6" min="1" max="9">
+                    <input class="generators-input" type="number" name="sixth" id="sixth" value="{{sixth}}" min="1" max="9">
                 </td>
                 <td>
-                    <input class="generators-input" type="number" name="seven" value="7" min="1" max="9">
+                    <input class="generators-input" type="number" name="seventh" id="seventh" value="{{seventh}}" min="1" max="9">
                 </td>
                 <td>
-                    <input class="generators-input" type="number" name="eight" value="8" min="1" max="9">
+                    <input class="generators-input" type="number" name="eighth" id="eighth" value="{{eighth}}" min="1" max="9">
                 </td>
                 <td>
-                    <input class="generators-input" type="number" name="nine" value="9" min="1" max="9">
+                    <input class="generators-input" type="number" name="nineth" id="nineth" value="{{nineth}}" min="1" max="9">
                 </td>
             </tr>
             <tr class="generators-input-track">
