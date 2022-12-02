@@ -360,12 +360,64 @@ def CSgenerateIBAN():
 @main.route("/generateSIPO")
 @login_required
 def generateSIPO():
-    return render_template('generateSIPO.html')
+    if session["sipoSaved"] == "notSaved":
+        session["howManySipo"] = 10
+        session["first"] = 1
+        session["second"] = 2
+        session["third"] = 3
+        session["fourth"] = 4
+        session["fifth"] = 5
+        session["sixth"] = 6
+        session["seventh"] = 7
+        session["eighth"] = 8
+        session["nineth"] = 9
+        
+    return render_template('generateSIPO.html',
+        howManySipo = session["howManySipo"],
+        first = session["first"],
+        second = session["second"],
+        third = session["third"],
+        fourth = session["fourth"],
+        fifth = session["fifth"],
+        sixth = session["sixth"],
+        seventh = session["seventh"],
+        eighth = session["eighth"],
+        nineth = session["nineth"])
     
 @main.route("/cs/generateSIPO")
 @login_required
 def CSgenerateSIPO():
     return render_template('cs/generateSIPO.html')
+
+@main.route("/generateSIPO", methods=['POST'])
+@login_required
+def generateSIPO_post():
+    session["sipoSaved"] = "saved"
+    session["howManySipo"] = request.form.get("howManySipo")
+    session["first"] = request.form.get("first")
+    session["second"] = request.form.get("second")
+    session["third"] = request.form.get("third")
+    session["fourth"] = request.form.get("fourth")
+    session["fifth"] = request.form.get("fifth")
+    session["sixth"] = request.form.get("sixth")
+    session["seventh"] = request.form.get("seventh")
+    session["eighth"] = request.form.get("eighth")
+    session["nineth"] = request.form.get("nineth")
+    
+    results = []
+        
+    return render_template('generateSIPO.html',
+        howManySipo = session["howManySipo"],
+        first = session["first"],
+        second = session["second"],
+        third = session["third"],
+        fourth = session["fourth"],
+        fifth = session["fifth"],
+        sixth = session["sixth"],
+        seventh = session["seventh"],
+        eighth = session["eighth"],
+        nineth = session["nineth"],
+        results = results)
     
 @main.route("/generateCIN")
 @login_required
