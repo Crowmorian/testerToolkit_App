@@ -360,7 +360,17 @@ def CSvalidateIBAN():
 @main.route("/generateIBAN")
 @login_required
 def generateIBAN():
-    return render_template('generateIBAN.html')
+    if session["ibanGenSaved"] == "notSaved":
+        session["ibanGenCountry"] = "CZ"
+        session["ibanGenBankCode"] = ""
+        session["ibanGenAccountID"] = ""
+        session["ibanGenAccountNum"] = ""
+    
+    return render_template('generateIBAN.html',
+        ibanGenCountry = session["ibanGenCountry"],
+        ibanGenBankCode = session["ibanGenBankCode"],
+        ibanGenAccountID = session["ibanGenAccountID"],
+        ibanGenAccountNum = session["ibanGenAccountNum"])
     
 @main.route("/cs/generateIBAN")
 @login_required
