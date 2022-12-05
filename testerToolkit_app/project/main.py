@@ -346,6 +346,16 @@ def generators():
 @login_required
 def CSgenerators():
     return render_template('cs/generators.html')
+
+@main.route("/validateIBAN")
+@login_required
+def validateIBAN():
+    return render_template('validateIBAN.html')
+    
+@main.route("/cs/validateIBAN")
+@login_required
+def CSvalidateIBAN():
+    return render_template('cs/validateIBAN.html')
     
 @main.route("/generateIBAN")
 @login_required
