@@ -375,7 +375,54 @@ def generateIBAN():
 @main.route("/cs/generateIBAN")
 @login_required
 def CSgenerateIBAN():
+    if session["ibanGenSaved"] == "notSaved":
+        session["ibanGenCountry"] = "CZ"
+        session["ibanGenBankCode"] = ""
+        session["ibanGenAccountID"] = ""
+        session["ibanGenAccountNum"] = ""
+    
+    return render_template('cs/generateIBAN.html',
+        ibanGenCountry = session["ibanGenCountry"],
+        ibanGenBankCode = session["ibanGenBankCode"],
+        ibanGenAccountID = session["ibanGenAccountID"],
+        ibanGenAccountNum = session["ibanGenAccountNum"])
     return render_template('cs/generateIBAN.html')
+
+@main.route("/generateIBAN", methods=['POST'])
+@login_required
+def generateIBAN_post():
+    session["ibanGenSaved"] = "saved"
+    session["ibanGenCountry"] = request.form.get("ibanGenCountry")
+    session["ibanGenBankCode"] = request.form.get("ibanGenBankCode")
+    session["ibanGenAccountID"] = request.form.get("ibanGenAccountID")
+    session["ibanGenAccountNum"] = request.form.get("ibanGenAccountNum")
+    
+    results = ["Generated"]
+    
+    return render_template('generateIBAN.html',
+        ibanGenCountry = session["ibanGenCountry"],
+        ibanGenBankCode = session["ibanGenBankCode"],
+        ibanGenAccountID = session["ibanGenAccountID"],
+        ibanGenAccountNum = session["ibanGenAccountNum"],
+        results = results)
+
+@main.route("/cs/generateIBAN", methods=['POST'])
+@login_required
+def CSgenerateIBAN_post():
+    session["ibanGenSaved"] = "saved"
+    session["ibanGenCountry"] = request.form.get("ibanGenCountry")
+    session["ibanGenBankCode"] = request.form.get("ibanGenBankCode")
+    session["ibanGenAccountID"] = request.form.get("ibanGenAccountID")
+    session["ibanGenAccountNum"] = request.form.get("ibanGenAccountNum")
+    
+    results = ["Generated"]
+    
+    return render_template('cs/generateIBAN.html',
+        ibanGenCountry = session["ibanGenCountry"],
+        ibanGenBankCode = session["ibanGenBankCode"],
+        ibanGenAccountID = session["ibanGenAccountID"],
+        ibanGenAccountNum = session["ibanGenAccountNum"],
+        results = results)
 
 @main.route("/generateSIPO")
 @login_required
