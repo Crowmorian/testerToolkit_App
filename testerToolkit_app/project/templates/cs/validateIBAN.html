@@ -3,19 +3,163 @@
 {% extends "cs/generators.html" %}
 
 {% block generation %}
-<form class="creation-form">
-    <table class="creation-table">
-        <tr class="creation-track">
-            <td class="creation-column">
-                <div class="creation-container">
-                    Tady se bude zobrazovat formulář validaci IBAN
-                </div>
-            </td>
-        </tr>
-    </table>
+<script type="text/javascript">  
+    function showPopUp() {
+        var popup = document.getElementById("legend");
+        popup.classList.toggle("show");
+    }
+</script>
+<form method="POST" action="/cs/generateIBAN">
+    <div class="creation-content">
+        <div class="popup" onclick="showPopUp()">Nevíš si rady?
+            <span class="popuptextCS" id="legend">
+                <p>
+                    Legenda
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean placerat. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Et harum quidem rerum facilis est et expedita distinctio. Proin mattis lacinia justo. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aliquam erat volutpat. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Nulla non arcu lacinia neque faucibus fringilla. Aenean fermentum risus id tortor. Nullam eget nisl. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Nullam faucibus mi quis velit. Integer tempor. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Quisque tincidunt scelerisque libero. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Vestibulum fermentum tortor id mi. Etiam dictum tincidunt diam.
+                </p>
+            </span>
+        </div>
+        <table class="creation-table">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <tr class="creation-track">
+                <td class="creation-column" colspan="10">                    
+                    <div class="notification is-danger">
+                        {{ messages[0] }}
+                    </div>                    
+                </td>
+            </tr>
+            {% endif %}
+            {% endwith %}
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
+                    <label class="generators-label" for="ibanGenCountry">Země</label>
+                </td>
+                <td class="generators-input-column">
+                    <select class="generators-input" name="ibanGenCountry" id="ibanGenCountry">
+                        <option value="CZ" {% if ibanGenCountry=="CZ" %} selected {% endif %}>Albánie</option>
+                        <option value="AL" {% if ibanGenCountry=="AL" %} selected {% endif %}>Andorra</option>
+                        <option value="AD" {% if ibanGenCountry=="AD" %} selected {% endif %}>Ázerbájdžán</option>
+                        <option value="AZ" {% if ibanGenCountry=="AZ" %} selected {% endif %}>Bahrajn</option>
+                        <option value="BH" {% if ibanGenCountry=="BH" %} selected {% endif %}>Belgie</option>
+                        <option value="BE" {% if ibanGenCountry=="BE" %} selected {% endif %}>Bělorusko</option>
+                        <option value="BY" {% if ibanGenCountry=="BY" %} selected {% endif %}>Bosna a Hercegovina</option>
+                        <option value="BA" {% if ibanGenCountry=="BA" %} selected {% endif %}>Brazílie</option>
+                        <option value="BR" {% if ibanGenCountry=="BR" %} selected {% endif %}>Britské Panenské ostrovy</option>
+                        <option value="VG" {% if ibanGenCountry=="VG" %} selected {% endif %}>Bulharsko</option>
+                        <option value="BG" {% if ibanGenCountry=="BG" %} selected {% endif %}>Burundi</option>
+                        <option value="BI" {% if ibanGenCountry=="BI" %} selected {% endif %}>Černá Hora</option>
+                        <option value="ME" {% if ibanGenCountry=="ME" %} selected {% endif %}>Česko</option>
+                        <option value="DK" {% if ibanGenCountry=="DK" %} selected {% endif %}>Dánsko</option>
+                        <option value="DO" {% if ibanGenCountry=="DO" %} selected {% endif %}>Dominikánská republika</option>
+                        <option value="DJ" {% if ibanGenCountry=="DJ" %} selected {% endif %}>Džibutsko</option>
+                        <option value="EG" {% if ibanGenCountry=="EG" %} selected {% endif %}>Egypt</option>
+                        <option value="EE" {% if ibanGenCountry=="EE" %} selected {% endif %}>Estonsko</option>
+                        <option value="FI" {% if ibanGenCountry=="FI" %} selected {% endif %}>Finsko</option>
+                        <option value="FR" {% if ibanGenCountry=="FR" %} selected {% endif %}>Francie</option>
+                        <option value="GI" {% if ibanGenCountry=="GI" %} selected {% endif %}>Gibraltar</option>
+                        <option value="GE" {% if ibanGenCountry=="GE" %} selected {% endif %}>Gruzie</option>
+                        <option value="GT" {% if ibanGenCountry=="GT" %} selected {% endif %}>Guatemala</option>
+                        <option value="HR" {% if ibanGenCountry=="HR" %} selected {% endif %}>Chorvatsko</option>
+                        <option value="IQ" {% if ibanGenCountry=="IQ" %} selected {% endif %}>Irák</option>
+                        <option value="IE" {% if ibanGenCountry=="IE" %} selected {% endif %}>Irsko</option>
+                        <option value="IS" {% if ibanGenCountry=="IS" %} selected {% endif %}>Island</option>
+                        <option value="IT" {% if ibanGenCountry=="IT" %} selected {% endif %}>Itálie</option>
+                        <option value="IL" {% if ibanGenCountry=="IL" %} selected {% endif %}>Izrael</option>
+                        <option value="JO" {% if ibanGenCountry=="JO" %} selected {% endif %}>Jordánsko</option>
+                        <option value="QA" {% if ibanGenCountry=="QA" %} selected {% endif %}>Katar</option>
+                        <option value="KZ" {% if ibanGenCountry=="KZ" %} selected {% endif %}>Kazachstán</option>
+                        <option value="XK" {% if ibanGenCountry=="XK" %} selected {% endif %}>Kosovo</option>
+                        <option value="CR" {% if ibanGenCountry=="CR" %} selected {% endif %}>Kostarika</option>
+                        <option value="KW" {% if ibanGenCountry=="KW" %} selected {% endif %}>Kuvajt</option>
+                        <option value="CY" {% if ibanGenCountry=="CY" %} selected {% endif %}>Kypr</option>
+                        <option value="LB" {% if ibanGenCountry=="LB" %} selected {% endif %}>Libanon</option>
+                        <option value="LY" {% if ibanGenCountry=="LY" %} selected {% endif %}>Libye</option>
+                        <option value="LI" {% if ibanGenCountry=="LI" %} selected {% endif %}>Lichtenštejnsko</option>
+                        <option value="LT" {% if ibanGenCountry=="LT" %} selected {% endif %}>Litva</option>
+                        <option value="LV" {% if ibanGenCountry=="LV" %} selected {% endif %}>Lotyšsko</option>
+                        <option value="LU" {% if ibanGenCountry=="LU" %} selected {% endif %}>Lucembursko</option>
+                        <option value="HU" {% if ibanGenCountry=="HU" %} selected {% endif %}>Maďarsko</option>
+                        <option value="MT" {% if ibanGenCountry=="MT" %} selected {% endif %}>Malta</option>
+                        <option value="MU" {% if ibanGenCountry=="MU" %} selected {% endif %}>Mauricius</option>
+                        <option value="MR" {% if ibanGenCountry=="MR" %} selected {% endif %}>Mauritánie</option>
+                        <option value="MD" {% if ibanGenCountry=="MD" %} selected {% endif %}>Moldavsko</option>
+                        <option value="MC" {% if ibanGenCountry=="MC" %} selected {% endif %}>Monako</option>
+                        <option value="DE" {% if ibanGenCountry=="DE" %} selected {% endif %}>Německo</option>
+                        <option value="NL" {% if ibanGenCountry=="NL" %} selected {% endif %}>Nizozemsko</option>
+                        <option value="NO" {% if ibanGenCountry=="NO" %} selected {% endif %}>Norsko</option>
+                        <option value="PK" {% if ibanGenCountry=="PK" %} selected {% endif %}>Pákistán</option>
+                        <option value="PS" {% if ibanGenCountry=="PS" %} selected {% endif %}>Palestina</option>
+                        <option value="PL" {% if ibanGenCountry=="PL" %} selected {% endif %}>Polsko</option>
+                        <option value="PT" {% if ibanGenCountry=="PT" %} selected {% endif %}>Portugalsko</option>
+                        <option value="AT" {% if ibanGenCountry=="AT" %} selected {% endif %}>Rakousko</option>
+                        <option value="RO" {% if ibanGenCountry=="RO" %} selected {% endif %}>Rumunsko</option>
+                        <option value="RU" {% if ibanGenCountry=="RU" %} selected {% endif %}>Rusko</option>
+                        <option value="GR" {% if ibanGenCountry=="GR" %} selected {% endif %}>Řecko</option>
+                        <option value="SV" {% if ibanGenCountry=="SV" %} selected {% endif %}>Salvador</option>
+                        <option value="SM" {% if ibanGenCountry=="SM" %} selected {% endif %}>San Marino</option>
+                        <option value="SA" {% if ibanGenCountry=="SA" %} selected {% endif %}>Saúdská Arábie</option>
+                        <option value="MK" {% if ibanGenCountry=="MK" %} selected {% endif %}>Severní Makedonie</option>
+                        <option value="SC" {% if ibanGenCountry=="SC" %} selected {% endif %}>Seychely</option>
+                        <option value="SK" {% if ibanGenCountry=="SK" %} selected {% endif %}>Slovensko</option>
+                        <option value="SI" {% if ibanGenCountry=="SI" %} selected {% endif %}>Slovinsko</option>
+                        <option value="AE" {% if ibanGenCountry=="AE" %} selected {% endif %}>Spojené arabské emiráty</option>
+                        <option value="RS" {% if ibanGenCountry=="RS" %} selected {% endif %}>Srbsko</option>
+                        <option value="SD" {% if ibanGenCountry=="SD" %} selected {% endif %}>Súdán</option>
+                        <option value="LC" {% if ibanGenCountry=="LC" %} selected {% endif %}>Svatá Lucie</option>
+                        <option value="ST" {% if ibanGenCountry=="ST" %} selected {% endif %}>Svatý Tomáš a Princův ostrov</option>
+                        <option value="ES" {% if ibanGenCountry=="ES" %} selected {% endif %}>Španělsko</option>
+                        <option value="SE" {% if ibanGenCountry=="SE" %} selected {% endif %}>Švédsko</option>
+                        <option value="CH" {% if ibanGenCountry=="CH" %} selected {% endif %}>Švýcarsko</option>
+                        <option value="TN" {% if ibanGenCountry=="TN" %} selected {% endif %}>Tunisko</option>
+                        <option value="TR" {% if ibanGenCountry=="TR" %} selected {% endif %}>Turecko</option>
+                        <option value="UA" {% if ibanGenCountry=="UA" %} selected {% endif %}>Ukrajina</option>
+                        <option value="VA" {% if ibanGenCountry=="VA" %} selected {% endif %}>Vatikán</option>
+                        <option value="GB" {% if ibanGenCountry=="GB" %} selected {% endif %}>Velká Británie</option>
+                        <option value="TL" {% if ibanGenCountry=="TL" %} selected {% endif %}>Východní Timor</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td class="generators-input-column">            
+                    <label class="generators-label" for="ibanGenBankCode">Kód Banky</label>
+                </td>
+                <td class="generators-input-column">
+                    <input class="generators-input" type="number" id="ibanGenBankCode" name="ibanGenBankCode" value="{{ibanGenBankCode}}">
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td class="generators-input-column">            
+                    <label class="generators-label" for="ibanGenAccountID">Předčíslí</label>
+                </td>
+                <td class="generators-input-column">
+                    <input class="generators-input" type="number" id="ibanGenAccountID" name="ibanGenAccountID" value="{{ibanGenAccountID}}">
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td class="generators-input-column">            
+                    <label class="generators-label" for="ibanGenAccountNum">Číslo Účtu</label>
+                </td>
+                <td class="generators-input-column">
+                    <input class="generators-input" type="number" id="ibanGenAccountNum" name="ibanGenAccountNum" value="{{ibanGenAccountNum}}">
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td colspan="10">
+                    <input class="generators-button" type="submit" value="Vygenerovat">                        
+                </td>
+            </tr>
+        </table>
+    </div>
+    {% if results|length > 0 %}
+        <div class="creation-content">
+            <div class="generated-content-title">Vygenerovaný IBAN</div>
+            {% for i in results %}
+                <content class="generated-content-item" style="white-space: nowrap;">{{ i }} </content>
+            {% endfor %}
+        </div>
+    {% endif %}
 </form>
-<div>
-    {% block generatedContent %}
-    {% endblock %}
-</div>
 {% endblock %}
