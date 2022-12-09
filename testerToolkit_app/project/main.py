@@ -406,7 +406,7 @@ def generateIBAN_post():
         results.append(iban)
     except:
        print ("IBAN not valid")
-       flash("IBAN Could not be generated from the given numbers. Please check the numbers and try again.")
+       flash("IBAN Could not be generated from the given numbers. Please check the numbers and try again.", "valid")
     
     return render_template('generateIBAN.html',
         ibanGenCountry = session["ibanGenCountry"],
