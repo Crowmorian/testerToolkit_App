@@ -424,7 +424,15 @@ def CSgenerateIBAN_post():
     session["ibanGenAccountID"] = request.form.get("ibanGenAccountID")
     session["ibanGenAccountNum"] = request.form.get("ibanGenAccountNum")
     
-    results = ["Generated"]
+    results = []
+    account = session["ibanGenAccountID"]+session["ibanGenAccountNum"]
+
+    try:
+        iban = ibanGen(session["ibanGenCountry"], session["ibanGenBankCode"], account)
+        results.append(iban)
+    except:
+       print ("IBAN not valid")
+       flash("IBAN nemohl být ze zadaných čísel vygenerován. Zkontrolujte prosím údaje a zkuste to znovu.")
     
     return render_template('cs/generateIBAN.html',
         ibanGenCountry = session["ibanGenCountry"],
