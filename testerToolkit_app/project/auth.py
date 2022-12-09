@@ -49,6 +49,7 @@ def login_post():
     session["cinGenSaved"] = "notSaved"
     session["sipoSaved"] = "notSaved"
     session["ibanGenSaved"] = "notSaved"
+    session["ibanValSaved"] = "notSaved"
     
     return redirect(url_for('main.index'))
 
