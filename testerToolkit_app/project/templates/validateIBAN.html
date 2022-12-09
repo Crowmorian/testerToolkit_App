@@ -58,6 +58,8 @@
                     <td class="creation-column">
                         <label class="generators-label-created">Formated: </label>
                     </td>
+                </tr>
+                <tr>
                     <td class="creation-column">
                         <table>
                             <tr>
@@ -67,6 +69,7 @@
                             </tr>
                         </table>
                     </td>
+                <tr>
                     <td class="creation-column">
                         <label class="generators-label-created">BIC: </label>
                     </td>
@@ -108,25 +111,13 @@
                 </tr>
                 <tr class="creation-track">
                     <td class="creation-column">
-                        <label class="generators-label-created">Country Code: </label>
-                    </td>
-                    <td class="creation-column">
-                        <table>
-                            <tr>
-                                <td>
-                                    <input class="generators-input-created" id="ibanCountryCode" type="text" name="ibanCountryCode" value="{{results[1]}}" readonly>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td class="creation-column">
                         <label class="generators-label-created">Country Name: </label>
                     </td>
                     <td class="creation-column">
                         <table>
                             <tr>
                                 <td>
-                                    <input class="generators-input-created" id="ibanCountryName" type="text" name="ibanCountryName" value="{{results[6]}}" readonly>
+                                    <input class="generators-input-created" id="ibanCountryName" type="text" name="ibanCountryName" value="{{results[1]}}  {{results[6]}}" readonly>
                                 </td>
                             </tr>
                         </table>
