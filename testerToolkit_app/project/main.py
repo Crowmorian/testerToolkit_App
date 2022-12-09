@@ -383,7 +383,7 @@ def validateIBAN_post():
         results.append(iban.length)
         results.append(iban.bic)
         bankName = iban.bank_name
-        bankName.encode(encoding='UTF-8',errors='strict')
+        bankName.encode(encoding='ascii',errors='strict')
         results.append(bankName)
         results.append(iban.country.official_name)
     except:
