@@ -22,32 +22,19 @@
             </span>
         </div>
         <table class="creation-table">
-
             {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                <tr class="creation-track">
-                    <td class="creation-column" colspan="2">
-                        {% for category, message in messages %}
-                            <div class="{{ category }}">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    </td>
-                </tr>
-            {% endif %}
-            {% endwith %}
-<!--
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
             <tr class="creation-track">
-                <td class="creation-column" colspan="10">                    
-                    <div class="notification is-danger">
-                        {{ messages[0] }}
-                    </div>                    
+                <td class="creation-column" colspan="2">
+                    {% for category, message in messages %}
+                        <div class="{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
                 </td>
             </tr>
             {% endif %}
-            {% endwith %}-->
+            {% endwith %}
             <tr class="generators-input-track">
                 <td class="generators-input-column">
                     <label class="generators-label" for="ibanGenCountry">Country</label>
