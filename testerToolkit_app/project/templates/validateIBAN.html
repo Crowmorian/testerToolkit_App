@@ -24,7 +24,6 @@
         <table class="creation-table">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
-                    {% if category == "message" %}
                     <tr class="creation-track">
                         <td class="creation-column" colspan="2">
                             {% for category, message in messages %}
@@ -34,7 +33,6 @@
                             {% endfor %}
                         </td>
                     </tr>
-                    {% endif %}
                 {% endif %}
             {% endwith %}
             <tr class="generators-input-track">
@@ -52,37 +50,6 @@
             </tr>
         </table>
     </div>
-    {% if results|length > 0 %}
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% if category == "valid" %}
-                <tr class="creation-track">
-                    <td class="creation-column" colspan="2">
-                        {% for category, message in messages %}
-                            <div class="{{ category }}">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    </td>
-                </tr>
-                {% endif %}
-            {% endif %}
-        {% endwith %}
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% if category == "notification" %}
-                <tr class="creation-track">
-                    <td class="creation-column" colspan="2">
-                        {% for category, message in messages %}
-                            <div class="{{ category }}">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    </td>
-                </tr>
-                {% endif %}
-            {% endif %}
-        {% endwith %}
         <div class="creation-content">
             <div class="generated-content-title">Generated Names</div>
             {% for i in results %}
