@@ -37,22 +37,22 @@
             </tr>
         </table>
     </div>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <tr>
-                <td class="creation-column" colspan="2">
-                    {% for category, message in messages %}
-                        <div class="{{ category }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                </td>
-            </tr>
-        {% endif %}
-    {% endwith %}
     {% if results|length > 0 %}
     <div class="creation-content">
         <div class="generated-content-title">Client</div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <tr>
+                        <td class="creation-column" colspan="2">
+                            {% for category, message in messages %}
+                                <div class="{{ category }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endwith %}
             <table class="creation-table-created">
                 <tr class="creation-track">
                     <td class="creation-column" colspan="10">
@@ -98,6 +98,21 @@
                 </tr>
             </table>
         </div>
+    {% endif %}
+    {% if results|length == 0 %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <tr>
+                    <td class="creation-column" colspan="2">
+                        {% for category, message in messages %}
+                            <div class="{{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endif %}
+        {% endwith %}
     {% endif %}
 </form>
 {% endblock %}
