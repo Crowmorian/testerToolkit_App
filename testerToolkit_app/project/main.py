@@ -382,9 +382,10 @@ def validateIBAN_post():
         results.append(iban.account_code)
         results.append(iban.length)
         results.append(iban.bic)
-        results.append(iban.bank_name)
+        bankName = iban.bank_name
+        bankName.encode(encoding='UTF-8',errors='strict')
+        results.append(bankName)
         results.append(iban.country.official_name)
-        print(results)
     except:
        flash("IBAN not valid","notification")
         
