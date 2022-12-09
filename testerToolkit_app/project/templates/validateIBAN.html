@@ -42,7 +42,7 @@
         <div class="generated-content-title">Client</div>
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
-                    <tr class="creation-track">
+                    <tr>
                         <td class="creation-column" colspan="2">
                             {% for category, message in messages %}
                                 <div class="{{ category }}">
@@ -60,11 +60,11 @@
                     </td>
                 </tr>
                 <tr class="creation-track">
-                </tr>
-                <tr class="creation-track">
                     <td class="creation-column" colspan="10">
                         <input class="generators-input-created" id="ibanFormated" type="text" name="ibanFormated" value="{{results[0]}}" readonly>
                     </td>
+                </tr>
+                <tr class="creation-track">
                 </tr>
 
                 <tr class="creation-track">
