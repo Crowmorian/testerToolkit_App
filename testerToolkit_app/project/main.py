@@ -373,7 +373,6 @@ def validateIBAN_post():
     
     try:
         iban = schwifty.IBAN(session["ibanValNumber"])
-        flash("IBAN is valid", "valid")
         results.append(iban.is_valid)
         results.append(iban.compact)
         results.append(iban.formatted)
@@ -386,6 +385,7 @@ def validateIBAN_post():
         bankName.encode(encoding='ascii',errors='strict')
         results.append(bankName)
         results.append(iban.country.official_name)
+        flash("IBAN is valid", "valid")
     except:
        flash("IBAN not valid","notification")
         
