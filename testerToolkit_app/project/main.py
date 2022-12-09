@@ -361,7 +361,11 @@ def validateIBAN():
 @main.route("/cs/validateIBAN")
 @login_required
 def CSvalidateIBAN():
-    return render_template('cs/validateIBAN.html')
+    if session["ibanValSaved"] == "notSaved":
+        session["ibanValNumber"] = ""
+        
+    return render_template('cs/validateIBAN.html',
+        idanValNumber = session["ibanValNumber"])
 
 @main.route("/validateIBAN", methods=['POST'])
 @login_required
@@ -385,6 +389,31 @@ def validateIBAN_post():
        flash("IBAN not valid","notification")
         
     return render_template('validateIBAN.html',
+        ibanValNumber = session["ibanValNumber"],
+        results = results)
+
+@main.route("/cs/validateIBAN", methods=['POST'])
+@login_required
+def CSvalidateIBAN_post():
+    session["ibanValSaved"] = "saved"
+    session["ibanValNumber"] = request.form.get("ibanValNumber")
+    
+    results = []
+    
+    try:
+        iban = schwifty.IBAN(session["ibanValNumber"])
+        results.append(iban.formatted)
+        results.append(iban.country_code)
+        results.append(iban.bank_code)
+        results.append(iban.account_code)
+        results.append(iban.length)
+        results.append(iban.bic)
+        results.append(iban.country.official_name)
+        flash("IBAN is valid", "valid")
+    except:
+       flash("IBAN not valid","notification")
+        
+    return render_template('cs/validateIBAN.html',
         ibanValNumber = session["ibanValNumber"],
         results = results)
     

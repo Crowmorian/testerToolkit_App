@@ -3,19 +3,100 @@
 {% extends "cs/generators.html" %}
 
 {% block generation %}
-<form class="creation-form">
-    <table class="creation-table">
-        <tr class="creation-track">
-            <td class="creation-column">
-                <div class="creation-container">
-                    Tady se bude zobrazovat formulář validace IBAN
-                </div>
-            </td>
-        </tr>
-    </table>
+<script type="text/javascript">  
+    function showPopUp() {
+        var popup = document.getElementById("legend");
+        popup.classList.toggle("show");
+    }
+</script>
+<form method="POST" action="/cs/validateIBAN">
+    <div class="creation-content">
+        <div class="popup" onclick="showPopUp()">Need help?
+            <span class="popuptextCS" id="legend">
+                <p>
+                    Legenda
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean placerat. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Et harum quidem rerum facilis est et expedita distinctio. Proin mattis lacinia justo. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Aliquam erat volutpat. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Nulla non arcu lacinia neque faucibus fringilla. Aenean fermentum risus id tortor. Nullam eget nisl. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Nullam faucibus mi quis velit. Integer tempor. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Quisque tincidunt scelerisque libero. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Vestibulum fermentum tortor id mi. Etiam dictum tincidunt diam.
+                </p>
+            </span>
+        </div>
+        <table class="creation-table">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <tr class="creation-track">
+                        <td class="creation-column" colspan="2">
+                            {% for category, message in messages %}
+                                <div class="{{ category }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endwith %}
+            <tr class="generators-input-track">
+                <td class="generators-input-column">            
+                    <label class="generators-label" for="ibanValNumber">IBAN k validaci</label>
+                </td>
+                <td class="generators-input-column">
+                    <input class="generators-input-wide" type="text" id="ibanValNumber" name="ibanValNumber" value="{{ibanValNumber}}">
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td colspan="10">
+                    <input class="generators-button" type="submit" value="Validace">                        
+                </td>
+            </tr>
+        </table>
+    </div>
+    {% if results|length > 0 %}
+    <div class="creation-content">
+        <div class="generated-content-title">IBAN Info</div>
+        <table class="creation-table-created">
+            <tr class="creation-track">
+                <td class="creation-column" colspan="4">
+                    <label class="generators-label-created">Zformátováno: </label>
+                </td>
+            </tr>
+            <tr class="creation-track">
+                <td class="creation-column" colspan="4">
+                    <input class="generators-input-created" id="ibanFormated" type="text" name="ibanFormated" value="{{results[0]}}" readonly>
+                </td>
+            </tr>
+            <tr class="creation-track">
+            </tr>
+            <tr class="creation-track">
+                <td class="creation-column">
+                    <label class="generators-label-created">BIC: </label>
+                </td>
+                <td class="creation-column">
+                    <input class="generators-input-created" id="ibanBic" type="text" name="ibanBic" value="{{results[5]}}" readonly>
+                </td>
+                <td class="creation-column">
+                    <label class="generators-label-created">Kód Banky: </label>
+                </td>
+                <td class="creation-column">
+                    <input class="generators-input-created" id="ibanBankCode" type="text" name="ibanBankCode" value="{{results[2]}}" readonly>
+                </td>
+            </tr>
+            
+            <tr class="creation-track">
+                <td class="creation-column">
+                    <label class="generators-label-created">Číslo Účtu: </label>
+                </td>
+                <td class="creation-column">
+                    <input class="generators-input-created" id="ibanAccount" type="text" name="ibanAccount" value="{{results[3]}}" readonly>
+                </td>
+                <td class="creation-column">
+                    <label class="generators-label-created">Země: </label>
+                </td>
+                <td class="creation-column">
+                    <input class="generators-input-created" id="ibanCountryName" type="text" name="ibanCountryName" value="{{results[1]}}  {{results[6]}}" readonly>
+                </td>
+            </tr>
+        </table>
+    </div>
+    {% endif %}
 </form>
-<div>
-    {% block generatedContent %}
-    {% endblock %}
-</div>
 {% endblock %}
