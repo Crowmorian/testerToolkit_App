@@ -658,6 +658,7 @@ def CSgenerateDate():
 @main.route("/generateDate", methods=['POST'])
 @login_required
 def generateDate_post():
+    session["dateSaved"] = "saved"
     session["howManyDates"] = request.form.get("howManyDates")
     session["dateStart"] = request.form.get("dateStart")
     session["dateEnd"] = request.form.get("dateEnd")
@@ -687,6 +688,7 @@ def generateDate_post():
 @main.route("/cs/generateDate", methods=['POST'])
 @login_required
 def CSgenerateDate_post():
+    session["dateSaved"] = "saved"
     session["howManyDates"] = request.form.get("howManyDates")
     session["dateStart"] = request.form.get("dateStart")
     session["dateEnd"] = request.form.get("dateEnd")
