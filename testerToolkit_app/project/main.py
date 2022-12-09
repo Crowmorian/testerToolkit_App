@@ -399,7 +399,6 @@ def generateIBAN_post():
     session["ibanGenAccountNum"] = request.form.get("ibanGenAccountNum")
     
     results = []
-    iban = "IBAN Could not be generated from the given numbers. Please check the numbers and try again."
     account = session["ibanGenAccountID"]+session["ibanGenAccountNum"]
     
     def ibanGen():
@@ -408,10 +407,10 @@ def generateIBAN_post():
 
     try:
         iban = ibanGen()
+        results.append(iban)
     except:
        print ("IBAN not valid")
-       
-    results.append(iban)
+       flash("IBAN Could not be generated from the given numbers. Please check the numbers and try again.")
     
     return render_template('generateIBAN.html',
         ibanGenCountry = session["ibanGenCountry"],
