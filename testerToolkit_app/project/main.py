@@ -15,7 +15,7 @@ from random import randint, seed, choices
 import sqlite3
 import random
 from datetime import date, timedelta, datetime
-from schwifty import IBAN
+import schwifty
 
 #Declaring routes and variables
 main = Blueprint("main", __name__)
@@ -398,7 +398,10 @@ def generateIBAN_post():
     session["ibanGenAccountID"] = request.form.get("ibanGenAccountID")
     session["ibanGenAccountNum"] = request.form.get("ibanGenAccountNum")
     
-    results = ["Generated"]
+    results = []
+    
+    iban = schwifty.IBAN.generate(session["ibanGenCountry"], session["ibanGenBankCode"], session["ibanGenAccountNum"])
+    results.append(iban)
     
     return render_template('generateIBAN.html',
         ibanGenCountry = session["ibanGenCountry"],
@@ -416,10 +419,7 @@ def CSgenerateIBAN_post():
     session["ibanGenAccountID"] = request.form.get("ibanGenAccountID")
     session["ibanGenAccountNum"] = request.form.get("ibanGenAccountNum")
     
-    results = []
-    
-    iban = IBAN.generate(session["ibanGenCountry"], session["ibanGenBankCode"], session["ibanGenAccountNum"])
-    results.append(iban)
+    results = ["Generated"]
     
     return render_template('cs/generateIBAN.html',
         ibanGenCountry = session["ibanGenCountry"],
