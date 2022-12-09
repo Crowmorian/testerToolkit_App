@@ -24,7 +24,7 @@
         <table class="creation-table">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
-                    {% if category is "message" %}
+                    {% if category == "message" %}
                     <tr class="creation-track">
                         <td class="creation-column" colspan="2">
                             {% for category, message in messages %}
@@ -55,7 +55,7 @@
     {% if results|length > 0 %}
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                {% if category is "valid" %}
+                {% if category == "valid" %}
                 <tr class="creation-track">
                     <td class="creation-column" colspan="2">
                         {% for category, message in messages %}
@@ -70,7 +70,7 @@
         {% endwith %}
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                {% if category is "notification" %}
+                {% if category == "notification" %}
                 <tr class="creation-track">
                     <td class="creation-column" colspan="2">
                         {% for category, message in messages %}
