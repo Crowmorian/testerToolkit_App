@@ -400,13 +400,9 @@ def generateIBAN_post():
     
     results = []
     account = session["ibanGenAccountID"]+session["ibanGenAccountNum"]
-    
-    def ibanGen():
-        iban = schwifty.IBAN.generate(session["ibanGenCountry"], session["ibanGenBankCode"], account)
-        return iban
 
     try:
-        iban = ibanGen()
+        iban = ibanGen(session["ibanGenCountry"], session["ibanGenBankCode"], account)
         results.append(iban)
     except:
        print ("IBAN not valid")
@@ -1764,8 +1760,10 @@ def generateSIPONum(importNumbers):
         
     return(sipo)
 
-
-
+#Generate IBAN
+def ibanGen(country, bank, account):
+    iban = schwifty.IBAN.generate(country, bank, account)
+    return iban
 
 
 
