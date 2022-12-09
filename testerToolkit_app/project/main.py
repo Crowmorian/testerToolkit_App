@@ -399,8 +399,17 @@ def generateIBAN_post():
     session["ibanGenAccountNum"] = request.form.get("ibanGenAccountNum")
     
     results = []
+    account = session["ibanGenAccountID"]+session["ibanGenAccountNum"]
     
-    iban = schwifty.IBAN.generate(session["ibanGenCountry"], session["ibanGenBankCode"], session["ibanGenAccountNum"])
+    def ibanGen():
+        iban = schwifty.IBAN.generate(session["ibanGenCountry"], session["ibanGenBankCode"], account)
+        return iban
+
+    try:
+        iban = ibanGen()
+    except:
+       print ("IBAN not valid")
+       
     results.append(iban)
     
     return render_template('generateIBAN.html',
