@@ -384,6 +384,7 @@ def validateIBAN_post():
         results.append(iban.bic)
         results.append(iban.bank_name)
         results.append(iban.country.official_name)
+        print(results)
     except:
        flash("IBAN not valid","notification")
         
