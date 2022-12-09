@@ -399,6 +399,7 @@ def generateIBAN_post():
     session["ibanGenAccountNum"] = request.form.get("ibanGenAccountNum")
     
     results = []
+    iban = "IBAN Could not be generated from the given numbers. Please check the numbers and try again."
     account = session["ibanGenAccountID"]+session["ibanGenAccountNum"]
     
     def ibanGen():
