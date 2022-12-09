@@ -389,7 +389,7 @@ def validateIBAN_post():
        flash("IBAN not valid","notification")
         
     return render_template('validateIBAN.html',
-        idanValNumber = session["ibanValNumber"],
+        ibanValNumber = session["ibanValNumber"],
         results = results)
     
 @main.route("/generateIBAN")
