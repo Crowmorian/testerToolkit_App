@@ -52,50 +52,51 @@
     </div>
     {% if results|length > 0 %}
     <div class="creation-content">
-        <div class="generated-content-title">Client</div>
-            <table class="creation-table-created">
-                <tr class="creation-track">
-                    <td class="creation-column" colspan="10">
-                        <label class="generators-label-created">Formated: </label>
-                    </td>
-                </tr>
-                <tr class="creation-track">
-                    <td class="creation-column" colspan="10">
-                        <input class="generators-input-created" id="ibanFormated" type="text" name="ibanFormated" value="{{results[0]}}" readonly>
-                    </td>
-                </tr>
-
-                <tr class="creation-track">
-                    <td class="creation-column">
-                        <label class="generators-label-created">BIC: </label>
-                    </td>
-                    <td class="creation-column">
-                        <input class="generators-input-created" id="ibanBic" type="text" name="ibanBic" value="{{results[5]}}" readonly>
-                    </td>
-                    <td class="creation-column">
-                        <label class="generators-label-created">Bank Code: </label>
-                    </td>
-                    <td class="creation-column">
-                        <input class="generators-input-created" id="ibanBankCode" type="text" name="ibanBankCode" value="{{results[2]}}" readonly>
-                    </td>
-                </tr>
-                
-                <tr class="creation-track">
-                    <td class="creation-column">
-                        <label class="generators-label-created">Account Code: </label>
-                    </td>
-                    <td class="creation-column">
-                        <input class="generators-input-created" id="ibanAccount" type="text" name="ibanAccount" value="{{results[3]}}" readonly>
-                    </td>
-                    <td class="creation-column">
-                        <label class="generators-label-created">Country Name: </label>
-                    </td>
-                    <td class="creation-column">
-                        <input class="generators-input-created" id="ibanCountryName" type="text" name="ibanCountryName" value="{{results[1]}}  {{results[6]}}" readonly>
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <div class="generated-content-title">IBAN Info</div>
+        <table class="creation-table-created">
+            <tr class="creation-track">
+                <td class="creation-column" colspan="10">
+                    <label class="generators-label-created">Formated: </label>
+                </td>
+            </tr>
+            <tr class="creation-track">
+                <td class="creation-column" colspan="10">
+                    <input class="generators-input-created" id="ibanFormated" type="text" name="ibanFormated" value="{{results[0]}}" readonly>
+                </td>
+            </tr>
+            <tr class="creation-track">
+            </tr>
+            <tr class="creation-track">
+                <td class="creation-column">
+                    <label class="generators-label-created">BIC: </label>
+                </td>
+                <td class="creation-column">
+                    <input class="generators-input-created" id="ibanBic" type="text" name="ibanBic" value="{{results[5]}}" readonly>
+                </td>
+                <td class="creation-column">
+                    <label class="generators-label-created">Bank Code: </label>
+                </td>
+                <td class="creation-column">
+                    <input class="generators-input-created" id="ibanBankCode" type="text" name="ibanBankCode" value="{{results[2]}}" readonly>
+                </td>
+            </tr>
+            
+            <tr class="creation-track">
+                <td class="creation-column">
+                    <label class="generators-label-created">Account Code: </label>
+                </td>
+                <td class="creation-column">
+                    <input class="generators-input-created" id="ibanAccount" type="text" name="ibanAccount" value="{{results[3]}}" readonly>
+                </td>
+                <td class="creation-column">
+                    <label class="generators-label-created">Country Name: </label>
+                </td>
+                <td class="creation-column">
+                    <input class="generators-input-created" id="ibanCountryName" type="text" name="ibanCountryName" value="{{results[1]}}  {{results[6]}}" readonly>
+                </td>
+            </tr>
+        </table>
+    </div>
     {% endif %}
 </form>
 {% endblock %}
