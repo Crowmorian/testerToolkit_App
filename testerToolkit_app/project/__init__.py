@@ -21,7 +21,7 @@ from datetime import timedelta
 #Definition of the main functions
 app = Flask(__name__, template_folder = './templates', static_folder = './templates/static')
 
-app.config['SECRET_KEY'] = "secretKey" #os.urandom(12).hex()
+app.config['SECRET_KEY'] = os.urandom(12).hex() #"secretKey" 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///userDB.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
