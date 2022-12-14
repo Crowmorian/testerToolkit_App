@@ -250,7 +250,6 @@ def createLegalEntity_post():
     creationEnd = cd2.strftime("%Y-%m-%d")
     
     legalCreationDate = legalDates(creationStart, creationEnd)
-    legalCreationDate = legalCreationDate.strftime('%d.%m. %Y')
     legalCreated.append(legalCreationDate)
     
     dd1 = today - relativedelta(months=3)
@@ -259,14 +258,12 @@ def createLegalEntity_post():
     docEnd = dd2.strftime("%Y-%m-%d")
     
     legalDocDate = legalDates(docStart, docEnd)
-    legalDocDate = legalDocDate.strftime('%d.%m. %Y')
     legalCreated.append(legalDocDate)
     
     legStart = legalCreationDate
     legEnd = legalDocDate
     
     legalLegalDate = legalDates(legStart, legEnd)
-    legalLegalDate = legalLegalDate.strftime('%d.%m. %Y')
     legalCreated.append(legalLegalDate)
     
     legalDocUrl = generateURL()
@@ -1969,7 +1966,7 @@ def legalDates(start, end):
     randomDays = random.randrange(0, delta.days)
     
     subtraction = d2 - timedelta(days=randomDays)
-    randomDate = subtraction.strftime("%Y-%m-%d")        
+    randomDate = subtraction.strftime(('%d.%m. %Y'))        
         
     return(randomDate)
 
