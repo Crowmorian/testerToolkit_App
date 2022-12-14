@@ -193,6 +193,61 @@ def createLegalEntity():
 def CScreateLegalEntity():
     return render_template('cs/createLegalEntity.html')
 
+@main.route("/createLegalEntity", methods=['POST'])
+@login_required
+def createLegalEntity_post():
+    session["legalSaved"] = "saved" 
+    session["legalUseFunky"] = request.form.get("legalUseFunky")
+    session["legalNationality"] = request.form.get("legalNationality")
+    session["legalGender"] = request.form.get("legalGender")
+    session["legalIco"] = request.form.get("legalIco")
+    
+    legalCreated = []
+    legalforeigner = None
+    
+    if session["legalNationality"] == "cz":
+        legalforeigner = None
+    else:
+        legalforeigner = "on"
+    
+    legalName = generateName(session["legalGender"], session["legalUseFunky"], legalforeigner)
+    legalCreated.append(legalName)
+    
+    legalAddress = generateAddress(session["legalNationality"])
+    legalCreated.append(legalAddress[0])
+    
+    if session["legalNationality"] == "cz":
+        legalPhone = phoneNumberCS()
+    elif session["legalNationality"] == "gb":
+        legalPhone = phoneNumberUK()
+    elif session["legalNationality"] == "us":
+        legalPhone = phoneNumberUS()
+    elif session["legalNationality"] == "eu":
+        legalPhone = phoneNumberEU(legalAddress[1])
+    legalCreated.append(legalPhone)
+    
+    legalPassport = passportNumber()
+    legalCreated.append(legalPassport)
+    
+    legalDateOfBirth = dateOfBirth(None)
+    legalCreated.append(legalDateOfBirth)
+    
+    legalPID = idNumberCS(session["legalGender"],legalDateOfBirth)
+    legalCreated.append(legalPID)
+    legalCreated.append(legalAddress[1])
+    
+    legalCIN = generateIco(session["legalIco"])
+    legalCreated.append(legalCIN)
+    
+    legalCDN = generateConcessionNumber()
+    legalCreated.append(legalCDN)
+    
+    return render_template('createLegalEntity.html',
+        legalUseFunky = session["legalUseFunky"],
+        legalGender = session["legalGender"],
+        legalNationality = session["legalNationality"],
+        legalCreated = legalCreated)
+
 @main.route("/createBussiness")
 @login_required
 def createBussiness():
