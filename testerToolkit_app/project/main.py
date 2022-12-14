@@ -16,6 +16,7 @@ import sqlite3
 import random
 from datetime import date, timedelta, datetime
 import schwifty
+from dateutil.relativedelta import relativedelta
 
 #Declaring routes and variables
 main = Blueprint("main", __name__)
@@ -241,6 +242,32 @@ def createLegalEntity_post():
     
     legalComp = generateCompanyName()
     legalCreated.append(legalComp)
+    
+    today = date.today()
+    cd1 = today
+    creationStart = cd1.strftime("%Y-%m-%d")
+    cd2 = today - relativedelta(months=3)
+    creationEnd = cd2.strftime("%Y-%m-%d")
+    
+    legalCreationDate = legalDates(creationStart, creationEnd)
+    legalCreated.append(legalCreationDate)
+    
+    dd1 = today - relativedelta(months=3)
+    docStart = dd1.strftime("%Y-%m-%d")
+    dd2 = today
+    docEnd = dd2.strftime("%Y-%m-%d")
+    
+    legalDocDate = legalDates(docStart, docEnd)
+    legalCreated.append(legalDocDate)
+    
+    legStart = legalCreationDate
+    legEnd = legalDocDate
+    
+    legalLegalDate = legalDates(legStart, legEnd)
+    legalCreated.append(legalLegalDate)
+    
+    legalDocUrl = generateURL()
+    legalCreated.append(legalDocUrl)
     
     return render_template('createLegalEntity.html',
         legalUseFunky = session["legalUseFunky"],
@@ -1929,7 +1956,19 @@ def generateURL():
     
     return(url)
 
-
+#↨Generate dates for legal entity Creation
+def legalDates(start, end):  
+    d1 = datetime.strptime(start, "%Y-%m-%d")
+    d2 = datetime.strptime(end, "%Y-%m-%d")
+    
+    delta = d2 - d1
+    
+    randomDays = random.randrange(0, delta.days)
+    
+    subtraction = d2 - timedelta(days=randomDays)
+    randomDate = subtraction.strftime("%Y-%m-%d")        
+        
+    return(randomDate)
 
 
 

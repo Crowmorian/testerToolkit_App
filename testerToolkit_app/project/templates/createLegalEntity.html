@@ -309,6 +309,70 @@
                     </table>
                 </td>
             </tr>
+            <tr class="creation-track">
+                <td class="creation-column">
+                    <label class="generators-label-created">Creation: </label>
+                </td>
+                <td class="creation-column">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="legalCreationInput" type="text" name="legalCreationInput" value="{{legalCreated[9]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('legalCreationInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="creation-column">
+                    <label class="generators-label-created">Documentation: </label>
+                </td>
+                <td class="creation-column">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="legalDocInput" type="text" name="legalDocInput" value="{{legalCreated[10]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('legalDocInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="creation-column">
+                    <label class="generators-label-created">Legal: </label>
+                </td>
+                <td class="creation-column">
+                    <table>
+                        <tr>
+                            <td style="width: 90%;">
+                                <input class="generators-input-created" id="legalLegalInput" type="text" name="legalLegalInput" value="{{legalCreated[11]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('legalLegalInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="creation-track">
+                <td class="creation-column">
+                    <label class="generators-label-created">Doc URL: </label>
+                </td>
+                <td class="creation-column" colspan="5">
+                    <table>
+                        <tr>
+                            <td style="width: 290%;">
+                                <input class="generators-input-created" id="legalURLInput" type="text" name="legalURLInput" value="{{legalCreated[12]}}" readonly>
+                            </td>
+                            <td style="width: 10%;">
+                                <button class="button-copy" onclick="copyInputValue('legalURLInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+                            </td>
+                        </tr>
+                    </table>                               
+                </td>
+            </tr>
         </table>
         <!--<content class="generated-content-item">{{ legalCreated }} </content>-->
     </div>
