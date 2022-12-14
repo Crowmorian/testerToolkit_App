@@ -1958,8 +1958,8 @@ def generateURL():
 
 #↨Generate dates for legal entity Creation
 def legalDates(start, end):  
-    d1 = datetime.strptime(start, "%Y-%m-%d")
-    d2 = datetime.strptime(end, "%Y-%m-%d")
+    d1 = datetime.strptime(start, '%d.%m. %Y')
+    d2 = datetime.strptime(end, '%d.%m. %Y')
     
     delta = d2 - d1
     
