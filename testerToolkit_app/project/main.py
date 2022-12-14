@@ -192,7 +192,17 @@ def createLegalEntity():
 @main.route("/cs/createLegalEntity")
 @login_required
 def CScreateLegalEntity():
-    return render_template('cs/createLegalEntity.html')
+    if session["legalSaved"] == "notSaved":
+        session["legalUseFunky"] = None
+        session["legalGender"] = "male"
+        session["legalNationality"] = "cz"
+        session["legalIco"] = "real"
+        
+    return render_template('cs/createLegalEntity.html',
+        legalUseFunky = session["legalUseFunky"],
+        legalGender = session["legalGender"],
+        legalNationality = session["legalNationality"],
+        legalIco = session["legalIco"])
 
 @main.route("/createLegalEntity", methods=['POST'])
 @login_required
@@ -270,6 +280,87 @@ def createLegalEntity_post():
     legalCreated.append(legalDocUrl)
     
     return render_template('createLegalEntity.html',
+        legalUseFunky = session["legalUseFunky"],
+        legalGender = session["legalGender"],
+        legalNationality = session["legalNationality"],
+        legalCreated = legalCreated)
+
+@main.route("/cs/createLegalEntity", methods=['POST'])
+@login_required
+def CScreateLegalEntity_post():
+    session["legalSaved"] = "saved" 
+    session["legalUseFunky"] = request.form.get("legalUseFunky")
+    session["legalNationality"] = request.form.get("legalNationality")
+    session["legalGender"] = request.form.get("legalGender")
+    session["legalIco"] = request.form.get("legalIco")
+    
+    legalCreated = []
+    legalforeigner = None
+    
+    if session["legalNationality"] == "cz":
+        legalforeigner = None
+    else:
+        legalforeigner = "on"
+    
+    legalName = generateName(session["legalGender"], session["legalUseFunky"], legalforeigner)
+    legalCreated.append(legalName)
+    
+    legalAddress = generateAddress(session["legalNationality"])
+    legalCreated.append(legalAddress[0])
+    
+    if session["legalNationality"] == "cz":
+        legalPhone = phoneNumberCS()
+    elif session["legalNationality"] == "gb":
+        legalPhone = phoneNumberUK()
+    elif session["legalNationality"] == "us":
+        legalPhone = phoneNumberUS()
+    elif session["legalNationality"] == "eu":
+        legalPhone = phoneNumberEU(legalAddress[1])
+    legalCreated.append(legalPhone)
+    
+    legalPassport = passportNumber()
+    legalCreated.append(legalPassport)
+    
+    legalDateOfBirth = dateOfBirth(None)
+    legalCreated.append(legalDateOfBirth)
+    
+    legalPID = idNumberCS(session["legalGender"],legalDateOfBirth)
+    legalCreated.append(legalPID)
+    legalCreated.append(legalAddress[1])
+    
+    legalCIN = generateIco(session["legalIco"])
+    legalCreated.append(legalCIN)
+    
+    legalComp = generateCompanyName()
+    legalCreated.append(legalComp)
+    
+    today = date.today()
+    cd1 = today - relativedelta(years=30)
+    creationStart = cd1.strftime('%d.%m. %Y')
+    cd2 = today - relativedelta(months=3)
+    creationEnd = cd2.strftime('%d.%m. %Y')
+    
+    legalCreationDate = legalDates(creationStart, creationEnd)
+    legalCreated.append(legalCreationDate)
+    
+    dd1 = today - relativedelta(months=3)
+    docStart = dd1.strftime('%d.%m. %Y')
+    dd2 = today
+    docEnd = dd2.strftime('%d.%m. %Y')
+    
+    legalDocDate = legalDates(docStart, docEnd)
+    legalCreated.append(legalDocDate)
+    
+    legStart = legalCreationDate
+    legEnd = legalDocDate
+    
+    legalLegalDate = legalDates(legStart, legEnd)
+    legalCreated.append(legalLegalDate)
+    
+    legalDocUrl = generateURL()
+    legalCreated.append(legalDocUrl)
+    
+    return render_template('cs/createLegalEntity.html',
         legalUseFunky = session["legalUseFunky"],
         legalGender = session["legalGender"],
         legalNationality = session["legalNationality"],
