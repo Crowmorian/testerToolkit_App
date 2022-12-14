@@ -245,17 +245,17 @@ def createLegalEntity_post():
     
     today = date.today()
     cd1 = today - relativedelta(years=30)
-    creationStart = cd1.strftime("%Y-%m-%d")
+    creationStart = cd1.strftime('%d.%m. %Y')
     cd2 = today - relativedelta(months=3)
-    creationEnd = cd2.strftime("%Y-%m-%d")
+    creationEnd = cd2.strftime('%d.%m. %Y')
     
     legalCreationDate = legalDates(creationStart, creationEnd)
     legalCreated.append(legalCreationDate)
     
     dd1 = today - relativedelta(months=3)
-    docStart = dd1.strftime("%Y-%m-%d")
+    docStart = dd1.strftime('%d.%m. %Y')
     dd2 = today
-    docEnd = dd2.strftime("%Y-%m-%d")
+    docEnd = dd2.strftime('%d.%m. %Y')
     
     legalDocDate = legalDates(docStart, docEnd)
     legalCreated.append(legalDocDate)
