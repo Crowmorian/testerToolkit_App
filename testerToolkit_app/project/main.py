@@ -176,7 +176,17 @@ def CScreateIndividual_post():
 @main.route("/createLegalEntity")
 @login_required
 def createLegalEntity():
-    return render_template('createLegalEntity.html')
+    if session["legalSaved"] == "notSaved":
+        session["legalUseFunky"] = None
+        session["legalGender"] = "male"
+        session["legalNationality"] = "cz"
+        session["legalIco"] = "real"
+        
+    return render_template('createLegalEntity.html',
+        legalUseFunky = session["legalUseFunky"],
+        legalGender = session["legalGender"],
+        legalNationality = session["legalNationality"],
+        legalIco = session["legalIco"])
 
 @main.route("/cs/createLegalEntity")
 @login_required
@@ -1834,7 +1844,35 @@ def ibanGen(country, bank, account):
     iban = schwifty.IBAN.generate(country, bank, account)
     return iban
 
+#Generate Company Name
+def generateCompanyName():
+    con = sqlite3.connect("mysite/testerToolkit_app/project/genData.db")
+    cur = con.cursor()
+    
+    cur.execute("SELECT * FROM companyName")
+    compTable = cur.fetchall()    
+    
+    compIndex = random.randint(1,(len(compTable)-1))
+    compLine = compTable[compIndex]
+    compCut = list(compLine)
+    companyName = str(compCut[1])
+    
+    return(companyName)
 
+#Generate random url
+def generateURL():
+    con = sqlite3.connect("mysite/testerToolkit_app/project/genData.db")
+    cur = con.cursor()
+    
+    cur.execute("SELECT * FROM urls")
+    urlTable = cur.fetchall()    
+    
+    urlIndex = random.randint(1,(len(urlTable)-1))
+    urlLine = urlTable[urlIndex]
+    urlCut = list(urlLine)
+    url = str(urlCut[1])
+    
+    return(url)
 
 
 

@@ -39,7 +39,7 @@ def randomNumber(howManyDigits, whichNums, canStartZero, howManyNumbers):
 randomNumber(howManyDigits, whichNums, canStartZero, howManyNumbers)
 """
 #Insert data into database
-"""
+
 import sqlite3
 #Connecting database for generated and required data
 con = sqlite3.connect("genData.db")
@@ -47,18 +47,18 @@ cur = con.cursor()
 
 rowId = 1
 
-file1 = open('ico.txt', 'r')
+file1 = open('urls.txt', 'r')
 Lines = file1.readlines()
   
 for line in Lines:
     line = str(line)
-    cur.execute("INSERT INTO ico (ID, Ico) VALUES (?,?)", (rowId, line))
+    cur.execute("INSERT INTO urls (ID, URL) VALUES (?,?)", (rowId, line))
     rowId = rowId + 1
 
 
 con.commit()
 cur.close()
-"""
+
 #Importing adresses to database
 """
 import sqlite3
