@@ -244,7 +244,7 @@ def createLegalEntity_post():
     legalCreated.append(legalComp)
     
     today = date.today()
-    cd1 = today
+    cd1 = today - relativedelta(years=30)
     creationStart = cd1.strftime("%Y-%m-%d")
     cd2 = today - relativedelta(months=3)
     creationEnd = cd2.strftime("%Y-%m-%d")
@@ -1961,7 +1961,7 @@ def legalDates(start, end):
     d1 = datetime.strptime(start, "%Y-%m-%d")
     d2 = datetime.strptime(end, "%Y-%m-%d")
     
-    delta = d1 - d2
+    delta = d2 - d1
     
     randomDays = random.randrange(0, delta.days)
     
