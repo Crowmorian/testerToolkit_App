@@ -68,6 +68,17 @@ def CSlogin_post():
     login_user(user)
     session['number'] = str(uuid4())
     session["randomSaved"] = "noteSaved"
+    session["individualSaved"] = "notSaved"
+    session["bussinessSaved"] = "notSaved"
+    session["nameGenSaved"] = "notSaved"
+    session["numGenSaved"] = "notSaved"
+    session["mailGenSaved"] = "notSaved"
+    session["dateSaved"] = "notSaved"
+    session["cinGenSaved"] = "notSaved"
+    session["sipoSaved"] = "notSaved"
+    session["ibanGenSaved"] = "notSaved"
+    session["ibanValSaved"] = "notSaved"
+    session["legalSaved"] = "notSaved"
     
     return redirect(url_for('main.CSindex'))
 
