@@ -239,8 +239,8 @@ def createLegalEntity_post():
     legalCIN = generateIco(session["legalIco"])
     legalCreated.append(legalCIN)
     
-    legalCDN = generateConcessionNumber()
-    legalCreated.append(legalCDN)
+    legalComp = generateCompanyName()
+    legalCreated.append(legalComp)
     
     return render_template('createLegalEntity.html',
         legalUseFunky = session["legalUseFunky"],
