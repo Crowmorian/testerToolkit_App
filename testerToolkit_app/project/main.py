@@ -1966,7 +1966,7 @@ def legalDates(start, end):
     randomDays = random.randrange(0, delta.days)
     
     subtraction = d2 - timedelta(days=randomDays)
-    randomDate = subtraction.strftime(('%d.%m. %Y'))        
+    randomDate = subtraction.strftime('%d.%m. %Y')        
         
     return(randomDate)
 
