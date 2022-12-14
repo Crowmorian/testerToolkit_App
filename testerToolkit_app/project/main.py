@@ -1961,7 +1961,7 @@ def legalDates(start, end):
     d1 = datetime.strptime(start, "%Y-%m-%d")
     d2 = datetime.strptime(end, "%Y-%m-%d")
     
-    delta = d2 - d1
+    delta = d1 - d2
     
     randomDays = random.randrange(0, delta.days)
     
