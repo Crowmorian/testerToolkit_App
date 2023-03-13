@@ -80,6 +80,7 @@ def CSlogin_post():
     session["ibanGenSaved"] = "notSaved"
     session["ibanValSaved"] = "notSaved"
     session["legalSaved"] = "notSaved"
+    session["loggedIn"] = "true"
     
     return redirect(url_for('main.CSindex'))
 
@@ -94,6 +95,7 @@ def logout():
 @login_required
 def CSlogout():
     logout_user()
+    session["loggedIn"] = "false"
     return redirect(url_for('main.CSindex'))
 
 @auth.route("/createUser")

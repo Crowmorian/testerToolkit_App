@@ -27,19 +27,24 @@ cur = con.cursor()
 
 @main.route("/")
 def index():
-
     if session.get('loggedIn') != None:
         if session['loggedIn'] == "true":
             return render_template('index.html')
         else:
             return render_template('login.html')
     else:
-        return render_template("login.html")
+        return render_template('login.html')
     
 
 @main.route("/cs")
 def CSindex():
-    return render_template('cs/index.html')
+    if session.get('loggedIn') != None:
+        if session['loggedIn'] == "true":
+            return render_template('cs/index.html')
+        else:
+            return render_template('cs/login.html')
+    else:
+        return render_template('cs/login.html')
 
 @main.route("/createClient")
 @login_required
