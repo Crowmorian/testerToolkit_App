@@ -26,10 +26,12 @@ con = sqlite3.connect("genData.sqlite")
 cur = con.cursor()
 
 @main.route("/")
+@login_required
 def index():
     return render_template('index.html')
 
 @main.route("/cs")
+@login_required
 def CSindex():
     return render_template('cs/index.html')
 
