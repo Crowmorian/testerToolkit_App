@@ -526,13 +526,24 @@ def CScreateBussiness_post():
 @main.route("/setEng")
 def setEng ():
     session["lang"] = "eng"
-    return render_template('index.html')
-
+    if session.get('loggedIn') != None:
+        if session['loggedIn'] == "true":
+            return render_template('index.html')
+        else:
+            return render_template('login.html')
+    else:
+        return render_template('login.html')
 
 @main.route("/setCs")
 def setCs ():
     session["lang"] = "cs"
-    return render_template('cs/index.html')
+    if session.get('loggedIn') != None:
+        if session['loggedIn'] == "true":
+            return render_template('cs/index.html')
+        else:
+            return render_template('cs/login.html')
+    else:
+        return render_template('cs/login.html')
 
 @main.route("/generators")
 @login_required
