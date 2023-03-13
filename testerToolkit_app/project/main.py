@@ -27,13 +27,13 @@ cur = con.cursor()
 
 @main.route("/")
 def index():
-    print("Session key is:")
-    print(session.get('loggedIn'))
+
     if session.get('loggedIn') != None:
-        print("Logins is not None")
-        return render_template('index.html')
+        if session['loggedIn'] == "true":
+            return render_template('index.html')
+        else:
+            return render_template('login.html')
     else:
-        print("Login is None")
         return render_template("login.html")
     
 
