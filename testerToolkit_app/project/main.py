@@ -27,7 +27,7 @@ cur = con.cursor()
 
 @main.route("/")
 def index():
-
+    print(session.get('loggedIn'))
     if session.get('loggedIn') == True:
         return render_template('index.html')
     else:
