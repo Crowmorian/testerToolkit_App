@@ -29,10 +29,7 @@ cur = con.cursor()
 def index():
 
     if session.get('loggedIn') == True:
-        if session['loggedIn'] == "true":
-            return render_template('index.html')
-        else:
-            return render_template("login.html")
+        return render_template('index.html')
     else:
          return render_template("login.html")
     
