@@ -28,8 +28,11 @@ cur = con.cursor()
 @main.route("/")
 def index():
 
-    if session.get('logged_in') == True:
-         return render_template('index.html')
+    if session.get('loggedIn') == True:
+        if session['loggedIn'] == "true":
+            return render_template('index.html')
+        else:
+            return render_template("login.html")
     else:
          return render_template("login.html")
     
