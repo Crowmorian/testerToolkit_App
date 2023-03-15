@@ -10,18 +10,8 @@
     <title>Tester Toolkit</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='base.css') }}" type="text/css" />
     <link rel="icon" href="{{ url_for('static',filename='icon.png') }}">
+    <script src="{{ url_for('static',filename='base.js') }}"></script>
 </head>
-
-<script type="text/javascript">
-    
-    const togglebutton = document.getElementByClassName("toggle-button")[0]
-    const navbaLinks = document.getElementByClassName("navbar-links")[0]
-
-    togglebutton.addEventListener("click". () => {
-        navbarLinks.classList("active")
-    })
-
-</script>
 
 <body>
     <nav class="navbar">
