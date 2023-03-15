@@ -13,17 +13,6 @@
     <!--<script src="{{ url_for('static',filename='base.js') }}"></script>-->
 </head>
 
-<script type="text/javascript">
-    const toggleButton = document.getElementById('toggle-button')
-    console.log(toggleButton)
-    const navbarLinks = document.getElementsByClassName('navbar-links')[0]
-    console.log(navbarLinks)
-    /*
-    toggleButton.addEventListener('click', () => {
-      navbarLinks.classList.toggle('active')
-    })*/
-</script>
-
 <body>
     <nav class="navbar">
         <div class="brand-title"><a href="{{ url_for('main.index') }}">Tester Toolkit</a><img src="{{ url_for('static',filename='icon.png') }}" class="logo-image"></div>
@@ -73,5 +62,16 @@
         </div>
     </div>
 </body>
+
+<script type="text/javascript">
+    const toggleButton = document.getElementById('toggle-button')
+    console.log(toggleButton)
+    const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+    console.log(navbarLinks)
+    /*
+    toggleButton.addEventListener('click', () => {
+      navbarLinks.classList.toggle('active')
+    })*/
+</script>
 
 </html>
