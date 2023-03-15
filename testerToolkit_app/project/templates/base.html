@@ -37,48 +37,50 @@
                 </td>
                 <td class="navbar-container">
                     <nav class="navbar">
-                        <ul>
-                            <li><a href="{{ url_for('main.index') }}" class="navbar-item">
-                                Home
-                            </a></li>
-                            {% if not current_user.is_authenticated %}
-                            <li><a href="{{ url_for('auth.login') }}" class="navbar-item">
-                                Login
-                            </a></li>
-                            {% endif %}
-                            {% if current_user.is_authenticated %}
-                            <li><a href="{{ url_for('auth.logout') }}" class="navbar-item">
-                                Logout
-                            </a></li>
-                            {% endif %}
-                            {% if current_user.is_authenticated %}
-                            <li><a href="{{ url_for('main.createClient') }}" class="navbar-item">
-                                Create Client
-                            </a></li>
-                            {% endif %}
-                            {% if current_user.is_authenticated %}
-                            <li><a href="{{ url_for('main.generators') }}" class="navbar-item">
-                                Generators
-                            </a></li>
-                            {% endif %}
-                            {% if current_user.is_authenticated and current_user.admin == 1 %}
-                            <li><a href="{{ url_for('auth.createUser') }}" class="navbar-item">
-                                Create Toolkit User
-                            </a></li>
-                            {% endif %}
-                            <div class="lang-selection">
-                                <div>
-                                    <a href="{{ url_for('main.setEng') }}" class="navbar-item-lang">
-                                        <img src="{{ url_for('static',filename='eng.png') }}" class="eng-image">
-                                    </a>
+                        <div class="navbar-links">
+                            <ul>
+                                <li><a href="{{ url_for('main.index') }}" class="navbar-item">
+                                    Home
+                                </a></li>
+                                {% if not current_user.is_authenticated %}
+                                <li><a href="{{ url_for('auth.login') }}" class="navbar-item">
+                                    Login
+                                </a></li>
+                                {% endif %}
+                                {% if current_user.is_authenticated %}
+                                <li><a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                                    Logout
+                                </a></li>
+                                {% endif %}
+                                {% if current_user.is_authenticated %}
+                                <li><a href="{{ url_for('main.createClient') }}" class="navbar-item">
+                                    Create Client
+                                </a></li>
+                                {% endif %}
+                                {% if current_user.is_authenticated %}
+                                <li><a href="{{ url_for('main.generators') }}" class="navbar-item">
+                                    Generators
+                                </a></li>
+                                {% endif %}
+                                {% if current_user.is_authenticated and current_user.admin == 1 %}
+                                <li><a href="{{ url_for('auth.createUser') }}" class="navbar-item">
+                                    Create Toolkit User
+                                </a></li>
+                                {% endif %}
+                                <div class="lang-selection">
+                                    <div>
+                                        <a href="{{ url_for('main.setEng') }}" class="navbar-item-lang">
+                                            <img src="{{ url_for('static',filename='eng.png') }}" class="eng-image">
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="{{ url_for('main.setCs') }}" class="navbar-item-lang">
+                                            <img src="{{ url_for('static',filename='cs.png') }}" class="cs-image">
+                                        </a>
+                                    </div>
                                 </div>
-                                <div>
-                                    <a href="{{ url_for('main.setCs') }}" class="navbar-item-lang">
-                                        <img src="{{ url_for('static',filename='cs.png') }}" class="cs-image">
-                                    </a>
-                                </div>
-                            </div>
-                        </ul>
+                            </ul>
+                        </div>
                     </nav>
                 </td>
             </tr>
