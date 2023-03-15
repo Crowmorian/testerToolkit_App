@@ -58,7 +58,7 @@ input::-webkit-inner-spin-button {
 
 .lang-selection {
 	position: absolute;
-	top: 0.75rem;
+	/*top: 0.75rem;*/
 	right: 0.5rem;
 	display: flex;
 	flex-direction: column;
