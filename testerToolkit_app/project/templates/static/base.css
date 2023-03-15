@@ -110,6 +110,10 @@ input::-webkit-inner-spin-button {
 	.navbar-links li {
 		text-align: right;
 	}
+
+	.navbar-links li a {
+		padding: .5rem 1rem;
+	}
 }
 
 .main-container {
