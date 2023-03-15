@@ -92,7 +92,7 @@ input::-webkit-inner-spin-button {
 	}
 
 	.navbar-links {
-		/*display: none;*/
+		display: none;
 		width: 100%;
 		padding: 0rem;
 	}
@@ -113,6 +113,10 @@ input::-webkit-inner-spin-button {
 
 	.navbar-links li a {
 		padding: .5rem 3rem;
+	}
+
+	.navbar-links.active{
+		display: flex;
 	}
 }
 

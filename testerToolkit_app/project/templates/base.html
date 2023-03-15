@@ -12,6 +12,17 @@
     <link rel="icon" href="{{ url_for('static',filename='icon.png') }}">
 </head>
 
+<script type="text/javascript">
+    
+    const togglebutton = document.getElementByClassName("toggle-button")[0]
+    const navbaLinks = document.getElementByClassName("navbar-links")[0]
+
+    togglebutton.addEventListener("click". () => {
+        navbarLinks.classList("active")
+    })
+
+</script>
+
 <body>
     <nav class="navbar">
         <div class="brand-title"><a href="{{ url_for('main.index') }}">Tester Toolkit</a><img src="{{ url_for('static',filename='icon.png') }}" class="logo-image"></div>
