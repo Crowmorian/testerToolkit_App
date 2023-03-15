@@ -57,9 +57,10 @@ input::-webkit-inner-spin-button {
 }
 
 .lang-selection {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.5rem;
 	display: flex;
-	margin-right: 1rem;
-	margin-left: 1rem;
 	flex-direction: column;
 }
 
