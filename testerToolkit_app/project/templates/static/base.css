@@ -53,10 +53,6 @@ input::-webkit-inner-spin-button {
 }
 
 .logo {
-	width: 10%;
-}
-
-.logo-image {
 	width: 45px;
 	float: left;
 	margin-left: 15px;
