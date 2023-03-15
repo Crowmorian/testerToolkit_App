@@ -38,6 +38,8 @@ input::-webkit-inner-spin-button {
 
 .navbar-links li {
 	list-style: none;
+	margin-left: auto;
+	margin-right: 1rem;
 }
 
 .navbar-links li a {
@@ -45,8 +47,6 @@ input::-webkit-inner-spin-button {
 	color: white;
 	padding: 1rem;
 	display: block;
-	margin-left: auto;
-	margin-right: 1rem;
 }
 
 .navbar-links li:hover {
