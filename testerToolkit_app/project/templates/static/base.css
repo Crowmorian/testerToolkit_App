@@ -53,10 +53,13 @@ input::-webkit-inner-spin-button {
 }
 
 .logo {
-	width: 45px;
-	float: left;
-	margin-left: 15px;
-	padding-left: 15px;
+	width: 1rem;
+}
+
+.logo-image {
+	width: 1rem;
+	margin-left: 1rem;
+	padding-left: 1rempx;
 }
 
 .lang-selection {
