@@ -12,52 +12,31 @@
     <link rel="icon" href="{{ url_for('static',filename='icon.png') }}">
 </head>
 
-<script type="text/javascript">
-    window.addEventListener("resize", function() {
-      if (window.matchMedia("(min-width: 500px)").matches) {
-        console.log("Screen width is at least 500px")
-      } else {
-        console.log("Screen less than 500px")
-      }
-    })
-</script>
-
 <body>
-    <div class="header">
-        <table class="header-table">
-            <tr class="header-track">
-                <td class="title">
-                    <a class="title-container" href="{{ url_for('main.index') }}">Tester Toolkit</a>
-                </td>
-                <td class="logo">
-                    <img src="{{ url_for('static',filename='icon.png') }}" class="logo-image">
-                </td>
-                <td class="spacer">
-                    
-                </td>
-                <td class="navbar-container">
-                    <nav class="navbar">
-                        <div class="navbar-links">
-                            <ul>
-                                <li><a href="{{ url_for('main.index') }}">Home</a></li>
-                                {% if not current_user.is_authenticated %}
-                                <li><a href="{{ url_for('auth.login') }}">Login</a></li>
-                                {% endif %}
-                                {% if current_user.is_authenticated %}
-                                <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
-                                {% endif %}
-                                {% if current_user.is_authenticated %}
-                                <li><a href="{{ url_for('main.createClient') }}">Create Client</a></li>
-                                {% endif %}
-                                {% if current_user.is_authenticated %}
-                                <li><a href="{{ url_for('main.generators') }}">Generators</a></li>
-                                {% endif %}
-                                {% if current_user.is_authenticated and current_user.admin == 1 %}
-                                <li><a href="{{ url_for('auth.createUser') }}">Create Toolkit User</a></li>
-                                {% endif %}
-                            </ul>
-                        </div>
-                    </nav>
+    <nav class="navbar">
+        <div class="brand-title"><a class="title-container" href="{{ url_for('main.index') }}">Tester Toolkit</a></div>
+        <div class="logo"><img src="{{ url_for('static',filename='icon.png') }}" class="logo-image"></div>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                {% if not current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('main.createClient') }}">Create Client</a></li>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('main.generators') }}">Generators</a></li>
+                {% endif %}
+                {% if current_user.is_authenticated and current_user.admin == 1 %}
+                <li><a href="{{ url_for('auth.createUser') }}">Create Toolkit User</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>                    
                     <!--
                     <div class="lang-selection">
                         <div>
@@ -71,10 +50,6 @@
                             </a>
                         </div>
                     </div>-->
-                </td>
-            </tr>
-        </table>
-    </div>
     
     <div class="main-body">
         <div class="main-container">
