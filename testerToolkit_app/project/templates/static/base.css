@@ -63,7 +63,9 @@ input::-webkit-inner-spin-button {
 }
 
 .lang-selection {
-	margin: 0 auto;
+	display: flex;
+	margin-right: auto;
+	margin-left: 1rem;
 	vertical-align: middle;
 	float: right;
 }
