@@ -68,50 +68,6 @@ input::-webkit-inner-spin-button {
 	padding-left: 15px;
 }
 
-a.navbar-item {
-	border: 4px solid #6e95ff;
-	border-radius: 10px;
-}
-
-a.navbar-item:link {
-  color: black;
-  padding: 12px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-a.navbar-item:visited {
-  color: black;
-  padding: 12px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-a.navbar-item:hover {
-  background-color: #6e95ff;
-  color: white;
-  padding: 12px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-a.navbar-item:active {
-  background-color: #6e95ff;
-  color: white;
-  padding: 12px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-a.navbar-item-lang {
-	text-align: center;
-  display: inline-block;
-}
-
 .lang-selection {
 	display: inline-block;
 	margin: 0 auto;
