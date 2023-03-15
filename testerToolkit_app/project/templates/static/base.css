@@ -130,7 +130,6 @@ a.navbar-item-lang {
 .login-title-checkbox {
 	font-weight: bold;
 	font-family: "Arial";
-	font-size: 100%;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -140,14 +139,12 @@ a.navbar-item-lang {
 	border-radius: 10px;
 	width: 90%;
 	height: 40px;
-	font-size: 100%;
 	text-align: center;
 	margin-top: 15px;
 }
 
 .login-input-checkbox {
 	border: 4px solid #6e95ff;
-	font-size: 100%;
 	border-radius: 10px;
 	width: 30px;
 	height: 30px;
