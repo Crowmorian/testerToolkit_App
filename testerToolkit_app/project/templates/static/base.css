@@ -25,11 +25,10 @@ input::-webkit-inner-spin-button {
 
 .navbar {
 	display: flex;
-	float: right;
-	white-space: nowrap;
-	padding-right: 25px;
-	margin: 0 auto;
-	vertical-align: middle;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #333;
+	color: white;
 }
 
 .navbar-links ul {
