@@ -30,9 +30,8 @@ input::-webkit-inner-spin-button {
 	color: white;
 }
 
-.navbar-links ul {
-	margin-right: 3rem;
-
+.navbar-links {
+	padding-right: 3rem;
 }
 
 .navbar-links ul {
