@@ -39,33 +39,21 @@
                     <nav class="navbar">
                         <div class="navbar-links">
                             <ul>
-                                <li><a href="{{ url_for('main.index') }}" class="navbar-item">
-                                    Home
-                                </a></li>
+                                <li><a href="{{ url_for('main.index') }}">Home</a></li>
                                 {% if not current_user.is_authenticated %}
-                                <li><a href="{{ url_for('auth.login') }}" class="navbar-item">
-                                    Login
-                                </a></li>
+                                <li><a href="{{ url_for('auth.login') }}">Login</a></li>
                                 {% endif %}
                                 {% if current_user.is_authenticated %}
-                                <li><a href="{{ url_for('auth.logout') }}" class="navbar-item">
-                                    Logout
-                                </a></li>
+                                <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
                                 {% endif %}
                                 {% if current_user.is_authenticated %}
-                                <li><a href="{{ url_for('main.createClient') }}" class="navbar-item">
-                                    Create Client
-                                </a></li>
+                                <li><a href="{{ url_for('main.createClient') }}">Create Client</a></li>
                                 {% endif %}
                                 {% if current_user.is_authenticated %}
-                                <li><a href="{{ url_for('main.generators') }}" class="navbar-item">
-                                    Generators
-                                </a></li>
+                                <li><a href="{{ url_for('main.generators') }}">Generators</a></li>
                                 {% endif %}
                                 {% if current_user.is_authenticated and current_user.admin == 1 %}
-                                <li><a href="{{ url_for('auth.createUser') }}" class="navbar-item">
-                                    Create Toolkit User
-                                </a></li>
+                                <li><a href="{{ url_for('auth.createUser') }}">Create Toolkit User</a></li>
                                 {% endif %}
                             </ul>
                         </div>
