@@ -12,24 +12,17 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.header {
-	background-color: #333;
-}
-
-.header-track {
-	height: 75px;
-}
-
-.navbar-container {
-	width: auto;
-}
-
 .navbar {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	background-color: #333;
 	color: white;
+}
+
+.brand-title {
+	font-size: 2.5rem;
+	margin: 5rem;
 }
 
 .navbar-links ul {
@@ -56,21 +49,6 @@ input::-webkit-inner-spin-button {
 
 .logo {
 	width: 10%;
-}
-
-.title {
-	width: 15%;
-}
-
-.title-container {
-	font-size: 45px;
-	font-weight: bold;
-	margin-left: 25px;
-	padding-left: 25px;
-	white-space: nowrap;
-	float: right;
-	text-decoration: none;
-	color: white;
 }
 
 .logo-image {
