@@ -54,7 +54,7 @@ input::-webkit-inner-spin-button {
 .logo {
 	display: flex;
 	width: 2rem;
-	margin-left: auto;
+	margin-right: auto;
 }
 
 .logo-image {
