@@ -13,65 +13,46 @@
 </head>
 
 <body>
-    <div class="header">
-        <table class="header-table">
-            <tr class="header-track">
-                <td class="title">
-                    <a class="title-container" href="{{ url_for('main.CSindex') }}">Tester Toolkit</a>
-                </td>
-                <td class="logo">
-                    <img src="{{ url_for('static',filename='icon.png') }}" class="logo-image">
-                </td>
-                <td class="spacer">
-                    
-                </td>
-                <td class="navbar-container">
-                    <div class="navbar">
-                        <a href="{{ url_for('main.CSindex') }}" class="navbar-item">
-                            Domů
-                        </a>
-                        {% if not current_user.is_authenticated %}
-                        <a href="{{ url_for('auth.CSlogin') }}" class="navbar-item">
-                            Přihlásit
-                        </a>
-                        {% endif %}
-                        {% if current_user.is_authenticated %}
-                        <a href="{{ url_for('auth.CSlogout') }}" class="navbar-item">
-                            Odhlásit
-                        </a>
-                        {% endif %}
-                        {% if current_user.is_authenticated %}
-                        <a href="{{ url_for('main.CScreateClient') }}" class="navbar-item">
-                            Vytvořit Klienta
-                        </a>
-                        {% endif %}
-                        {% if current_user.is_authenticated %}
-                        <a href="{{ url_for('main.CSgenerators') }}" class="navbar-item">
-                            Generátory
-                        </a>
-                        {% endif %}
-                        {% if current_user.is_authenticated and current_user.admin == 1 %}
-                        <a href="{{ url_for('auth.CScreateUser') }}" class="navbar-item">
-                            Vytvořit Toolkit Uživatele
-                        </a>
-                        {% endif %}
-                        <div class="lang-selection">
-                            <div>
-                                <a href="{{ url_for('main.setEng') }}" class="navbar-item-lang">
-                                    <img src="{{ url_for('static',filename='eng.png') }}" class="eng-image">
-                                </a>
-                            </div>
-                            <div>
-                                <a href="{{ url_for('main.setCs') }}" class="navbar-item-lang">
-                                    <img src="{{ url_for('static',filename='cs.png') }}" class="cs-image">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
+    <nav class="navbar">
+        <div class="brand-title"><a href="{{ url_for('main.CSindex') }}">Tester Toolkit</a><img src="{{ url_for('static',filename='icon.png') }}" class="logo-image"></div>
+        <a href="#" class="toggle-button" id="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="{{ url_for('main.CSindex') }}">Domů</a></li>
+                {% if not current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.CSlogin') }}">Přihlásit</a></li>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.CSlogout') }}">Odhlásit</a></li>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('main.CScreateClient') }}">Vytvořit Klienta</a></li>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('main.CSgenerators') }}">Generátory</a></li>
+                {% endif %}
+                {% if current_user.is_authenticated and current_user.admin == 1 %}
+                <li><a href="{{ url_for('auth.CScreateUser') }}">Vytvořit Toolkit Uživatele</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="lang-selection">
+            <div>
+                <a href="{{ url_for('main.setEng') }}" class="navbar-item-lang">
+                    <img src="{{ url_for('static',filename='eng.png') }}" class="eng-image">
+                </a>
+            </div>
+            <div>
+                <a href="{{ url_for('main.setCs') }}" class="navbar-item-lang">
+                    <img src="{{ url_for('static',filename='cs.png') }}" class="cs-image">
+                </a>
+            </div>
+        </div>
+    </nav>                    
     
     <div class="main-body">
         <div class="main-container">
@@ -80,5 +61,14 @@
         </div>
     </div>
 </body>
+
+<script type="text/javascript">
+    const toggleButton = document.getElementById('toggle-button')
+    const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+    toggleButton.addEventListener('click', () => {
+      navbarLinks.classList.toggle('active')
+    })
+</script>
 
 </html>
