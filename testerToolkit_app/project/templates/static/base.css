@@ -42,6 +42,17 @@ input::-webkit-inner-spin-button {
 	list-style: none;
 }
 
+.navbar-links li a {
+	text-decoration: none;
+	color: white;
+	padding: 5px;
+	display: block;
+}
+
+.navbar-links li:hover {
+	background-color: #555;
+}
+
 .logo {
 	width: 10%;
 }
@@ -58,7 +69,7 @@ input::-webkit-inner-spin-button {
 	white-space: nowrap;
 	float: right;
 	text-decoration: none;
-	color: black;
+	color: white;
 }
 
 .logo-image {
