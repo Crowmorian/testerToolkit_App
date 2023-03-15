@@ -81,7 +81,7 @@ input::-webkit-inner-spin-button {
 }
 
 .lang-selection {
-	display: inline-block;
+	
 	margin: 0 auto;
 	vertical-align: middle;
 	float: right;
