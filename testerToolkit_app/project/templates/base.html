@@ -65,9 +65,15 @@
 <script type="text/javascript">
     const toggleButton = document.getElementById('toggle-button')
     const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+    const toggleButtonLower = document.getElementById('toggle-button-lower')
+    const navbarLinksLower = document.getElementsByClassName('navbar-links-lower')[0]
 
     toggleButton.addEventListener('click', () => {
       navbarLinks.classList.toggle('active')
+    })
+
+    toggleButtonLower.addEventListener('click', () => {
+      navbarLinksLower.classList.toggle('active')
     })
 </script>
 

@@ -132,6 +132,23 @@ html {
 	background-color: white;
 }
 
+.toggle-button-lower {
+	position: absolute;
+	top: 3rem;
+	right: 3rem;
+	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 30px;
+	height: 21px;
+}
+
+.toggle-button-lower .bar {
+	height: 3px;
+	width: 100%;
+	background-color: white;
+}
+
 .main-container {
 	margin: 0 auto;
 	text-align: center;

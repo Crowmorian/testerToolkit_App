@@ -5,6 +5,11 @@
 {% block content %}
 <div class="spacer"></div>
 <nav class="navbar-lower">
+    <a href="#" class="toggle-button-lower" id="toggle-button-lower">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </a>
     <div class="navbar-links-lower">
         <ul>
             <li><a href="{{ url_for('main.generateIBAN') }}">Generate IBAN</a></li>
