@@ -334,7 +334,7 @@ a.client-item:hover {
 .creation-content {
 	border: 4px solid #6e95ff;
 	text-align: center;
-	width: 70%;
+	width: calc(400px / var(--size-divisor));
 	margin: 0 auto;
 	margin-top: 20px;
 	margin-bottom: 10px;
