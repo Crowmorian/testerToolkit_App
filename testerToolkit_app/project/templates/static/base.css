@@ -345,7 +345,7 @@ a.client-item:hover {
 	justify-content: center;
 	margin: 0 auto;
 	text-align: center;
-	width: 60%;
+	width: 100%;
 }
 
 .generators-input-numbers {
