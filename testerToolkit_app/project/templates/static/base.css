@@ -12,6 +12,10 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+:root {
+	--size-divisor: 3;
+}
+
 .navbar {
 	display: flex;
 	justify-content: space-between;
@@ -200,9 +204,15 @@ input::-webkit-inner-spin-button {
 	border: 4px solid #6e95ff;
 	border-radius: 10px;
 	text-align: center;
-	width: 25%;
+	width: calc(600px / var(--size-divisor));
 	margin: 0 auto;
 	margin-top: 100px;
+}
+
+@media(min-width: 1000px) {
+	:root {
+		--size-divisor: 2;
+	}
 }
 
 .index-info {
