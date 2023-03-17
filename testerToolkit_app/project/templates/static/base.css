@@ -149,6 +149,10 @@ html {
 	background-color: white;
 }
 
+.keeper {
+	height: 21px;
+}
+
 .main-container {
 	margin: 0 auto;
 	text-align: center;
