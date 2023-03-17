@@ -151,7 +151,7 @@ html {
 	width: 90%;
 	text-align: center;
 	text-decoration: none;
-	display: inline-block;
+	/*display: inline-block;*/
 	font-size: 18px;
 	font-weight: bold;
 	margin-top: 15px;
@@ -160,7 +160,6 @@ html {
 }
 
 .login-button:hover {
-	border-radius: 10px;
 	background-color: #555;
 	color: white;
 	height: 50px;
