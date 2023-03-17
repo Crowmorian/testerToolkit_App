@@ -133,9 +133,10 @@ html {
 }
 
 .toggle-button-lower {
-	/*position: absolute;
-	top: 4rem;
-	right: 3rem;*/
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	margin-right: 3rem;
+	margin-left: auto;
 	display: none;
 	flex-direction: column;
 	justify-content: space-between;
@@ -147,10 +148,6 @@ html {
 	height: 3px;
 	width: 100%;
 	background-color: white;
-}
-
-.keeper {
-	height: 50px;
 }
 
 .main-container {
