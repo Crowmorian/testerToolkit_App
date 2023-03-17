@@ -172,8 +172,8 @@ html {
 
 .login-box {
 	color: white;
-	background-color: #444;
-	border: 6px solid #333;
+	/*background-color: #444;
+	border: 6px solid #333;*/
 	text-align: center;
 	width: calc(400px / var(--size-divisor));
 	margin: 0 auto;
