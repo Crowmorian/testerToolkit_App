@@ -133,10 +133,10 @@ html {
 }
 
 .toggle-button-lower {
-	position: absolute;
+	/*position: absolute;
 	top: 4rem;
-	right: 3rem;
-	display: flex;
+	right: 3rem;*/
+	display: none;
 	flex-direction: column;
 	justify-content: space-between;
 	width: 30px;
@@ -568,6 +568,10 @@ a.client-item:hover {
 	}
 
 	.toggle-button {
+		display: flex;
+	}
+
+	.toggle-button-lower {
 		display: flex;
 	}
 
