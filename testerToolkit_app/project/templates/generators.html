@@ -4,17 +4,19 @@
 
 {% block content %}
 <nav class="navbar">
-    <ul>
-        <li><a href="{{ url_for('main.generateIBAN') }}" class="client-item">Generate IBAN</a></li>
-        <li><a href="{{ url_for('main.validateIBAN') }}" class="client-item">Validate IBAN</a></li>
-        <li><a href="{{ url_for('main.generateSIPO') }}" class="client-item">SIPO</a></li>
-        <li><a href="{{ url_for('main.generateCIN') }}" class="client-item">CIN</a></li>
-        <li><a href="{{ url_for('main.generateDate') }}" class="client-item">Date</a></li>
-        <li><a href="{{ url_for('main.generateMail') }}" class="client-item">E-Mail</a></li>
-        <li><a href="{{ url_for('main.generateNumber') }}" class="client-item">Phone Number</a></li>
-        <li><a href="{{ url_for('main.generateRandomName') }}" class="client-item">Name</a></li>
-        <li><a href="{{ url_for('main.generateRandom') }}" class="client-item">Random Numbers</a></li>
-    </ul>
+    <div class="navbar-links">
+        <ul>
+            <li><a href="{{ url_for('main.generateIBAN') }}" class="client-item">Generate IBAN</a></li>
+            <li><a href="{{ url_for('main.validateIBAN') }}" class="client-item">Validate IBAN</a></li>
+            <li><a href="{{ url_for('main.generateSIPO') }}" class="client-item">SIPO</a></li>
+            <li><a href="{{ url_for('main.generateCIN') }}" class="client-item">CIN</a></li>
+            <li><a href="{{ url_for('main.generateDate') }}" class="client-item">Date</a></li>
+            <li><a href="{{ url_for('main.generateMail') }}" class="client-item">E-Mail</a></li>
+            <li><a href="{{ url_for('main.generateNumber') }}" class="client-item">Phone Number</a></li>
+            <li><a href="{{ url_for('main.generateRandomName') }}" class="client-item">Name</a></li>
+            <li><a href="{{ url_for('main.generateRandom') }}" class="client-item">Random Numbers</a></li>
+        </ul>
+    </div>
 </nav>
 <div class="main-container">
    {% block generation %}
