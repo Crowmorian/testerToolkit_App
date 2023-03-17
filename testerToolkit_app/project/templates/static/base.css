@@ -136,7 +136,7 @@ html {
 	position: absolute;
 	top: 3rem;
 	right: 3rem;
-	display: none;
+	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	width: 30px;
