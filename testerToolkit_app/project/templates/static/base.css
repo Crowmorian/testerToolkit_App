@@ -90,8 +90,11 @@ input::-webkit-inner-spin-button {
 	border-radius: 10px;
 }
 
-.main-container {
+html {
 	background-color: #555;
+}
+
+.main-container {
 	margin: 0 auto;
 	text-align: center;
 	width: 100%;
