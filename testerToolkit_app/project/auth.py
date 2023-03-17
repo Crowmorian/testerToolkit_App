@@ -40,6 +40,7 @@ def login_post():
     login_user(user)
     session['number'] = str(uuid4())
     session["randomSaved"] = "notSaved"
+    session["howManyDigits"] = 10
     session["individualSaved"] = "notSaved"
     session["bussinessSaved"] = "notSaved"
     session["nameGenSaved"] = "notSaved"
