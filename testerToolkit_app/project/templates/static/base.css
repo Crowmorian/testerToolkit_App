@@ -209,7 +209,7 @@ input::-webkit-inner-spin-button {
 	margin-top: 100px;
 }
 
-@media(min-width: 1000px) {
+@media(max-width: 1000px) {
 	:root {
 		--size-divisor: 6;
 	}
