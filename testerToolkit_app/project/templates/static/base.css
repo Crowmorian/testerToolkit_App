@@ -13,7 +13,7 @@ input::-webkit-inner-spin-button {
 }
 
 :root {
-	--size-divisor: 3;
+	--size-divisor: 1;
 }
 
 .navbar {
@@ -211,7 +211,7 @@ input::-webkit-inner-spin-button {
 
 @media(max-width: 1000px) {
 	:root {
-		--size-divisor: 6;
+		--size-divisor: 0.5;
 	}
 }
 
