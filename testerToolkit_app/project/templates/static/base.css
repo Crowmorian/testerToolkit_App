@@ -505,7 +505,7 @@ a.client-item:hover {
 /* @media calls for site responsivity */
 @media (max-width: 1000px) {
 	:root {
-		--size-divisor: 1.3;
+		--size-divisor: 1.2;
 	}
 
 	.toggle-button {
