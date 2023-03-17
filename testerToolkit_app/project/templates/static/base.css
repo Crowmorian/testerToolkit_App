@@ -211,7 +211,7 @@ input::-webkit-inner-spin-button {
 
 @media(max-width: 1000px) {
 	:root {
-		--size-divisor: 0.5;
+		--size-divisor: 2;
 	}
 }
 
