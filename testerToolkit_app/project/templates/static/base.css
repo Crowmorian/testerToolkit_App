@@ -332,7 +332,6 @@ a.client-item:hover {
 /*Classes for client creation form*/
 
 .creation-content {
-	border: 4px solid #6e95ff;
 	text-align: center;
 	width: calc(400px / var(--size-divisor));
 	margin: 0 auto;
