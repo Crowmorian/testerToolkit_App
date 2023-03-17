@@ -134,7 +134,7 @@ html {
 
 .toggle-button-lower {
 	position: absolute;
-	top: 3rem;
+	top: 5rem;
 	right: 3rem;
 	display: flex;
 	flex-direction: column;
