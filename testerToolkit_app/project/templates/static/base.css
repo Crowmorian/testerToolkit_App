@@ -98,6 +98,10 @@ html {
 	background-color: #555;
 }
 
+.spacer {
+	height: 2rem;
+}
+
 .logo-image {
 	width: 3rem;
 	padding-left: 1rem;
