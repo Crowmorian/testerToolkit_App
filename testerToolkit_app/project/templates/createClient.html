@@ -3,23 +3,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<table class="client-table">
-    <tr class="client-track">
-        <td class="client-container">
-            <div class="client-button-box">
-                <a href="{{ url_for('main.createIndividual') }}" class="client-item">
-                    Individual
-                </a>
-                <a href="{{ url_for('main.createBussiness') }}" class="client-item">
-                    Bussiness Entity
-                </a>
-                <a href="{{ url_for('main.createLegalEntity') }}" class="client-item">
-                    Legal Entity
-                </a>
-            </div>
-        </td>
-    </tr>
-</table>
+<div class="spacer"></div>
+<nav class="navbar-lower">
+    <a href="#" class="toggle-button-lower" id="toggle-button-lower">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </a>
+    <div class="navbar-links-lower">
+        <ul>
+            <li><a href="{{ url_for('main.createIndividual') }}" class="client-item">Individual</a></li>
+            <li><a href="{{ url_for('main.createBussiness') }}" class="client-item">Bussiness Entity</a></li>
+            <li><a href="{{ url_for('main.createLegalEntity') }}" class="client-item">Legal Entity</a></li>
+        </ul>
+    </div>
+</nav>
 <div class="main-container">
    {% block creation %}
    {% endblock %}
