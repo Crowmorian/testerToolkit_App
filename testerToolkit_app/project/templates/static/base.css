@@ -16,6 +16,10 @@ input::-webkit-inner-spin-button {
 	--size-divisor: 1;
 }
 
+html {
+	background-color: #666;
+}
+
 .navbar {
 	display: flex;
 	justify-content: space-between;
@@ -88,10 +92,6 @@ input::-webkit-inner-spin-button {
 	width: 100%;
 	background-color: white;
 	border-radius: 10px;
-}
-
-html {
-	background-color: #555;
 }
 
 .main-container {
