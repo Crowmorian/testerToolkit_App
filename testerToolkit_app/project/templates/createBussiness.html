@@ -114,7 +114,9 @@
             <button class="button-copy" onclick="copyInputValue('bussinessDOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
         </div>
     </div>
-    {% if bussinessNationality == "cz" %}
+</div>
+{% if bussinessNationality == "cz" %}
+<div class="creation-content-lower">
     <div class="creation-content-line">
         <label class="generators-label-created">PID: </label>
         <div class="creation-content-line-inner">
@@ -127,8 +129,10 @@
             <button class="button-copy" onclick="copyInputValue('bussinessPassInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
         </div>
     </div>
-    {% endif %}
-    {% if bussinessNationality != "cz" %}
+</div>
+{% endif %}
+{% if bussinessNationality != "cz" %}
+<div class="creation-content-lower">
     <div class="creation-content-line">
         <label class="generators-label-created">Passport: </label>
         <div class="creation-content-line-inner">
@@ -136,7 +140,9 @@
             <button class="button-copy" onclick="copyInputValue('bussinessPassInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
         </div>
     </div>
-    {% endif %}
+</div>
+{% endif %}
+<div class="creation-content-lower">
     <div class="creation-content-line">
         <label class="generators-label-created">Address: </label>
         <div class="creation-content-line-inner">
@@ -144,6 +150,8 @@
             <button class="button-copy" onclick="copyInputValue('bussinessAddressInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
         </div>
     </div>
+</div>
+<div class="creation-content-lower">
     <div class="creation-content-line">
         <label class="generators-label-created">City of Birth: </label>
         <div class="creation-content-line-inner">
@@ -156,6 +164,8 @@
             <button class="button-copy" onclick="copyInputValue('bussinessCountryOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
         </div>
     </div>
+</div>
+<div class="creation-content-lower">
     <div class="creation-content-line">
         <label class="generators-label-created">Phone: </label>
         <div class="creation-content-line-inner">
@@ -173,6 +183,8 @@
             <button class="button-copy" onclick="copyInputValue('bussinessMailInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
         </div>
     </div>
+</div>
+<div class="creation-content-lower">
     <div class="creation-content-line">
         <label class="generators-label-created">CIN: </label>
         <div class="creation-content-line-inner">
