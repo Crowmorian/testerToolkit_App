@@ -559,7 +559,7 @@ a.client-item:hover {
 }
 
 .button-copy {
-	flex: 0 42px 42px;
+	flex: 0 80px 80px;
 	margin-left: 10px;
 	border: none;
 	background-color: #666;
@@ -661,7 +661,7 @@ a.client-item:hover {
 		justify-content: flex-start;
 	}
 	.creation-content-lower {
-		width: 100%;
+		width: 90%;
 	}
 	.generators-label-created {
 		font-size: 18px;
