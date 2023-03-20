@@ -399,9 +399,9 @@ a.client-item:hover {
 }
 
 .generators-input-wide {
-	border: 4px solid #6e95ff;
+	border: 4px solid #333;
 	font-size: 18px;
-	width: 80%;
+	width: 100%;
 	text-align: center;
 	margin: 0 auto;
 }
@@ -430,9 +430,9 @@ a.client-item:hover {
 }
 
 .generators-button-small {
-	border: 4px solid #6e95ff;
-	background-color: rgba(110, 149, 255, 0.6);
-	color: black;
+	border: 4px solid #333;
+	background-color: #333;
+	color: white;
 	width: 100%;
 	height: 25px;
 	text-align: center;
@@ -443,8 +443,8 @@ a.client-item:hover {
 }
 
 .generators-button-small:hover {
-	border: 4px solid #6e95ff;
-	background-color: #6e95ff;
+	border: 4px solid #333;
+	background-color: #555;
 	color: white;
 }
 
