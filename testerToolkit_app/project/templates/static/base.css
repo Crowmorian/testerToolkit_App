@@ -347,6 +347,13 @@ a.client-item:hover {
 	align-items: center;
 }
 
+.creation-content-line {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
 .creation-content-lower {
 	text-align: center;
 	width: calc(1200px / var(--size-divisor-created));
