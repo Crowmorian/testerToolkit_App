@@ -576,6 +576,12 @@ a.client-item:hover {
 }
 
 /* @media calls for site responsivity */
+@media (max-width: 1222px) {
+	:root {
+		--size-divisor-created: 1.2;
+	}
+}
+
 @media (max-width: 1000px) {
 	:root {
 		--size-divisor: 1.2;
@@ -645,11 +651,5 @@ a.client-item:hover {
 
 	.navbar-links-lower.active{
 		display: flex;
-	}
-}
-
-@media (max-width: 1222px) {
-	:root {
-		--size-divisor-created: 1.2;
 	}
 }
