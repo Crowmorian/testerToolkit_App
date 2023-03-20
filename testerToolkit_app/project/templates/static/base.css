@@ -600,7 +600,7 @@ a.client-item:hover {
 
 @media (max-width: 1000px) {
 	:root {
-		--size-divisor: 1.2;
+		--size-divisor: 1.3;
 		--size-divisor-created: 1.5;
 	}
 
