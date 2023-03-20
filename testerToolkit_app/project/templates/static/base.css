@@ -557,12 +557,12 @@ a.client-item:hover {
 }
 
 .button-copy {
+	flex: 0 0 50px;
 	margin-left: 10px;
 	border: none;
 	height: 42px;
 	width: 100px;
 	background-color: #666;
-	justify-self: right;
 }
 .button-copy:hover {
 	background-color: #333;
