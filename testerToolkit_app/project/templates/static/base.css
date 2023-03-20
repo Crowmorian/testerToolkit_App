@@ -561,13 +561,13 @@ a.client-item:hover {
 	width: 100%;
 	height: 42px;
 	border: none;
-	width: 2rem;
-	background-color: #555;
+	width: 30px;
+	background-color: #666;
 }
 .button-copy:hover {
 	background-color: #333;
 	color: white;
-	width: 2rem;
+	width: 30px;
 }
 
 .copy-image {
