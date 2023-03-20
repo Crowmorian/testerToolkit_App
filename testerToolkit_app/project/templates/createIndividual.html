@@ -103,7 +103,7 @@
         <label class="generators-label-created">Name: </label>
         <span>
             <input class="generators-input-created" id="individualNameInput" type="text" name="individualNameInput" value="{{individualCreated[0][0]}} {{individualCreated[0][1]}}" readonly>
-            <button class="button-copy" onclick="copyInputValue('individualNameInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+            <button class="button-copy" onclick="copyInputValue('individualNameInput')" style="float: right;"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
         </span>
         <label class="generators-label-created">Date of Birth: </label>
         <input class="generators-input-created" id="individualDOBInput" type="text" name="individualDOBInput" value="{{individualCreated[4]}}" readonly>
