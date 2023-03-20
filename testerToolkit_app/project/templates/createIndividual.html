@@ -125,6 +125,37 @@
         {% endif %}
     </div>
 </div>
+<div class="creation-content-lower">
+    <div class="creation-content-line">
+        <label class="generators-label-created">Address: </label>                
+        <input class="generators-input-created" id="individualAddressInput" type="text" name="individualAddressInput" value="{{individualCreated[1][0]}}" readonly>
+        <button class="button-copy" onclick="copyInputValue('individualAddressInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+    </div>
+</div>
+<div class="creation-content-lower">
+    <div class="creation-content-line">
+        <label class="generators-label-created">City of Birth: </label>
+        <input class="generators-input-created" id="individualCOBInput" type="text" name="individualCOBInput" value="{{individualCreated[1][1]}}" readonly>
+        <button class="button-copy" onclick="copyInputValue('individualCOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        <label class="generators-label-created">Country of Birth: </label>
+        <input class="generators-input-created" id="individualCountryOBInput" type="text" name="individualCountryOBInput" value="{{individualCreated[6]}}" readonly>
+        <button class="button-copy" onclick="copyInputValue('individualCountryOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+    </div>
+</div>
+<div class="creation-content-lower">
+    <div class="creation-content-line">
+        <label class="generators-label-created">Phone: </label>
+        <input class="generators-input-created" id="individualPhoneInput" type="text" name="individualPhoneInput" value="{{individualCreated[2]}}" readonly>
+        <button class="button-copy" onclick="copyInputValue('individualPhoneInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        <label class="generators-label-created">Username: </label>
+        <input class="generators-input-created" id="individualUsernameInput" type="text" name="individualUsernameInput" value="{{individualCreated[0][2]}}" readonly>
+        <button class="button-copy" onclick="copyInputValue('individualUsernameInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        <label class="generators-label-created">Email: </label>
+        <input class="generators-input-created" id="individualMailInput" type="text" name="individualMailInput" value="{{individualCreated[0][3]}}" readonly>
+        <button class="button-copy" onclick="copyInputValue('individualMailInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+    </div>
+</div>
+
     
 
 
