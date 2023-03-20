@@ -100,287 +100,132 @@
     </div>
 </form>
 {% if legalCreated|length > 0 %}
-<div class="creation-content">
+<div class="creation-content-lower">
     <div class="generated-content-title">Client</div>
-        <table class="creation-table-created">
-            <tr class="creation-track">
-                <td class="creation-column">
-                    <label class="generators-label-created">Name: </label>
-                </td>
-                <td class="creation-column" colspan="2">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalNameInput" type="text" name="legalNameInput" value="{{legalCreated[0][0]}} {{legalCreated[0][1]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalNameInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td class="creation-column">
-                    <label class="generators-label-created">Date of Birth: </label>
-                </td>
-                <td class="creation-column" colspan="2">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalDOBInput" type="text" name="legalDOBInput" value="{{legalCreated[4]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalDOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr class="creation-track">
-                {% if legalNationality == "cz" %}
-                <td class="creation-column">
-                    <label class="generators-label-created">PID: </label>
-                </td>
-                <td class="creation-column" colspan="2">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalPIDInput" type="text" name="legalPIDInput" value="{{legalCreated[5]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalPIDInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td class="creation-column">
-                    <label class="generators-label-created">ID: </label>
-                </td>
-                <td class="creation-column" colspan="2">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalPassInput" type="text" name="legalPassInput" value="{{legalCreated[3]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalPassInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                {% endif %}
-                {% if legalNationality != "cz" %}
-                <td class="creation-column">
-                    <label class="generators-label-created">Passport: </label>
-                </td>
-                <td class="creation-column" colspan="5">
-                    <table>
-                        <tr>
-                            <td style="width: 290%;">
-                                <input class="generators-input-created" id="legalPassInput" type="text" name="legalPassInput" value="{{legalCreated[3]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalPassInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                {% endif %}
-            </tr>
-            <tr class="creation-track">
-                <td class="creation-column">
-                    <label class="generators-label-created">Address: </label>
-                </td>
-                <td class="creation-column" colspan="5">
-                    <table>
-                        <tr>
-                            <td style="width: 290%;">
-                                <input class="generators-input-created" id="legalAddressInput" type="text" name="legalAddressInput" value="{{legalCreated[1][0]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalAddressInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>                               
-                </td>
-            </tr>
-            <tr class="creation-track">
-                <td class="creation-column">
-                    <label class="generators-label-created">City of Birth: </label>
-                </td>
-                <td class="creation-column" colspan="2">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalCOBInput" type="text" name="legalCOBInput" value="{{legalCreated[1][1]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalCOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td class="creation-column">
-                    <label class="generators-label-created">Country of Birth: </label>
-                </td>
-                <td class="creation-column" colspan="2">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalCountryOBInput" type="text" name="legalCountryOBInput" value="{{legalCreated[6]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalCountryOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr class="creation-track">
-                <td class="creation-column">
-                    <label class="generators-label-created">Phone: </label>
-                </td>
-                <td class="creation-column">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalPhoneInput" type="text" name="legalPhoneInput" value="{{legalCreated[2]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalPhoneInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td class="creation-column">
-                    <label class="generators-label-created">Username: </label>
-                </td>
-                <td class="creation-column">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalUsernameInput" type="text" name="legalUsernameInput" value="{{legalCreated[0][2]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalUsernameInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td class="creation-column">
-                    <label class="generators-label-created">Email: </label>
-                </td>
-                <td class="creation-column">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalMailInput" type="text" name="legalMailInput" value="{{legalCreated[0][3]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalMailInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr class="creation-track">
-                <td class="creation-column">
-                    <label class="generators-label-created">CIN: </label>
-                </td>
-                <td class="creation-column" colspan="2">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalCinInput" type="text" name="legalCinInput" value="{{legalCreated[7]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalCinInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td class="creation-column">
-                    <label class="generators-label-created">Company: </label>
-                </td>
-                <td class="creation-column" colspan="2">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalCompInput" type="text" name="legalCompInput" value="{{legalCreated[8]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalCompInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr class="creation-track">
-                <td class="creation-column">
-                    <label class="generators-label-created">Creation: </label>
-                </td>
-                <td class="creation-column">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalCreationInput" type="text" name="legalCreationInput" value="{{legalCreated[9]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalCreationInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td class="creation-column">
-                    <label class="generators-label-created">Documentation: </label>
-                </td>
-                <td class="creation-column">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalDocInput" type="text" name="legalDocInput" value="{{legalCreated[10]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalDocInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td class="creation-column">
-                    <label class="generators-label-created">Legal: </label>
-                </td>
-                <td class="creation-column">
-                    <table>
-                        <tr>
-                            <td style="width: 90%;">
-                                <input class="generators-input-created" id="legalLegalInput" type="text" name="legalLegalInput" value="{{legalCreated[11]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalLegalInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr class="creation-track">
-                <td class="creation-column">
-                    <label class="generators-label-created">Doc URL: </label>
-                </td>
-                <td class="creation-column" colspan="5">
-                    <table>
-                        <tr>
-                            <td style="width: 290%;">
-                                <input class="generators-input-created" id="legalURLInput" type="text" name="legalURLInput" value="{{legalCreated[12]}}" readonly>
-                            </td>
-                            <td style="width: 10%;">
-                                <button class="button-copy" onclick="copyInputValue('legalURLInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
-                            </td>
-                        </tr>
-                    </table>                               
-                </td>
-            </tr>
-        </table>
-        <!--<content class="generated-content-item">{{ legalCreated }} </content>-->
+    <div class="creation-content-line">
+        <label class="generators-label-created">Name: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalNameInput" type="text" name="legalNameInput" value="{{legalCreated[0][0]}} {{legalCreated[0][1]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalNameInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+        <label class="generators-label-created">Date of Birth: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalDOBInput" type="text" name="legalDOBInput" value="{{legalCreated[4]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalDOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
     </div>
 </div>
+{% if bussinessNationality == "cz" %}
+<div class="creation-content-lower">
+    <div class="creation-content-line">
+        <label class="generators-label-created">PID: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalPIDInput" type="text" name="legalPIDInput" value="{{legalCreated[5]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalPIDInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+        <label class="generators-label-created">ID: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalPassInput" type="text" name="legalPassInput" value="{{legalCreated[3]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalPassInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% if bussinessNationality != "cz" %}
+<div class="creation-content-lower">
+    <div class="creation-content-line">
+        <label class="generators-label-created">Passport: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalPassInput" type="text" name="legalPassInput" value="{{legalCreated[3]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalPassInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
+</div>
+{% endif %}
+<div class="creation-content-lower">
+    <div class="creation-content-line">
+        <label class="generators-label-created">Address: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalAddressInput" type="text" name="legalAddressInput" value="{{legalCreated[1][0]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalAddressInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
+</div>
+<div class="creation-content-lower">
+    <div class="creation-content-line">
+        <label class="generators-label-created">City of Birth: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalCOBInput" type="text" name="legalCOBInput" value="{{legalCreated[1][1]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalCOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+        <label class="generators-label-created">Country of Birth: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalCountryOBInput" type="text" name="legalCountryOBInput" value="{{legalCreated[6]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalCountryOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
+</div>
+<div class="creation-content-lower">
+    <div class="creation-content-line">
+        <label class="generators-label-created">Phone: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalPhoneInput" type="text" name="legalPhoneInput" value="{{legalCreated[2]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalPhoneInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+        <label class="generators-label-created">Username: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalUsernameInput" type="text" name="legalUsernameInput" value="{{legalCreated[0][2]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalUsernameInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+        <label class="generators-label-created">Email: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalMailInput" type="text" name="legalMailInput" value="{{legalCreated[0][3]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalMailInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
+</div>
+<div class="creation-content-lower">
+    <div class="creation-content-line">
+        <label class="generators-label-created">CIN: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalCinInput" type="text" name="legalCinInput" value="{{legalCreated[7]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalCinInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+        <label class="generators-label-created">Company: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalCompInput" type="text" name="legalCompInput" value="{{legalCreated[8]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalCompInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
+</div>
+<div class="creation-content-lower">
+    <div class="creation-content-line">
+        <label class="generators-label-created">Creation: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalCreationInput" type="text" name="legalCreationInput" value="{{legalCreated[9]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalCreationInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+        <label class="generators-label-created">Documentation: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalDocInput" type="text" name="legalDocInput" value="{{legalCreated[10]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalDocInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+        <label class="generators-label-created">Legal: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalLegalInput" type="text" name="legalLegalInput" value="{{legalCreated[11]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalLegalInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
+</div>
+<div class="creation-content-lower">
+    <div class="creation-content-line">
+        <label class="generators-label-created">Doc URL: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="legalURLInput" type="text" name="legalURLInput" value="{{legalCreated[12]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('legalURLInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
+</div>
+
 {% endif %}
 {% endblock %}
