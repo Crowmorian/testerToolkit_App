@@ -560,7 +560,7 @@ a.client-item:hover {
 .button-copy {
 	margin-left: 10px;
 	border: none;
-	height: 100px;
+	height: 42px;
 	width: 100px;
 	background-color: #666;
 }
@@ -570,7 +570,7 @@ a.client-item:hover {
 }
 
 .copy-image {
-	width: 1rem;
+	width: 42px;
 	vertical-align: middle;
 }
 
