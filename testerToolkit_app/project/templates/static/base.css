@@ -554,13 +554,14 @@ a.client-item:hover {
 .generators-label-created {
 	font-size: 18px;
 	padding-left: 5px;
+	width: 150px;
 }
 
 .button-copy {
 	margin-left: 10px;
 	height: 42px;
 	border: none;
-	width: 42px;
+	width: 100px;
 	background-color: #666;
 }
 .button-copy:hover {
