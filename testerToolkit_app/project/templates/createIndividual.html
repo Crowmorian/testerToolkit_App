@@ -99,6 +99,20 @@
 {% if individualCreated|length > 0 %}
 <div class="creation-content-lower">
     <div class="generated-content-title">Client</div>
+    <div class="creation-content-line">
+        <div>
+        <label class="generators-label-created">Name: </label>
+        <input class="generators-input-created" id="individualNameInput" type="text" name="individualNameInput" value="{{individualCreated[0][0]}} {{individualCreated[0][1]}}" readonly>
+        </div>
+        <div>
+        <button class="button-copy" onclick="copyInputValue('individualNameInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        <label class="generators-label-created">Date of Birth: </label>
+        <input class="generators-input-created" id="individualDOBInput" type="text" name="individualDOBInput" value="{{individualCreated[4]}}" readonly>
+        <button class="button-copy" onclick="copyInputValue('individualDOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
+</div>
+    <div>
         <table class="creation-table-created">
             <tr class="creation-track">
                 <td class="creation-column">
