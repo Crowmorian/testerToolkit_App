@@ -653,3 +653,10 @@ a.client-item:hover {
 		display: flex;
 	}
 }
+
+@media (max-width: 820px) {
+	.creation-content-line {
+		flex-direction: column;
+		width: 100%;
+	}
+}
