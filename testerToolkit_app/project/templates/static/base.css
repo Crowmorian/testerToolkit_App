@@ -340,6 +340,10 @@ a.client-item:hover {
 	justify-content: center;
 }
 
+.creation-content-line {
+	display: flex;
+}
+
 .creation-content-lower {
 	text-align: center;
 	width: calc(1200px / var(--size-divisor));
