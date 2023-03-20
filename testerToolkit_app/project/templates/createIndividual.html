@@ -101,12 +101,12 @@
     <div class="generated-content-title">Client</div>
     <div class="creation-content-line">
         <label class="generators-label-created">Name: </label>
-        <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
             <input class="generators-input-created" id="individualNameInput" type="text" name="individualNameInput" value="{{individualCreated[0][0]}} {{individualCreated[0][1]}}" readonly>
             <button class="button-copy" onclick="copyInputValue('individualNameInput')" style="float: right;"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
         </div>
         <label class="generators-label-created">Date of Birth: </label>
-        <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
             <input class="generators-input-created" id="individualDOBInput" type="text" name="individualDOBInput" value="{{individualCreated[4]}}" readonly>
             <button class="button-copy" onclick="copyInputValue('individualDOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
         </div>
