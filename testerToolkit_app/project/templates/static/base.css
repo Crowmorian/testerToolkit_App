@@ -562,6 +562,7 @@ a.client-item:hover {
 	height: 42px;
 	width: 100px;
 	background-color: #666;
+	justify-self: right;
 }
 .button-copy:hover {
 	background-color: #333;
