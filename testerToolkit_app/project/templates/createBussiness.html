@@ -100,6 +100,25 @@
     </div>
 </form>
 {% if bussinessCreated|length > 0 %}
+<div class="creation-content-lower">
+    <div class="generated-content-title">Client</div>
+    <div class="creation-content-line">
+        <label class="generators-label-created">Name: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="bussinessNameInput" type="text" name="bussinessNameInput" value="{{bussinessCreated[0][0]}} {{bussinessCreated[0][1]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('bussinessNameInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+        <label class="generators-label-created">Date of Birth: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="bussinessDOBInput" type="text" name="bussinessDOBInput" value="{{bussinessCreated[4]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('bussinessDOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
+</div>
+
+
+
+
 <div class="creation-content">
     <div class="generated-content-title">Client</div>
         <table class="creation-table-created">
