@@ -137,6 +137,25 @@
         </div>
     </div>
     {% endif %}
+    <div class="creation-content-line">
+        <label class="generators-label-created">Address: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="bussinessAddressInput" type="text" name="bussinessAddressInput" value="{{bussinessCreated[1][0]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('bussinessAddressInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
+    <div class="creation-content-line">
+        <label class="generators-label-created">City of Birth: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="bussinessCOBInput" type="text" name="bussinessCOBInput" value="{{bussinessCreated[1][1]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('bussinessCOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+        <label class="generators-label-created">Country of Birth: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="bussinessCountryOBInput" type="text" name="bussinessCountryOBInput" value="{{bussinessCreated[6]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('bussinessCountryOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
 </div>
 
 
