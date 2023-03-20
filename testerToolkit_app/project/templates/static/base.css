@@ -560,8 +560,8 @@ a.client-item:hover {
 
 .button-copy {
 	flex-shrink: 0;
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	margin-left: 10px;
 	border: none;
 	background-color: #666;
@@ -573,7 +573,7 @@ a.client-item:hover {
 }
 
 .copy-image {
-	width: 35px;
+	width: 25px;
 	vertical-align: middle;
 }
 
