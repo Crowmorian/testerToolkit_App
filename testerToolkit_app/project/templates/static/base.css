@@ -554,11 +554,11 @@ a.client-item:hover {
 .generators-label-created {
 	font-size: 18px;
 	padding-left: 5px;
-	width: 200px;
+	flex: 0 0 150px;
 }
 
 .button-copy {
-	flex: 0 0 42px;
+	flex: 0 42px 42px;
 	margin-left: 10px;
 	border: none;
 	background-color: #666;
