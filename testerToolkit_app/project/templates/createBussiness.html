@@ -114,6 +114,29 @@
             <button class="button-copy" onclick="copyInputValue('bussinessDOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
         </div>
     </div>
+    {% if bussinessNationality == "cz" %}
+    <div class="creation-content-line">
+        <label class="generators-label-created">PID: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="bussinessPIDInput" type="text" name="bussinessPIDInput" value="{{bussinessCreated[5]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('bussinessPIDInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+        <label class="generators-label-created">ID: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="bussinessPassInput" type="text" name="bussinessPassInput" value="{{bussinessCreated[3]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('bussinessPassInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
+    {% endif %}
+    {% if bussinessNationality != "cz" %}
+    <div class="creation-content-line">
+        <label class="generators-label-created">Passport: </label>
+        <div class="creation-content-line-inner">
+            <input class="generators-input-created" id="bussinessPassInput" type="text" name="bussinessPassInput" value="{{bussinessCreated[3]}}" readonly>
+            <button class="button-copy" onclick="copyInputValue('bussinessPassInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        </div>
+    </div>
+    {% endif %}
 </div>
 
 
