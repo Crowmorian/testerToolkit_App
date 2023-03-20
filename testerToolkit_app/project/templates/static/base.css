@@ -342,7 +342,8 @@ a.client-item:hover {
 
 .creation-content-line {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .creation-content-lower {
@@ -557,12 +558,11 @@ a.client-item:hover {
 }
 
 .button-copy {
-	flex: 0 0 50px;
+	flex: 0 0 42px;
 	margin-left: 10px;
 	border: none;
-	height: 42px;
-	width: 100px;
 	background-color: #666;
+	justify-content: center;
 }
 .button-copy:hover {
 	background-color: #333;
@@ -570,7 +570,7 @@ a.client-item:hover {
 }
 
 .copy-image {
-	width: 42px;
+	width: 1rem;
 	vertical-align: middle;
 }
 
