@@ -108,6 +108,17 @@
         <button class="button-copy" onclick="copyInputValue('individualDOBInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
     </div>
 </div>
+<div class="creation-content-lower">
+    <div class="generated-content-title">Client</div>
+    <div class="creation-content-line">
+        <label class="generators-label-created">PID: </label>
+        <input class="generators-input-created" id="individualPIDInput" type="text" name="individualPIDInput" value="{{individualCreated[5]}}" readonly>
+        <button class="button-copy" onclick="copyInputValue('individualPIDInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+        <label class="generators-label-created">ID: </label>
+        <input class="generators-input-created" id="individualPassInput" type="text" name="individualPassInput" value="{{individualCreated[3]}}" readonly>
+        <button class="button-copy" onclick="copyInputValue('individualPassInput')"><img src="{{ url_for('static',filename='copy.png') }}" class="copy-image"></button>
+    </div>
+</div>
     
 
 
