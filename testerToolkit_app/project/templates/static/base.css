@@ -14,6 +14,7 @@ input::-webkit-inner-spin-button {
 
 :root {
 	--size-divisor: 1;
+	--size-divisor-created: 1;
 }
 
 html {
@@ -348,7 +349,7 @@ a.client-item:hover {
 
 .creation-content-lower {
 	text-align: center;
-	width: calc(1200px / var(--size-divisor));
+	width: calc(1200px / var(--size-divisor-created));
 	margin: 0 auto;
 	margin-top: 20px;
 	margin-bottom: 10px;
@@ -643,5 +644,11 @@ a.client-item:hover {
 
 	.navbar-links-lower.active{
 		display: flex;
+	}
+}
+
+@media (max-width: 1222px) {
+	:root {
+		--size-divisor-created: 2;
 	}
 }
