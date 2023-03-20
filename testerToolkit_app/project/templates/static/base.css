@@ -663,4 +663,9 @@ a.client-item:hover {
 	.creation-content-lower {
 		width: 100%;
 	}
+	.generators-label-created {
+		font-size: 18px;
+		padding-left: 5px;
+		flex: 0;
+	}
 }
