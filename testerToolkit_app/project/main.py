@@ -1723,8 +1723,13 @@ def idNumberCS(gender, birthDate):
         #idListCS.append("/")
         idListCS.append(identifier)
         idNumCS = ''.join([str(elem) for elem in idListCS])
-            
-    return(idNumCS)
+    
+    intNumCs = int(idNumCS)
+        
+    if intNumCs % 11 == 0:
+        return(idNumCS)
+    else:
+        idNumberCS(gender, birthDate)
 
 #Generate Passport/ID Number
 def passportNumber():
