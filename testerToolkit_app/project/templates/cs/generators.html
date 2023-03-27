@@ -1,43 +1,29 @@
 <!-- HTML file containing the main page -->
 
-{% extends "cs/base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
-<table class="client-table">
-    <tr class="client-track">
-        <td class="client-container">
-            <div class="client-button-box">
-                <a href="{{ url_for('main.CSgenerateIBAN') }}" class="client-item">
-                    Vytvořit IBAN
-                </a>
-                <a href="{{ url_for('main.CSvalidateIBAN') }}" class="client-item">
-                    Validace IBAN
-                </a>
-                <a href="{{ url_for('main.CSgenerateSIPO') }}" class="client-item">
-                    SIPO
-                </a>
-                <a href="{{ url_for('main.CSgenerateCIN') }}" class="client-item">
-                    IČO
-                </a>
-                <a href="{{ url_for('main.CSgenerateDate') }}" class="client-item">
-                    Datum
-                </a>
-                <a href="{{ url_for('main.CSgenerateMail') }}" class="client-item">
-                    E-Mail
-                </a>
-                <a href="{{ url_for('main.CSgenerateNumber') }}" class="client-item">
-                    Telefoní číslo
-                </a>
-                <a href="{{ url_for('main.CSgenerateName') }}" class="client-item">
-                    Jména
-                </a>
-                <a href="{{ url_for('main.CSgenerateRandom') }}" class="client-item">
-                    Náhodná čísla
-                </a>
-            </div>
-        </td>
-    </tr>
-</table>
+<div class="spacer"></div>
+<nav class="navbar-lower">
+    <a href="#" class="toggle-button-lower" id="toggle-button-lower">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </a>
+    <div class="navbar-links-lower">
+        <ul>
+            <li><a href="{{ url_for('main.CSgenerateIBAN') }}">Vytvořit IBAN</a></li>
+            <li><a href="{{ url_for('main.CSvalidateIBAN') }}">Validace IBAN</a></li>
+            <li><a href="{{ url_for('main.CSgenerateSIPO') }}">SIPO</a></li>
+            <li><a href="{{ url_for('main.CSgenerateCIN') }}">IČO</a></li>
+            <li><a href="{{ url_for('main.CSgenerateDate') }}">Datum</a></li>
+            <li><a href="{{ url_for('main.CSgenerateMail') }}">E-Mail</a></li>
+            <li><a href="{{ url_for('main.CSgenerateNumber') }}">Telefoní číslo</a></li>
+            <li><a href="{{ url_for('main.CSgenerateName') }}">Jména</a></li>
+            <li><a href="{{ url_for('main.CSgenerateRandom') }}">Náhodná čísla</a></li>
+        </ul>
+    </div>
+</nav>
 <div class="main-container">
    {% block generation %}
    {% endblock %}
