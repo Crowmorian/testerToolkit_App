@@ -1712,7 +1712,7 @@ def idNumberCS(gender, birthDate):
         idListCS.append(year)
         idListCS.append(monthMale)
         idListCS.append(day)
-        idListCS.append("/")
+        #idListCS.append("/")
         idListCS.append(identifier)
         idNumCS = ''.join([str(elem) for elem in idListCS])
         
@@ -1720,7 +1720,7 @@ def idNumberCS(gender, birthDate):
         idListCS.append(year)
         idListCS.append(monthFemale)
         idListCS.append(day)
-        idListCS.append("/")
+        #idListCS.append("/")
         idListCS.append(identifier)
         idNumCS = ''.join([str(elem) for elem in idListCS])
             

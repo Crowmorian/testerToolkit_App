@@ -39,7 +39,7 @@ def randomNumber(howManyDigits, whichNums, canStartZero, howManyNumbers):
 randomNumber(howManyDigits, whichNums, canStartZero, howManyNumbers)
 """
 #Insert data into database
-
+"""
 import sqlite3
 #Connecting database for generated and required data
 con = sqlite3.connect("genData.db")
@@ -58,7 +58,7 @@ for line in Lines:
 
 con.commit()
 cur.close()
-
+"""
 #Importing adresses to database
 """
 import sqlite3
@@ -98,17 +98,16 @@ cur.close()
 file.close()
 """
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def divisible(num):
+    intNum = int(num)
+    stringNum = str(num)
+    firstDigit = int(stringNum[0])
+    lastDigit = int(stringNum[-1])
+    finalNum = (intNum + firstDigit)-lastDigit
+    
+    if finalNum % 11 == 0:
+        print("Is divisible by 11")
+    else:
+        print("Not divisible by 11")
+    
+    print(finalNum)
