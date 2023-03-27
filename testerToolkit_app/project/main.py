@@ -1726,10 +1726,14 @@ def idNumberCS(gender, birthDate):
     
     intNumCs = int(idNumCS)
         
-    if intNumCs % 11 == 0:
-        return(idNumCS)
-    else:
-        idNumberCS(gender, birthDate)
+    while (intNumCs % 11) != 0:
+        identifier = "{:04d}".format(random.randrange(1, 9999))
+        idNumCS = idNumCS[:-4]
+        idNumCS = idNumCS + identifier
+        intNumCs = int(idNumCS)
+        
+        
+    return(idNumCS)
 
 #Generate Passport/ID Number
 def passportNumber():
