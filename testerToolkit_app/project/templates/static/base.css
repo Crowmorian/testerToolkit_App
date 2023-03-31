@@ -70,10 +70,11 @@ html {
 }
 
 .logout-button {
-	text-decoration: none;
-	color: white;
-	padding: 1rem;
-	display: block;
+	list-style: none;
+}
+
+.logout-button:hover {
+	background-color: red;
 }
 
 .navbar-links li:hover {
