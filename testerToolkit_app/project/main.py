@@ -616,9 +616,9 @@ def CSvalidateIBAN_post():
         results.append(iban.length)
         results.append(iban.bic)
         results.append(iban.country.official_name)
-        flash("IBAN is valid", "valid")
+        flash("IBAN je v pořádku", "valid")
     except:
-       flash("IBAN not valid","notification")
+       flash("IBAN není platný","notification")
         
     return render_template('cs/validateIBAN.html',
         ibanValNumber = session["ibanValNumber"],
