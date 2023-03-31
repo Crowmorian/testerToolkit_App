@@ -69,6 +69,10 @@ html {
 	display: block;
 }
 
+.logout-button li a {
+	padding-left: 2rem;
+}
+
 .navbar-links li:hover {
 	background-color: #555;
 }
