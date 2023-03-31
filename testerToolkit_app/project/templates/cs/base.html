@@ -27,10 +27,10 @@
                 <li><a href="{{ url_for('auth.CSlogin') }}">Přihlásit</a></li>
                 {% endif %}
                 {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('main.CScreateClient') }}">Vytvořit Klienta</a></li>
+                <li><a href="{{ url_for('main.CSgenerators') }}">Generátory</a></li>
                 {% endif %}
                 {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('main.CSgenerators') }}">Generátory</a></li>
+                <li><a href="{{ url_for('main.CScreateClient') }}">Vytvořit Klienta</a></li>
                 {% endif %}
                 {% if current_user.is_authenticated and current_user.admin == 1 %}
                 <li><a href="{{ url_for('auth.CScreateUser') }}">Vytvořit Toolkit Uživatele</a></li>
