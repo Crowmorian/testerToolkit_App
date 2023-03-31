@@ -77,7 +77,7 @@ html {
 	background-color: #555;
 }
 
-.logout-button li:hover {
+.logout-button li a:hover {
 	background-color: #730f08;
 }
 
