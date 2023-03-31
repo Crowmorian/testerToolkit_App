@@ -27,10 +27,10 @@
                 <li><a href="{{ url_for('auth.login') }}">Login</a></li>
                 {% endif %}
                 {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('main.createClient') }}">Create Client</a></li>
+                <li><a href="{{ url_for('main.generators') }}">Generators</a></li>
                 {% endif %}
                 {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('main.generators') }}">Generators</a></li>
+                <li><a href="{{ url_for('main.createClient') }}">Create Client</a></li>
                 {% endif %}
                 {% if current_user.is_authenticated and current_user.admin == 1 %}
                 <li><a href="{{ url_for('auth.createUser') }}">Create Toolkit User</a></li>

@@ -525,8 +525,8 @@ a.client-item:hover {
   padding: 8px 0;
   position: absolute;
   z-index: 1;
-  top: 125%;
-  right: -105%;
+  top: 225%;
+  right: -100%;
   font-size: 15px;
   font-weight: normal;
 }
