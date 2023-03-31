@@ -77,7 +77,7 @@ html {
 	background-color: #555;
 }
 
-.logout-button:hover {
+.navbar-links li .logout-button:hover {
 	background-color: red;
 }
 
