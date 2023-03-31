@@ -36,7 +36,7 @@
                 <li><a href="{{ url_for('auth.createUser') }}">Create Toolkit User</a></li>
                 {% endif %}
                 {% if current_user.is_authenticated %}
-                <li class="logout-button"><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                <div class="logout-button"><li><a href="{{ url_for('auth.logout') }}">Logout</a></li></div>
                 {% endif %}
             </ul>
         </div>
