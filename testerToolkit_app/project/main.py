@@ -1730,7 +1730,7 @@ def idNumberCS(gender, birthDate):
         idNumCS = idNumCS + identifier
         intNumCs = int(idNumCS)
         
-    idNumCS = idNumCS[:6] + "/" + idNumCS[4:]
+    idNumCS = idNumCS[:4] + "/" + idNumCS[4:]
         
     return(idNumCS)
 
