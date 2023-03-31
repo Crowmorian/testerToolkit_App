@@ -69,15 +69,11 @@ html {
 	display: block;
 }
 
-.logout-button {
-	list-style: none;
-}
-
 .navbar-links li:hover {
 	background-color: #555;
 }
 
-.navbar-links li .logout-button:hover {
+.navbar-links + li:hover {
 	background-color: red;
 }
 
