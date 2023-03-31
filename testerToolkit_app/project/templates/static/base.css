@@ -459,6 +459,14 @@ a.client-item:hover {
 	width: 50%;
 }
 
+.generators-input-column-iban-r{
+	width: 70%;
+}
+
+.generators-input-column-iban-l{
+	width: 30%;
+}
+
 .generators-input-track{
 	height: 25px;
 	margin-top: 5px;
