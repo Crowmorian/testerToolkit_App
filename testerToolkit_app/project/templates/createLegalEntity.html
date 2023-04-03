@@ -4,11 +4,6 @@
 
 {% block creation %}
 <script type="text/javascript">  
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
-
     function copyInputValue(findId) {
       // Get the text field
       var copyText = document.getElementById(findId).value;
@@ -19,23 +14,38 @@
     }
 
 </script>
+
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Need help?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legend
+        </p>
+        <br>
+        <p>
+             This section enables you to create data for Legal entities. Apart from the Individual data, this option contains data specific to Legal entities.
+        </p>
+        <br>
+        <p>
+            Here you can use the Toolkit to generate a complete information package necessary for creation of a new client for the purpouse of testing. 
+        </p>
+        <p>
+            Use funky names is an option to generate non-existant easily momorizable names.
+        </p>
+        <p>
+            Gender sets the gender of the created client.
+        </p>
+        <p>
+            Nationality field sets the country of origin for the created client.
+        </p>
+        <p>
+            The CIN field allows you to pick between an existing number, or a randomly generated one.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/createLegalEntity">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">Need help?
-            <span class="popuptext" id="legend">
-                <p>
-                    Legend
-                </p>
-                <p>
-                    This section enables you to create data for Legal entities. Apart from the Individual data, this option contains data specific to Legal entities.
-                    Here you can use the Toolkit to generate a complete information package necessary for creation of a new client for the purpouse of testing. 
-                    Use funky names is an option to generate non-existant easily momorizable names.
-                    Gender sets the gender of the created client.
-                    Nationality field sets the country of origin for the created client.
-                    The CIN field allows you to pick between an existing number, or a randomly generated one.
-                </p>
-            </span>
-        </div>
         <table class="creation-table">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -226,6 +236,15 @@
         </div>
     </div>
 </div>
-
 {% endif %}
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}
