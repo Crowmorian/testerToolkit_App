@@ -3,24 +3,20 @@
 {% extends "generators.html" %}
 
 {% block generation %}
-<script type="text/javascript">  
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
-</script>
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Need help?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legend
+        </p>
+        <p>
+            This section of the Toolkit lets you check if an IBAN number is valid, or if there is some error or type, which would result in a failed transaction.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/validateIBAN">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">Need help?
-            <span class="popuptext" id="legend">
-                <p>
-                    Legend
-                </p>
-                <p>
-                    This section of the Toolkit lets you check if an IBAN number is valid, or if there is some error or type, which would result in a failed transaction.
-                </p>
-            </span>
-        </div>
         <table class="creation-table">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
@@ -99,4 +95,14 @@
     </div>
     {% endif %}
 </form>
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}
