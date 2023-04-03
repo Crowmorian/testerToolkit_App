@@ -19,28 +19,31 @@
             }
         }
     }
-
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
 </script>
+
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Need help?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legend
+        </p>
+        <br>
+        <p>
+            This is a bog standard random number generator. You have several fields to influence your desired outcome.
+        </p>
+        <br>
+        <p>
+            How many digits field describes how many digits should each generated number have. How many numbers field sets how many numbers are going to be generated at once.
+        </p>
+        <br>
+        <p>
+            Can start with zero allows you to control wheather your numbers can have zero as the first digit. Lastly, you can select which numbers are going to be part of the newly generated number.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/generateRandom">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">Need help?
-            <span class="popuptext" id="legend">
-                <p>
-                    Legend
-                </p>
-                <p>
-                    This is a bog standard random number generator. You have several fields to influence your desired outcome.
-                    How many digits field describes how many digits should each generated number have.
-                    How many numbers field sets how many numbers are going to be generated at once.
-                    Can start with zero allows you to control wheather your numbers can have zero as the first digit.
-                    Lastly, you can select which numbers are going to be part of the newly generated number.
-                </p>
-            </span>
-        </div>
         <table class="creation-table">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -162,4 +165,14 @@
         </div>
     {% endif %}
 </form>
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}

@@ -3,29 +3,31 @@
 {% extends "generators.html" %}
 
 {% block generation %}
-<script type="text/javascript">  
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
-</script>
+
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Need help?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legend
+        </p>
+        <br>
+        <p>
+            Here you can generate CIN numbers of bussinesses or individuals. You can set how many will be generated at once.
+        </p>
+        <br>
+        <p>
+            You can also choose between two modes. Either the generator will draw from existing numbers of real bussinesses or generate a completely random number.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/generateCIN">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">Need help?
-            <span class="popuptext" id="legend">
-                <p>
-                    Legend
-                </p>
-                <p>
-                    Here you can generate CIN numbers of bussinesses or individuals. You can set how many will be generated at once. You can also choose between two modes. Either the generator will draw from existing numbers of real bussinesses or generate a completely random number.
-                </p>
-            </span>
-        </div>
         <table class="creation-table">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
             <tr class="creation-track">
-                <td class="creation-column" colspan="10">                    
+                <td class="creation-column" colspan="10">
                     <div class="notification is-danger">
                         {{ messages[0] }}
                     </div>                    
@@ -68,4 +70,14 @@
         </div>
     {% endif %}
 </form>
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}

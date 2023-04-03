@@ -3,25 +3,30 @@
 {% extends "generators.html" %}
 
 {% block generation %}
-<script type="text/javascript">  
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
-</script>
+
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Need help?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legend
+        </p>
+        <br>
+        <p>
+            Here you can generate randomized e-mail addresses. You can set how many will be generated at a time. In this generator, the address is generated from a name.
+        </p>
+        <br>
+        <p>
+            The name will be generated in the background, but you can influence the nationality of the person.
+        </p>
+        <br>
+        <p>
+            Next you can choose the formfactor of the name in the address, and lastly you can set a specific provider, or let the generator choose at random.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/generateMail">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">Need help?
-            <span class="popuptext" id="legend">
-                <p>
-                    Legend
-                </p>
-                <p>
-                    Here you can generate randomized e-mail addresses. You can set how many will be generated at a time. In this generator, the address is generated from a name.
-                    The name will be generated in the background, but you can influence the nationality of the person. Next you can choose the formfactor of the name in the address, and lastly you can set a specific provider, or let the generator choose at random.
-                </p>
-            </span>
-        </div>
         <table class="creation-table">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -101,4 +106,14 @@
         </div>
     {% endif %}
 </form>
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}

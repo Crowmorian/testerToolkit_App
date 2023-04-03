@@ -36,24 +36,27 @@
         eighthEle.value = eighth;
         ninethEle.value = nineth;
     }
-
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
 </script>
+
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Need help?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legend
+        </p>
+        <br>
+        <p>
+            This is where you can generate a SIPO connection number. The number is created from a nine digit key. 
+        </p>
+        <br>
+        <p>
+            This can be specified by you or made random by the button to the right.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/generateSIPO">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">Need help?
-            <span class="popuptext" id="legend">
-                <p>
-                    Legend
-                </p>
-                <p>
-                    This is where you can generate a SIPO connection number. The number is created from a nine digit key. This can be specified by you or made random by the button to the right.
-                </p>
-            </span>
-        </div>
         <table class="creation-table">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -120,4 +123,14 @@
         </div>
     {% endif %}
 </form>
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}
