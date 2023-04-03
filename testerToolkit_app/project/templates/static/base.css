@@ -327,6 +327,7 @@ html {
 
 .helptext {
 	display: none;
+	flex-direction: column;
 	background-color: #555;
 }
 
