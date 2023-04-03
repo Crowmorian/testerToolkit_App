@@ -325,8 +325,13 @@ html {
 }
 
 .helptext {
+	display: none;
 	background-color: #555;
 }
+
+.helptext.active{
+		display: flex;
+	}
 
 .client-table {
 	text-align: center;
