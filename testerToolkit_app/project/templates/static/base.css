@@ -311,8 +311,13 @@ html {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #333;
+	background-color: #555;
 	color: white;
+	margin-top: 25px;
+}
+
+.toggle-button-help {
+	text-decoration: none;
 }
 
 
