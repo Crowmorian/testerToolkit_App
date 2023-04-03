@@ -309,9 +309,9 @@ html {
 .help-container {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
-	background-color: #555;
+	background-color: #666;
 	color: white;
 	margin-top: 25px;
 	width: calc(500px / var(--size-divisor));
