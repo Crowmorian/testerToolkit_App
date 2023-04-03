@@ -3,15 +3,10 @@
 {% extends "generators.html" %}
 
 {% block generation %}
-<script type="text/javascript">  
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
-</script>
 
-<div class="popup" onclick="showPopUp()">Need help?
-    <span class="popuptext" id="legend">
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Need help?</a>
+    <div class="helptext" id="helptext">
         <p>
             Legend
         </p>
@@ -25,7 +20,7 @@
 
             The generated number is than displayed at the bottom of the screen.
         </p>
-    </span>
+    </div>
 </div>
 
 <form method="POST" action="/generateIBAN">
