@@ -320,6 +320,7 @@ html {
 }
 
 .toggle-button-help {
+	font-size: 18px;
 	text-decoration: none;
 	color: white;
 }
