@@ -3,12 +3,26 @@
 {% extends "cs/generators.html" %}
 
 {% block generation %}
-<script type="text/javascript">  
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
-</script>
+
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Nevíš si rady?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legenda
+        </p>
+        <br>
+        <p>
+            Zde můžete generovat náhodné e-mailové adresy. Můžete nastavit, kolik se jich bude generovat najednou. V tomto generátoru je adresa generována ze jména.
+        </p>
+        <p>
+            Jméno se vygeneruje na pozadí, ale národnost osoby můžete ovlivnit.
+        </p>
+        <p>
+            Dále si můžete vybrat formát jména v adrese a jako poslední můžete nastavit konkrétního poskytovatele, nebo nechat generátor náhodně vybrat.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/cs/generateMail">
     <div class="creation-content">
         <div class="popup" onclick="showPopUp()">Nevíš si rady?
@@ -101,4 +115,14 @@
         </div>
     {% endif %}
 </form>
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}

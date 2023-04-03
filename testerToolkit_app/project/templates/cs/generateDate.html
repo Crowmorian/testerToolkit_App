@@ -3,25 +3,25 @@
 {% extends "cs/generators.html" %}
 
 {% block generation %}
-<script type="text/javascript">  
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
-</script>
+
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Nevíš si rady?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legenda
+        </p>
+        <br>
+        <p>
+            Zde můžete generovat náhodná data v rámci zadaných parametrů. Můžete nastavit, kolik dat bude generováno najednou.
+        </p>
+        <p>
+            Poté si můžete vybrat počáteční a koncové datum. Data lze generovat z libovolného bodu v minulosti, současnosti nebo budoucnosti.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/cs/generateDate">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">Nevíš si rady?
-            <span class="popuptextCS" id="legend">
-                <p>
-                    Legenda
-                </p>
-                <p>
-                    Zde můžete generovat náhodná data v rámci zadaných parametrů. Můžete nastavit, kolik dat bude generováno najednou. Poté si můžete vybrat počáteční a koncové datum.
-                    Data lze generovat z libovolného bodu v minulosti, současnosti nebo budoucnosti.
-                </p>
-            </span>
-        </div>
         <table class="creation-table">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -74,4 +74,14 @@
         </div>
     {% endif %}
 </form>
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}

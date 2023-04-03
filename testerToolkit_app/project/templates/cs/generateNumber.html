@@ -3,24 +3,22 @@
 {% extends "cs/generators.html" %}
 
 {% block generation %}
-<script type="text/javascript">  
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
-</script>
+
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Nevíš si rady?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legenda
+        </p>
+        <br>
+        <p>
+            Zde můžete vygenerovat náhodné telefonní číslo doplněné o volací kódy zemí. Můžete nastavit, kolik jmen se bude generovat, a národnost držitele.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/cs/generateNumber">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">Nevíš si rady?
-            <span class="popuptextCS" id="legend">
-                <p>
-                    Legenda
-                </p>
-                <p>
-                    Zde můžete vygenerovat náhodné telefonní číslo doplněné o volací kódy zemí. Můžete nastavit, kolik jmen se bude generovat, a národnost držitele.
-                </p>
-            </span>
-        </div>
         <table class="creation-table">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -74,4 +72,14 @@
         </div>
     {% endif %}
 </form>
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}

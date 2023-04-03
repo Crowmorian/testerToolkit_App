@@ -3,24 +3,22 @@
 {% extends "cs/generators.html" %}
 
 {% block generation %}
-<script type="text/javascript">  
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
-</script>
+
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Nevíš si rady?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legenda
+        </p>
+        <br>
+        <p>
+            Tato část Toolkitu vám umožňuje zkontrolovat, zda je číslo IBAN platné, nebo zda se vyskytla nějaká chyba nebo překlep, který by vedl k neúspěšné transakci.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/cs/validateIBAN">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">Nevíš si rady?
-            <span class="popuptextCS" id="legend">
-                <p>
-                    Legenda
-                </p>
-                <p>
-                    Tato část Toolkitu vám umožňuje zkontrolovat, zda je číslo IBAN platné, nebo zda se vyskytla nějaká chyba nebo překlep, který by vedl k neúspěšné transakci.
-                </p>
-            </span>
-        </div>
         <table class="creation-table">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
@@ -99,4 +97,14 @@
     </div>
     {% endif %}
 </form>
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}

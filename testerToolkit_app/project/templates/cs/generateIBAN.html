@@ -3,31 +3,39 @@
 {% extends "cs/generators.html" %}
 
 {% block generation %}
-<script type="text/javascript">  
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
-</script>
+
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Nevíš si rady?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legenda
+        </p>
+        <br>
+        <p>
+            IBAN je číslo používané při transakcích do zahraničí.
+        </p>
+        <br>
+        <p>
+            Zde můžete vygenerovat nové číslo IBAN z několika zadaných parametrů. Pole Země představuje zemi banky, kde je účet je založen.
+        </p>
+        <p>
+            Kód banky je zpravidla reprezentován čtyřmístným kódem (např. 0300). Předčíslí je součástí samotného čísla účtu, které je před pomlčkou (19-123).
+        </p>
+        <p>
+            Ne všchna čísla účtu musí obsahovat předčíslí, a pole je tudíž volitelné.
+        </p>
+        <p>
+            Číslo účtu je číslo, které následuje za pomlčkou (19-123).
+        </p>
+        <br>
+        <p>
+            Vygenerované číslo se poté zobrazí ve spodní části obrazovky.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/cs/generateIBAN">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">Nevíš si rady?
-            <span class="popuptextCS" id="legend">
-                <p>
-                    Legenda
-                </p>
-                <p>
-                    IBAN je číslo používané při transakcích do zahraničí.
-
-                    Zde můžete vygenerovat nové číslo IBAN z několika zadaných parametrů. Pole Země představuje zemi banky, kde je účet je založen.
-                    Kód banky je zpravidla reprezentován čtyřmístným kódem (např. 0300). Předčíslí je součástí samotného čísla účtu, které je před pomlčkou (19-123).
-                    Ne všchna čísla účtu musí obsahovat předčíslí, a pole je tudíž volitelné.
-                    Číslo účtu je číslo, které následuje za pomlčkou (19-123)
-
-                    Vygenerované číslo se poté zobrazí ve spodní části obrazovky.
-                </p>
-            </span>
-        </div>
         <table class="creation-table">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -169,4 +177,14 @@
         </div>
     {% endif %}
 </form>
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}

@@ -4,11 +4,6 @@
 
 {% block creation %}
 <script type="text/javascript">  
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
-
     function copyInputValue(findId) {
       // Get the text field
       var copyText = document.getElementById(findId).value;
@@ -17,25 +12,39 @@
       // Copy the text inside the text field
       navigator.clipboard.writeText(copyText);
     }
-
 </script>
+
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Nevíš si rady?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legenda
+        </p>
+        <br>
+        <p>
+            Tato sekce slouží k vytvoření dat pro fyzickou firemní osobu. Oproti datům jednotlivce obsahuje i data specifická pro fyzickou firemní osobu.
+        </p>
+        <br>
+        <p>
+            Zde můžete pomocí Toolkitu vygenerovat kompletní informační balíček nezbytný pro vytvoření nového klienta pro účely testování.
+        </p>
+        <p>
+            Použít funky jména je možnost generovat neexistující snadno zapamatovatelná jména.
+        </p>
+        <p>
+            Pohlaví nastavuje pohlaví vytvářeného klienta.
+        </p>
+        <p>
+            Pole Národnost nastavuje zemi původu vytvořeného klienta.
+        </p>
+        <p>
+            Pole IČO umožňuje zvolit mezi existujícím nebo náhodně vygenerovaným číslem.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/cs/createBussiness">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">Nevíš si rady?
-            <span class="popuptextCS" id="legend">
-                <p>
-                    Legenda
-                </p>
-                <p>
-                    Tato sekce slouží k vytvoření dat pro fyzickou firemní osobu. Oproti datům jednotlivce obsahuje i data specifická pro fyzickou firemní osobu.
-                    Zde můžete pomocí Toolkitu vygenerovat kompletní informační balíček nezbytný pro vytvoření nového klienta pro účely testování.
-                    Použít funky jména je možnost generovat neexistující snadno zapamatovatelná jména.
-                    Pohlaví nastavuje pohlaví vytvářeného klienta.
-                    Pole Národnost nastavuje zemi původu vytvořeného klienta.
-                    Pole IČO umožňuje zvolit mezi existujícím nebo náhodně vygenerovaným číslem.
-                </p>
-            </span>
-        </div>
         <table class="creation-table">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -199,4 +208,14 @@
     </div>
 </div>
 {% endif %}
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}

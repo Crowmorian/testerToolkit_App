@@ -19,28 +19,30 @@
             }
         }         
     }
-
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
 </script>
+
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Nevíš si rady?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legenda
+        </p>
+        <br>
+        <p>
+            Toto je standardní generátor náhodných čísel. Máte několik polí, kterými můžete ovlivnit požadovaný výsledek.
+        </p>
+        <br>
+        <p>
+            Pole Kolik míst popisuje, kolik číslic by mělo mít každé vygenerované číslo. Pole Kolik čísel určuje, kolik čísel se vygeneruje najednou.
+        </p>
+        <p>
+            Může začínat nulou vám umožňuje ovládat, zda vaše čísla mohou mít nulu jako první číslici. Nakonec si můžete vybrat, která čísla budou součástí nově vygenerovaného čísla.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/cs/generateRandom">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">Nevíš si rady?
-            <span class="popuptextCS" id="legend">
-                <p>
-                    Legenda
-                </p>
-                <p>
-                    Toto je standardní generátor náhodných čísel. Máte několik polí, kterými můžete ovlivnit požadovaný výsledek.
-                    Pole Kolik míst popisuje, kolik číslic by mělo mít každé vygenerované číslo.
-                    Pole Kolik čísel určuje, kolik čísel se vygeneruje najednou.
-                    Může začínat nulou vám umožňuje ovládat, zda vaše čísla mohou mít nulu jako první číslici.
-                    Nakonec si můžete vybrat, která čísla budou součástí nově vygenerovaného čísla.
-                </p>
-            </span>
-        </div>
         <table class="creation-table">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -162,4 +164,14 @@
         </div>
     {% endif %}
 </form>
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}

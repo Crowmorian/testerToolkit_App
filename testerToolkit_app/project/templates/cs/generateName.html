@@ -3,24 +3,25 @@
 {% extends "cs/generators.html" %}
 
 {% block generation %}
-<script type="text/javascript">  
-    function showPopUp() {
-        var popup = document.getElementById("legend");
-        popup.classList.toggle("show");
-    }
-</script>
+
+<div class="help-container">
+    <a href="#" class="toggle-button-help" id="toggle-button-help">Nevíš si rady?</a>
+    <div class="helptext" id="helptext">
+        <p>
+            Legenda
+        </p>
+        <br>
+        <p>
+            Zde můžete vygenerovat náhodné osobní jméno na základě několika parametrů. Můžete si vybrat, kolik jmen bude vygenerováno.
+        </p>
+        <p>
+            Dále můžete rozlišovat mezi mužskými a ženskými jmény a nakonec můžete vybrat národnost. Národnost ovlivňuje sadu, ze které jsou jména generována.
+        </p>
+    </div>
+</div>
+
 <form method="POST" action="/cs/generateName">
     <div class="creation-content">
-        <div class="popup" onclick="showPopUp()">Nevíš si rady?
-            <span class="popuptextCS" id="legend">
-                <p>
-                    Legenda
-                </p>
-                <p>
-                    Zde můžete vygenerovat náhodné osobní jméno na základě několika parametrů. Můžete si vybrat, kolik jmen bude vygenerováno. Dále můžete rozlišovat mezi mužskými a ženskými jmény a nakonec můžete vybrat národnost. Národnost ovlivňuje sadu, ze které jsou jména generována.
-                </p>
-            </span>
-        </div>
         <table class="creation-table">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -81,4 +82,14 @@
         </div>
     {% endif %}
 </form>
+
+<script type="text/javascript">
+    const helpButton = document.getElementById('toggle-button-help')
+    const helptext = document.getElementById('helptext')
+
+    helpButton.addEventListener('click', () => {
+      helptext.classList.toggle('active')
+    })
+</script>
+
 {% endblock %}
