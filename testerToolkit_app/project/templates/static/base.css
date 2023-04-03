@@ -314,10 +314,12 @@ html {
 	background-color: #555;
 	color: white;
 	margin-top: 25px;
+	width: calc(500px / var(--size-divisor));
 }
 
 .toggle-button-help {
 	text-decoration: none;
+	color: white;
 }
 
 
