@@ -314,6 +314,8 @@ html {
 	background-color: #666;
 	color: white;
 	margin-top: 25px;
+	margin-right: auto;
+	margin-left: auto;
 	width: calc(500px / var(--size-divisor));
 }
 
