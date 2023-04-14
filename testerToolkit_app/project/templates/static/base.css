@@ -335,11 +335,11 @@ html {
 		display: flex;
 	}
 
-.dateText {
+.dateHidden {
 	display: none;
 }
 
-.dateText.active{
+.dateHidden.active{
 	display: table-row;
 }
 
