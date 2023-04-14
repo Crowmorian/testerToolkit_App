@@ -76,13 +76,21 @@
                         <option value="female" {% if individualGender=="female" %} selected {% endif %}>Female</option>
                     </select>
                 </td>
-            </tr>   
+            </tr>
             <tr class="generators-input-track">
                 <td class="generators-input-column">
                     <label class="generators-label" for="individualIsMinor">Minor?</label>
                 </td>
                 <td class="generators-input-column">
                     <input class="generators-input-zero" type="checkbox" id="individualIsMinor" name="individualIsMinor" {{ "checked" if individualIsMinor == "on" }}>
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
+                    <label class="generators-label" for="individualSetBD">Set Birthday</label>
+                </td>
+                <td class="generators-input-column">
+                    <input class="generators-input-zero" type="checkbox" id="individualSetBDBox" name="individualSetBDBox" {{ "checked" if individualSetBDBox == "on" }}>
                 </td>
             </tr>
             <tr class="generators-input-track">
