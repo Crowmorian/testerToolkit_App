@@ -86,12 +86,18 @@ def CScreateIndividual():
         session["individualGender"] = "male"
         session["individualIsMinor"] = None
         session["individualNationality"] = "cz"
+        session["individualSetBDBox"] = None
+        today = date.today()
+        d1 = today.strftime("%Y-%m-%d")
+        session["dateBD"] = d1
     
     return render_template('cs/createIndividual.html',
         individualUseFunky = session["individualUseFunky"],
         individualGender = session["individualGender"],
         individualIsMinor = session["individualIsMinor"],
-        individualNationality = session["individualNationality"])
+        individualNationality = session["individualNationality"],
+        individualSetBDBox = session["individualSetBDBox"],
+        dateBD = session["dateBD"])
 
 
 @main.route('/createIndividual', methods=['POST'])
@@ -102,6 +108,8 @@ def createIndividual_post():
     session["individualIsMinor"] = request.form.get("individualIsMinor")
     session["individualNationality"] = request.form.get("individualNationality")
     session["individualGender"] = request.form.get("individualGender")
+    session["individualSetBDBox"] = request.form.get("individualSetBDBox")
+    session["dateBD"] = request.form.get("dateBD")
     
     individualCreated = []
     foreigner = None
@@ -142,6 +150,8 @@ def createIndividual_post():
         individualGender = session["individualGender"],
         individualIsMinor = session["individualIsMinor"],
         individualNationality = session["individualNationality"],
+        individualSetBDBox = session["individualSetBDBox"],
+        dateBD = session["dateBD"],
         individualCreated = individualCreated)
 
 @main.route('/cs/createIndividual', methods=['POST'])
@@ -152,6 +162,8 @@ def CScreateIndividual_post():
     session["individualIsMinor"] = request.form.get("individualIsMinor")
     session["individualNationality"] = request.form.get("individualNationality")
     session["individualGender"] = request.form.get("individualGender")
+    session["individualSetBDBox"] = request.form.get("individualSetBDBox")
+    session["dateBD"] = request.form.get("dateBD")
     
     individualCreated = []
     foreigner = None
@@ -192,6 +204,8 @@ def CScreateIndividual_post():
         individualGender = session["individualGender"],
         individualIsMinor = session["individualIsMinor"],
         individualNationality = session["individualNationality"],
+        individualSetBDBox = session["individualSetBDBox"],
+        dateBD = session["dateBD"],
         individualCreated = individualCreated)
     
 @main.route("/createLegalEntity")
