@@ -340,7 +340,7 @@ html {
 }
 
 .dateHidden.active{
-	display: table-row;
+	display: block;
 }
 
 .client-table {
