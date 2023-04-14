@@ -1814,7 +1814,7 @@ def generateName(gender, funky, foreigner):
     
     nameList.append(username)
     
-    mailAdress = username.lower() + "@mailinator.com"
+    mailAdress = username.lower() + "@example.com"
     nameList.append(mailAdress)
     
     cur.close() 
@@ -1967,7 +1967,7 @@ def generateCustomEMail(number, gender, namePart, provPart):
     mailForeigner = ""
     mailGender = gender
     mailFunky = None
-    provList = ["mailinator.com", "yahoo.com", "gmail.com", "hotmail.com", "quigley.net", "quick.net", "volny.cz", "seznam.cz"]
+    provList = ["example.com", "example.org", "example.net"]
     
     for i in range(0, int(number)):
         foriegnerIdent = random.random()
