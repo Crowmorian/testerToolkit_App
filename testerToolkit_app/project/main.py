@@ -64,12 +64,19 @@ def createIndividual():
         session["individualGender"] = "male"
         session["individualIsMinor"] = None
         session["individualNationality"] = "cz"
+        session["individualSetBDBox"] = None
+        today = date.today()
+        d1 = today.strftime("%Y-%m-%d")
+        session["dateBD"] = d1
+        
     
     return render_template('createIndividual.html',
         individualUseFunky = session["individualUseFunky"],
         individualGender = session["individualGender"],
         individualIsMinor = session["individualIsMinor"],
-        individualNationality = session["individualNationality"])
+        individualNationality = session["individualNationality"],
+        individualSetBDBox = session["individualSetBDBox"],
+        dateBD = session["dateBD"])
 
 @main.route("/cs/createIndividual")
 @login_required
