@@ -335,6 +335,14 @@ html {
 		display: flex;
 	}
 
+.dateText {
+	display: none;
+}
+
+.dateText.active{
+	display: table-row;
+}
+
 .client-table {
 	text-align: center;
 	width: 50%;
