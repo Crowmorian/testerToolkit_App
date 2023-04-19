@@ -22,23 +22,29 @@
         </p>
         <br>
         <p>
-            Tato sekce slouží k vytvoření dat pro fyzickou osobu.
+            <b>Tato sekce slouží k vytvoření dat pro fyzickou osobu.</b>
         </p>
         <br>
         <p>
             Zde můžete pomocí Toolkitu vygenerovat kompletní informační balíček nezbytný pro vytvoření nového klienta pro účely testování.
         </p>
         <p>
-            Použít funky jména je možnost generovat neexistující snadno zapamatovatelná jména.
+            <b>Použít funky jména</b> je možnost generovat neexistující snadno zapamatovatelná jména.
         </p>
         <p>
-            Pohlaví nastavuje pohlaví vytvářeného klienta.
+            <b>Pohlaví</b> nastavuje pohlaví vytvářeného klienta.
         </p>
         <p>
-            Volba nezletilý umožňuje nastavit vytvořeného klienta jako nezletilého.
+            Volba <b>Nezletilý</b> umožňuje nastavit vytvořeného klienta jako nezletilého.
         </p>
         <p>
-            Pole Národnost nastavuje zemi původu vytvořeného klienta.
+            Volba <b>Nastavit Datum Narození</b> umožňuje nastavit v poli níže konkrétní datum narození klienta. V tom případě se volba Nezletilý nebere v potaz.
+        </p>
+        <p>
+            <b>Datum Narození</b> nastaví konkrétní datum narození klienta, pouze pokud je volba výše nastvena na ANO.
+        </p>
+        <p>
+            Pole <b>Národnost</b> nastavuje zemi původu vytvořeného klienta.
         </p>
     </div>
 </div>
@@ -82,6 +88,22 @@
                 </td>
                 <td class="generators-input-column">
                     <input class="generators-input-zero" type="checkbox" id="individualIsMinor" name="individualIsMinor" {{ "checked" if individualIsMinor == "on" }}>
+                </td>
+            </tr>
+            <tr class="generators-input-track">
+                <td class="generators-input-column">
+                    <label class="generators-label" for="individualSetBD" id="individualSetBD">Nastavit Datum Narození?</label>
+                </td>
+                <td class="generators-input-column">
+                    <input class="generators-input-zero" type="checkbox" id="individualSetBDBox" name="individualSetBDBox" {{ "checked" if individualSetBDBox == "on" }}>
+                </td>
+            </tr>
+            <tr class="generators-input-track dateHidden" id="dateHidden">
+                <td class="generators-input-column">
+                    <label class="generators-label" for="dateStart">Datum Narození:</label>
+                </td>
+                <td class="generators-input-column">
+                    <input class="generators-input-wide" type="date" id="dateBD" name="dateBD" value="{{dateBD}}">
                 </td>
             </tr>
             <tr class="generators-input-track">
