@@ -1722,7 +1722,7 @@ def dateOfBirth(minor):
 
 #Generate a specific date of birth, minor doesnt play a role
 def dateOfBirthSpecific(birthDate):
-    birthDate = birthDate.strftime('%d.%m. %Y')
+    birthDate = datetime.strptime(birthDate, "%Y-%m-%d")
     return(birthDate)
 
 #Generate ID number (rodné číslo) for CS clients
