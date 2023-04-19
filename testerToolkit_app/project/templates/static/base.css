@@ -534,63 +534,6 @@ a.client-item:hover {
 	overflow-wrap: break-word;
 }
 
-.popup {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  padding: 5px;
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  justify-self: right;
-}
-
-.popup .popuptext {
-  visibility: hidden;
-  width: 400px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  top: 125%;
-  right: -110%;
-  font-size: 15px;
-  font-weight: normal;
-}
-
-.popup .popuptextCS {
-  visibility: hidden;
-  width: 400px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  top: 125%;
-  right: -75%;
-  font-size: 15px;
-  font-weight: normal;
-}
-
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
-/* Fade in the popup */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
-}
-
 .creation-table-created {
 	justify-content: center;
 	margin: 0 auto;
