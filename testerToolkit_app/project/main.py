@@ -196,7 +196,11 @@ def CScreateIndividual_post():
     individualPassport = passportNumber()
     individualCreated.append(individualPassport)
     
-    individualDateOfBirth = dateOfBirth(session["individualIsMinor"])
+    if session["individualSetBDBox"] == "on":
+        individualDateOfBirth = dateOfBirthSpecific(session["dateBD"])
+    else:    
+        individualDateOfBirth = dateOfBirth(session["individualIsMinor"])
+        
     individualCreated.append(individualDateOfBirth)
     
     individualPID = idNumberCS(session["individualGender"],individualDateOfBirth)
