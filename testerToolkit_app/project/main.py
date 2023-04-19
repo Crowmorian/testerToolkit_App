@@ -1722,8 +1722,8 @@ def dateOfBirth(minor):
 
 #Generate a specific date of birth, minor doesnt play a role
 def dateOfBirthSpecific(birthDate):
-    print(birthDate)
-    #return(d1)
+    birthDate = birthDate.strptime('%d.%m. %Y')
+    return(birthDate)
 
 #Generate ID number (rodné číslo) for CS clients
 def idNumberCS(gender, birthDate):
