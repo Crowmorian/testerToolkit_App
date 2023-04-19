@@ -331,6 +331,10 @@ html {
 	background-color: #555;
 }
 
+.helptext b{
+	font-size: 25px;
+}
+
 .helptext.active{
 		display: flex;
 	}
