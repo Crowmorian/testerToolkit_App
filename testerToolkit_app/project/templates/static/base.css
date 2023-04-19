@@ -332,7 +332,8 @@ html {
 }
 
 .helptext b{
-	font-size: 18px;
+	font-size: 19px;
+	font-weight: bold;
 }
 
 .helptext.active{
