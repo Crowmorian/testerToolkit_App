@@ -335,14 +335,6 @@ html {
 		display: flex;
 	}
 
-.dateHidden {
-	display: none;
-}
-
-.dateHidden.active{
-	display: table-row;
-}
-
 .client-table {
 	text-align: center;
 	width: 50%;
