@@ -138,7 +138,11 @@ def createIndividual_post():
     individualPassport = passportNumber()
     individualCreated.append(individualPassport)
     
-    individualDateOfBirth = dateOfBirth(session["individualIsMinor"])
+    if session["individualSetBDBox"] == "on":
+        individualDateOfBirth = dateOfBirthSpecific()
+    else:    
+        individualDateOfBirth = dateOfBirth(session["individualIsMinor"])
+        
     individualCreated.append(individualDateOfBirth)
     
     individualPID = idNumberCS(session["individualGender"],individualDateOfBirth)
@@ -1715,6 +1719,10 @@ def dateOfBirth(minor):
         birthDate = subtraction.strftime('%d.%m. %Y')
         
     return(birthDate)
+
+#Generate a specific date of birth, minor doesnt play a role
+def dateOfBirthSpecific():
+    return("Specific Date of Birth")
 
 #Generate ID number (rodné číslo) for CS clients
 def idNumberCS(gender, birthDate):
