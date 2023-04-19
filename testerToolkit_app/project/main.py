@@ -1717,7 +1717,7 @@ def dateOfBirth(minor):
         randomDays = random.randrange(500, 6600)
         subtraction = date.today()- timedelta(days=randomDays)
         birthDate = subtraction.strftime('%d.%m. %Y')
-        
+    print(birthDate)    
     return(birthDate)
 
 #Generate a specific date of birth, minor doesnt play a role
